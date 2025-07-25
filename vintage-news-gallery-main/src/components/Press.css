@@ -1,0 +1,117 @@
+.press-section {
+    padding: 6rem 0;
+    background: #f8f4e9; /* Off White כרקע עיתון */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* מראה דף ישן */
+  }
+  
+  .press-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem;
+  }
+  
+  .press-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .press-banner {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8a6d3b;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Times New Roman', serif; /* פונט עיתון קלאסי */
+  }
+  
+  .press-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #5c4033;
+    margin-bottom: 1rem;
+    font-family: 'Times New Roman', serif;
+  }
+  
+  .press-divider {
+    width: 6rem;
+    height: 2px;
+    background-color: #d9c9a9;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .press-subtitle {
+    font-size: 1.1rem;
+    color: #6b5b40;
+    max-width: 40rem;
+    margin: 0 auto;
+    font-style: italic;
+  }
+  
+  .press-content {
+    display: grid;
+    gap: 2.5rem;
+  }
+  
+  .press-article {
+    background: #fafafa;
+    border: 1px solid #d9c9a9;
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .press-article-headline {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5c4033;
+    margin-bottom: 1rem;
+    font-family: 'Times New Roman', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+  
+  .press-article-columns {
+    column-count: 2;
+    column-gap: 1.5rem;
+    font-size: 0.9rem;
+    color: #6b5b40;
+    line-height: 1.6;
+    font-family: 'Georgia', serif;
+  }
+  
+  .press-article-text {
+    margin: 0;
+    break-inside: avoid; /* מניעה של חיתוך מילים בין עמודות */
+  }
+  
+  .press-article-footer {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #6b5b40;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .press-article-source {
+    font-weight: medium;
+  }
+  
+  .press-article-date {
+    opacity: 0.7;
+  }
+  
+  .press-article-link {
+    color: #8a6d3b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .press-article-link:hover {
+    color: #5c4033;
+  }

@@ -1,0 +1,149 @@
+.about-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8f4e9 0%, #ece2d4 100%); /* Off White עם גוון וינטג' */
+  }
+  
+  .about-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem;
+  }
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .about-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .about-header {
+    text-align: center;
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-title .text-accent {
+    color: #8a6d3b; /* חום בהיר להדגשה */
+  }
+  
+  .about-divider {
+    width: 6rem;
+    height: 2px;
+    background-color: #d9c9a9; /* גבול וינטג' */
+    margin: 0 auto 2rem;
+  }
+  
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .about-paragraph {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: #6b5b40; /* חום בהיר לטקסט */
+  }
+  
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d9c9a9;
+  }
+  
+  .about-stat {
+    text-align: center;
+  }
+  
+  .about-stat-number {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #8a6d3b; /* חום בהיר למספרים */
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-stat-label {
+    font-size: 0.875rem;
+    color: #6b5b40;
+  }
+  
+  .about-quote {
+    background-color: #fafafa;
+    padding: 2rem;
+    border: 1px solid #d9c9a9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .about-quote-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .about-quote-mark {
+    font-size: 3rem;
+    color: #8a6d3b;
+  }
+  
+  .about-quote-text {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #5c4033;
+    line-height: 1.75rem;
+  }
+  
+  .about-quote-author {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #d9c9a9;
+  }
+  
+  .about-quote-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #5c4033;
+    margin-bottom: 0.25rem;
+  }
+  
+  .about-quote-role {
+    font-size: 0.875rem;
+    color: #6b5b40;
+  }
+  
+  .about-quote-image {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #d9c9a9;
+  }
+  
+  .about-quote-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #d9c9a9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }

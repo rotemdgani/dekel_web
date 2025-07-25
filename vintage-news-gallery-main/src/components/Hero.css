@@ -1,0 +1,118 @@
+/* Hero Section Styles */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); /* קל משקף לשמירה על ניגודיות */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-textCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+}
+
+.hero-minimalText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-brand {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .hero-brand {
+    font-size: 1.5rem;
+  }
+}
+
+.hero-tagline {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+@media (min-width: 768px) {
+  .hero-tagline {
+    font-size: 1rem;
+  }
+}
+
+.hero-ctas {
+  display: flex;
+  justify-content: center;
+  padding-top: 1.5rem;
+}
+
+.hero-exploreBtn {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+  transition: all 0.3s;
+}
+.hero-exploreBtn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.hero-scrollWrap {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-scrollBar {
+  width: 1px;
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  animation: hero-pulse 2s infinite;
+}
+
+@keyframes hero-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
