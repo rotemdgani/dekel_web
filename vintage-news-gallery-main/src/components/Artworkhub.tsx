@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Heart, Eye } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ArtworkModal from "@/components/ui/artwork-modal";
-import "./Artworkhub.css";
+import "./ArtworkHub.css";
 
 import women2 from '@/assets/women2.png';
 import profile_vintage from '@/assets/profile_vintage.png';
@@ -17,7 +17,6 @@ import butterflies from '@/assets/butterflies.jpg';
 import enjoy from '@/assets/enjoy.png';
 
 const ArtworkHub = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
   const [cart, setCart] = useState<number[]>([]);
   const [favorites, setFavorites] = useState<number[]>([]);
   const { toast } = useToast();
@@ -33,7 +32,7 @@ const ArtworkHub = () => {
       medium: "Newspaper collage with acrylic",
       dimensions: "24\" x 36\"",
       image: women2,
-      description: "A sharp silhouette of a woman in a wide-brimmed hat, made from newspaper clippings. Her diamond-shaped earrings stand out against the headlines, blending elegance with quiet observation.",
+      description: "A sharp silhouette of a woman in a wide-brimmed hat, made from newspaper clippings. Her diamond-shaped earrings stand out against the headlines.",
       availability: "Available",
       isLimited: false,
     },
@@ -45,7 +44,7 @@ const ArtworkHub = () => {
       medium: "Newspaper collage with acrylic",
       dimensions: "24\" x 36\"",
       image: profile_vintage,
-      description: "A woman’s side profile made entirely from newspaper clippings, with a single paper flower above her head. Clean lines, bold contrast, and quiet presence.",
+      description: "A woman’s side profile made entirely from newspaper clippings, with a single paper flower above her head. Clean lines and bold contrast.",
       availability: "Available",
       isLimited: false,
     },
@@ -57,7 +56,7 @@ const ArtworkHub = () => {
       medium: "Newspaper collage with acrylic",
       dimensions: "24\" x 36\"",
       image: oldman_vintage,
-      description: "A bearded face, only partially revealed, built from layered newspaper text. Headlines and fragments replace skin – blending identity with information, and truth with omission.",
+      description: "A bearded face, only partially revealed, built from layered newspaper text. Headlines blend with identity.",
       availability: "Available",
       isLimited: false,
     },
@@ -69,7 +68,7 @@ const ArtworkHub = () => {
       medium: "Newspaper collage with acrylic",
       dimensions: "24\" x 36\"",
       image: profile_vintage2,
-      description: "A silhouette of a woman holding a newspaper, her figure shaped from the very headlines she reads. The act of reading becomes part of her form – quiet, focused, and made of the stories that surround her.",
+      description: "A silhouette of a woman holding a newspaper, her figure shaped from headlines she reads. Quiet and focused.",
       availability: "Available",
       isLimited: false,
     },
@@ -82,7 +81,7 @@ const ArtworkHub = () => {
       medium: "Mixed media with modern techniques",
       dimensions: "18\" x 24\"",
       image: shagal,
-      description: "Abstract modern interpretation using newspaper as a contemporary artistic medium. Limited time special pricing.",
+      description: "Abstract modern interpretation using newspaper as a contemporary medium. Limited time pricing.",
       availability: "Available",
       isLimited: true,
     },
@@ -94,47 +93,42 @@ const ArtworkHub = () => {
       medium: "Newspaper collage with pop art styling",
       dimensions: "30\" x 40\"",
       image: earth,
-      description: "Bold pop art composition that transforms news media into vibrant contemporary statements.",
+      description: "Bold pop art composition transforming news media into vibrant statements.",
       availability: "Available",
       isLimited: false,
     },
     {
       id: 7,
       title: "Urban Chronicles",
-      category: "Original Artwork",
+      category: "original-artwork",
       price: 1200,
       medium: "Newspaper collage with acrylic on canvas",
       dimensions: "24\" x 36\"",
       image: butterflies,
-      description: "A vibrant composition merging newspaper fragments with contemporary pop art elements. This original piece explores urban narratives through Dekel's signature collage technique.",
+      description: "A vibrant composition merging newspaper fragments with pop art elements. Explores urban narratives.",
       availability: "Available",
       isLimited: false,
     },
     {
       id: 8,
       title: "Pop Culture Echo",
-      category: "Original Artwork",
+      category: "original-artwork",
       price: 1400,
       medium: "Newspaper collage with pop art styling",
       dimensions: "30\" x 40\"",
       image: enjoy,
-      description: "Bold pop art composition that transforms news media into vibrant contemporary statements. Dekel's largest piece in the current collection.",
+      description: "Bold pop art composition, Dekel’s largest piece in the current collection.",
       availability: "Available",
       isLimited: false,
     },
   ];
 
   const categories = [
-    { id: "all", label: "All Works" },
-    { id: "newspaper-portraits", label: "Newspaper Portraits" },
-    { id: "modern-art", label: "Modern Art" },
-    { id: "pop-art", label: "Pop Art" },
-    { id: "original-artwork", label: "Original Artwork" },
+    "Newspaper Portraits",
+    "Modern Art",
+    "Pop Art",
+    "Original Artwork",
   ];
-
-  const filteredArtworks = selectedCategory === "all"
-    ? artworks
-    : artworks.filter((artwork) => artwork.category === selectedCategory);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -184,106 +178,105 @@ const ArtworkHub = () => {
         artwork={selectedArtwork}
       />
       <div className="artwork-hub-container">
-      <div className="artwork-hub-header">
-  <h1 className="artwork-hub-banner">DEKEL’S VINTAGE ATELIER</h1>
-  <h2 className="artwork-hub-title">Gallery & Store</h2>
-  <div className="artwork-hub-divider"></div>
-  <p className="artwork-hub-subtitle">Explore and purchase Dekel Harari’s masterpieces from the archives</p>
-</div>
-
-        <div className="artwork-hub-filters">
-          {categories.map((category) => (
-            <Button
-              key={category.id}
-              variant={selectedCategory === category.id ? "default" : "outline"}
-              onClick={() => setSelectedCategory(category.id)}
-              aria-label={`Show ${category.label} artworks`}
-              className="artwork-hub-filter-btn"
-            >
-              {category.label}
-            </Button>
-          ))}
+        <div className="artwork-hub-header">
+          <h1 className="artwork-hub-banner">DEKEL’S ART SPACE</h1>
+          <h2 className="artwork-hub-title">Gallery & Shop</h2>
+          <div className="artwork-hub-divider"></div>
+          <p className="artwork-hub-subtitle">View and buy Dekel Harari’s stunning modern artworks</p>
         </div>
 
-        <div className="artwork-hub-columns">
-          {filteredArtworks.map((artwork) => (
-            <article key={artwork.id} className="artwork-hub-article">
-              <div className="artwork-hub-article-image">
-                <img
-                  src={artwork.image}
-                  alt={artwork.title}
-                  className="artwork-hub-image"
-                  loading="lazy"
-                />
-                <div className="artwork-hub-overlay">
-                  <div className="artwork-hub-overlay-actions">
-                    <Button
-                      size="sm"
-                      variant="secondary"
-                      onClick={() => toggleFavorite(artwork.id)}
-                      className="artwork-hub-favorite-btn"
-                    >
-                      <Heart
-                        className={`w-4 h-4 ${favorites.includes(artwork.id) ? "fill-accent text-accent" : ""}`}
-                      />
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="secondary"
-                      onClick={() => {
-                        setSelectedArtwork({
-                          title: artwork.title,
-                          image: artwork.image,
-                          description: artwork.description,
-                          medium: artwork.medium,
-                          dimensions: artwork.dimensions,
-                          price: formatPrice(artwork.price),
-                        });
-                        setModalOpen(true);
-                      }}
-                      className="artwork-hub-view-btn"
-                    >
-                      <Eye className="w-4 h-4" />
-                    </Button>
+        <div className="artwork-hub-content">
+          {categories.map((category) => {
+            const categoryArtworks = artworks.filter(artwork => artwork.category === category.toLowerCase().replace(" ", "-"));
+            if (categoryArtworks.length > 0) {
+              return (
+                <div key={category} className="artwork-hub-category-section">
+                  <h3 className="artwork-hub-category-title">{category}</h3>
+                  <div className="artwork-hub-category-grid">
+                    {categoryArtworks.map((artwork) => (
+                      <article key={artwork.id} className="artwork-hub-article">
+                        <div className="artwork-hub-article-image">
+                          <img
+                            src={artwork.image}
+                            alt={artwork.title}
+                            className="artwork-hub-image"
+                            loading="lazy"
+                          />
+                          <div className="artwork-hub-overlay">
+                            <div className="artwork-hub-overlay-actions">
+                              <Button
+                                size="sm"
+                                variant="secondary"
+                                onClick={() => toggleFavorite(artwork.id)}
+                                className="artwork-hub-favorite-btn"
+                              >
+                                <Heart
+                                  className={`w-4 h-4 ${favorites.includes(artwork.id) ? "fill-accent text-accent" : ""}`}
+                                />
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="secondary"
+                                onClick={() => {
+                                  setSelectedArtwork({
+                                    title: artwork.title,
+                                    image: artwork.image,
+                                    description: artwork.description,
+                                    medium: artwork.medium,
+                                    dimensions: artwork.dimensions,
+                                    price: formatPrice(artwork.price),
+                                  });
+                                  setModalOpen(true);
+                                }}
+                                className="artwork-hub-view-btn"
+                              >
+                                <Eye className="w-4 h-4" />
+                              </Button>
+                            </div>
+                          </div>
+                          <div className="artwork-hub-badges">
+{/*                             {artwork.isLimited && (
+                              <Badge variant="destructive" className="artwork-hub-badge-special">
+                                Special Price
+                              </Badge>
+                            )} */}
+                            <Badge variant="secondary" className="artwork-hub-badge-category">
+                              {artwork.category}
+                            </Badge>
+                          </div>
+                        </div>
+                        <div className="artwork-hub-article-content">
+                          <h3 className="artwork-hub-article-title">{artwork.title}</h3>
+                          <p className="artwork-hub-article-details">
+                            {artwork.medium} • {artwork.dimensions}
+                          </p>
+                          <p className="artwork-hub-article-description">{artwork.description}</p>
+                          <div className="artwork-hub-article-footer">
+                            <span className="artwork-hub-article-price">{formatPrice(artwork.price)}</span>
+                            {artwork.originalPrice && (
+                              <span className="artwork-hub-article-original-price">
+                                {formatPrice(artwork.originalPrice)}
+                              </span>
+                            )}
+                            <p className="artwork-hub-article-availability">{artwork.availability}</p>
+                            <Button
+                              className="artwork-hub-add-to-cart"
+                              onClick={() => addToCart(artwork.id)}
+                              disabled={cart.includes(artwork.id)}
+                            >
+                              <ShoppingCart className="w-4 h-4 mr-2" />
+                              {cart.includes(artwork.id) ? "In Cart" : "Add to Cart"}
+                            </Button>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
                   </div>
                 </div>
-                <div className="artwork-hub-badges">
-                  {artwork.isLimited && (
-                    <Badge variant="destructive" className="artwork-hub-badge-special">
-                      Special Price
-                    </Badge>
-                  )}
-                  <Badge variant="secondary" className="artwork-hub-badge-category">
-                    {artwork.category}
-                  </Badge>
-                </div>
-              </div>
-              <div className="artwork-hub-article-content">
-                <h3 className="artwork-hub-article-title">{artwork.title}</h3>
-                <p className="artwork-hub-article-details">
-                  {artwork.medium} • {artwork.dimensions}
-                </p>
-                <p className="artwork-hub-article-description">{artwork.description}</p>
-                <div className="artwork-hub-article-footer">
-                  <span className="artwork-hub-article-price">{formatPrice(artwork.price)}</span>
-                  {artwork.originalPrice && (
-                    <span className="artwork-hub-article-original-price">
-                      {formatPrice(artwork.originalPrice)}
-                    </span>
-                  )}
-                  <p className="artwork-hub-article-availability">{artwork.availability}</p>
-                  <Button
-                    className="artwork-hub-add-to-cart"
-                    onClick={() => addToCart(artwork.id)}
-                    disabled={cart.includes(artwork.id)}
-                  >
-                    <ShoppingCart className="w-4 h-4 mr-2" />
-                    {cart.includes(artwork.id) ? "In Cart" : "Add to Cart"}
-                  </Button>
-                </div>
-              </div>
-            </article>
-          ))}
+              );
+            }
+            return null;
+          })}
         </div>
 
         {cart.length > 0 && (
@@ -322,7 +315,7 @@ const ArtworkHub = () => {
             <h3 className="artwork-hub-custom-title">Commission Custom Work</h3>
             <p className="artwork-hub-custom-text">
               Interested in a custom piece? Dekel Harari accepts commissions for personalized artworks 
-              that blend your vision with his signature newspaper collage and modern art style.
+              that blend your vision with his modern art style.
             </p>
             <Button
               size="lg"
@@ -334,7 +327,6 @@ const ArtworkHub = () => {
             </Button>
           </Card>
         </div>
-
       </div>
     </section>
   );

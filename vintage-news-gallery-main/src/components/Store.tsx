@@ -176,11 +176,11 @@ const Store = () => {
                   </div>
                 </div>
                 <div className="store-badges">
-                  {product.isLimited && (
+{/*                   {product.isLimited && (
                     <Badge variant="destructive" className="store-badge-special">
                       Special Price
                     </Badge>
-                  )}
+                  )} */}
                   <Badge variant="secondary" className="store-badge-category">
                     {product.category}
                   </Badge>

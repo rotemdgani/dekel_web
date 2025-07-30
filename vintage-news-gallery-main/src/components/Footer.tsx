@@ -18,8 +18,7 @@ const Footer = () => {
             <h4 className="footer-links-title">Navigation</h4>
             <nav className="footer-nav">
               <a href="#home" className="footer-link">Home</a>
-              <a href="#store" className="footer-link">Store</a>
-              <a href="#gallery" className="footer-link">Gallery</a>
+              <a href="#artworkhub" className="footer-link">Art Gallery & Store</a>
               <a href="#press" className="footer-link">Press</a>
               <a href="#about" className="footer-link">About</a>
               <a href="#contact" className="footer-link">Contact</a>
