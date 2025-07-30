@@ -31,15 +31,15 @@ const Footer = () => {
             <div className="footer-contact-details">
               <div className="footer-contact-item">
                 <Mail className="footer-contact-icon" />
-                <span className="footer-contact-text">artist@example.com</span>
+                <span className="footer-contact-text">dekelpalmz@gmail.com</span>
               </div>
               <div className="footer-contact-item">
                 <Phone className="footer-contact-icon" />
-                <span className="footer-contact-text">+1 (555) 123-4567</span>
+                <span className="footer-contact-text">+972 050-7451500</span>
               </div>
               <div className="footer-contact-item">
                 <Instagram className="footer-contact-icon" />
-                <span className="footer-contact-text">@artist_newspaper</span>
+                <span className="footer-contact-text">@dekelharari</span>
               </div>
             </div>
           </div>
