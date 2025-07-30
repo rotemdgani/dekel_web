@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Heart, Eye } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ArtworkModal from "@/components/ui/artwork-modal";
-import "./ArtworkHub.css";
+import "./Artworkhub.css";
 
 import women2 from '@/assets/women2.png';
 import profile_vintage from '@/assets/profile_vintage.png';
