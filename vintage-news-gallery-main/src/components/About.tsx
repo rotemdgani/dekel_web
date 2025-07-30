@@ -37,7 +37,7 @@ const About = () => {
                 contemporary culture and visual communication.
               </p>
             </div>
-
+{/* 
             <div className="about-stats">
               <div className="about-stat">
                 <div className="about-stat-number">75+</div>
@@ -51,7 +51,7 @@ const About = () => {
                 <div className="about-stat-number">10</div>
                 <div className="about-stat-label">Years Practice</div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="about-quote">
