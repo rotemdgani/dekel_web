@@ -64,7 +64,14 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="contact-detail-title">Instagram</p>
-                  <p className="contact-detail-text">@dekelharari</p>
+                  <a 
+                    href="https://www.instagram.com/dekelharari" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="contact-detail-text"
+                  >
+                    @dekelharari
+                  </a>
                 </div>
               </div>
             </div>

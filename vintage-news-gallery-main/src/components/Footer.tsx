@@ -39,7 +39,14 @@ const Footer = () => {
               </div>
               <div className="footer-contact-item">
                 <Instagram className="footer-contact-icon" />
-                <span className="footer-contact-text">@dekelharari</span>
+                <a 
+                  href="https://www.instagram.com/dekelharari" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="footer-contact-text"
+                >
+                  @dekelharari
+                </a>
               </div>
             </div>
           </div>
