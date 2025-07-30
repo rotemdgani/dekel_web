@@ -4,12 +4,12 @@ import { Card } from "@/components/ui/card";
 import ArtworkModal from "@/components/ui/artwork-modal";
 import "./Gallery.css";
 
-import women2 from '@/assets/women2.png'
-import profile_vintage from '@/assets/profile_vintage.png'
-import shagal from '@/assets/shagal.jpg'
-import earth from '@/assets/earth.jpg'
-import oldman_vintage from '@/assets/oldman_vintage.png'
-import profile_vintage2 from '@/assets/profile2_vintage.png'
+import women2 from '@/assets/women2.png';
+import profile_vintage from '@/assets/profile_vintage.png';
+import shagal from '@/assets/shagal.jpg';
+import earth from '@/assets/earth.jpg';
+import oldman_vintage from '@/assets/oldman_vintage.png';
+import profile_vintage2 from '@/assets/profile2_vintage.png';
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -25,7 +25,7 @@ const Gallery = () => {
       medium: "Newspaper collage with acrylic",
       dimensions: "24\" x 36\"",
       image: women2,
-      description: "A  sharp silhouette of a woman in a wide-brimmed hat, made from newspaper clippings. Her diamond-shaped earrings stand out against the headlines, blending elegance with quiet observation.",
+      description: "A sharp silhouette of a woman in a wide-brimmed hat, made from newspaper clippings. Her diamond-shaped earrings stand out against the headlines, blending elegance with quiet observation.",
     },
     {
       id: 2,
@@ -35,7 +35,7 @@ const Gallery = () => {
       medium: "Newspaper collage with acrylic",
       dimensions: "24\" x 36\"",
       image: profile_vintage,
-      description: "A  woman’s side profile made entirely from newspaper clippings, with a single paper flower above her head. Clean lines, bold contrast, and quiet presence.",
+      description: "A woman’s side profile made entirely from newspaper clippings, with a single paper flower above her head. Clean lines, bold contrast, and quiet presence.",
     },
     {
       id: 3,
@@ -55,7 +55,7 @@ const Gallery = () => {
       medium: "Newspaper collage with acrylic",
       dimensions: "24\" x 36\"",
       image: profile_vintage2,
-      description: "A  silhouette of a woman holding a newspaper, her figure shaped from the very headlines she reads. The act of reading becomes part of her form – quiet, focused, and made of the stories that surround her.",
+      description: "A silhouette of a woman holding a newspaper, her figure shaped from the very headlines she reads. The act of reading becomes part of her form – quiet, focused, and made of the stories that surround her.",
     },
     {
       id: 5,
@@ -99,11 +99,10 @@ const Gallery = () => {
       />
       <div className="gallery-container">
         <div className="gallery-header">
-          <h2 className="gallery-title">GALLERY</h2>
+          <h1 className="gallery-banner">THE ART CHRONICLE</h1>
+          <h2 className="gallery-title">Gallery Showcase</h2>
           <div className="gallery-divider"></div>
-          <p className="gallery-subtitle">
-            Dekel Harari's contemporary works blending newspaper collage with modern and pop art aesthetics
-          </p>
+          <p className="gallery-subtitle">Dekel Harari’s masterpieces from the archives</p>
         </div>
 
         <div className="gallery-filters">
@@ -112,7 +111,7 @@ const Gallery = () => {
               key={category.id}
               variant={selectedCategory === category.id ? "default" : "outline"}
               onClick={() => setSelectedCategory(category.id)}
-              aria-label={`Filter by ${category.label}`}
+              aria-label={`Show ${category.label} artworks`}
               className="gallery-filter-btn"
             >
               {category.label}
@@ -120,39 +119,25 @@ const Gallery = () => {
           ))}
         </div>
 
-        <div className="gallery-grid">
+        <div className="gallery-columns">
           {filteredArtworks.map((artwork) => (
-            <Card key={artwork.id} className="gallery-card">
-              <div
-                className="gallery-card-image"
-                onClick={() => {
-                  setSelectedArtwork(artwork);
-                  setModalOpen(true);
-                }}
-                role="button"
-                tabIndex={0}
-                onKeyPress={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    setSelectedArtwork(artwork);
-                    setModalOpen(true);
-                  }
-                }}
-                aria-label={`View ${artwork.title} in detail`}
-              >
+            <article key={artwork.id} className="gallery-article">
+              <div className="gallery-article-image">
                 <img
                   src={artwork.image}
                   alt={artwork.title}
                   className="gallery-image"
+                  loading="lazy"
                 />
               </div>
-              <div className="gallery-card-content">
-                <h3 className="gallery-card-title">{artwork.title}</h3>
-                <p className="gallery-card-details">
+              <div className="gallery-article-content">
+                <h3 className="gallery-article-title">{artwork.title}</h3>
+                <p className="gallery-article-details">
                   {artwork.medium} • {artwork.dimensions}
                 </p>
-                <p className="gallery-card-description">{artwork.description}</p>
-                <div className="gallery-card-footer">
-                  <span className="gallery-card-price">{artwork.price}</span>
+                <p className="gallery-article-description">{artwork.description}</p>
+                <div className="gallery-article-footer">
+                  <span className="gallery-article-price">{artwork.price}</span>
                   <Button
                     variant="outline"
                     size="sm"
@@ -161,13 +146,13 @@ const Gallery = () => {
                       setModalOpen(true);
                     }}
                     aria-label={`Inquire about ${artwork.title}`}
-                    className="gallery-card-btn"
+                    className="gallery-article-btn"
                   >
                     Inquire
                   </Button>
                 </div>
               </div>
-            </Card>
+            </article>
           ))}
         </div>
 

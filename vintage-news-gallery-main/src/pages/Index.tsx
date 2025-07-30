@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Press from "@/components/Press";
+import ArtworkHub from "@/components/Artworkhub";
 
 const Index = () => {
   return (
@@ -13,8 +14,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <Gallery />
-        <Store />
+        <ArtworkHub />
         <Press />
         <About />
         <Contact />
