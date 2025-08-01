@@ -18,24 +18,19 @@ const About = () => {
 
             <div className="about-text">
               <p className="about-paragraph">
-                Dekel Harari is a contemporary artist who transforms newspaper media into vibrant 
-                modern and pop art compositions. Working at the intersection of traditional collage 
-                and contemporary aesthetics, his pieces explore the relationship between mass media, 
-                cultural memory, and artistic expression.
+              Dekel Harari is a Tel Aviv-based contemporary artist who deconstructs and reconstructs newspaper media into striking visual narratives. Working with mixed media and acrylic on canvas, his practice exists at the crossroads of conceptual art, media critique, and contemporary aesthetics.
               </p>
 
               <p className="about-paragraph">
-                Each artwork begins with carefully selected newspaper fragments, which are then 
-                reimagined through modern art techniques and pop art sensibilities. This process 
-                creates a unique dialogue between the ephemeral nature of news and the permanence 
-                of fine art, resulting in pieces that are both timely and timeless.
+              His distinctive approach involves dismantling newspapers and reassembling them as symbols of rebuilding - creating a powerful metaphor for how we construct and reconstruct our understanding of reality. Each piece offers a personal interpretation of current events, transforming the mundane into the extraordinary through the lens of beauty and imagination.
               </p>
 
               <p className="about-paragraph">
-                Dekel's work has gained recognition for its innovative approach to mixed media, 
-                combining traditional newspaper collage with bold modern elements that speak to 
-                contemporary culture and visual communication.
+              Dekel's work explores the tension between routine and wonder, presenting minimalist compositions with sharp, deliberate messages. His pieces function as visual commentaries that challenge viewers to reconsider their relationship with information consumption and media representation.
               </p>
+
+              <p className="about-paragraph">
+              Dekel Harari's works offer a fresh perspective on the reality surrounding us - they don't merely document time, but invite the viewer to rebuild it anew.              </p>
             </div>
 {/* 
             <div className="about-stats">
