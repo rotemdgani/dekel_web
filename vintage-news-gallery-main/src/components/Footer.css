@@ -57,6 +57,12 @@
     font-family: 'Times New Roman', serif;
   }
   
+  .footer-brand-logo {
+    max-width: 200px;
+    height: auto;
+    display: block;
+  }
+  
   .footer-brand-text {
     font-size: 0.875rem;
     color: hsl(0 0% 45%);
@@ -168,4 +174,62 @@
     font-size: 0.75rem;
     color: hsl(0 0% 45%);
     font-family: 'Times New Roman', serif;
+  }
+  
+  /* Mobile RTL Layout */
+  @media (max-width: 767px) {
+    .footer-columns {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    
+    .footer-brand-logo {
+      max-width: 150px;
+      height: auto;
+    }
+    
+    .footer-links {
+      text-align: left;
+      padding-left: 0;
+    }
+    
+    .footer-links-title {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-nav {
+      align-items: flex-start;
+      text-align: left;
+    }
+    
+    .footer-link {
+      text-align: left;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    
+    .footer-contact {
+      text-align: left;
+      padding-left: 0;
+    }
+    
+    .footer-contact-title {
+      text-align: left;
+    }
+    
+    .footer-contact-details {
+      align-items: flex-start;
+    }
+    
+    .footer-contact-item {
+      justify-content: flex-start;
+      flex-direction: row;
+    }
+    
+    .footer-contact-icon {
+      margin-right: 0.75rem;
+      margin-left: 0;
+    }
   }

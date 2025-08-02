@@ -378,3 +378,53 @@
     height: 380px;
   }
 }
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+    .artwork-hub-header {
+        margin-top: 2rem;
+        padding-top: 1rem;
+    }
+    
+    .artwork-hub-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .artwork-hub-divider {
+        width: 60px;
+        height: 2px;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .artwork-hub-category-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .artwork-hub-article {
+        max-width: 100%;
+    }
+    
+    .artwork-hub-article-image {
+        height: auto;
+        min-height: 300px;
+        max-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .artwork-hub-image {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+    
+    .artwork-hub-more-info-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}

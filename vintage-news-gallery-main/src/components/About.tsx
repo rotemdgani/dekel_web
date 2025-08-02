@@ -11,7 +11,7 @@ const About = () => {
               <h2 className="about-title">
                 ABOUT
                 <br />
-                <span className="text-accent">DEKEL HARARI</span>
+                <span className="text-accent"></span>
               </h2>
               <div className="about-divider"></div>
             </div>

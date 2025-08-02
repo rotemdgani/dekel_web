@@ -215,10 +215,21 @@
     .about-quote-image-container {
       max-width: 350px;
       margin-bottom: 1.25rem;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
     }
     
     .about-quote-img {
-      width: 85%;
+      width: 80%;
+      max-width: 280px;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+      display: block;
     }
   }
   
@@ -231,9 +242,20 @@
     .about-quote-image-container {
       max-width: 300px;
       margin-bottom: 1rem;
+      margin-top: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
     }
     
     .about-quote-img {
-      width: 80%;
+      width: 75%;
+      max-width: 240px;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+      display: block;
     }
   }

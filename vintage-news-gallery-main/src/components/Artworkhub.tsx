@@ -54,10 +54,10 @@ const ArtworkHub = () => {
             id: 1,
             title: "Built by Men",
             category: "face-card",
-            price: 500,
+            price: 900,
             medium: "Newspaper collage on wood",
-            dimensions: "27.9\" x 35.6\"",
-            images: [women2_framed, women2],
+            dimensions: "27.9\" x 35.6\" - Comes unframed",
+            image: women2_framed, // Keep only the first image
             description: "",
             availability: "Available",
             isLimited: false,
@@ -66,10 +66,10 @@ const ArtworkHub = () => {
             id: 2,
             title: "Side Note",
             category: "face-card",
-            price: 1200,
+            price: 900,
             medium: "Newspaper collage with acrylic",
-            dimensions: "27.9\" x 35.6\"",
-            images: [profile_vintage, flower_hear_himinai], // שתי תמונות
+            dimensions: "27.9\" x 35.6\" - Unframed (frame not included)", // Added framing info
+            image: profile_vintage, // Keep only the first image
             description: "",
             availability: "Available",
             isLimited: false,
@@ -80,7 +80,7 @@ const ArtworkHub = () => {
             category: "face-card",
             price: 1500,
             medium: "Newspaper collage with acrylic",
-            dimensions: "45\" x 60\" (include the frame)",
+            dimensions: "45\" x 60\" - Includes the frame shown in the image. Size listed is with the frame.",
             image: oldman_vintage,
             description: "",
             availability: "Available",
@@ -90,10 +90,10 @@ const ArtworkHub = () => {
             id: 5,
             title: "The Reader",
             category: "face-card",
-            price: 500,
+            price: 900,
             medium: "Newspaper collage with acrylic",
-            dimensions: "27.9\" x 35.6\"",
-            images: [profile_vintage2, women_read_book], // שתי תמונות
+            dimensions: "27.9\" x 35.6\" - Comes unframed",
+            image: profile_vintage2, // Keep only the first image
             description: "",
             availability: "Available",
             isLimited: false,
@@ -103,7 +103,7 @@ const ArtworkHub = () => {
             id: 9,
             title: "Rocket Pop",
             category: "based-on-a-true-story",
-            price: 1500,
+            price: 2500,
             medium: "Mixed media with modern techniques",
             dimensions: "110\" x 100\"",
             image: calurful_rocket,
@@ -115,7 +115,7 @@ const ArtworkHub = () => {
             id: 17,
             title: "Violin vs. Violence",
             category: "based-on-a-true-story",
-            price: 1100,
+            price: 2500,
             medium: "Mixed media with modern techniques",
             dimensions: "60\" x 80\"",
             image: art_vs_war,
@@ -127,7 +127,7 @@ const ArtworkHub = () => {
             id: 7,
             title: "Peace Bomber",
             category: "based-on-a-true-story",
-            price: 1500,
+            price: 2500,
             medium: "Mixed media with modern techniques",
             dimensions: "110\" x 100\"",
             image: b2,
@@ -139,7 +139,7 @@ const ArtworkHub = () => {
             id: 8,
             title: "Bride Interrupted",
             category: "based-on-a-true-story",
-            price: 1500,
+            price: 2500,
             medium: "Mixed media with modern techniques",
             dimensions: "110\" x 100\"",
             image: bride_under_attack,
@@ -151,7 +151,7 @@ const ArtworkHub = () => {
             id: 10,
             title: "David and Goliath",
             category: "based-on-a-true-story",
-            price: 1500,
+            price: 2500,
             medium: "Mixed media with modern techniques",
             dimensions: "110\" x 100\"",
             image: david_goliat,
@@ -163,7 +163,7 @@ const ArtworkHub = () => {
             id: 11,
             title: "Dove Among Crows",
             category: "based-on-a-true-story",
-            price: 1500,
+            price: 2500,
             medium: "Mixed media with modern techniques",
             dimensions: "110\" x 100\"",
             image: dove_among_crawl,
@@ -175,7 +175,7 @@ const ArtworkHub = () => {
             id: 16,
             title: "Rocket Mode",
             category: "based-on-a-true-story",
-            price: 1500,
+            price: 2500,
             medium: "Mixed media with modern techniques",
             dimensions: "110\" x 100\"",
             image: telaviv_rocket,
@@ -187,7 +187,7 @@ const ArtworkHub = () => {
             id: 18,
             title: "Media as a Shield",
             category: "based-on-a-true-story",
-            price: 1300,
+            price: 2100,
             medium: "Mixed media with modern techniques",
             dimensions: "90\" x 110\"",
             image: terror_shiled,
@@ -199,9 +199,9 @@ const ArtworkHub = () => {
             id: 13,
             title: "News vs. Business",
             category: "based-on-a-true-story",
-            price: 1500,
+            price: 2100,
             medium: "Mixed media with modern techniques",
-            dimensions: "110\" x 100\"",
+            dimensions: "110\" x 100\" - Includes black wooden frame with glass",
             image: news_vs_bussines,
             description: "",
             availability: "Available",
@@ -211,7 +211,7 @@ const ArtworkHub = () => {
             id: 14,
             title: "Blinded Earth",
             category: "based-on-a-true-story",
-            price: 1100,
+            price: 1900,
             medium: "Mixed media with modern techniques",
             dimensions: "60\" x 80\"",
             image: nyt_cover_earth,
@@ -223,7 +223,7 @@ const ArtworkHub = () => {
             id: 12,
             title: "Window to Hope",
             category: "based-on-a-true-story",
-            price: 1500,
+            price: 2500,
             medium: "Mixed media with modern techniques",
             dimensions: "110\" x 100\"",
             image: Haminai,
@@ -235,7 +235,7 @@ const ArtworkHub = () => {
             id: 15,
             title: "Over the Headlines (Homage to Marc Chagall)",
             category: "based-on-a-true-story",
-            price: 1200,
+            price: 2500,
             medium: "Mixed media with modern techniques",
             dimensions: "60\" x 80\"",
             image: shagal_over_the_city,
@@ -256,13 +256,13 @@ const ArtworkHub = () => {
             isLimited: false,
         },
         {
-            id: 20,
-            title: "Enjoy",
+            id: 22,
+            title: "With Love",
             category: "present",
-            price: 800,
+            price: 1100,
             medium: "Newspaper collage and distressed acrylic on canvas",
-            dimensions: "30\" x 30\" x 3\"",
-            image: gift_star_red,
+            dimensions: "40\" x 40\" x 6\"",
+            image: gift_perpel,
             description: "",
             availability: "Available",
             isLimited: false,
@@ -280,13 +280,13 @@ const ArtworkHub = () => {
             isLimited: false,
         },
         {
-            id: 22,
-            title: "With Love",
+            id: 20,
+            title: "Enjoy",
             category: "present",
-            price: 1100,
+            price: 800,
             medium: "Newspaper collage and distressed acrylic on canvas",
-            dimensions: "40\" x 40\" x 6\"",
-            image: gift_perpel,
+            dimensions: "30\" x 30\" x 3\"",
+            image: gift_star_red,
             description: "",
             availability: "Available",
             isLimited: false,
@@ -295,7 +295,7 @@ const ArtworkHub = () => {
             id: 23,
             title: "Butterfly Attack",
             category: "the-good-times",
-            price: 900,
+            price: 2500,
             medium: "Acrylic on Canvas",
             dimensions: "120\" x 80\"",
             image: butterflies_attack,
@@ -307,7 +307,7 @@ const ArtworkHub = () => {
             id: 24,
             title: "OOO",
             category: "the-good-times",
-            price: 900,
+            price: 2500,
             medium: "Acrylic on Canvas",
             dimensions: "120\" x 80\"",
             image: ooo,
@@ -319,7 +319,7 @@ const ArtworkHub = () => {
             id: 25,
             title: "Orange Sky",
             category: "the-good-times",
-            price: 900,
+            price: 2500,
             medium: "Acrylic on Canvas",
             dimensions: "120\" x 80\"",
             image: orange_sky,
@@ -331,7 +331,7 @@ const ArtworkHub = () => {
             id: 26,
             title: "Pink Fields",
             category: "the-good-times",
-            price: 900,
+            price: 2500,
             medium: "Acrylic on Canvas",
             dimensions: "120\" x 80\"",
             image: pink_fileds,
@@ -343,7 +343,7 @@ const ArtworkHub = () => {
             id: 27,
             title: "Headline Erased",
             category: "the-good-times",
-            price: 900,
+            price: 2500,
             medium: "Acrylic on Canvas",
             dimensions: "120\" x 80\"",
             image: pink_line,
@@ -355,7 +355,7 @@ const ArtworkHub = () => {
             id: 28,
             title: "In the Cloud",
             category: "the-good-times",
-            price: 900,
+            price: 2500,
             medium: "Acrylic on Canvas",
             dimensions: "120\" x 80\"",
             image: sky_grey_helicopter,
@@ -367,7 +367,7 @@ const ArtworkHub = () => {
             id: 29,
             title: "Summer Collection",
             category: "the-good-times",
-            price: 900,
+            price: 2500,
             medium: "Acrylic on Canvas",
             dimensions: "120\" x 80\"",
             image: summer_flowers_red,
@@ -379,7 +379,7 @@ const ArtworkHub = () => {
             id: 30,
             title: "Original Feed",
             category: "the-good-times",
-            price: 900,
+            price: 2500,
             medium: "Acrylic on Canvas",
             dimensions: "120\" x 80\"",
             image: sky_wheat,
@@ -391,7 +391,7 @@ const ArtworkHub = () => {
             id: 31,
             title: "Grey Blue",
             category: "the-good-times",
-            price: 600,
+            price: 2500,
             medium: "Acrylic on Canvas",
             dimensions: "80\" x 60\"",
             image: sky_newspaper_collage,
@@ -457,7 +457,7 @@ const ArtworkHub = () => {
             />
             <div className="artwork-hub-container">
                 <div className="artwork-hub-header">
-                    <h2 className="artwork-hub-title">Gallery</h2>
+                    <h2 className="artwork-hub-title">Collections</h2>
                     <div className="artwork-hub-divider"></div>
                 </div>
 
@@ -474,14 +474,14 @@ const ArtworkHub = () => {
                                             <article key={artwork.id} className="artwork-hub-article">
                                                 <div className="artwork-hub-article-image">
                                                     <img
-                                                        src={artwork.images ? artwork.images[0] : Array.isArray(artwork.image) ? artwork.image[0] : artwork.image}
+                                                        src={artwork.image}
                                                         alt={artwork.title}
                                                         className="artwork-hub-image"
                                                         loading="lazy"
                                                         onClick={() => {
                                                             setSelectedArtwork({
                                                                 ...artwork,
-                                                                images: artwork.images || [artwork.image],
+                                                                images: [artwork.image],
                                                             });
                                                             setSelectedImageIndex(0);
                                                             setModalOpen(true);
@@ -496,7 +496,7 @@ const ArtworkHub = () => {
                                                          onClick={() => {
                                                              setSelectedArtwork({
                                                                  ...artwork,
-                                                                 images: artwork.images || [artwork.image],
+                                                                 images: [artwork.image],
                                                              });
                                                              setSelectedImageIndex(0);
                                                              setModalOpen(true);

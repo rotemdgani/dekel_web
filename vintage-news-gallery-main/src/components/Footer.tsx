@@ -1,5 +1,6 @@
 import { Instagram, Mail, Phone } from "lucide-react";
 import "./Footer.css";
+import logo from "@/assets/logo_dh edition.png";
 
 const Footer = () => {
   return (
@@ -7,17 +8,17 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-brand">
-            <h3 className="footer-brand-title">DEKEL HARARI</h3>
+            <img src={logo} alt="Dekel Harari Logo" className="footer-brand-logo" />
             <p className="footer-brand-text">
             </p>
           </div>
 
           <div className="footer-columns">
             <div className="footer-links">
-              <h4 className="footer-links-title">Navigation</h4>
+              <h4 className="footer-title">Navigation</h4>
               <nav className="footer-nav">
                 <a href="#home" className="footer-link">Home</a>
-                <a href="#artworkhub" className="footer-link">Gallery</a>
+                <a href="#artworkhub" className="footer-link">Collections</a>
                 <a href="#press" className="footer-link">Press</a>
                 <a href="#about" className="footer-link">About</a>
                 <a href="#contact" className="footer-link">Contact</a>
