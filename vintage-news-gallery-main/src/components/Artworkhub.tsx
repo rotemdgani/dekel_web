@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ShoppingCart, Heart, Eye, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ArtworkModal from "@/components/ui/artwork-modal";
 import "./Artworkhub.css";
@@ -44,7 +44,6 @@ import art_vs_war from '@/assets/art_vs_war_.png';
 
 const ArtworkHub = () => {
     const [cart, setCart] = useState<number[]>([]);
-    const [favorites, setFavorites] = useState<number[]>([]);
     const { toast } = useToast();
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedArtwork, setSelectedArtwork] = useState<any>(null);
@@ -99,6 +98,31 @@ const ArtworkHub = () => {
             availability: "Available",
             isLimited: false,
         },
+        // Based on a True Story - Reordered according to specified sequence
+        {
+            id: 9,
+            title: "Rocket Pop",
+            category: "based-on-a-true-story",
+            price: 1500,
+            medium: "Mixed media with modern techniques",
+            dimensions: "110\" x 100\"",
+            image: calurful_rocket,
+            description: "",
+            availability: "Available",
+            isLimited: false,
+        },
+        {
+            id: 17,
+            title: "Violin vs. Violence",
+            category: "based-on-a-true-story",
+            price: 1100,
+            medium: "Mixed media with modern techniques",
+            dimensions: "60\" x 80\"",
+            image: art_vs_war,
+            description: "",
+            availability: "Available",
+            isLimited: false,
+        },
         {
             id: 7,
             title: "Peace Bomber",
@@ -119,18 +143,6 @@ const ArtworkHub = () => {
             medium: "Mixed media with modern techniques",
             dimensions: "110\" x 100\"",
             image: bride_under_attack,
-            description: "",
-            availability: "Available",
-            isLimited: false,
-        },
-        {
-            id: 9,
-            title: "Rocket Pop",
-            category: "based-on-a-true-story",
-            price: 1500,
-            medium: "Mixed media with modern techniques",
-            dimensions: "110\" x 100\"",
-            image: calurful_rocket,
             description: "",
             availability: "Available",
             isLimited: false,
@@ -160,13 +172,25 @@ const ArtworkHub = () => {
             isLimited: false,
         },
         {
-            id: 12,
-            title: "Window to Hope",
+            id: 16,
+            title: "Rocket Mode",
             category: "based-on-a-true-story",
             price: 1500,
             medium: "Mixed media with modern techniques",
             dimensions: "110\" x 100\"",
-            image: Haminai,
+            image: telaviv_rocket,
+            description: "",
+            availability: "Available",
+            isLimited: false,
+        },
+        {
+            id: 18,
+            title: "Media as a Shield",
+            category: "based-on-a-true-story",
+            price: 1300,
+            medium: "Mixed media with modern techniques",
+            dimensions: "90\" x 110\"",
+            image: terror_shiled,
             description: "",
             availability: "Available",
             isLimited: false,
@@ -196,6 +220,18 @@ const ArtworkHub = () => {
             isLimited: false,
         },
         {
+            id: 12,
+            title: "Window to Hope",
+            category: "based-on-a-true-story",
+            price: 1500,
+            medium: "Mixed media with modern techniques",
+            dimensions: "110\" x 100\"",
+            image: Haminai,
+            description: "",
+            availability: "Available",
+            isLimited: false,
+        },
+        {
             id: 15,
             title: "Over the Headlines (Homage to Marc Chagall)",
             category: "based-on-a-true-story",
@@ -205,42 +241,6 @@ const ArtworkHub = () => {
             image: shagal_over_the_city,
             description: "",
             availability: "SOLD",
-            isLimited: false,
-        },
-        {
-            id: 16,
-            title: "Rocket Mode",
-            category: "based-on-a-true-story",
-            price: 1500,
-            medium: "Mixed media with modern techniques",
-            dimensions: "110\" x 100\"",
-            image: telaviv_rocket,
-            description: "",
-            availability: "Available",
-            isLimited: false,
-        },
-        {
-            id: 17,
-            title: "Violin vs. Violence",
-            category: "based-on-a-true-story",
-            price: 1100,
-            medium: "Mixed media with modern techniques",
-            dimensions: "60\" x 80\"",
-            image: art_vs_war,
-            description: "",
-            availability: "Available",
-            isLimited: false,
-        },
-        {
-            id: 18,
-            title: "Media as a Shield",
-            category: "based-on-a-true-story",
-            price: 1300,
-            medium: "Mixed media with modern techniques",
-            dimensions: "90\" x 110\"",
-            image: terror_shiled,
-            description: "",
-            availability: "Available",
             isLimited: false,
         },
         {
@@ -432,22 +432,6 @@ const ArtworkHub = () => {
         }
     };
 
-    const toggleFavorite = (productId: number) => {
-        if (favorites.includes(productId)) {
-            setFavorites(favorites.filter(id => id !== productId));
-            toast({
-                title: "Removed from Favorites",
-                description: "Artwork removed from your favorites.",
-            });
-        } else {
-            setFavorites([...favorites, productId]);
-            toast({
-                title: "Added to Favorites",
-                description: "Artwork added to your favorites.",
-            });
-        }
-    };
-
     const prevImage = () => {
         setSelectedImageIndex((prev) => (prev > 0 ? prev - 1 : (selectedArtwork.images?.length || 1) - 1));
     };
@@ -462,12 +446,14 @@ const ArtworkHub = () => {
                 open={modalOpen}
                 onClose={() => {
                     setModalOpen(false);
-                    setSelectedImageIndex(0); // איפוס אינדקס התמונה כשהמודאל נסגר
+                    setSelectedImageIndex(0);
                 }}
                 artwork={selectedArtwork}
                 selectedImageIndex={selectedImageIndex}
                 prevImage={prevImage}
                 nextImage={nextImage}
+                onAddToCart={addToCart}
+                cart={cart}
             />
             <div className="artwork-hub-container">
                 <div className="artwork-hub-header">
@@ -492,56 +478,33 @@ const ArtworkHub = () => {
                                                         alt={artwork.title}
                                                         className="artwork-hub-image"
                                                         loading="lazy"
+                                                        onClick={() => {
+                                                            setSelectedArtwork({
+                                                                ...artwork,
+                                                                images: artwork.images || [artwork.image],
+                                                            });
+                                                            setSelectedImageIndex(0);
+                                                            setModalOpen(true);
+                                                        }}
+                                                        style={{ cursor: 'pointer' }}
                                                     />
-                                                    <div className="artwork-hub-overlay">
-                                                        <div className="artwork-hub-overlay-actions">
-                                                            <Button
-                                                                size="sm"
-                                                                variant="secondary"
-                                                                onClick={() => toggleFavorite(artwork.id)}
-                                                                className="artwork-hub-favorite-btn"
-                                                            >
-                                                                <Heart
-                                                                    className={`w-4 h-4 ${favorites.includes(artwork.id) ? "fill-accent text-accent" : ""}`}
-                                                                />
-                                                            </Button>
-                                                            <Button
-                                                                size="sm"
-                                                                variant="secondary"
-                                                                onClick={() => {
-                                                                    setSelectedArtwork({
-                                                                        ...artwork,
-                                                                        images: artwork.images || [artwork.image], // ודא שתמיד יש מערך תמונות
-                                                                    });
-                                                                    setSelectedImageIndex(0); // התחל מהתמונה הראשונה
-                                                                    setModalOpen(true);
-                                                                }}
-                                                                className="artwork-hub-view-btn"
-                                                            >
-                                                                <Eye className="w-4 h-4" />
-                                                            </Button>
-                                                        </div>
-                                                    </div>
                                                 </div>
-                                                <div className="artwork-hub-article-content">
-                                                    <h3 className="artwork-hub-article-title">{artwork.title}</h3>
-                                                    <p className="artwork-hub-article-details">
-                                                        {artwork.medium} • {artwork.dimensions}
-                                                    </p>
-                                                    <p className="artwork-hub-article-description">{artwork.description}</p>
-                                                    <div className="artwork-hub-article-footer">
-                                                        <span className="artwork-hub-article-price">{formatPrice(artwork.price)}</span>
-                                                        <p className="artwork-hub-article-availability">{artwork.availability}</p>
-                                                        <Button
-                                                            className="artwork-hub-add-to-cart"
-                                                            onClick={() => addToCart(artwork.id)}
-                                                            disabled={cart.includes(artwork.id)}
-                                                        >
-                                                            <ShoppingCart className="w-4 h-4 mr-2" />
-                                                            {cart.includes(artwork.id) ? "In Cart" : "Add to Cart"}
-                                                        </Button>
-                                                    </div>
-                                                </div>
+                                                                                                 <div className="artwork-hub-article-content">
+                                                     <h3 className="artwork-hub-article-title">{artwork.title}</h3>
+                                                     <Button
+                                                         className="artwork-hub-more-info-btn"
+                                                         onClick={() => {
+                                                             setSelectedArtwork({
+                                                                 ...artwork,
+                                                                 images: artwork.images || [artwork.image],
+                                                             });
+                                                             setSelectedImageIndex(0);
+                                                             setModalOpen(true);
+                                                         }}
+                                                     >
+                                                         More Info
+                                                     </Button>
+                                                 </div>
                                             </article>
                                         ))}
                                     </div>

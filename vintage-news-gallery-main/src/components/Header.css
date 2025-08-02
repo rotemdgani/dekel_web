@@ -41,7 +41,7 @@ header {
   }
   
   .editorial-link {
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: medium;
     color: hsl(0 0% 12%);
     text-decoration: none;
@@ -54,7 +54,7 @@ header {
   }
   
   .body-text {
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: medium;
     color: hsl(0 0% 12%);
     font-family: 'Times New Roman', serif;

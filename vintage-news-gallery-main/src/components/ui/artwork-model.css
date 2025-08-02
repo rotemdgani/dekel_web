@@ -1,27 +1,170 @@
 .artwork-modal-content {
-  border-radius: 8px;
-  padding: 1.5rem;
-  background-color: #f8f4e9; /* Off White עם גוון וינטג' */
-  border: 1px solid #d9c9a9; /* גבול בהיר עם גוון וינטג' */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: relative; /* לוודא שהמיקום יחסי לעבודה עם האלמנטים */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translate(-50%, -50%);
+  max-width: 90vw;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background-color: #f8f4e9;
+  border: 1px solid #d9c9a9;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
 }
 
-/* הסתרת ה-close-btn המותאם אישית אם עדיין קיים במקרה מסוים */
+/* Close button styling */
+.artwork-modal-content [data-radix-dialog-close] {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #d9c9a9;
+  color: #5c4033;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.artwork-modal-content [data-radix-dialog-close]:hover {
+  background-color: #5c4033;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Hide default close button if it exists */
 .close-btn {
   display: none !important;
 }
 
-/* התאמת צבע האיקס המובנה של Dialog לשחור אם ניתן לשלוט בו */
-[data-radix-dialog-content] .close-btn,
-[data-radix-dialog-content] [aria-label="Close"] {
-  color: #000 !important; /* ודא שהאיקס המובנה יהיה שחור */
+.artwork-modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: hsl(0 0% 12%);
+  font-family: 'Times New Roman', serif;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  padding-right: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
 }
 
-/* סגנון ניווט */
+.artwork-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Image container styling */
 .artwork-modal-image-container {
   position: relative;
   text-align: center;
+  width: 100%;
+  max-width: 75%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 0;
+  cursor: zoom-in;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artwork-modal-image {
+  max-height: 80vh;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform 0.3s ease;
+}
+
+.artwork-modal-image-container:hover .artwork-modal-image {
+  transform: scale(1.05);
+}
+
+/* Zoom overlay for mobile tap */
+.artwork-modal-image-zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.artwork-modal-image-zoom-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.artwork-modal-zoom-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+.artwork-modal-zoom-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  color: #5c4033;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.artwork-modal-zoom-close:hover {
+  background-color: #5c4033;
+  color: white;
+  transform: scale(1.1);
 }
 
 .artwork-modal-navigation {
@@ -29,24 +172,279 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
 }
 
 .artwork-modal-nav-btn {
   border: none;
-  background: none;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #d9c9a9;
+  border-radius: 50%;
   cursor: pointer;
   color: #8a6d3b;
-  font-size: 1.5rem;
-  padding: 0.5rem;
+  font-size: 1rem;
+  padding: 0.4rem;
+  transition: all 0.3s ease;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .artwork-modal-nav-btn:hover {
-  color: #5c4033;
+  background-color: #8a6d3b;
+  color: white;
+  transform: scale(1.1);
 }
 
 .artwork-modal-index {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #6b5b40;
-  font-family: 'Georgia', serif;
+  font-family: 'Times New Roman', serif;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  border: 1px solid #d9c9a9;
+}
+
+/* Details Section - Single Card */
+.artwork-modal-details {
+  width: 100%;
+  padding: 20px 24px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  border: 1px solid #d9c9a9;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.artwork-modal-details-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(217, 201, 169, 0.3);
+}
+
+.artwork-modal-details-row:last-of-type {
+  border-bottom: none;
+}
+
+.artwork-modal-detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  gap: 0.2rem;
+}
+
+.artwork-modal-detail-label {
+  font-weight: bold;
+  color: hsl(0 0% 25%);
+  font-family: 'Times New Roman', serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.artwork-modal-detail-value {
+  color: hsl(0 0% 45%);
+  font-family: 'Times New Roman', serif;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.artwork-modal-price {
+  font-weight: bold;
+  color: hsl(0 0% 25%);
+  font-size: 1.1rem;
+}
+
+.artwork-modal-availability {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.artwork-modal-availability.available {
+  color: #2d5a2d;
+}
+
+.artwork-modal-availability.sold {
+  color: #8b0000;
+}
+
+.artwork-modal-description {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  border-left: 3px solid #8a6d3b;
+  text-align: center;
+}
+
+.artwork-modal-description p {
+  color: hsl(0 0% 45%);
+  font-family: 'Times New Roman', serif;
+  line-height: 1.4;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.artwork-modal-actions {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.artwork-modal-add-to-cart-btn {
+  width: 100%;
+  background-color: transparent;
+  color: hsl(0 0% 25%);
+  transition: all 0.3s;
+  font-family: 'Times New Roman', serif;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.artwork-modal-add-to-cart-btn:hover:not(:disabled) {
+  background-color: transparent;
+  color: hsl(0 0% 12%);
+  transform: none;
+  box-shadow: none;
+  text-decoration: underline;
+}
+
+.artwork-modal-add-to-cart-btn:disabled {
+  background-color: transparent;
+  color: hsl(0 0% 88%);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .artwork-modal-content {
+    max-width: 95vw;
+    padding: 0;
+    margin: 0;
+    max-height: 90vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .artwork-modal-title {
+    font-size: 1.1rem;
+    padding-right: 2rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .artwork-modal-content [data-radix-dialog-close] {
+    top: 0.25rem;
+    right: 0.25rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .artwork-modal-body {
+    gap: 0.25rem;
+  }
+  
+  .artwork-modal-image-container {
+    max-width: 90%;
+  }
+  
+  .artwork-modal-image-container:hover .artwork-modal-image {
+    transform: none;
+  }
+  
+  .artwork-modal-image {
+    max-height: 80vh;
+  }
+  
+  .artwork-modal-details {
+    padding: 16px 20px;
+  }
+  
+  .artwork-modal-details-row {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+  }
+  
+  .artwork-modal-detail-item {
+    width: 100%;
+  }
+  
+  .artwork-modal-detail-label {
+    font-size: 0.7rem;
+  }
+  
+  .artwork-modal-detail-value {
+    font-size: 0.8rem;
+  }
+  
+  .artwork-modal-nav-btn {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.9rem;
+    padding: 0.25rem;
+  }
+  
+  .artwork-modal-navigation {
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+  
+  .artwork-modal-add-to-cart-btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.8rem;
+  }
+  
+  .artwork-modal-actions {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .artwork-modal-image-zoom-overlay {
+    padding: 0.5rem;
+  }
+  
+  .artwork-modal-zoom-image {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+  
+  .artwork-modal-zoom-close {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
 }
