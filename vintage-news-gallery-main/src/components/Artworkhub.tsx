@@ -66,7 +66,7 @@ const ArtworkHub = () => {
         },
         {
             id: 2,
-            title: "Absorbed",
+            title: "Side Note",
             category: "face-card",
             price: 1200,
             medium: "Newspaper collage with acrylic",
@@ -78,7 +78,7 @@ const ArtworkHub = () => {
         },
         {
             id: 4,
-            title: "Face Value",
+            title: "Half Truth",
             category: "face-card",
             price: 1500,
             medium: "Newspaper collage with acrylic",
