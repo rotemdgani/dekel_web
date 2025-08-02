@@ -19,9 +19,9 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="headline text-2xl font-bold">
+          <a href="#home" className="headline text-2xl font-bold hover:text-primary transition-colors cursor-pointer">
             DEKEL HARARI
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">

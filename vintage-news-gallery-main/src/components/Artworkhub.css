@@ -98,6 +98,10 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
     position: relative;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   .artwork-hub-article::before {
@@ -123,14 +127,17 @@
   .artwork-hub-article-image {
     position: relative;
     margin-bottom: 1rem;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
   
   .artwork-hub-image {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
     object-fit: contain;
-    border: 1px solid hsl(0 0% 88%);
+    height: 450px;
+    width: 100%;
     transition: transform 0.5s;
   }
   
@@ -138,48 +145,14 @@
     transform: scale(1.05);
   }
   
-  .artwork-hub-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  
-  .artwork-hub-article:hover .artwork-hub-overlay {
-    opacity: 1;
-  }
-  
-  .artwork-hub-overlay-actions {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .artwork-hub-favorite-btn, .artwork-hub-view-btn {
-    background-color: hsl(0 0% 100%);
-    border: 1px solid hsl(0 0% 25%);
-    color: hsl(0 0% 12%);
-    font-family: 'Times New Roman', serif;
-  }
-  
-  .artwork-hub-favorite-btn:hover, .artwork-hub-view-btn:hover {
-    background-color: hsl(0 0% 25%);
-    color: hsl(0 0% 100%);
-  }
-  
-
-  
   .artwork-hub-article-content {
     padding: 0;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: flex-end;
   }
   
   .artwork-hub-article-title {
@@ -188,6 +161,7 @@
     color: hsl(0 0% 12%);
     margin-bottom: 0.5rem;
     font-family: 'Times New Roman', serif;
+    text-align: center;
   }
   
   .artwork-hub-article-details {
@@ -232,22 +206,19 @@
     font-family: 'Times New Roman', serif;
   }
   
-  .artwork-hub-add-to-cart {
+  .artwork-hub-more-info-btn {
     width: 100%;
     background-color: hsl(0 0% 25%);
     color: hsl(0 0% 100%);
     transition: all 0.3s;
     font-family: 'Times New Roman', serif;
+    margin-top: 1rem;
+    margin-bottom: 0;
   }
   
-  .artwork-hub-add-to-cart:hover:not(:disabled) {
+  .artwork-hub-more-info-btn:hover {
     background-color: hsl(0 0% 12%);
-  }
-  
-  .artwork-hub-add-to-cart:disabled {
-    background-color: hsl(0 0% 88%);
-    color: hsl(0 0% 45%);
-    cursor: not-allowed;
+    transform: translateY(-1px);
   }
   
   .artwork-hub-cart-summary {
@@ -379,23 +350,31 @@
   }
   
   @media (max-width: 768px) {
-    .artwork-hub-section {
-      padding: 0.5rem 0;
-    }
-    
-    .artwork-hub-category-title {
-      font-size: 1.5rem;
-    }
-    
-    .artwork-hub-article-title {
-      font-size: 1.25rem;
-    }
-    
-    .artwork-hub-category-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .artwork-hub-image {
-      max-height: 300px;
-    }
+  .artwork-hub-section {
+    padding: 0.5rem 0;
   }
+  
+  .artwork-hub-category-title {
+    font-size: 1.5rem;
+  }
+  
+  .artwork-hub-article-title {
+    font-size: 1.25rem;
+  }
+  
+  .artwork-hub-category-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .artwork-hub-article {
+    height: 550px;
+  }
+  
+  .artwork-hub-article-image {
+    height: 380px;
+  }
+  
+  .artwork-hub-image {
+    height: 380px;
+  }
+}
