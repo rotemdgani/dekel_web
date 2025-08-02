@@ -12,16 +12,15 @@ const Hero = () => {
         muted
         loop
         playsInline
+        preload="auto"
+        poster=""
         aria-label="Background video of a paper plane artwork on blue sky"
       >
         <source src={paperplane_video} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      {/* Scroll Indicator */}
-      <div className="hero-scrollWrap">
-        <div className="hero-scrollBar"></div>
-      </div>
+
     </section>
   );
 };

@@ -22,7 +22,6 @@ const Press = () => {
     <section id="press" className="press-section">
       <div className="press-container">
         <div className="press-header">
-          <h1 className="press-banner">THE DAILY ARTIST</h1>
           <h2 className="press-title">Press Coverage</h2>
           <div className="press-divider"></div>
           <p className="press-subtitle">

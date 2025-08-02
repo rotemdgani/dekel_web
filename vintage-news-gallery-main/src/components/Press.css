@@ -1,7 +1,23 @@
 .press-section {
     padding: 6rem 0;
-    background: #f8f4e9; /* Off White כרקע עיתון */
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* מראה דף ישן */
+    background: hsl(0 0% 98%);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    font-family: 'Times New Roman', serif;
+    position: relative;
+  }
+  
+  .press-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(0,0,0,0.01) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(0,0,0,0.01) 0%, transparent 50%);
+    background-size: 100px 100px, 150px 150px;
+    pointer-events: none;
   }
   
   .press-container {
@@ -9,6 +25,8 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
   }
   
   .press-header {
@@ -20,17 +38,17 @@
   .press-banner {
     font-size: 2rem;
     font-weight: bold;
-    color: #8a6d3b;
+    color: hsl(0 0% 25%);
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     margin-bottom: 0.5rem;
-    font-family: 'Times New Roman', serif; /* פונט עיתון קלאסי */
+    font-family: 'Times New Roman', serif;
   }
   
   .press-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #5c4033;
+    color: hsl(0 0% 12%);
     margin-bottom: 1rem;
     font-family: 'Times New Roman', serif;
   }
@@ -38,16 +56,17 @@
   .press-divider {
     width: 6rem;
     height: 2px;
-    background-color: #d9c9a9;
+    background-color: hsl(0 0% 25%);
     margin: 0 auto 1.5rem;
   }
   
   .press-subtitle {
     font-size: 1.1rem;
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
     max-width: 40rem;
     margin: 0 auto;
     font-style: italic;
+    font-family: 'Times New Roman', serif;
   }
   
   .press-content {
@@ -56,62 +75,88 @@
   }
   
   .press-article {
-    background: #fafafa;
-    border: 1px solid #d9c9a9;
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(0 0% 88%);
     padding: 2rem;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+  
+  .press-article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(0,0,0,0.01) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(0,0,0,0.01) 0%, transparent 50%);
+    background-size: 50px 50px, 75px 75px;
+    pointer-events: none;
+    border-radius: inherit;
   }
   
   .press-article-headline {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #5c4033;
+    color: hsl(0 0% 12%);
     margin-bottom: 1rem;
     font-family: 'Times New Roman', serif;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+    position: relative;
+    z-index: 1;
   }
   
   .press-article-columns {
     column-count: 2;
     column-gap: 1.5rem;
     font-size: 0.9rem;
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
     line-height: 1.6;
-    font-family: 'Georgia', serif;
+    font-family: 'Times New Roman', serif;
+    position: relative;
+    z-index: 1;
   }
   
   .press-article-text {
     margin: 0;
-    break-inside: avoid; /* מניעה של חיתוך מילים בין עמודות */
+    break-inside: avoid;
   }
   
   .press-article-footer {
     margin-top: 1.5rem;
     font-size: 0.85rem;
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     align-items: center;
+    position: relative;
+    z-index: 1;
   }
   
   .press-article-source {
-    font-weight: medium;
+    font-weight: bold;
+    color: hsl(0 0% 25%);
+    font-family: 'Times New Roman', serif;
   }
   
   .press-article-date {
-    opacity: 0.7;
+    color: hsl(0 0% 45%);
+    font-family: 'Times New Roman', serif;
   }
   
   .press-article-link {
-    color: #8a6d3b;
+    color: hsl(0 0% 25%);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
+    font-family: 'Times New Roman', serif;
   }
   
   .press-article-link:hover {
-    color: #5c4033;
+    color: hsl(0 0% 12%);
   }

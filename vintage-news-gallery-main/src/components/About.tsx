@@ -50,17 +50,15 @@ const About = () => {
           </div>
 
           <div className="about-quote">
+            <div className="about-quote-image-container">
+              <img src={dekel} alt="Dekel Harari Portrait" className="about-quote-img" />
+            </div>
             <div className="about-quote-content">
 
-
-
+              <p className="about-quote-text">
+              </p>
             </div>
             <div className="about-quote-author">
-              <p className="about-quote-name"></p>
-              <p className="about-quote-role"></p>
-            </div>
-            <div className="about-quote-image">
-              <img src={dekel} alt="Dekel Harari Portrait" className="about-quote-img" />
             </div>
           </div>
         </div>
