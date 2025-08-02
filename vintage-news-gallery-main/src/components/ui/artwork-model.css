@@ -260,10 +260,16 @@
 }
 
 .artwork-modal-detail-value {
-  color: hsl(0 0% 45%);
-  font-family: 'Times New Roman', serif;
+  font-weight: 500;
+  color: hsl(0 0% 25%);
   font-size: 0.9rem;
-  line-height: 1.3;
+}
+
+.artwork-modal-frame-info {
+  font-size: 0.8rem;
+  color: hsl(0 0% 45%);
+  font-style: italic;
+  margin-top: 0.25rem;
 }
 
 .artwork-modal-price {
@@ -343,6 +349,28 @@
   transform: none;
   box-shadow: none;
   text-decoration: none;
+}
+
+.artwork-modal-inquire-btn {
+  width: 100%;
+  background-color: transparent;
+  color: hsl(0 0% 25%);
+  border: 1px solid hsl(0 0% 25%);
+  transition: all 0.3s;
+  font-family: 'Times New Roman', serif;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.75rem;
+}
+
+.artwork-modal-inquire-btn:hover {
+  background-color: hsl(0 0% 25%);
+  color: hsl(0 0% 100%);
 }
 
 /* Mobile Responsive */

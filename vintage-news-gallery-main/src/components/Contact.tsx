@@ -3,9 +3,42 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Instagram } from "lucide-react";
+import { useEffect, useState } from "react";
 import "./Contact.css";
 
 const Contact = () => {
+  const [message, setMessage] = useState("");
+  const [artworkReference, setArtworkReference] = useState("");
+  const [subject, setSubject] = useState("");
+  const [isSubjectHighlighted, setIsSubjectHighlighted] = useState(false);
+
+  useEffect(() => {
+    // Check for message, artwork, and subject parameters in URL hash
+    const hash = window.location.hash;
+    if (hash && hash.includes('?')) {
+      const queryString = hash.split('?')[1];
+      const urlParams = new URLSearchParams(queryString);
+      const messageParam = urlParams.get('message');
+      const artworkParam = urlParams.get('artwork');
+      const subjectParam = urlParams.get('subject');
+      
+      if (messageParam) {
+        setMessage(decodeURIComponent(messageParam));
+      }
+      
+      if (artworkParam) {
+        setArtworkReference(decodeURIComponent(artworkParam));
+      }
+      
+      if (subjectParam) {
+        setSubject(decodeURIComponent(subjectParam));
+        // Highlight the subject field when auto-filled
+        setIsSubjectHighlighted(true);
+        setTimeout(() => setIsSubjectHighlighted(false), 2000); // Remove highlight after 2 seconds
+      }
+    }
+  }, []);
+
   return (
     <section id="contact" className="contact-section">
       <div className="contact-container">
@@ -79,6 +112,18 @@ const Contact = () => {
             <form className="contact-form">
               <h3 className="contact-form-title">Send a Message</h3>
 
+              {artworkReference && (
+                <div className="contact-form-field">
+                  <label className="contact-form-label">Artwork Reference</label>
+                  <Input 
+                    value={artworkReference} 
+                    className="contact-form-input" 
+                    readOnly
+                    style={{ backgroundColor: '#f8f9fa', color: '#6c757d' }}
+                  />
+                </div>
+              )}
+
               <div className="contact-form-fields">
                 <div className="contact-form-field">
                   <label className="contact-form-label">First Name</label>
@@ -97,7 +142,25 @@ const Contact = () => {
 
               <div className="contact-form-field">
                 <label className="contact-form-label">Subject</label>
-                <Input placeholder="What's this about?" className="contact-form-input" />
+                <Input 
+                  placeholder="What's this about?" 
+                  className="contact-form-input"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                  style={isSubjectHighlighted ? {
+                    backgroundColor: '#fff3cd',
+                    borderColor: '#ffc107',
+                    fontWeight: 'bold',
+                    color: '#856404',
+                    boxShadow: '0 0 10px rgba(255, 193, 7, 0.5)',
+                    transition: 'all 0.3s ease'
+                  } : subject ? {
+                    backgroundColor: '#fff3cd',
+                    borderColor: '#ffc107',
+                    fontWeight: 'bold',
+                    color: '#856404'
+                  } : {}}
+                />
               </div>
 
               <div className="contact-form-field">
@@ -106,6 +169,8 @@ const Contact = () => {
                   placeholder="Tell me about your project or inquiry..."
                   rows={6}
                   className="contact-form-textarea"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
 

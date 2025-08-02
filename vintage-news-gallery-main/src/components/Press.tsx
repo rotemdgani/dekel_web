@@ -14,7 +14,14 @@ const Press = () => {
       source: "TLV Times",
       date: "July 15, 2025",
       link: "https://tlvtimes.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%aa-%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91/%d7%9e%d7%a0%d7%9b%d7%9c-%d7%97%d7%91%d7%a8%d7%94-%d7%94%d7%91%d7%99%d7%95%d7%98%d7%a7-%d7%a9%d7%9e%d7%a6%d7%90-%d7%a4%d7%aa%d7%a8%d7%95%d7%9f-%d7%9c%d7%91%d7%a2%d7%99%d7%99%d7%99%d7%aa-%d7%94%d7%a9%d7%97/",
-      content: "Harari’s latest work draws inspiration from biotech innovations, merging art with science. His recent piece, showcased in Tel Aviv, highlights a fusion of cutting-edge ideas and traditional collage techniques, earning praise from local critics.",
+      content: "Harari's latest work draws inspiration from biotech innovations, merging art with science. His recent piece, showcased in Tel Aviv, highlights a fusion of cutting-edge ideas and traditional collage techniques, earning praise from local critics.",
+    },
+    {
+      title: "War and Peace Exhibition",
+      source: "Tel Aviv University Library",
+      date: "2025",
+      link: "https://soclib.tau.ac.il/events/exhibitions/warandpeace",
+      content: "Dekel Harari's work is featured in the War and Peace Exhibition at Tel Aviv University Library, showcasing his unique approach to contemporary art and media critique through newspaper collage techniques.",
     },
   ];
 

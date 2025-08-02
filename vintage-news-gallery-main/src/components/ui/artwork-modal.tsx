@@ -84,15 +84,22 @@ const ArtworkModal = ({
                 </div>
                 <div className="artwork-modal-detail-item">
                   <span className="artwork-modal-detail-label">Dimensions</span>
-                  <span className="artwork-modal-detail-value">{artwork.dimensions}</span>
+                  <div className="artwork-modal-detail-value">
+                    <div>{artwork.dimensions.split(' - ')[0]}</div>
+                    {artwork.dimensions.includes(' - ') && (
+                      <div className="artwork-modal-frame-info">{artwork.dimensions.split(' - ')[1]}</div>
+                    )}
+                  </div>
                 </div>
               </div>
               
               <div className="artwork-modal-details-row">
-                <div className="artwork-modal-detail-item">
-                  <span className="artwork-modal-detail-label">Price</span>
-                  <span className="artwork-modal-detail-value artwork-modal-price">{formatPrice(artwork.price)}</span>
-                </div>
+                {artwork.availability !== 'SOLD' && (
+                  <div className="artwork-modal-detail-item">
+                    <span className="artwork-modal-detail-label">Price</span>
+                    <span className="artwork-modal-detail-value artwork-modal-price">{formatPrice(artwork.price)}</span>
+                  </div>
+                )}
                 <div className="artwork-modal-detail-item">
                   <span className="artwork-modal-detail-label">Availability</span>
                   <span className={`artwork-modal-detail-value artwork-modal-availability ${artwork.availability === 'SOLD' ? 'sold' : 'available'}`}>
@@ -114,6 +121,34 @@ const ArtworkModal = ({
                   disabled={cart.includes(artwork.id) || artwork.availability === 'SOLD'}
                 >
                   {cart.includes(artwork.id) ? "In Collection" : artwork.availability === 'SOLD' ? "Sold" : "Purchase Artwork"}
+                </Button>
+                
+                <Button
+                  className="artwork-modal-inquire-btn"
+                  onClick={() => {
+                    const artworkName = `Artwork: ${artwork.title}`;
+                    const subject = `I have a question about the artwork ${artwork.title}`;
+                    const encodedArtworkName = encodeURIComponent(artworkName);
+                    const encodedSubject = encodeURIComponent(subject);
+                    
+                    // Close the modal first
+                    onClose();
+                    
+                    // Navigate to contact page with parameters
+                    setTimeout(() => {
+                      // Set the hash with parameters (no message parameter)
+                      window.location.hash = `contact?artwork=${encodedArtworkName}&subject=${encodedSubject}`;
+                      
+                      // Scroll to contact section
+                      const contactSection = document.getElementById('contact');
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }, 100);
+                  }}
+                  variant="outline"
+                >
+                  Inquire about this artwork
                 </Button>
               </div>
             </div>
