@@ -13,7 +13,7 @@ const Press = () => {
       title: "Innovative Solutions: Dekel Harari's Biotech Inspiration",
       source: "TLV Times",
       date: "July 15, 2025",
-      link: "https://tlvtimes.co.il/%d7%9e%d7%93%d7%99%d7%a0%d7%aa-%d7%aa%d7%9c-%d7%90%d7%91%d7%99%d7%91/%d7%9e%d7%a0%d7%9b%d7%9c-%d7%97%d7%91%d7%a8%d7%94-%d7%94%d7%91%d7%99%d7%95%d7%98%d7%a7-%d7%a9%d7%9e%d7%a6%d7%90-%d7%a4%d7%aa%d7%a8%d7%95%d7%9f-%d7%9c%d7%91%d7%a2%d7%99%d7%99%d7%99%d7%aa-%d7%94%d7%a9%d7%97/",
+      link: "https://tlvtimes.co.il/מדינת-תל-אביב/מנכל-חברת-הביוטק-שמצא-פתרון-לבעיית-השח/",
       content: "Harari's latest work draws inspiration from biotech innovations, merging art with science. His recent piece, showcased in Tel Aviv, highlights a fusion of cutting-edge ideas and traditional collage techniques, earning praise from local critics.",
     },
     {
@@ -46,9 +46,15 @@ const Press = () => {
               <div className="press-article-footer">
                 <span className="press-article-source">{item.source}</span> | 
                 <span className="press-article-date">{item.date}</span>
-                <a href={item.link} className="press-article-link" target="_blank" rel="noopener noreferrer">
-                  Read Full Article
-                </a>
+                {item.link ? (
+                  <a href={item.link} className="press-article-link" target="_blank" rel="noopener noreferrer">
+                    Read Full Article
+                  </a>
+                ) : (
+                  <span className="press-article-link-disabled">
+                    Link Temporarily Unavailable
+                  </span>
+                )}
               </div>
             </article>
           ))}
