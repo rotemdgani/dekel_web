@@ -1,4 +1,4 @@
-import { useState } from "react";
+/* import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import ArtworkModal from "@/components/ui/artwork-modal";
@@ -166,4 +166,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default Gallery; */

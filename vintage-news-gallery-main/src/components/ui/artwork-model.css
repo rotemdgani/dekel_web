@@ -1,22 +1,52 @@
 .artwork-modal-content {
-    border-radius: 8px;
-    padding: 1.5rem;
-    background-color: #f8f4e9; /* Off White עם גוון וינטג' */
-    border: 1px solid #d9c9a9; /* גבול בהיר עם גוון וינטג' */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.25rem;
-    border: none;
-    background: none;
-    cursor: pointer;
-    color: #8a6d3b; /* חום בהיר להרגשת וינטג' */
-  }
-  
-  .close-btn:hover {
-    color: #5c4033; /* חום כהה יותר בה Hover */
-  }
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: #f8f4e9; /* Off White עם גוון וינטג' */
+  border: 1px solid #d9c9a9; /* גבול בהיר עם גוון וינטג' */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* לוודא שהמיקום יחסי לעבודה עם האלמנטים */
+}
+
+/* הסתרת ה-close-btn המותאם אישית אם עדיין קיים במקרה מסוים */
+.close-btn {
+  display: none !important;
+}
+
+/* התאמת צבע האיקס המובנה של Dialog לשחור אם ניתן לשלוט בו */
+[data-radix-dialog-content] .close-btn,
+[data-radix-dialog-content] [aria-label="Close"] {
+  color: #000 !important; /* ודא שהאיקס המובנה יהיה שחור */
+}
+
+/* סגנון ניווט */
+.artwork-modal-image-container {
+  position: relative;
+  text-align: center;
+}
+
+.artwork-modal-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.artwork-modal-nav-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #8a6d3b;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.artwork-modal-nav-btn:hover {
+  color: #5c4033;
+}
+
+.artwork-modal-index {
+  font-size: 1rem;
+  color: #6b5b40;
+  font-family: 'Georgia', serif;
+}

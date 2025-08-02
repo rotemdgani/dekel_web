@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Heart, Eye } from "lucide-react";
+import { ShoppingCart, Heart, Eye, ChevronLeft, ChevronRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ArtworkModal from "@/components/ui/artwork-modal";
 import "./Artworkhub.css";
@@ -49,6 +49,7 @@ const ArtworkHub = () => {
     const { toast } = useToast();
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedArtwork, setSelectedArtwork] = useState<any>(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0); // לעקוב אחר התמונה הנוכחית
 
     const artworks = [
         {
@@ -70,19 +71,7 @@ const ArtworkHub = () => {
             price: 1200,
             medium: "Newspaper collage with acrylic",
             dimensions: "27.9\" x 35.6\"",
-            image: profile_vintage,
-            description: "",
-            availability: "Available",
-            isLimited: false,
-        },
-        {
-            id: 3,
-            title: "The Flower is Him",
-            category: "face-card",
-            price: 1200,
-            medium: "Newspaper collage with acrylic",
-            dimensions: "27.9\" x 35.6\"",
-            image: flower_hear_himinai,
+            images: [profile_vintage, flower_hear_himinai], // שתי תמונות
             description: "",
             availability: "Available",
             isLimited: false,
@@ -106,19 +95,7 @@ const ArtworkHub = () => {
             price: 500,
             medium: "Newspaper collage with acrylic",
             dimensions: "27.9\" x 35.6\"",
-            image: profile_vintage2,
-            description: "",
-            availability: "Available",
-            isLimited: false,
-        },
-        {
-            id: 6,
-            title: "The Reader",
-            category: "face-card",
-            price: 500,
-            medium: "Newspaper collage with acrylic",
-            dimensions: "27.9\" x 35.6\"",
-            image: women_read_book,
+            images: [profile_vintage2, women_read_book], // שתי תמונות
             description: "",
             availability: "Available",
             isLimited: false,
@@ -472,17 +449,31 @@ const ArtworkHub = () => {
         }
     };
 
+    const prevImage = () => {
+        setSelectedImageIndex((prev) => (prev > 0 ? prev - 1 : (selectedArtwork.images?.length || 1) - 1));
+    };
+
+    const nextImage = () => {
+        setSelectedImageIndex((prev) => (prev < (selectedArtwork.images?.length || 1) - 1 ? prev + 1 : 0));
+    };
+
     return (
         <section id="artworkhub" className="artwork-hub-section">
             <ArtworkModal
                 open={modalOpen}
-                onClose={() => setModalOpen(false)}
+                onClose={() => {
+                    setModalOpen(false);
+                    setSelectedImageIndex(0); // איפוס אינדקס התמונה כשהמודאל נסגר
+                }}
                 artwork={selectedArtwork}
+                selectedImageIndex={selectedImageIndex}
+                prevImage={prevImage}
+                nextImage={nextImage}
             />
             <div className="artwork-hub-container">
                 <div className="artwork-hub-header">
                     <h1 className="artwork-hub-banner">DEKEL’S ART SPACE</h1>
-                    <h2 className="artwork-hub-title">Gallery</h2>
+                    <h2 className="artwork-hub-title">Gallery & Shop</h2>
                     <div className="artwork-hub-divider"></div>
                     <p className="artwork-hub-subtitle">View and buy Dekel Harari’s stunning modern artworks</p>
                 </div>
@@ -500,7 +491,7 @@ const ArtworkHub = () => {
                                             <article key={artwork.id} className="artwork-hub-article">
                                                 <div className="artwork-hub-article-image">
                                                     <img
-                                                        src={artwork.image}
+                                                        src={artwork.images ? artwork.images[0] : artwork.image}
                                                         alt={artwork.title}
                                                         className="artwork-hub-image"
                                                         loading="lazy"
@@ -522,13 +513,10 @@ const ArtworkHub = () => {
                                                                 variant="secondary"
                                                                 onClick={() => {
                                                                     setSelectedArtwork({
-                                                                        title: artwork.title,
-                                                                        image: artwork.image,
-                                                                        description: artwork.description,
-                                                                        medium: artwork.medium,
-                                                                        dimensions: artwork.dimensions,
-                                                                        price: formatPrice(artwork.price),
+                                                                        ...artwork,
+                                                                        images: artwork.images || [artwork.image], // ודא שתמיד יש מערך תמונות
                                                                     });
+                                                                    setSelectedImageIndex(0); // התחל מהתמונה הראשונה
                                                                     setModalOpen(true);
                                                                 }}
                                                                 className="artwork-hub-view-btn"
@@ -605,7 +593,11 @@ const ArtworkHub = () => {
 
                 <div className="artwork-hub-custom-work">
                     <Card className="artwork-hub-custom-card">
-
+                        <h3 className="artwork-hub-custom-title">Commission Custom Work</h3>
+                        <p className="artwork-hub-custom-text">
+                            Interested in a custom piece? Dekel Harari accepts commissions for personalized artworks
+                            that blend your vision with his modern art style.
+                        </p>
                         <Button
                             size="lg"
                             variant="outline"
