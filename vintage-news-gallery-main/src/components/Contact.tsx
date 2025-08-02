@@ -12,10 +12,6 @@ const Contact = () => {
         <div className="contact-header">
           <h2 className="contact-title">GET IN TOUCH</h2>
           <div className="contact-divider"></div>
-          <p className="contact-subtitle">
-            Interested in purchasing artwork, commissioning a custom piece, or learning more about 
-            Dekel Harari's modern and pop art creations? Let's connect.
-          </p>
         </div>
 
         <div className="contact-grid">
@@ -76,15 +72,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <Card className="contact-commission-card">
-              <h4 className="contact-commission-title">Commission Information</h4>
-              <ul className="contact-commission-list">
-                <li>Custom pieces typically take 4-6 weeks</li>
-                <li>Pricing starts at $800 for small works</li>
-                <li>50% deposit required to begin</li>
-                <li>Free consultation for all projects</li>
-              </ul>
-            </Card>
+ 
           </div>
 
           <Card className="contact-form-card">

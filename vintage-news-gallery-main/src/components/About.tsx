@@ -51,17 +51,13 @@ const About = () => {
 
           <div className="about-quote">
             <div className="about-quote-content">
-              <div className="about-quote-mark">"</div>
-              <blockquote className="about-quote-text">
-                The newspaper is not just my canvas—it's my collaborator. Each headline, 
-                each fragment carries its own story, and my art emerges from the conversation 
-                between these stories and contemporary visual language.
-              </blockquote>
-              <div className="about-quote-mark rotate-180">"</div>
+
+
+
             </div>
             <div className="about-quote-author">
-              <p className="about-quote-name">Dekel Harari</p>
-              <p className="about-quote-role">Modern & Pop Art with Newspaper Collage</p>
+              <p className="about-quote-name"></p>
+              <p className="about-quote-role"></p>
             </div>
             <div className="about-quote-image">
               <img src={dekel} alt="Dekel Harari Portrait" className="about-quote-img" />

@@ -482,7 +482,7 @@ const ArtworkHub = () => {
             <div className="artwork-hub-container">
                 <div className="artwork-hub-header">
                     <h1 className="artwork-hub-banner">DEKEL’S ART SPACE</h1>
-                    <h2 className="artwork-hub-title">Gallery & Shop</h2>
+                    <h2 className="artwork-hub-title">Gallery</h2>
                     <div className="artwork-hub-divider"></div>
                     <p className="artwork-hub-subtitle">View and buy Dekel Harari’s stunning modern artworks</p>
                 </div>
@@ -605,11 +605,7 @@ const ArtworkHub = () => {
 
                 <div className="artwork-hub-custom-work">
                     <Card className="artwork-hub-custom-card">
-                        <h3 className="artwork-hub-custom-title">Commission Custom Work</h3>
-                        <p className="artwork-hub-custom-text">
-                            Interested in a custom piece? Dekel Harari accepts commissions for personalized artworks
-                            that blend your vision with his modern art style.
-                        </p>
+
                         <Button
                             size="lg"
                             variant="outline"
