@@ -6,6 +6,26 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: hsl(0 0% 98%);
+  font-family: 'Times New Roman', serif;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(0,0,0,0.01) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0,0,0,0.01) 0%, transparent 50%);
+  background-size: 100px 100px, 150px 150px;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-bg {
@@ -14,96 +34,212 @@
   right: 0;
   bottom: 0;
   left: 0;
-  object-fit: cover; /* ודא שהסרטון מכסה את כל האזור */
+  object-fit: contain;
   width: 100%;
   height: 100%;
-  z-index: 1; /* שכבה מאחורי התוכן */
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
+  object-position: center center;
+}
+
+/* Mobile-specific video adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .hero-bg {
+    position: relative;
+    object-fit: cover;
+    object-position: center center;
+    width: 100vw;
+    max-width: none;
+    height: 150vw;
+    min-width: auto;
+    min-height: auto;
+    margin: 0;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: auto;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .hero-bg {
+    position: relative;
+    object-fit: cover;
+    object-position: center center;
+    width: 100vw;
+    max-width: none;
+    height: 150vw;
+    min-width: auto;
+    min-height: auto;
+    margin: 0;
+  }
+}
+
+/* Landscape mobile devices */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .hero-bg {
+    position: relative;
+    object-fit: cover;
+    object-position: center center;
+    width: 100vw;
+    max-width: none;
+    height: 150vw;
+    min-width: auto;
+    min-height: auto;
+    margin: 0;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-bg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Ensure video maintains quality */
+.hero-bg {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Very small mobile devices */
+@media (max-width: 360px) {
+  .hero-section {
+    min-height: auto;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .hero-bg {
+    position: relative;
+    object-fit: cover;
+    object-position: center center;
+    width: 100vw;
+    max-width: none;
+    height: 150vw;
+    min-width: auto;
+    min-height: auto;
+    margin: 0;
+  }
 }
 
 .hero-overlay {
   position: absolute;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); /* קל משקף לשמירה על ניגודיות */
-  z-index: 2; /* מעל הסרטון, מתחת לתוכן */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+  z-index: 2;
 }
 
 .hero-content {
   position: relative;
-  z-index: 10;
+  z-index: 3;
+  text-align: center;
   max-width: 80rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.5rem;
-  height: 100%;
-  display: flex;
-  align-items: center;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  color: hsl(0 0% 12%);
+  font-family: 'Times New Roman', serif;
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
-  width: 100%;
-  text-align: center;
 }
 
 .hero-textCol {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .hero-minimalText {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-size: 1.125rem;
+  color: hsl(0 0% 45%);
+  font-family: 'Times New Roman', serif;
 }
 
 .hero-brand {
-  color: #fff;
-  font-size: 1.25rem;
+  font-size: 2.5rem;
   font-weight: bold;
+  color: hsl(0 0% 12%);
+  font-family: 'Times New Roman', serif;
 }
+
 @media (min-width: 768px) {
   .hero-brand {
-    font-size: 1.5rem;
+    font-size: 3.5rem;
   }
 }
 
 .hero-tagline {
-  color: #fff;
-  font-size: 0.875rem;
-  font-weight: 300;
+  font-size: 1.25rem;
+  color: hsl(0 0% 45%);
+  font-family: 'Times New Roman', serif;
 }
+
 @media (min-width: 768px) {
   .hero-tagline {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
 .hero-ctas {
   display: flex;
+  gap: 1rem;
   justify-content: center;
-  padding-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .hero-exploreBtn {
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  border: 1px solid #fff;
-  color: #fff;
-  background: transparent;
+  background: hsl(0 0% 25%);
+  color: hsl(0 0% 100%);
+  border: 1px solid hsl(0 0% 25%);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
   transition: all 0.3s;
+  font-family: 'Times New Roman', serif;
 }
+
 .hero-exploreBtn:hover {
-  background: #fff;
-  color: #000;
+  background: hsl(0 0% 12%);
+  border-color: hsl(0 0% 12%);
 }
 
 .hero-scrollWrap {
@@ -111,17 +247,48 @@
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10; /* מעל הסרטון וה-Overlay */
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-scrollWrap {
+    bottom: 1rem;
+  }
+  
+  .hero-scrollBar {
+    width: 2px;
+    height: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-scrollWrap {
+    bottom: 0.5rem;
+  }
+  
+  .hero-scrollBar {
+    width: 1px;
+    height: 2rem;
+  }
 }
 
 .hero-scrollBar {
-  width: 1px;
+  width: 2px;
   height: 4rem;
-  background-color: rgba(255, 255, 255, 0.3);
+  background: hsl(0 0% 25%);
+  border-radius: 1px;
   animation: hero-pulse 2s infinite;
 }
 
 @keyframes hero-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }

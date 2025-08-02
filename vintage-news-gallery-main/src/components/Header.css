@@ -2,10 +2,11 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: var(--background, #ffffff)/95%;
+    background: hsl(0 0% 98%);
     backdrop-filter: blur(0.5rem);
-    border-bottom: 1px solid var(--border, #e5e7eb);
+    border-bottom: 1px solid hsl(0 0% 88%);
     z-index: 50;
+    font-family: 'Times New Roman', serif;
   }
   
   nav {
@@ -24,6 +25,8 @@ header {
   .headline {
     font-size: 1.5rem;
     font-weight: bold;
+    color: hsl(0 0% 12%);
+    font-family: 'Times New Roman', serif;
   }
   
   .header-desktop-nav {
@@ -40,22 +43,25 @@ header {
   .editorial-link {
     font-size: 0.875rem;
     font-weight: medium;
-    color: inherit;
+    color: hsl(0 0% 12%);
     text-decoration: none;
     transition: color 0.3s;
+    font-family: 'Times New Roman', serif;
   }
   
   .editorial-link:hover {
-    color: var(--primary, #3b82f6);
+    color: hsl(0 0% 25%);
   }
   
   .body-text {
     font-size: 0.875rem;
     font-weight: medium;
+    color: hsl(0 0% 12%);
+    font-family: 'Times New Roman', serif;
   }
   
   .body-text:hover {
-    color: var(--primary, #3b82f6);
+    color: hsl(0 0% 25%);
   }
   
   .header-mobile-toggle {
@@ -81,7 +87,7 @@ header {
   .header-mobile-nav {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--border, #e5e7eb);
+    border-top: 1px solid hsl(0 0% 88%);
   }
   
   .header-mobile-links {

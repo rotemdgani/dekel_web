@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Heart, Eye, ChevronLeft, ChevronRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ArtworkModal from "@/components/ui/artwork-modal";
@@ -403,10 +402,10 @@ const ArtworkHub = () => {
     ];
 
     const categories = [
-        { name: "Face Card", description: "A minimalist portrait series created using full newspaper pages, not traditional collage. Each page is hand-cut like a brushstroke, shaping faces through subtraction. No layering-just one precise cut. Mounted on wood panels, the series explores the relationship between identity and media, while also questioning the boundaries between design and fine art." },
-        { name: "Based on a True Story", description: "A mixed media series combining acrylic painting with newspaper collage, based on real-world events. The works offer a subjective reflection and visual critique, blending fact and feeling into layered narratives." },
-        { name: "Present", description: "A conceptual and critical series presenting the news as a wrapped gift. Beneath the bright ribbons lies the erosion of truth, exhaustion of repetition, and the discomfort we’ve learned to accept. Each tag reads like a well-wish, but the irony is loud and deliberate." },
         { name: "The Good Times", description: "A series of hand-painted newspaper covers using 100% acrylic on canvas. The works explore the contrast between the aesthetics of media and the quiet of nature or imagination. Each piece looks like a newspaper, but feels like a moment of stillness." },
+        { name: "Based on a True Story", description: "A mixed media series combining acrylic painting with newspaper collage, based on real-world events. The works offer a subjective reflection and visual critique, blending fact and feeling into layered narratives." },
+        { name: "Face Card", description: "A minimalist portrait series created using full newspaper pages, not traditional collage. Each page is hand-cut like a brushstroke, shaping faces through subtraction. No layering-just one precise cut. Mounted on wood panels, the series explores the relationship between identity and media, while also questioning the boundaries between design and fine art." },
+        { name: "Present", description: "A conceptual and critical series presenting the news as a wrapped gift. Beneath the bright ribbons lies the erosion of truth, exhaustion of repetition, and the discomfort we've learned to accept. Each tag reads like a well-wish, but the irony is loud and deliberate." },
     ];
 
     const formatPrice = (price: number) => {
@@ -472,10 +471,8 @@ const ArtworkHub = () => {
             />
             <div className="artwork-hub-container">
                 <div className="artwork-hub-header">
-                    <h1 className="artwork-hub-banner">DEKEL’S ART SPACE</h1>
-                    <h2 className="artwork-hub-title">Gallery & Shop</h2>
+                    <h2 className="artwork-hub-title">Gallery</h2>
                     <div className="artwork-hub-divider"></div>
-                    <p className="artwork-hub-subtitle">View and buy Dekel Harari’s stunning modern artworks</p>
                 </div>
 
                 <div className="artwork-hub-content">
@@ -524,11 +521,6 @@ const ArtworkHub = () => {
                                                                 <Eye className="w-4 h-4" />
                                                             </Button>
                                                         </div>
-                                                    </div>
-                                                    <div className="artwork-hub-badges">
-                                                        <Badge variant="secondary" className="artwork-hub-badge-category">
-                                                            {artwork.category}
-                                                        </Badge>
                                                     </div>
                                                 </div>
                                                 <div className="artwork-hub-article-content">
@@ -591,23 +583,6 @@ const ArtworkHub = () => {
                     </div>
                 )}
 
-                <div className="artwork-hub-custom-work">
-                    <Card className="artwork-hub-custom-card">
-                        <h3 className="artwork-hub-custom-title">Commission Custom Work</h3>
-                        <p className="artwork-hub-custom-text">
-                            Interested in a custom piece? Dekel Harari accepts commissions for personalized artworks
-                            that blend your vision with his modern art style.
-                        </p>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="artwork-hub-custom-btn"
-                            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                        >
-                            Request Commission
-                        </Button>
-                    </Card>
-                </div>
             </div>
         </section>
     );

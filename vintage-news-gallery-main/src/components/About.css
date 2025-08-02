@@ -1,6 +1,22 @@
 .about-section {
     padding: 6rem 0;
-    background: linear-gradient(135deg, #f8f4e9 0%, #ece2d4 100%); /* Off White עם גוון וינטג' */
+    background: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(0 0% 96%) 100%);
+    font-family: 'Times New Roman', serif;
+    position: relative;
+  }
+  
+  .about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(0,0,0,0.01) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(0,0,0,0.01) 0%, transparent 50%);
+    background-size: 100px 100px, 150px 150px;
+    pointer-events: none;
   }
   
   .about-container {
@@ -8,6 +24,8 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
   }
   
   .about-grid {
@@ -36,16 +54,18 @@
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
+    color: hsl(0 0% 12%);
+    font-family: 'Times New Roman', serif;
   }
   
   .about-title .text-accent {
-    color: #8a6d3b; /* חום בהיר להדגשה */
+    color: hsl(0 0% 25%);
   }
   
   .about-divider {
     width: 6rem;
     height: 2px;
-    background-color: #d9c9a9; /* גבול וינטג' */
+    background-color: hsl(0 0% 25%);
     margin: 0 auto 2rem;
   }
   
@@ -58,7 +78,8 @@
   .about-paragraph {
     font-size: 1.25rem;
     line-height: 1.75rem;
-    color: #6b5b40; /* חום בהיר לטקסט */
+    color: hsl(0 0% 45%);
+    font-family: 'Times New Roman', serif;
   }
   
   .about-stats {
@@ -66,7 +87,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #d9c9a9;
+    border-top: 1px solid hsl(0 0% 88%);
   }
   
   .about-stat {
@@ -76,74 +97,143 @@
   .about-stat-number {
     font-size: 1.875rem;
     font-weight: bold;
-    color: #8a6d3b; /* חום בהיר למספרים */
+    color: hsl(0 0% 25%);
     margin-bottom: 0.5rem;
+    font-family: 'Times New Roman', serif;
   }
   
   .about-stat-label {
     font-size: 0.875rem;
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
+    font-family: 'Times New Roman', serif;
   }
   
   .about-quote {
-    background-color: #fafafa;
-    padding: 2rem;
-    border: 1px solid #d9c9a9;
+    background-color: hsl(0 0% 100%);
+    padding: 1.25rem;
+    border: 1px solid hsl(0 0% 88%);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 400px;
+  }
+  
+  .about-quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(0,0,0,0.01) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(0,0,0,0.01) 0%, transparent 50%);
+    background-size: 50px 50px, 75px 75px;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  
+  .about-quote-image-container {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-quote-img {
+    width: 90%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
   }
   
   .about-quote-content {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    position: relative;
+    z-index: 1;
+    width: 100%;
   }
   
   .about-quote-mark {
     font-size: 3rem;
-    color: #8a6d3b;
+    color: hsl(0 0% 25%);
+    font-family: 'Times New Roman', serif;
+    margin-bottom: 1rem;
   }
   
   .about-quote-text {
-    font-size: 1.25rem;
-    font-style: italic;
-    color: #5c4033;
+    font-size: 1.125rem;
     line-height: 1.75rem;
+    color: hsl(0 0% 45%);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-family: 'Times New Roman', serif;
   }
   
   .about-quote-author {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #d9c9a9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    position: relative;
+    z-index: 1;
   }
   
   .about-quote-name {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
-    color: #5c4033;
-    margin-bottom: 0.25rem;
+    color: hsl(0 0% 12%);
+    font-family: 'Times New Roman', serif;
   }
   
   .about-quote-role {
     font-size: 0.875rem;
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
+    font-family: 'Times New Roman', serif;
   }
   
-  .about-quote-image {
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid #d9c9a9;
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .about-quote {
+      min-height: 350px;
+      padding: 1rem;
+    }
+    
+    .about-quote-image-container {
+      max-width: 350px;
+      margin-bottom: 1.25rem;
+    }
+    
+    .about-quote-img {
+      width: 85%;
+    }
   }
   
-  .about-quote-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    border: 1px solid #d9c9a9;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  @media (max-width: 480px) {
+    .about-quote {
+      min-height: 300px;
+      padding: 0.75rem;
+    }
+    
+    .about-quote-image-container {
+      max-width: 300px;
+      margin-bottom: 1rem;
+    }
+    
+    .about-quote-img {
+      width: 80%;
+    }
   }

@@ -1,7 +1,22 @@
 .artwork-hub-section {
     padding: 6rem 0;
-    background: linear-gradient(135deg, #f8f4e9 0%, #ece2d4 100%);
+    background: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(0 0% 96%) 100%);
     font-family: 'Times New Roman', serif;
+    position: relative;
+  }
+  
+  .artwork-hub-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(0,0,0,0.01) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(0,0,0,0.01) 0%, transparent 50%);
+    background-size: 100px 100px, 150px 150px;
+    pointer-events: none;
   }
   
   .artwork-hub-container {
@@ -9,6 +24,8 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
   }
   
   .artwork-hub-header {
@@ -19,32 +36,34 @@
   .artwork-hub-banner {
     font-size: 2rem;
     font-weight: bold;
-    color: #8a6d3b;
+    color: hsl(0 0% 25%);
     text-transform: uppercase;
     letter-spacing: 0.2rem;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #5c4033;
+    color: hsl(0 0% 12%);
     margin-bottom: 1.5rem;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-divider {
     width: 6rem;
     height: 2px;
-    background-color: #d9c9a9;
+    background-color: hsl(0 0% 25%);
     margin: 0 auto 2rem;
   }
   
   .artwork-hub-subtitle {
     font-size: 1.25rem;
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
     max-width: 40rem;
     margin: 0 auto;
     font-style: italic;
-    font-family: 'Georgia', serif;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-content {
@@ -58,11 +77,12 @@
   .artwork-hub-category-title {
     font-size: 1.75rem;
     font-weight: bold;
-    color: #5c4033;
+    color: hsl(0 0% 12%);
     margin-bottom: 1.5rem;
     text-transform: uppercase;
-    border-bottom: 2px solid #d9c9a9;
+    border-bottom: 2px solid hsl(0 0% 25%);
     padding-bottom: 0.5rem;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-category-grid {
@@ -72,15 +92,32 @@
   }
   
   .artwork-hub-article {
-    border: 1px solid #d9c9a9;
+    border: 1px solid hsl(0 0% 88%);
     padding: 1rem;
-    background: rgba(248, 244, 233, 0.9);
-    box-shadow: 0 2px 6px rgba(92, 64, 51, 0.1);
+    background: hsl(0 0% 100%);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
+    position: relative;
+  }
+  
+  .artwork-hub-article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(0,0,0,0.01) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(0,0,0,0.01) 0%, transparent 50%);
+    background-size: 50px 50px, 75px 75px;
+    pointer-events: none;
+    border-radius: inherit;
   }
   
   .artwork-hub-article:hover {
     transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
   
   .artwork-hub-article-image {
@@ -89,13 +126,13 @@
   }
   
   .artwork-hub-image {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: contain;
-  border: 1px solid #d9c9a9;
-  transition: transform 0.5s;
-}
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border: 1px solid hsl(0 0% 88%);
+    transition: transform 0.5s;
+  }
   
   .artwork-hub-article:hover .artwork-hub-image {
     transform: scale(1.05);
@@ -126,58 +163,46 @@
   }
   
   .artwork-hub-favorite-btn, .artwork-hub-view-btn {
-    background-color: #f8f4e9;
-    border: 1px solid #8a6d3b;
-    color: #5c4033;
+    background-color: hsl(0 0% 100%);
+    border: 1px solid hsl(0 0% 25%);
+    color: hsl(0 0% 12%);
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-favorite-btn:hover, .artwork-hub-view-btn:hover {
-    background-color: #8a6d3b;
-    color: #f8f4e9;
+    background-color: hsl(0 0% 25%);
+    color: hsl(0 0% 100%);
   }
   
-  .artwork-hub-badges {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .artwork-hub-badge-special {
-    background-color: #ef4444;
-    color: #fff;
-  }
-  
-  .artwork-hub-badge-category {
-    background-color: #d9c9a9;
-    color: #5c4033;
-  }
+
   
   .artwork-hub-article-content {
     padding: 0;
+    position: relative;
+    z-index: 1;
   }
   
   .artwork-hub-article-title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #5c4033;
+    color: hsl(0 0% 12%);
     margin-bottom: 0.5rem;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-article-details {
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
     font-size: 0.875rem;
     margin-bottom: 0.75rem;
-    font-family: 'Georgia', serif;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-article-description {
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
     font-size: 0.95rem;
     margin-bottom: 1rem;
     line-height: 1.5;
-    font-family: 'Georgia', serif;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-article-footer {
@@ -190,34 +215,38 @@
   .artwork-hub-article-price {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #8a6d3b;
+    color: hsl(0 0% 25%);
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-article-original-price {
     font-size: 1rem;
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
     text-decoration: line-through;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-article-availability {
     font-size: 0.875rem;
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-add-to-cart {
     width: 100%;
-    background-color: #8a6d3b;
-    color: #f8f4e9;
+    background-color: hsl(0 0% 25%);
+    color: hsl(0 0% 100%);
     transition: all 0.3s;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-add-to-cart:hover:not(:disabled) {
-    background-color: #5c4033;
+    background-color: hsl(0 0% 12%);
   }
   
   .artwork-hub-add-to-cart:disabled {
-    background-color: #d9c9a9;
-    color: #5c4033;
+    background-color: hsl(0 0% 88%);
+    color: hsl(0 0% 45%);
     cursor: not-allowed;
   }
   
@@ -227,13 +256,32 @@
   
   .artwork-hub-cart-card {
     padding: 1.5rem;
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(0 0% 88%);
+    position: relative;
+  }
+  
+  .artwork-hub-cart-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(0,0,0,0.01) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(0,0,0,0.01) 0%, transparent 50%);
+    background-size: 50px 50px, 75px 75px;
+    pointer-events: none;
+    border-radius: inherit;
   }
   
   .artwork-hub-cart-title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #5c4033;
+    color: hsl(0 0% 12%);
     margin-bottom: 1rem;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-cart-items {
@@ -244,6 +292,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-cart-total {
@@ -251,18 +300,20 @@
     justify-content: space-between;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: #5c4033;
+    color: hsl(0 0% 12%);
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-checkout-btn {
     width: 100%;
-    background-color: #8a6d3b;
-    color: #f8f4e9;
+    background-color: hsl(0 0% 25%);
+    color: hsl(0 0% 100%);
     transition: all 0.3s;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-checkout-btn:hover {
-    background-color: #5c4033;
+    background-color: hsl(0 0% 12%);
   }
   
   .artwork-hub-custom-work {
@@ -272,50 +323,79 @@
   
   .artwork-hub-custom-card {
     padding: 2rem;
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(0 0% 88%);
+    position: relative;
+  }
+  
+  .artwork-hub-custom-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(0,0,0,0.01) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(0,0,0,0.01) 0%, transparent 50%);
+    background-size: 50px 50px, 75px 75px;
+    pointer-events: none;
+    border-radius: inherit;
   }
   
   .artwork-hub-custom-title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #5c4033;
+    color: hsl(0 0% 12%);
     margin-bottom: 1rem;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-custom-text {
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
     margin-bottom: 1.5rem;
-    font-family: 'Georgia', serif;
+    font-family: 'Times New Roman', serif;
   }
   
   .artwork-hub-custom-btn {
-    border-color: #8a6d3b;
-    color: #5c4033;
+    border-color: hsl(0 0% 25%);
+    color: hsl(0 0% 12%);
     transition: all 0.3s;
+    font-family: 'Times New Roman', serif;
   }
+  
   .artwork-hub-category-description {
     font-size: 1rem;
-    color: #6b5b40;
+    color: hsl(0 0% 45%);
     margin-bottom: 1.5rem;
-    font-family: 'Georgia', serif;
+    font-family: 'Times New Roman', serif;
     line-height: 1.5;
     max-width: 60rem;
   }
+  
   .artwork-hub-custom-btn:hover {
-    background-color: #8a6d3b;
-    color: #f8f4e9;
+    background-color: hsl(0 0% 25%);
+    color: hsl(0 0% 100%);
   }
   
   @media (max-width: 768px) {
-  .artwork-hub-category-title {
-    font-size: 1.5rem;
+    .artwork-hub-section {
+      padding: 0.5rem 0;
+    }
+    
+    .artwork-hub-category-title {
+      font-size: 1.5rem;
+    }
+    
+    .artwork-hub-article-title {
+      font-size: 1.25rem;
+    }
+    
+    .artwork-hub-category-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .artwork-hub-image {
+      max-height: 300px;
+    }
   }
-  .artwork-hub-article-title {
-    font-size: 1.25rem;
-  }
-  .artwork-hub-category-grid {
-    grid-template-columns: 1fr;
-  }
-  .artwork-hub-image {
-    max-height: 300px;
-  }
-}

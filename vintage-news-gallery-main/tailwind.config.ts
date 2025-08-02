@@ -22,9 +22,9 @@ export default {
 				headline: 'var(--font-headline)',
 				subhead: 'var(--font-subhead)',
 				body: 'var(--font-body)',
-				playfair: ['Playfair Display', 'Times New Roman', 'serif'],
-				sourceserif: ['Source Serif Pro', 'Georgia', 'serif'],
-				inter: ['Inter', 'Helvetica Neue', 'sans-serif'],
+				times: ['Times New Roman', 'serif'],
+				serif: ['Times New Roman', 'serif'],
+				sans: ['Times New Roman', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
