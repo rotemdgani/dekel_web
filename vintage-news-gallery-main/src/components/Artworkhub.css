@@ -89,13 +89,13 @@
   }
   
   .artwork-hub-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border: 1px solid #d9c9a9;
-    transition: transform 0.5s;
-  }
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border: 1px solid #d9c9a9;
+  transition: transform 0.5s;
+}
   
   .artwork-hub-article:hover .artwork-hub-image {
     transform: scale(1.05);
@@ -306,13 +306,16 @@
   }
   
   @media (max-width: 768px) {
-    .artwork-hub-category-title {
-      font-size: 1.5rem;
-    }
-    .artwork-hub-article-title {
-      font-size: 1.25rem;
-    }
-    .artwork-hub-category-grid {
-      grid-template-columns: 1fr;
-    }
+  .artwork-hub-category-title {
+    font-size: 1.5rem;
   }
+  .artwork-hub-article-title {
+    font-size: 1.25rem;
+  }
+  .artwork-hub-category-grid {
+    grid-template-columns: 1fr;
+  }
+  .artwork-hub-image {
+    max-height: 300px;
+  }
+}
