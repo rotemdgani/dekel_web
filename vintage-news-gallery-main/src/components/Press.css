@@ -159,4 +159,12 @@
   
   .press-article-link:hover {
     color: hsl(0 0% 12%);
+    text-decoration: underline;
   }
+
+.press-article-link-disabled {
+  color: hsl(0 0% 60%);
+  font-style: italic;
+  cursor: not-allowed;
+  text-decoration: none;
+}
