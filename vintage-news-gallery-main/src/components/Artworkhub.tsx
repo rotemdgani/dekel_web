@@ -6,7 +6,7 @@ import { ShoppingCart, Heart, Eye, ChevronLeft, ChevronRight } from "lucide-reac
 import { useToast } from "@/hooks/use-toast";
 import ArtworkModal from "@/components/ui/artwork-modal";
 import "./Artworkhub.css";
-
+import women2_framed from '@/assets/women2_framed.png';
 import women2 from '@/assets/women2.png';
 import profile_vintage from '@/assets/profile_vintage.png';
 import shagal from '@/assets/shagal.jpg';
@@ -59,7 +59,7 @@ const ArtworkHub = () => {
             price: 500,
             medium: "Newspaper collage on wood",
             dimensions: "27.9\" x 35.6\"",
-            image: women2,
+            images: [women2_framed, women2],
             description: "",
             availability: "Available",
             isLimited: false,
@@ -491,7 +491,7 @@ const ArtworkHub = () => {
                                             <article key={artwork.id} className="artwork-hub-article">
                                                 <div className="artwork-hub-article-image">
                                                     <img
-                                                        src={artwork.images ? artwork.images[0] : artwork.image}
+                                                        src={artwork.images ? artwork.images[0] : Array.isArray(artwork.image) ? artwork.image[0] : artwork.image}
                                                         alt={artwork.title}
                                                         className="artwork-hub-image"
                                                         loading="lazy"
