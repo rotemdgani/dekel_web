@@ -402,7 +402,7 @@ const ArtworkHub = () => {
     ];
 
     const categories = [
-        { name: "The Good Times", description: "A series of hand-painted newspaper covers using 100% acrylic on canvas. The works explore the contrast between the aesthetics of media and the quiet of nature or imagination. Each piece looks like a newspaper, but feels like a moment of stillness." },
+        { name: "The Good Times", description: "A series of hand-painted newspaper covers using 100% acrylic on canvas. The works explore the contrast between the noise of media and the quiet of nature or imagination. Each piece looks like a newspaper, but feels like a moment of stillness." },
         { name: "Based on a True Story", description: "A mixed media series combining acrylic painting with newspaper collage, based on real-world events. The works offer a subjective reflection and visual critique, blending fact and feeling into layered narratives." },
         { name: "Face Card", description: "A minimalist portrait series created using full newspaper pages, not traditional collage. Each page is hand-cut like a brushstroke, shaping faces through subtraction. No layering-just one precise cut. Mounted on wood panels, the series explores the relationship between identity and media, while also questioning the boundaries between design and fine art." },
         { name: "Present", description: "A conceptual and critical series presenting the news as a wrapped gift. Beneath the bright ribbons lies the erosion of truth, exhaustion of repetition, and the discomfort we've learned to accept. Each tag reads like a well-wish, but the irony is loud and deliberate." },
