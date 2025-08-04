@@ -168,7 +168,7 @@ const ArtworkModal = ({
                   }}
                   variant="default"
                 >
-                  Check availability and request more information
+                  Ask about this piece
                 </Button>
               </div>
             </div>
