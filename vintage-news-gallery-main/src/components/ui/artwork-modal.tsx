@@ -115,6 +115,7 @@ const ArtworkModal = ({
               )}
               
               <div className="artwork-modal-actions">
+                {/* Commented out for future reactivation if needed
                 <Button
                   className="artwork-modal-add-to-cart-btn"
                   onClick={() => onAddToCart(artwork.id)}
@@ -149,6 +150,20 @@ const ArtworkModal = ({
                   variant="outline"
                 >
                   Inquire about this artwork
+                </Button>
+                */}
+                
+                <Button
+                  className="artwork-modal-whatsapp-btn"
+                  onClick={() => {
+                    const message = `Hi, I'm interested in the artwork "${artwork.title}". Can you please provide more information about availability and pricing?`;
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappUrl = `https://wa.me/972507451500?text=${encodedMessage}`;
+                    window.open(whatsappUrl, '_blank');
+                  }}
+                  variant="default"
+                >
+                  Check availability and request more information
                 </Button>
               </div>
             </div>
