@@ -25,6 +25,29 @@ const Press = () => {
     },
   ];
 
+  const exhibitions = [
+    {
+      title: "Solo Exhibition: Soho House Hotel, Jaffa",
+      date: "April 2024",
+      description: "A personal exhibition featuring a collection of works showcasing the blend of business and art in a creative journey.",
+    },
+    {
+      title: "Lotan Gallery, Jaffa",
+      date: "January 2024",
+      description: "Group exhibition titled \"Rebirth,\" curated by Orly Dvir, showcasing four original works.",
+    },
+    {
+      title: "Tel Aviv University",
+      date: "July 2024",
+      description: "Group exhibition curated by Yaira Yasmin, displaying three works reflecting on the impact of war and disasters. These pieces explore the emotional and societal aftermath of such events, providing a visual commentary on resilience and recovery.",
+    },
+    {
+      title: "Ben Ami Gallery, Tel Aviv",
+      date: "2024",
+      description: "Group exhibition curated by Doron Polak, presenting three pieces that explore the intersection of art and daily life.",
+    },
+  ];
+
   return (
     <section id="press" className="press-section">
       <div className="press-container">
@@ -58,6 +81,22 @@ const Press = () => {
               </div>
             </article>
           ))}
+        </div>
+
+        {/* Exhibitions Section */}
+        <div className="exhibitions-section">
+          <h3 className="exhibitions-title">Exhibitions</h3>
+          <ul className="exhibitions-list">
+            {exhibitions.map((exhibition, index) => (
+              <li key={index} className="exhibition-item">
+                <div className="exhibition-header">
+                  <span className="exhibition-title">{exhibition.title}</span>
+                  <span className="exhibition-date">– {exhibition.date}</span>
+                </div>
+                <p className="exhibition-description">{exhibition.description}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
