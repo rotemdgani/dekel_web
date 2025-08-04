@@ -1,4 +1,5 @@
 import "./About.css";
+import BlurImage from "@/components/ui/blur-image";
 import dekel from '@/assets/dekel-portrait.jpg'
 
 const About = () => {
@@ -51,7 +52,7 @@ const About = () => {
 
           <div className="about-quote">
             <div className="about-quote-image-container">
-              <img src={dekel} alt="Dekel Harari Portrait" className="about-quote-img" loading="lazy" />
+              <BlurImage src={dekel} alt="Dekel Harari Portrait" className="about-quote-img" loading="lazy" />
             </div>
             <div className="about-quote-content">
 
