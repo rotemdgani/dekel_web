@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 import "./artwork-model.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import BlurImage from "@/components/ui/blur-image";
 
 interface ArtworkModalProps {
   open: boolean;
@@ -58,7 +59,7 @@ const ArtworkModal = ({
           
           <div className="artwork-modal-body">
             <div className="artwork-modal-image-container" onClick={handleImageClick}>
-              <img
+              <BlurImage
                 src={images[selectedImageIndex]}
                 alt={`${artwork.title} - Image ${selectedImageIndex + 1}`}
                 className="artwork-modal-image"
@@ -173,7 +174,7 @@ const ArtworkModal = ({
 
       {/* Zoom Overlay */}
       <div className={`artwork-modal-image-zoom-overlay ${isZoomed ? 'active' : ''}`} onClick={handleZoomClose}>
-        <img
+        <BlurImage
           src={images[selectedImageIndex]}
           alt={`${artwork.title} - Zoomed View`}
           className="artwork-modal-zoom-image"

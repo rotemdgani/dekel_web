@@ -159,6 +159,31 @@
     display: block;
     margin: 0 auto;
   }
+
+  /* BlurImage component styles for about section */
+  .about-quote-image-container .blur-image-container {
+    width: 90%;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .about-quote-image-container .blur-image-main {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .about-quote-image-container .blur-image-placeholder {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+  }
   
   .about-quote-content {
     text-align: center;
