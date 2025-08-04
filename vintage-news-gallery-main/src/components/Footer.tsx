@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-brand">
-            <img src={logo} alt="Dekel Harari Logo" className="footer-brand-logo" />
+            <img src={logo} alt="Dekel Harari Logo" className="footer-brand-logo" loading="lazy" />
             <p className="footer-brand-text">
             </p>
           </div>

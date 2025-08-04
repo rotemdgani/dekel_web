@@ -37,14 +37,16 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
+          <div className="header-mobile-toggle">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

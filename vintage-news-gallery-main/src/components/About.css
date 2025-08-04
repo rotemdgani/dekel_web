@@ -226,8 +226,8 @@
       width: 80%;
       max-width: 280px;
       height: auto;
-      object-fit: cover;
-      object-position: center;
+      object-fit: contain;
+      object-position: center top;
       border-radius: 8px;
       display: block;
     }
@@ -253,8 +253,8 @@
       width: 75%;
       max-width: 240px;
       height: auto;
-      object-fit: cover;
-      object-position: center;
+      object-fit: contain;
+      object-position: center top;
       border-radius: 8px;
       display: block;
     }

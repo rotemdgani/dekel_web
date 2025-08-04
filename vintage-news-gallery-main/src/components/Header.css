@@ -64,15 +64,59 @@ header {
     color: hsl(0 0% 25%);
   }
   
+  /* Mobile Menu Icon Enhancement */
+.header-mobile-toggle {
+  display: block;
+  position: relative;
+}
+
+.header-mobile-toggle button {
+  position: relative;
+  transition: all 0.3s ease;
+  animation: menu-pulse 2s infinite;
+}
+
+.header-mobile-toggle button:hover {
+  transform: scale(1.1);
+  color: hsl(0 0% 25%);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.header-mobile-toggle button:active {
+  transform: scale(0.95);
+}
+
+/* Pulse animation for the hamburger icon */
+@keyframes menu-pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Enhanced mobile menu icon styling */
+.header-mobile-toggle svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.header-mobile-toggle:hover svg {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+@media (min-width: 768px) {
   .header-mobile-toggle {
-    display: block;
+    display: none;
   }
-  
-  @media (min-width: 768px) {
-    .header-mobile-toggle {
-      display: none;
-    }
-  }
+}
   
   .header-mobile-nav {
     display: block;
