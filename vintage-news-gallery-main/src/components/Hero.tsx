@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import "./Hero.css";
 import paperplane_video from '@/assets/cover.mp4';
-import nyt_cover_earth from '@/assets/nyt_cover_earth.png';
+import nyt_cover_earth from '@/assets/nyt_cover_earth.jpg';
 
 const Hero = () => {
   return (
