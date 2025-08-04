@@ -32,6 +32,8 @@ const ArtworkModal = ({
 
   const images = artwork.images || [artwork.image];
   
+  // Price formatting function commented out for future reactivation if needed
+  /*
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -39,6 +41,7 @@ const ArtworkModal = ({
       minimumFractionDigits: 0,
     }).format(price);
   };
+  */
 
   const handleImageClick = () => {
     setIsZoomed(true);
@@ -93,6 +96,7 @@ const ArtworkModal = ({
                 </div>
               </div>
               
+              {/* Price and Availability indicators commented out for future reactivation if needed
               <div className="artwork-modal-details-row">
                 {artwork.availability !== 'SOLD' && (
                   <div className="artwork-modal-detail-item">
@@ -107,6 +111,7 @@ const ArtworkModal = ({
                   </span>
                 </div>
               </div>
+              */}
               
               {artwork.description && (
                 <div className="artwork-modal-description">
