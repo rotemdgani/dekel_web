@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import BlurImage from "@/components/ui/blur-image";
 import "./Hero.css";
 import paperplane_video from '@/assets/cover.mp4';
 import nyt_cover_earth from '@/assets/nyt_cover_earth.webp';
@@ -23,7 +22,7 @@ const Hero = () => {
       </video>
       
       {/* Background Image - Mobile Only */}
-      <BlurImage
+      <img
         className="hero-bg hero-image"
         src={nyt_cover_earth}
         alt="Earth artwork background"

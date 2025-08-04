@@ -103,36 +103,7 @@
   transition: transform 0.3s ease;
 }
 
-/* BlurImage component styles for artwork modal */
-.artwork-modal-image-container .blur-image-container {
-  max-height: 80vh;
-  max-width: 100%;
-  margin: 0 auto;
-  display: block;
-}
-
-.artwork-modal-image-container .blur-image-main {
-  max-height: 80vh;
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  border-radius: 0;
-  box-shadow: none;
-  transition: transform 0.3s ease;
-}
-
-.artwork-modal-image-container .blur-image-placeholder {
-  max-height: 80vh;
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  border-radius: 0;
-}
-
-.artwork-modal-image-container:hover .artwork-modal-image,
-.artwork-modal-image-container:hover .blur-image-main {
+.artwork-modal-image-container:hover .artwork-modal-image {
   transform: scale(1.05);
 }
 
@@ -161,35 +132,6 @@
 }
 
 .artwork-modal-zoom-image {
-  max-width: 90vw;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: auto;
-}
-
-/* BlurImage component styles for zoom overlay */
-.artwork-modal-image-zoom-overlay .blur-image-container {
-  max-width: 90vw;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  margin: auto;
-}
-
-.artwork-modal-image-zoom-overlay .blur-image-main {
-  max-width: 90vw;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: auto;
-}
-
-.artwork-modal-image-zoom-overlay .blur-image-placeholder {
   max-width: 90vw;
   max-height: 90vh;
   width: auto;

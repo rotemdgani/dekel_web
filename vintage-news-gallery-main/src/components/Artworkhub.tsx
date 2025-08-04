@@ -4,7 +4,6 @@ import { Card } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ArtworkModal from "@/components/ui/artwork-modal";
-import BlurImage from "@/components/ui/blur-image";
 import "./Artworkhub.css";
 import women2_framed from '@/assets/women2_framed.webp';
 import women2 from '@/assets/women2.png';
@@ -474,7 +473,7 @@ const ArtworkHub = () => {
                                         {categoryArtworks.map((artwork) => (
                                             <article key={artwork.id} className="artwork-hub-article">
                                                 <div className="artwork-hub-article-image">
-                                                    <BlurImage
+                                                    <img
                                                         src={artwork.image}
                                                         alt={artwork.title}
                                                         className="artwork-hub-image"
