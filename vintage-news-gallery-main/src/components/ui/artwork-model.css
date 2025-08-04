@@ -373,6 +373,30 @@
   color: hsl(0 0% 100%);
 }
 
+.artwork-modal-whatsapp-btn {
+  width: 100%;
+  background-color: #25D366;
+  color: white;
+  border: none;
+  transition: all 0.3s;
+  font-family: 'Times New Roman', serif;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  margin-top: 0;
+  box-shadow: 0 2px 4px rgba(37, 211, 102, 0.2);
+}
+
+.artwork-modal-whatsapp-btn:hover {
+  background-color: #128C7E;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+}
+
 /* Mobile Responsive */
 @media (max-width: 767px) {
   .artwork-modal-content {
@@ -450,6 +474,11 @@
   }
   
   .artwork-modal-add-to-cart-btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.8rem;
+  }
+  
+  .artwork-modal-whatsapp-btn {
     padding: 0.6rem 1.25rem;
     font-size: 0.8rem;
   }
