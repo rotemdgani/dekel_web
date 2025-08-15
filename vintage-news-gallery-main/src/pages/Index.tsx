@@ -38,6 +38,10 @@ const Index = () => {
       scrollToId("about");
       return;
     }
+    if (path === "/contact") {
+      scrollToId("contact");
+      return;
+    }
     // Fallback to hash if present
     if (location.hash) {
       const id = location.hash.replace("#", "");
