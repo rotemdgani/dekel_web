@@ -1,4 +1,5 @@
 import { Instagram, Mail, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 import logo from "@/assets/logo_dh edition.png";
 
@@ -17,11 +18,11 @@ const Footer = () => {
             <div className="footer-links">
               <h4 className="footer-title">Navigation</h4>
               <nav className="footer-nav">
-                <a href="#home" className="footer-link">Home</a>
-                <a href="#artworkhub" className="footer-link">Collections</a>
-                <a href="#press" className="footer-link">Press</a>
-                <a href="#about" className="footer-link">About</a>
-                <a href="#contact" className="footer-link">Contact</a>
+                <Link to="/" className="footer-link">Home</Link>
+                <Link to="/collections" className="footer-link">Collections</Link>
+                <Link to="/press" className="footer-link">Press</Link>
+                <Link to="/about" className="footer-link">About</Link>
+                <Link to="/#contact" className="footer-link">Contact</Link>
               </nav>
             </div>
 
