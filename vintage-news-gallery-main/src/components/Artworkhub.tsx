@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -48,7 +49,9 @@ const ArtworkHub = () => {
     const { toast } = useToast();
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedArtwork, setSelectedArtwork] = useState<any>(null);
-    const [selectedImageIndex, setSelectedImageIndex] = useState(0); // לעקוב אחר התמונה הנוכחית
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const artworks = [
         {
@@ -58,7 +61,7 @@ const ArtworkHub = () => {
             price: 900,
             medium: "Newspaper collage on wood",
             dimensions: "27.9\" x 35.6\" - Comes unframed",
-            image: women2_framed, // Keep only the first image
+            image: women2_framed,
             description: "",
             availability: "Available",
             isLimited: false,
@@ -69,8 +72,8 @@ const ArtworkHub = () => {
             category: "face-card",
             price: 900,
             medium: "Newspaper collage with acrylic",
-            dimensions: "27.9\" x 35.6\" - Unframed (frame not included)", // Added framing info
-            image: profile_vintage, // Keep only the first image
+            dimensions: "27.9\" x 35.6\" - Unframed (frame not included)",
+            image: profile_vintage,
             description: "",
             availability: "Available",
             isLimited: false,
@@ -94,12 +97,11 @@ const ArtworkHub = () => {
             price: 900,
             medium: "Newspaper collage with acrylic",
             dimensions: "27.9\" x 35.6\" - Comes unframed",
-            image: profile_vintage2, // Keep only the first image
+            image: profile_vintage2,
             description: "",
             availability: "Available",
             isLimited: false,
         },
-        // Based on a True Story - Reordered according to specified sequence
         {
             id: 9,
             title: "Rocket Pop",
@@ -421,6 +423,21 @@ const ArtworkHub = () => {
         { name: "Present", description: "A conceptual and critical series presenting the news as a wrapped gift. Beneath the bright ribbons lies the erosion of truth, exhaustion of repetition, and the discomfort we've learned to accept. Each tag reads like a well-wish, but the irony is loud and deliberate." },
     ];
 
+    const toSlug = (name: string): string => name.toLowerCase().replace(/ /g, "-");
+    const pathSegments = location.pathname.split("/").filter(Boolean);
+    const candidateSlug = pathSegments[0] === "collections" ? (pathSegments[1] || "") : (pathSegments[0] || "");
+    const validSlugs = categories.map((c) => toSlug(c.name));
+    const activeSlug = validSlugs.includes(candidateSlug) ? candidateSlug : "";
+
+    useEffect(() => {
+        if (activeSlug) {
+            const element = document.getElementById(activeSlug);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }, [activeSlug]);
+
     const formatPrice = (price: number) => {
         return new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -480,9 +497,15 @@ const ArtworkHub = () => {
                         if (categoryArtworks.length > 0) {
                             return (
                                 <div key={category.name} className="artwork-hub-category-section">
-                                    <h3 className="artwork-hub-category-title">{category.name}</h3>
+                                    <h3 
+                                        className="artwork-hub-category-title" 
+                                        style={{ cursor: 'pointer' }}
+                                        onClick={() => navigate(`/collections/${toSlug(category.name)}`)}
+                                    >
+                                        {category.name}
+                                    </h3>
                                     <p className="artwork-hub-category-description">{category.description}</p>
-                                    <div className="artwork-hub-category-grid">
+                                    <div id={category.name.toLowerCase().replace(/ /g, "-")} className="artwork-hub-category-grid">
                                         {categoryArtworks.map((artwork) => (
                                             <article key={artwork.id} className="artwork-hub-article">
                                                 <div className="artwork-hub-article-image">
