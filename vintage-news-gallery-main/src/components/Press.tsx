@@ -52,7 +52,15 @@ const Press = () => {
     <section id="press" className="press-section">
       <div className="press-container">
         <div className="press-header">
-          <h2 className="press-title">Press Coverage</h2>
+          <h2
+            className="press-title"
+            style={{ cursor: 'pointer' }}
+            onClick={() => {
+              window.history.replaceState(null, '', '/press');
+            }}
+          >
+            Press Coverage
+          </h2>
           <div className="press-divider"></div>
           <p className="press-subtitle">
             Step into the world of Dekel Harari as featured in leading publications.

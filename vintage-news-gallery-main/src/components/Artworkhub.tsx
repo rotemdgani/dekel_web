@@ -487,7 +487,13 @@ const ArtworkHub = () => {
             />
             <div className="artwork-hub-container">
                 <div className="artwork-hub-header">
-                    <h2 className="artwork-hub-title">Collections</h2>
+                    <h2
+                        className="artwork-hub-title"
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => navigate('/collections')}
+                    >
+                        Collections
+                    </h2>
                     <div className="artwork-hub-divider"></div>
                 </div>
 

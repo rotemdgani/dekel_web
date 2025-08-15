@@ -8,7 +8,13 @@ const About = () => {
         <div className="about-grid">
           <div className="about-content">
             <div className="about-header">
-              <h2 className="about-title">
+              <h2
+                className="about-title"
+                style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  window.history.replaceState(null, '', '/about');
+                }}
+              >
                 ABOUT
                 <br />
                 <span className="text-accent"></span>
