@@ -3,6 +3,13 @@ import "./Press.css";
 const Press = () => {
   const pressItems = [
     {
+      title: "Peace and Goodbye: From the White Dove to the Black Bag",
+      source: "Portfolio Magazine",
+      date: "September 8, 2025",
+      link: "https://www.prtfl.co.il/archives/233568",
+      content: "The exhibition 'Peace and Goodbye' explores the moment between faith and rupture through various artistic interpretations of the dove image. Curator Gaby Zeltsman asks: 'Is there still validity to peace symbols? Can we recharge a worn image?' The exhibition presents diverse perspectives on the dove as a symbol, from the utopian to the realistic, reflecting universal conflicts of hope and breakdown, spirituality and materiality.",
+    },
+    {
       title: "Dekel Harari: Transforming Newspaper into Art",
       source: "DA Magazine",
       date: "July 18, 2025",
@@ -26,6 +33,11 @@ const Press = () => {
   ];
 
   const exhibitions = [
+    {
+      title: "Peace and Goodbye",
+      date: "September 2025",
+      description: "Group exhibition curated by Gaby Zeltsman in collaboration with Yaara Open Studio, Jaffa. The exhibition explores the moment between faith and rupture through various artistic interpretations of the dove image, featuring works that examine peace symbols and their contemporary relevance.",
+    },
     {
       title: "Solo Exhibition: Soho House Hotel, Jaffa",
       date: "April 2024",
