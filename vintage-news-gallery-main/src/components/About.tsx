@@ -15,7 +15,7 @@ const About = () => {
                   window.history.replaceState(null, '', '/about');
                 }}
               >
-                ABOUT
+                BETWEEN THE HEADLINES
                 <br />
                 <span className="text-accent"></span>
               </h2>
@@ -24,19 +24,18 @@ const About = () => {
 
             <div className="about-text">
               <p className="about-paragraph">
-              Dekel Harari is a Tel Aviv-based contemporary artist who deconstructs and reconstructs newspaper media into striking visual narratives. Working with mixed media and acrylic on canvas, his practice exists at the crossroads of conceptual art, media critique, and contemporary aesthetics.
+              Dekel Harari is a Tel Aviv–based contemporary artist whose practice unfolds at the intersection of timeless foundations and the fleeting noise of daily news.
               </p>
 
               <p className="about-paragraph">
-              His distinctive approach involves dismantling newspapers and reassembling them as symbols of rebuilding - creating a powerful metaphor for how we construct and reconstruct our understanding of reality. Each piece offers a personal interpretation of current events, transforming the mundane into the extraordinary through the lens of beauty and imagination.
+              His work emerges from the tension between two worlds:
+              The classical world – nature, sky, love, eternal elements that embody beauty and breath.
+              And the news-driven world – a relentless flood of information, shifting headlines, a gray and grown-up routine that overwhelms us.
               </p>
 
               <p className="about-paragraph">
-              Dekel's work explores the tension between routine and wonder, presenting minimalist compositions with sharp, deliberate messages. His pieces function as visual commentaries that challenge viewers to reconsider their relationship with information consumption and media representation.
+              Between the two, art takes shape – a pause where time stands still, and the everyday is dismantled and rebuilt. Harari does not document reality; he proposes to reconstruct it. Not as a report, but as a new gaze that returns wonder to the ordinary.
               </p>
-
-              <p className="about-paragraph">
-              Dekel Harari's works offer a fresh perspective on the reality surrounding us - they don't merely document time, but invite the viewer to rebuild it anew.              </p>
             </div>
 {/* 
             <div className="about-stats">
