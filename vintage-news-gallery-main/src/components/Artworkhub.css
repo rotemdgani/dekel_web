@@ -73,6 +73,105 @@
   .artwork-hub-category-section {
     margin-bottom: 3rem;
   }
+
+  /* A. Global page-wide gradient overlay */
+  :root {
+    /* very subtle stops: light -> very dark -> vintage yellowish -> gentle red */
+    --g1: rgba(248,250,252,0.65); /* light */
+    --g2: rgba(28,31,35,0.16);    /* very dark but low alpha */
+    --g3: rgba(241,231,207,0.18); /* vintage yellowish */
+    --g4: rgba(242,210,210,0.16); /* gentle reddish */
+  }
+
+  /* Create a fixed overlay behind everything */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;                 /* full viewport */
+    z-index: -1;              /* behind site content */
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      var(--g1) 0%,
+      var(--g2) 40%,
+      var(--g3) 74%,
+      var(--g4) 100%
+    );
+    /* optional: soften even more */
+    filter: none;             /* if still strong, change to blur(2px) opacity(.95) */
+  }
+
+  /* B. Make sure no inner wrapper clips or overrides the background */
+  html, body {
+    min-height: 100%;
+    background-color: transparent;    /* keep site bg visible under overlay */
+  }
+  #series-wrap,
+  .series-section {
+    background: transparent !important;   /* remove local bands */
+  }
+
+  .series-section {
+    position: relative;
+    padding: 72px 0;       /* vertical rhythm */
+    scroll-margin-top: 96px;
+  }
+
+  /* keep inner content constrained */
+  .series-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* remove white boxes and heavy shadows */
+  .series-section .art-card,
+  .series-section .art-card .card,
+  .series-section .art-card .card-body {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* images breathe without borders */
+  .series-section img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+
+  /* C. Keep separators and buttons minimal and consistent */
+  .series-section + .series-section {
+    border-top: 1px solid rgba(0,0,0,.07);   /* light scheme */
+  }
+  @media (prefers-color-scheme: dark) {
+    .series-section + .series-section {
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+  }
+
+  /* Neutral buttons (same everywhere) */
+  .series-section .btn {
+    background: #2c2c2c;
+    color: #fff;
+    border: 1px solid #2c2c2c;
+    border-radius: 6px;
+    padding: 10px 18px;
+    transition: transform .08s ease, background .15s ease;
+  }
+  .series-section .btn:hover {
+    background: #1f1f1f;
+    border-color: #1f1f1f;
+    transform: translateY(-1px);
+  }
+
+  /* D. Safety: if any outer layout has overflow hidden, relax it so the body overlay is visible edge-to-edge */
+  .site-wrap,
+  .main,
+  .page,
+  #___gatsby, #__next {
+    overflow: visible;  /* only if you find a wrapper clipping the background */
+  }
   
   .artwork-hub-category-title {
     font-size: 1.75rem;

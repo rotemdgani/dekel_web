@@ -539,63 +539,97 @@ const ArtworkHub = () => {
                 </div>
 
                 <div className="artwork-hub-content">
-                    {categories.map((category) => {
+                    <div id="series-wrap">
+                        {categories.map((category) => {
                         const categoryArtworks = artworks.filter(artwork => artwork.category === category.name.toLowerCase().replace(/ /g, "-"));
+                        const categorySlug = category.name.toLowerCase().replace(/ /g, "-");
+                        
+                        // Map category names to theme IDs
+                        const getThemeId = (name: string) => {
+                            switch (name.toLowerCase()) {
+                                case "the good times": return "goodtimes";
+                                case "based on a true story": return "basedon";
+                                case "face card": return "facecard";
+                                case "present": return "present";
+                                default: return "default";
+                            }
+                        };
+
+                        // Map category names to section IDs
+                        const getSectionId = (name: string) => {
+                            switch (name.toLowerCase()) {
+                                case "the good times": return "good-times";
+                                case "based on a true story": return "based-on";
+                                case "face card": return "face-card";
+                                case "present": return "present";
+                                default: return categorySlug;
+                            }
+                        };
+
                         if (categoryArtworks.length > 0) {
                             return (
-                                <div key={category.name} className="artwork-hub-category-section">
-                                    <h3 
-                                        className="artwork-hub-category-title" 
-                                        style={{ cursor: 'pointer' }}
-                                        onClick={() => navigate(`/collections/${toSlug(category.name)}`)}
-                                    >
-                                        {category.name}
-                                    </h3>
-                                    <p className="artwork-hub-category-description">{category.description}</p>
-                                    <div id={category.name.toLowerCase().replace(/ /g, "-")} className="artwork-hub-category-grid">
-                                        {categoryArtworks.map((artwork) => (
-                                            <article key={artwork.id} className="artwork-hub-article">
-                                                <div className="artwork-hub-article-image">
-                                                    <img
-                                                        src={artwork.image}
-                                                        alt={artwork.title}
-                                                        className="artwork-hub-image"
-                                                        loading="lazy"
-                                                        onClick={() => {
-                                                            setSelectedArtwork({
-                                                                ...artwork,
-                                                                images: [artwork.image],
-                                                            });
-                                                            setSelectedImageIndex(0);
-                                                            setModalOpen(true);
-                                                        }}
-                                                        style={{ cursor: 'pointer' }}
-                                                    />
-                                                </div>
-                                                                                                 <div className="artwork-hub-article-content">
-                                                     <h3 className="artwork-hub-article-title">{artwork.title}</h3>
-                                                     <Button
-                                                         className="artwork-hub-more-info-btn"
-                                                         onClick={() => {
-                                                             setSelectedArtwork({
-                                                                 ...artwork,
-                                                                 images: [artwork.image],
-                                                             });
-                                                             setSelectedImageIndex(0);
-                                                             setModalOpen(true);
-                                                         }}
-                                                     >
-                                                         More Info
-                                                     </Button>
-                                                 </div>
-                                            </article>
-                                        ))}
+                                <section 
+                                    key={category.name} 
+                                    id={getSectionId(category.name)}
+                                    className="series-section"
+                                    data-theme={getThemeId(category.name)}
+                                >
+                                    <div className="container">
+                                        <h2 
+                                            className="artwork-hub-category-title" 
+                                            style={{ cursor: 'pointer' }}
+                                            onClick={() => navigate(`/collections/${toSlug(category.name)}`)}
+                                        >
+                                            {category.name}
+                                        </h2>
+                                        <div className="series-subline"></div>
+                                        <p className="artwork-hub-category-description">{category.description}</p>
+                                        <div className="artwork-hub-category-grid">
+                                            {categoryArtworks.map((artwork) => (
+                                                <article key={artwork.id} className="artwork-hub-article art-card">
+                                                    <div className="artwork-hub-article-image">
+                                                        <img
+                                                            src={artwork.image}
+                                                            alt={artwork.title}
+                                                            className="artwork-hub-image"
+                                                            loading="lazy"
+                                                            onClick={() => {
+                                                                setSelectedArtwork({
+                                                                    ...artwork,
+                                                                    images: [artwork.image],
+                                                                });
+                                                                setSelectedImageIndex(0);
+                                                                setModalOpen(true);
+                                                            }}
+                                                            style={{ cursor: 'pointer' }}
+                                                        />
+                                                    </div>
+                                                    <div className="artwork-hub-article-content">
+                                                        <h3 className="artwork-hub-article-title">{artwork.title}</h3>
+                                                        <Button
+                                                            className="artwork-hub-more-info-btn btn"
+                                                            onClick={() => {
+                                                                setSelectedArtwork({
+                                                                    ...artwork,
+                                                                    images: [artwork.image],
+                                                                });
+                                                                setSelectedImageIndex(0);
+                                                                setModalOpen(true);
+                                                            }}
+                                                        >
+                                                            More Info
+                                                        </Button>
+                                                    </div>
+                                                </article>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
+                                </section>
                             );
                         }
                         return null;
-                    })}
+                        })}
+                    </div>
                 </div>
 
                 {cart.length > 0 && (
