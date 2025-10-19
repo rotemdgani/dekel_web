@@ -19,7 +19,7 @@ const Footer = () => {
               <h4 className="footer-title">Navigation</h4>
               <nav className="footer-nav">
                 <Link to="/" className="footer-link">Home</Link>
-                <Link to="/collections" className="footer-link">Collections</Link>
+                <Link to="/collections" className="footer-link">Series</Link>
                 <Link to="/press" className="footer-link">Press</Link>
                 <Link to="/about" className="footer-link">About</Link>
                 <Link to="/contact" className="footer-link">Contact</Link>

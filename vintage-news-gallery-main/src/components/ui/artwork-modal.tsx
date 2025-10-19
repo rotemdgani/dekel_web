@@ -126,7 +126,7 @@ const ArtworkModal = ({
                   onClick={() => onAddToCart(artwork.id)}
                   disabled={cart.includes(artwork.id) || artwork.availability === 'SOLD'}
                 >
-                  {cart.includes(artwork.id) ? "In Collection" : artwork.availability === 'SOLD' ? "Sold" : "Purchase Artwork"}
+                  {cart.includes(artwork.id) ? "In Series" : artwork.availability === 'SOLD' ? "Sold" : "Purchase Artwork"}
                 </Button>
                 
                 <Button

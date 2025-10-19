@@ -41,7 +41,7 @@ const Press = () => {
     {
       title: "Solo Exhibition: Soho House Hotel, Jaffa",
       date: "April 2024",
-      description: "A personal exhibition featuring a collection of works showcasing the blend of business and art in a creative journey.",
+      description: "A personal exhibition featuring a series of works showcasing the blend of business and art in a creative journey.",
     },
     {
       title: "Lotan Gallery, Jaffa",

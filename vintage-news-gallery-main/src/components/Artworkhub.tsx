@@ -397,7 +397,7 @@ const ArtworkHub = () => {
         },
         {
             id: 29,
-            title: "Summer Collection",
+            title: "Summer Series",
             category: "the-good-times",
             price: 2500,
             medium: "Acrylic on Canvas",
@@ -533,7 +533,7 @@ const ArtworkHub = () => {
                         style={{ cursor: 'pointer' }}
                         onClick={() => navigate('/collections')}
                     >
-                        Collections
+                        Series
                     </h2>
                     <div className="artwork-hub-divider"></div>
                 </div>
