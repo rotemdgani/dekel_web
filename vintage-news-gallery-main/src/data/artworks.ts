@@ -4,6 +4,7 @@ import price_of_beauty from '@/assets/The Price of Beauty.webp';
 import education from '@/assets/Education.webp';
 import dove_among_crawl from '@/assets/dove_among_crawls.webp';
 import b2 from '@/assets/b2.webp';
+import bride_under_attack from '@/assets/bride_under_attack.webp';
 import telaviv_rocket from '@/assets/telaviv_rocket.webp';
 import nyt_cover_earth from '@/assets/nyt_cover_earth.webp';
 import shagal_over_the_city from '@/assets/shagal_over_the_city.webp';
@@ -101,6 +102,18 @@ export const artworks: Artwork[] = [
     medium: "Mixed media and acrylic paints",
     dimensions: "110\" x 100\"",
     image: b2,
+    description: "",
+    availability: "Available",
+    isLimited: false,
+  },
+  {
+    id: 8,
+    title: "Bride Interrupted",
+    category: "based-on-a-true-story",
+    price: 2500,
+    medium: "Mixed media and acrylic paints",
+    dimensions: "110\" x 100\"",
+    image: bride_under_attack,
     description: "",
     availability: "Available",
     isLimited: false,
