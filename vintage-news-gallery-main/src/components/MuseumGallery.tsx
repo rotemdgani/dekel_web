@@ -40,6 +40,7 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
     { id: 13, series: "based-on-a-true-story" }, // Broken Departure
     { id: 11, series: "based-on-a-true-story" }, // Dove Among Crows
     { id: 7, series: "based-on-a-true-story" }, // Peace Bomber
+    { id: 8, series: "based-on-a-true-story" }, // Bride Interrupted
     { id: 15, series: "based-on-a-true-story" }, // Over the Headlines
     
     // The Good Times (third)
@@ -133,12 +134,35 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
               return null;
             }
             
-                                      // Special handling for "Business & Pleasure" - make it smaller and right-aligned
-             const isBusinessPleasure = artwork.title === "Business & Pleasure";
-             // Special handling for "OOO" - make it large with closer title
-             const isOOO = artwork.title === "OOO";
-             const sizeClass = isBusinessPleasure ? "medium" : isOOO ? "large" : getSizeClass(index);
-             const alignmentClass = isBusinessPleasure ? "right" : getAlignmentClass(index);
+                                                                             // Special handling for "Business & Pleasure" - make it smaller and right-aligned
+              const isBusinessPleasure = artwork.title === "Business & Pleasure";
+              // Special handling for "OOO" - make it large with closer title
+              const isOOO = artwork.title === "OOO";
+                             // Special size handling for specific artworks
+               const isOrangeSky = artwork.title === "Orange Sky";
+               const isOverHeadlines = artwork.title === "Over the Headlines (Homage to Marc Chagall)";
+               const isBrideInterrupted = artwork.title === "Bride Interrupted";
+               
+               let sizeClass = isBusinessPleasure ? "medium" : isOOO ? "large" : getSizeClass(index);
+               
+               // Apply special size modifiers
+               if (isOrangeSky) {
+                 sizeClass = "large-small"; // 5% smaller than large
+               } else if (isOverHeadlines) {
+                 sizeClass = "medium-small"; // 15% smaller
+               } else if (isBrideInterrupted) {
+                 sizeClass = "large-small"; // 5% smaller than large
+               }
+               
+                               // Apply special alignment modifiers
+                let alignmentClass = isBusinessPleasure ? "right" : getAlignmentClass(index);
+                if (isOrangeSky) {
+                  alignmentClass = "right"; // Move right
+                } else if (isOverHeadlines) {
+                  alignmentClass = "left"; // Move left
+                } else if (isBrideInterrupted) {
+                  alignmentClass = "right"; // Move right
+                }
 
             // Render side-by-side container for Pink Fields + Headline Erased
             if (isPinkFields && isNextHeadlineErased) {
@@ -218,9 +242,10 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
                     />
                   </div>
                 )}
-                                 <div
-                   className={`museum-artwork museum-artwork--${sizeClass} museum-artwork--${alignmentClass}`}
-                 >
+                                                                   <div
+                    className={`museum-artwork museum-artwork--${sizeClass} museum-artwork--${alignmentClass}`}
+                    data-artwork-title={artwork.title}
+                  >
                    <div className={`museum-artwork-content ${isOOO ? "museum-artwork-content--tight" : ""}`}>
                     <div
                       className="museum-artwork-image-wrapper"

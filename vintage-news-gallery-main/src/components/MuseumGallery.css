@@ -114,6 +114,45 @@
   margin-right: 0;
 }
 
+/* Specific image positioning adjustments - shift the entire content block, not just image */
+.museum-artwork[data-artwork-title="Orange Sky"] .museum-artwork-content {
+  margin-left: auto;
+  margin-right: -60px; /* Shift content more to the right */
+}
+
+.museum-artwork[data-artwork-title="Over the Headlines (Homage to Marc Chagall)"] .museum-artwork-content {
+  margin-left: -60px; /* Shift content more to the left */
+  margin-right: auto;
+}
+
+.museum-artwork[data-artwork-title="Bride Interrupted"] .museum-artwork-content {
+  margin-left: auto;
+  margin-right: -80px; /* Shift content more to the right */
+}
+
+@media (max-width: 1200px) {
+  .museum-artwork[data-artwork-title="Orange Sky"] .museum-artwork-content {
+    margin-right: -40px;
+  }
+  
+  .museum-artwork[data-artwork-title="Over the Headlines (Homage to Marc Chagall)"] .museum-artwork-content {
+    margin-left: -40px;
+  }
+  
+  .museum-artwork[data-artwork-title="Bride Interrupted"] .museum-artwork-content {
+    margin-right: -50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .museum-artwork[data-artwork-title="Orange Sky"] .museum-artwork-content,
+  .museum-artwork[data-artwork-title="Over the Headlines (Homage to Marc Chagall)"] .museum-artwork-content,
+  .museum-artwork[data-artwork-title="Bride Interrupted"] .museum-artwork-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 /* Side-by-side artwork pair */
 .museum-artwork-pair {
   display: flex;
@@ -154,8 +193,10 @@
 .museum-artwork-content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  width: 100%;
+  gap: 12px;
+  width: fit-content;
+  align-items: flex-start;
+  max-width: 100%;
 }
 
 .museum-artwork-content--tight {
@@ -171,6 +212,8 @@
   border: none;
   box-shadow: none;
   padding: 0;
+  display: inline-block;
+  max-width: 100%;
 }
 
 .museum-artwork-image-wrapper:hover {
@@ -179,7 +222,8 @@
 }
 
 .museum-artwork-image {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
@@ -193,8 +237,20 @@
   max-height: 72vh; /* Reduced from 90vh by 20% */
 }
 
+.museum-artwork--large-extra .museum-artwork-image {
+  max-height: 82.8vh; /* 15% bigger than large (72vh * 1.15 = 82.8vh) */
+}
+
+.museum-artwork--large-small .museum-artwork-image {
+  max-height: 68.4vh; /* 5% smaller than large (72vh * 0.95 = 68.4vh) */
+}
+
 .museum-artwork--medium .museum-artwork-image {
   max-height: 56vh; /* Reduced from 70vh by 20% */
+}
+
+.museum-artwork--medium-small .museum-artwork-image {
+  max-height: 47.6vh; /* 15% smaller than medium (56vh * 0.85 = 47.6vh) */
 }
 
 .museum-artwork--full .museum-artwork-image {
@@ -213,6 +269,8 @@
   text-align: left;
   align-items: flex-start;
   width: 100%;
+  align-self: flex-start;
+  min-width: 0;
 }
 
 .museum-artwork-title {
@@ -315,6 +373,18 @@
   .museum-artwork--medium .museum-artwork-image,
   .museum-artwork--full .museum-artwork-image {
     max-height: 60vh; /* Reduced from 75vh by 20% */
+  }
+  
+  .museum-artwork--large-extra .museum-artwork-image {
+    max-height: 69vh; /* 15% bigger than large on mobile (60vh * 1.15 = 69vh) */
+  }
+  
+  .museum-artwork--large-small .museum-artwork-image {
+    max-height: 57vh; /* 5% smaller than large on mobile (60vh * 0.95 = 57vh) */
+  }
+  
+  .museum-artwork--medium-small .museum-artwork-image {
+    max-height: 51vh; /* 15% smaller than medium on mobile (60vh * 0.85 = 51vh) */
   }
   
   .museum-artwork--pair-item .museum-artwork-image {
