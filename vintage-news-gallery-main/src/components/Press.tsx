@@ -104,7 +104,7 @@ const Press = () => {
         </div>
 
         {/* Exhibitions Section */}
-        <div className="exhibitions-section">
+        <div id="exhibitions" className="exhibitions-section">
           <h3 className="exhibitions-title">Exhibitions</h3>
           <ul className="exhibitions-list">
             {exhibitions.map((exhibition, index) => (

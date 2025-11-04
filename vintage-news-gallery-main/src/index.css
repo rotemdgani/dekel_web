@@ -120,14 +120,10 @@ Typography-focused with vintage newspaper aesthetics
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
-    /* Subtle worn paper texture background */
-    background-image: 
-      radial-gradient(circle at 20% 80%, rgba(0,0,0,0.02) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(0,0,0,0.02) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(0,0,0,0.01) 0%, transparent 50%);
-    background-size: 100px 100px, 150px 150px, 200px 200px;
-    background-attachment: fixed;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #fafafa;
+    /* Clean museum-style background - minimal texture */
+    background-image: none;
   }
 
   /* Typography hierarchy for newspaper-style layouts */
