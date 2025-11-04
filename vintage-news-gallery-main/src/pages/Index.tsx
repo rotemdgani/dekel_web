@@ -1,12 +1,13 @@
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+import MuseumHero from "@/components/MuseumHero";
+import MuseumGallery from "@/components/MuseumGallery";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Press from "@/components/Press";
-import Artworkhub from "@/components/Artworkhub";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { artworks } from "@/data/artworks";
 
 const Index = () => {
   const location = useLocation();
@@ -27,7 +28,11 @@ const Index = () => {
     const collectionsMatch = path.match(/^\/collections(?:\/([^\/#?]+))?$/);
     if (collectionsMatch) {
       const slug = collectionsMatch[1];
-      scrollToId(slug || "artworkhub");
+      scrollToId(slug || "gallery");
+      return;
+    }
+    if (path === "/exhibitions") {
+      scrollToId("exhibitions");
       return;
     }
     if (path === "/press") {
@@ -53,8 +58,8 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <main>
-        <Hero />
-        <Artworkhub />
+        <MuseumHero />
+        <MuseumGallery artworks={artworks} />
         <Press />
         <About />
         <Contact />

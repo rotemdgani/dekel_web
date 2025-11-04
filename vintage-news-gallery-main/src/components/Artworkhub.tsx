@@ -45,9 +45,9 @@ import art_vs_war from '@/assets/art_vs_war_.webp';
 import sorry from '@/assets/sorry.webp';
 import nothing_to_hide from '@/assets/Nothing to Hide.png';
 import wrapped_reality from '@/assets/Wrapped Reality.png';
-import business_pleasure from '@/assets/Business_&_Pleasure.png';
-import price_of_beauty from '@/assets/The Price of Beauty.png';
-import education from '@/assets/Education.png';
+import business_pleasure from '@/assets/Business_&_Pleasure.webp';
+import price_of_beauty from '@/assets/The Price of Beauty.webp';
+import education from '@/assets/Education.webp';
 
 const ArtworkHub = () => {
     const [cart, setCart] = useState<number[]>([]);

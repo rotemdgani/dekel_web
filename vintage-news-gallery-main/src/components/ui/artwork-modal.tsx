@@ -119,58 +119,7 @@ const ArtworkModal = ({
                 </div>
               )}
               
-              <div className="artwork-modal-actions">
-                {/* Commented out for future reactivation if needed
-                <Button
-                  className="artwork-modal-add-to-cart-btn"
-                  onClick={() => onAddToCart(artwork.id)}
-                  disabled={cart.includes(artwork.id) || artwork.availability === 'SOLD'}
-                >
-                  {cart.includes(artwork.id) ? "In Series" : artwork.availability === 'SOLD' ? "Sold" : "Purchase Artwork"}
-                </Button>
-                
-                <Button
-                  className="artwork-modal-inquire-btn"
-                  onClick={() => {
-                    const artworkName = `Artwork: ${artwork.title}`;
-                    const subject = `I have a question about the artwork ${artwork.title}`;
-                    const encodedArtworkName = encodeURIComponent(artworkName);
-                    const encodedSubject = encodeURIComponent(subject);
-                    
-                    // Close the modal first
-                    onClose();
-                    
-                    // Navigate to contact page with parameters
-                    setTimeout(() => {
-                      // Set the hash with parameters (no message parameter)
-                      window.location.hash = `contact?artwork=${encodedArtworkName}&subject=${encodedSubject}`;
-                      
-                      // Scroll to contact section
-                      const contactSection = document.getElementById('contact');
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }, 100);
-                  }}
-                  variant="outline"
-                >
-                  Inquire about this artwork
-                </Button>
-                */}
-                
-                <Button
-                  className="artwork-modal-whatsapp-btn"
-                  onClick={() => {
-                    const message = `Hi, I'm interested in the artwork "${artwork.title}". Can you please provide more information about availability and pricing?`;
-                    const encodedMessage = encodeURIComponent(message);
-                    const whatsappUrl = `https://wa.me/972507451500?text=${encodedMessage}`;
-                    window.open(whatsappUrl, '_blank');
-                  }}
-                  variant="default"
-                >
-                  Ask about this piece
-                </Button>
-              </div>
+              {/* Actions removed for museum-style presentation */}
             </div>
           </div>
         </DialogContent>

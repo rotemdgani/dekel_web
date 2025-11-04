@@ -1,0 +1,69 @@
+.series-label {
+  position: absolute;
+  top: 16px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.series-label--left {
+  left: -80px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.series-label--right {
+  right: -80px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@media (max-width: 1400px) {
+  .series-label--left {
+    left: -70px;
+  }
+  .series-label--right {
+    right: -70px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .series-label--left {
+    left: -60px;
+  }
+  .series-label--right {
+    right: -60px;
+  }
+}
+
+.series-label-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  color: #999;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .series-label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    writing-mode: horizontal-tb;
+    text-orientation: unset;
+  }
+  
+  .series-label--right {
+    left: 16px;
+    right: auto;
+  }
+  
+  .series-label-text {
+    font-size: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 8px;
+    border-radius: 2px;
+  }
+}

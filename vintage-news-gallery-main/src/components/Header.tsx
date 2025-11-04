@@ -9,9 +9,9 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", to: "/" },
-    { name: "Series", to: "/collections" },
-    { name: "Press", to: "/press" },
     { name: "About", to: "/about" },
+    { name: "Exhibitions", to: "/exhibitions" },
+    { name: "Press / Awards", to: "/press" },
     { name: "Contact", to: "/contact" },
   ];
 

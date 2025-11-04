@@ -24,17 +24,19 @@ const About = () => {
 
             <div className="about-text">
               <p className="about-paragraph">
-              Dekel Harari is a Tel Aviv–based contemporary artist whose practice unfolds at the intersection of timeless foundations and the fleeting noise of daily news.
+              Dekel Harari is a Tel Aviv–based contemporary artist whose work unfolds between two opposing forces - the quiet permanence of nature, and the restless pulse of daily news.
               </p>
 
               <p className="about-paragraph">
-              His work emerges from the tension between two worlds:
-              The classical world – nature, sky, love, eternal elements that embody beauty and breath.
-              And the news-driven world – a relentless flood of information, shifting headlines, a gray and grown-up routine that overwhelms us.
+              My works begin with headlines, often before I'm even aware of their impact. Some are born from actual events; others from the emotional residue they leave behind. I was not trained to escape reality - I was shaped by it. I grew up inside routine, deadlines, noise, offices, and the fragile moments of silence in between. Painting became the way I paused the world. Not to reject it or romanticize it - but to understand it.
               </p>
 
               <p className="about-paragraph">
-              Between the two, art takes shape – a pause where time stands still, and the everyday is dismantled and rebuilt. Harari does not document reality; he proposes to reconstruct it. Not as a report, but as a new gaze that returns wonder to the ordinary.
+              I use newspapers because they are temporary - printed to be consumed, then forgotten. When I paint over them, I'm not erasing information but reclaiming it. Transforming noise into form, surface into memory. I try to make painting a way to understand what cannot be reported.
+              </p>
+
+              <p className="about-paragraph">
+              My practice lives between the eternal - sky, love, silence, breath - and the urgent rhythm of headlines. In that narrow space between what happened and what we felt, my work takes shape. Not as documentation, but as a quiet rewrite of reality.
               </p>
             </div>
 {/* 
