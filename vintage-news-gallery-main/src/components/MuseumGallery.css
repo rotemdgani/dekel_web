@@ -114,44 +114,6 @@
   margin-right: 0;
 }
 
-/* Specific image positioning adjustments - shift the entire content block, not just image */
-.museum-artwork[data-artwork-title="Orange Sky"] .museum-artwork-content {
-  margin-left: auto;
-  margin-right: -60px; /* Shift content more to the right */
-}
-
-.museum-artwork[data-artwork-title="Over the Headlines (Homage to Marc Chagall)"] .museum-artwork-content {
-  margin-left: -60px; /* Shift content more to the left */
-  margin-right: auto;
-}
-
-.museum-artwork[data-artwork-title="Bride Interrupted"] .museum-artwork-content {
-  margin-left: auto;
-  margin-right: -80px; /* Shift content more to the right */
-}
-
-@media (max-width: 1200px) {
-  .museum-artwork[data-artwork-title="Orange Sky"] .museum-artwork-content {
-    margin-right: -40px;
-  }
-  
-  .museum-artwork[data-artwork-title="Over the Headlines (Homage to Marc Chagall)"] .museum-artwork-content {
-    margin-left: -40px;
-  }
-  
-  .museum-artwork[data-artwork-title="Bride Interrupted"] .museum-artwork-content {
-    margin-right: -50px;
-  }
-}
-
-@media (max-width: 768px) {
-  .museum-artwork[data-artwork-title="Orange Sky"] .museum-artwork-content,
-  .museum-artwork[data-artwork-title="Over the Headlines (Homage to Marc Chagall)"] .museum-artwork-content,
-  .museum-artwork[data-artwork-title="Bride Interrupted"] .museum-artwork-content {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
 
 /* Side-by-side artwork pair */
 .museum-artwork-pair {
@@ -163,6 +125,34 @@
   align-items: flex-start;
 }
 
+/* Extra spacing after flowers pair to separate from next section */
+.museum-artwork-flowers-pair {
+  margin-bottom: 180px;
+}
+
+/* Increased horizontal gap for flowers pair */
+.museum-artwork-pair--flowers {
+  gap: 80px;
+}
+
+/* Vertical stacking for On a Rope + Under Layers */
+.museum-artwork-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 100%;
+  padding: 0 80px;
+  align-items: center;
+  justify-content: center;
+}
+
+.museum-artwork--stack-item {
+  width: 100%;
+  max-width: 900px;
+  padding: 0;
+  align-self: center;
+}
+
 .museum-artwork--pair-item {
   flex: 1;
   max-width: calc(50% - 20px);
@@ -170,10 +160,52 @@
   align-self: stretch;
 }
 
+/* Adjust max-width for flowers pair to account for larger gap */
+.museum-artwork-pair--flowers .museum-artwork--pair-item {
+  max-width: calc(50% - 40px);
+}
+
+/* Make Constrained Bloom Rose image bigger within the pair */
+.museum-artwork-pair--flowers .museum-artwork--pair-item:first-child .museum-artwork-image {
+  max-height: 70vh; /* Bigger than standard pair item (60vh) */
+}
+
+/* Smaller pair for On a Rope + Under Layers */
+.museum-artwork-pair--small {
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 80px; /* Increased gap between the two artworks */
+}
+
+.museum-artwork--pair-item--small {
+  max-width: calc(50% - 40px);
+}
+
+.museum-artwork--pair-item--small .museum-artwork-image {
+  max-height: 45vh;
+}
+
 @media (max-width: 1200px) {
   .museum-artwork-pair {
     padding: 0 60px;
     gap: 32px;
+  }
+  
+  .museum-artwork-flowers-pair {
+    margin-bottom: 160px;
+  }
+  
+  .museum-artwork-pair--flowers {
+    gap: 60px;
+  }
+  
+  .museum-artwork-pair--small {
+    gap: 60px; /* Increased gap on medium screens */
+  }
+  
+  .museum-artwork-stack {
+    padding: 0 60px;
+    gap: 50px;
   }
 }
 
@@ -184,9 +216,26 @@
     gap: 60px;
   }
   
+  .museum-artwork-flowers-pair {
+    margin-bottom: 140px;
+  }
+  
+  .museum-artwork-pair--flowers {
+    gap: 50px;
+  }
+  
+  .museum-artwork-pair--small {
+    gap: 50px; /* Increased gap on mobile */
+  }
+  
   .museum-artwork--pair-item {
     max-width: 100%;
     width: 100%;
+  }
+  
+  .museum-artwork-stack {
+    padding: 0 20px;
+    gap: 40px;
   }
 }
 
@@ -237,6 +286,11 @@
   max-height: 72vh; /* Reduced from 90vh by 20% */
 }
 
+/* Make Constrained Bloom Rose slightly bigger */
+.museum-artwork[data-artwork-title="Constrained Bloom Rose"] .museum-artwork-image {
+  max-height: 78vh; /* ~8% bigger than large */
+}
+
 .museum-artwork--large-extra .museum-artwork-image {
   max-height: 82.8vh; /* 15% bigger than large (72vh * 1.15 = 82.8vh) */
 }
@@ -282,6 +336,12 @@
   margin: 0;
   letter-spacing: -0.02em;
   text-align: left;
+}
+
+/* Increased line-height for specific multi-line titles */
+.museum-artwork[data-artwork-title="In the Loop"] .museum-artwork-title,
+.museum-artwork[data-artwork-title="Constrained Bloom Rose"] .museum-artwork-title {
+  line-height: 1.5;
 }
 
 .museum-artwork-year {
@@ -389,5 +449,14 @@
   
   .museum-artwork--pair-item .museum-artwork-image {
     max-height: 50vh;
+  }
+  
+  .museum-artwork--pair-item--small .museum-artwork-image {
+    max-height: 40vh;
+  }
+  
+  /* Make Constrained Bloom Rose image bigger on mobile */
+  .museum-artwork-pair--flowers .museum-artwork--pair-item:first-child .museum-artwork-image {
+    max-height: 58vh;
   }
 }

@@ -1,5 +1,5 @@
 import "./About.css";
-import dekel from '@/assets/dekel-portrait.jpg'
+import dekelProfile from '@/assets/dekel_profile.webp'
 
 const About = () => {
   return (
@@ -58,7 +58,7 @@ const About = () => {
 
           <div className="about-quote">
             <div className="about-quote-image-container">
-              <img src={dekel} alt="Dekel Harari Portrait" className="about-quote-img" loading="lazy" />
+              <img src={dekelProfile} alt="Dekel Harari Profile" className="about-quote-img" loading="lazy" />
             </div>
             <div className="about-quote-content">
 

@@ -8,8 +8,10 @@ interface SeriesLabelProps {
 const SeriesLabel = ({ series, position = "left" }: SeriesLabelProps) => {
   const formatSeriesName = (series: string) => {
     const seriesMap: Record<string, string> = {
-      "the-good-times": "The Good Times",
-      "based-on-a-true-story": "Based on a True Story",
+      "flowers": "Flowers",
+      "under-layers-rope": "Under Layers + On a Rope",
+      "unreadable": "Unreadable",
+      "in-the-loop": "In the Loop",
       "face-card": "Face Card",
       "present": "Present",
     };

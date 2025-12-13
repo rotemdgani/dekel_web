@@ -11,8 +11,10 @@ const SeriesFilter = ({ activeSeries, onFilterChange }: SeriesFilterProps) => {
 
   const seriesOptions = [
     { value: null, label: "All" },
-    { value: "the-good-times", label: "The Good Times" },
-    { value: "based-on-a-true-story", label: "Based on a True Story" },
+    { value: "flowers", label: "Flowers" },
+    { value: "under-layers-rope", label: "Under Layers + On a Rope" },
+    { value: "unreadable", label: "Unreadable" },
+    { value: "in-the-loop", label: "In the Loop" },
     { value: "face-card", label: "Face Card" },
     { value: "present", label: "Present" },
   ];

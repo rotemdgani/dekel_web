@@ -2,20 +2,14 @@ import women2_framed from '@/assets/women2_framed.webp';
 import business_pleasure from '@/assets/Business_&_Pleasure.webp';
 import price_of_beauty from '@/assets/The Price of Beauty.webp';
 import education from '@/assets/Education.webp';
-import dove_among_crawl from '@/assets/dove_among_crawls.webp';
-import b2 from '@/assets/b2.webp';
-import bride_under_attack from '@/assets/bride_under_attack.webp';
-import telaviv_rocket from '@/assets/telaviv_rocket.webp';
-import nyt_cover_earth from '@/assets/nyt_cover_earth.webp';
-import shagal_over_the_city from '@/assets/shagal_over_the_city.webp';
-import news_vs_bussines from '@/assets/news_vs_bussines.webp';
 import red_gift_yellow_card from '@/assets/red_gift_yellow_card.webp';
-import orange_sky from '@/assets/orange_sky.webp';
-import pink_line from '@/assets/pink_line.webp';
-import pink_fileds from '@/assets/pink_fileds.webp';
-import paved_by_heroes from '@/assets/Paved by Heroes.webp';
-import ooo from '@/assets/ooo.webp';
 import profile_vintage from '@/assets/profile_vintage.webp';
+import constrained_bloom_rose from '@/assets/Constrained Bloom_ROSE.webp';
+import constrained_bloom_anemone from '@/assets/Constrained Bloom_Anemone.webp';
+import under_layers from '@/assets/Under_Layers.webp';
+import on_a_rope from '@/assets/On_a_rope.webp';
+import unreadable from '@/assets/UNREADABLE.webp';
+import in_the_loop from '@/assets/In_the_loop.webp';
 
 export interface Artwork {
   id: number;
@@ -32,136 +26,78 @@ export interface Artwork {
 }
 
 export const artworks: Artwork[] = [
-  // The Good Times series
+  // Flowers series (first on the site)
   {
-    id: 25,
-    title: "Orange Sky",
-    category: "the-good-times",
-    price: 2500,
-    medium: "Acrylic on Canvas",
-    dimensions: "120\" x 80\"",
-    image: orange_sky,
-    description: "",
-    availability: "SOLD",
-    isLimited: false,
-  },
-  {
-    id: 24,
-    title: "OOO",
-    category: "the-good-times",
-    price: 2500,
-    medium: "Acrylic on Canvas",
-    dimensions: "120\" x 80\"",
-    image: ooo,
-    description: "",
-    availability: "SOLD",
-    isLimited: false,
-  },
-  {
-    id: 26,
-    title: "Pink Fields",
-    category: "the-good-times",
-    price: 2500,
-    medium: "Acrylic on Canvas",
-    dimensions: "120\" x 80\"",
-    image: pink_fileds,
+    id: 39,
+    title: "Constrained Bloom Rose",
+    category: "flowers",
+    price: 0,
+    medium: "",
+    dimensions: "",
+    image: constrained_bloom_rose,
     description: "",
     availability: "Available",
     isLimited: false,
   },
   {
-    id: 27,
-    title: "Headline Erased",
-    category: "the-good-times",
-    price: 2500,
-    medium: "Acrylic on Canvas",
-    dimensions: "120\" x 80\"",
-    image: pink_line,
+    id: 40,
+    title: "Constrained Bloom Anemone",
+    category: "flowers",
+    price: 0,
+    medium: "",
+    dimensions: "",
+    image: constrained_bloom_anemone,
     description: "",
     availability: "Available",
     isLimited: false,
   },
-  // Based on a True Story series
+  // Under Layers + On a Rope section
   {
-    id: 11,
-    title: "Dove Among Crows",
-    category: "based-on-a-true-story",
-    price: 2500,
-    medium: "Mixed media and acrylic paints",
-    dimensions: "110\" x 100\"",
-    image: dove_among_crawl,
-    description: "",
-    availability: "Available",
-    isLimited: false,
-  },
-  {
-    id: 7,
-    title: "Peace Bomber",
-    category: "based-on-a-true-story",
-    price: 2500,
-    medium: "Mixed media and acrylic paints",
-    dimensions: "110\" x 100\"",
-    image: b2,
+    id: 41,
+    title: "Under Layers",
+    category: "under-layers-rope",
+    price: 0,
+    medium: "",
+    dimensions: "",
+    image: under_layers,
     description: "",
     availability: "Available",
     isLimited: false,
   },
   {
-    id: 8,
-    title: "Bride Interrupted",
-    category: "based-on-a-true-story",
-    price: 2500,
-    medium: "Mixed media and acrylic paints",
-    dimensions: "110\" x 100\"",
-    image: bride_under_attack,
+    id: 42,
+    title: "On a Rope",
+    category: "under-layers-rope",
+    price: 0,
+    medium: "",
+    dimensions: "",
+    image: on_a_rope,
     description: "",
     availability: "Available",
     isLimited: false,
   },
+  // Unreadable (alone)
   {
-    id: 14,
-    title: "Blinded Earth",
-    category: "based-on-a-true-story",
-    price: 1900,
-    medium: "Mixed media and acrylic paints",
-    dimensions: "60\" x 80\"",
-    image: nyt_cover_earth,
+    id: 43,
+    title: "Unreadable",
+    category: "unreadable",
+    price: 0,
+    medium: "",
+    dimensions: "",
+    image: unreadable,
     description: "",
     availability: "Available",
     isLimited: false,
   },
+  // In the Loop
   {
-    id: 13,
-    title: "Broken Departure",
-    category: "based-on-a-true-story",
-    price: 2100,
-    medium: "Mixed media and acrylic paints",
-    dimensions: "110\" x 100\" - Includes black wooden frame with glass",
-    image: news_vs_bussines,
-    description: "",
-    availability: "Available",
-    isLimited: false,
-  },
-  {
-    id: 15,
-    title: "Over the Headlines (Homage to Marc Chagall)",
-    category: "based-on-a-true-story",
-    price: 2500,
-    medium: "Mixed media and acrylic paints",
-    dimensions: "60\" x 80\"",
-    image: shagal_over_the_city,
-    description: "",
-    availability: "SOLD",
-    isLimited: false,
-  },
-  {
-    id: 38,
-    title: "Paved by Heroes",
-    category: "based-on-a-true-story",
-    price: 2500,
-    medium: "Mixed media and acrylic on newspaper",
-    dimensions: "90\" × 110\"",
-    image: paved_by_heroes,
+    id: 44,
+    title: "In the Loop",
+    category: "in-the-loop",
+    price: 0,
+    medium: "",
+    dimensions: "",
+    image: in_the_loop,
     description: "",
     availability: "Available",
     isLimited: false,
