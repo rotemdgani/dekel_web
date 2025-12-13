@@ -1,6 +1,5 @@
 import { useState, useMemo } from "react";
 import SeriesLabel from "./SeriesLabel";
-import SeriesFilter from "./SeriesFilter";
 import ArtworkModal from "@/components/ui/artwork-modal";
 import "./MuseumGallery.css";
 
@@ -23,7 +22,6 @@ interface MuseumGalleryProps {
 }
 
 const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
-  const [activeSeries, setActiveSeries] = useState<string | null>(null);
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -31,23 +29,24 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
 
   // Define exact artwork order by series
   const artworkOrder = [
-    // Face Card (first)
+    // Flowers (first on the site)
+    { id: 39, series: "flowers" }, // Constrained Bloom Rose
+    { id: 40, series: "flowers" }, // Constrained Bloom Anemone
+    
+    // In the Loop
+    { id: 44, series: "in-the-loop" }, // In the Loop
+    
+    // Face Card
     { id: 35, series: "face-card" }, // Business & Pleasure
     { id: 37, series: "face-card" }, // Education
     { id: 36, series: "face-card" }, // The Price of Beauty
     
-    // Based on a True Story (second)
-    { id: 13, series: "based-on-a-true-story" }, // Broken Departure
-    { id: 11, series: "based-on-a-true-story" }, // Dove Among Crows
-    { id: 7, series: "based-on-a-true-story" }, // Peace Bomber
-    { id: 8, series: "based-on-a-true-story" }, // Bride Interrupted
-    { id: 15, series: "based-on-a-true-story" }, // Over the Headlines
+    // Under Layers + On a Rope section (at the end)
+    { id: 42, series: "under-layers-rope" }, // On a Rope
+    { id: 41, series: "under-layers-rope" }, // Under Layers
     
-    // The Good Times (third)
-    { id: 25, series: "the-good-times" }, // Orange Sky
-    { id: 24, series: "the-good-times" }, // OOO
-    { id: 26, series: "the-good-times" }, // Pink Fields
-    { id: 27, series: "the-good-times" }, // Headline Erased
+    // Unreadable (at the end)
+    { id: 43, series: "unreadable" }, // Unreadable
   ];
 
   const orderedArtworks = useMemo(() => {
@@ -72,11 +71,8 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
   }, [artworks]);
 
   const filteredArtworks = useMemo(() => {
-    if (!activeSeries) {
-      return orderedArtworks;
-    }
-    return orderedArtworks.filter((item) => item.series === activeSeries);
-  }, [orderedArtworks, activeSeries]);
+    return orderedArtworks;
+  }, [orderedArtworks]);
 
   const handleArtworkClick = (artwork: Artwork) => {
     setSelectedArtwork(artwork);
@@ -112,71 +108,51 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
   return (
     <>
       <section id="gallery" className="museum-gallery">
-        <SeriesFilter
-          activeSeries={activeSeries}
-          onFilterChange={setActiveSeries}
-        />
-
         <div className="museum-gallery-container">
           {filteredArtworks.map((item, index) => {
             const { artwork, isFirstInSeries, series } = item;
             
-            // Check if this is Pink Fields or Headline Erased for side-by-side display
-            const isPinkFields = artwork.title === "Pink Fields";
-            const isHeadlineErased = artwork.title === "Headline Erased";
+            // Check for flowers pair (Constrained Bloom Rose and Anemone)
+            const isConstrainedBloomRose = artwork.title === "Constrained Bloom Rose";
+            const isConstrainedBloomAnemone = artwork.title === "Constrained Bloom Anemone";
             const nextItem = filteredArtworks[index + 1];
-            const isNextHeadlineErased = nextItem && nextItem.artwork.title === "Headline Erased";
+            const isNextConstrainedBloomAnemone = nextItem && nextItem.artwork.title === "Constrained Bloom Anemone";
             const prevItem = filteredArtworks[index - 1];
-            const isPrevPinkFields = prevItem && prevItem.artwork.title === "Pink Fields";
+            const isPrevConstrainedBloomRose = prevItem && prevItem.artwork.title === "Constrained Bloom Rose";
             
-            // Skip Headline Erased if it's being rendered as part of the side-by-side pair
-            if (isHeadlineErased && isPrevPinkFields) {
+            // Check for Under Layers and On a Rope (now separate rows)
+            const isOnARope = artwork.title === "On a Rope";
+            const isUnderLayers = artwork.title === "Under Layers";
+            const isUnreadable = artwork.title === "Unreadable";
+            
+            // Skip if being rendered as part of a pair
+            if (isConstrainedBloomAnemone && isPrevConstrainedBloomRose) {
               return null;
             }
             
                                                                              // Special handling for "Business & Pleasure" - make it smaller and right-aligned
               const isBusinessPleasure = artwork.title === "Business & Pleasure";
-              // Special handling for "OOO" - make it large with closer title
-              const isOOO = artwork.title === "OOO";
-                             // Special size handling for specific artworks
-               const isOrangeSky = artwork.title === "Orange Sky";
-               const isOverHeadlines = artwork.title === "Over the Headlines (Homage to Marc Chagall)";
-               const isBrideInterrupted = artwork.title === "Bride Interrupted";
                
-               let sizeClass = isBusinessPleasure ? "medium" : isOOO ? "large" : getSizeClass(index);
+               let sizeClass = isBusinessPleasure ? "medium" : getSizeClass(index);
                
-               // Apply special size modifiers
-               if (isOrangeSky) {
-                 sizeClass = "large-small"; // 5% smaller than large
-               } else if (isOverHeadlines) {
-                 sizeClass = "medium-small"; // 15% smaller
-               } else if (isBrideInterrupted) {
-                 sizeClass = "large-small"; // 5% smaller than large
+               // Make Under Layers, Unreadable, and Constrained Bloom Rose bigger
+               if (isUnderLayers) {
+                 sizeClass = "large";
+               } else if (isUnreadable) {
+                 sizeClass = "large";
+               } else if (isConstrainedBloomRose) {
+                 sizeClass = "large";
                }
                
                                // Apply special alignment modifiers
                 let alignmentClass = isBusinessPleasure ? "right" : getAlignmentClass(index);
-                if (isOrangeSky) {
-                  alignmentClass = "right"; // Move right
-                } else if (isOverHeadlines) {
-                  alignmentClass = "left"; // Move left
-                } else if (isBrideInterrupted) {
-                  alignmentClass = "right"; // Move right
-                }
 
-            // Render side-by-side container for Pink Fields + Headline Erased
-            if (isPinkFields && isNextHeadlineErased) {
+            // Render side-by-side container for Flowers pair (Constrained Bloom Rose + Anemone)
+            // No series label for flowers
+            if (isConstrainedBloomRose && isNextConstrainedBloomAnemone) {
               return (
-                <div key={`pair-${artwork.id}-${nextItem.artwork.id}`}>
-                  {isFirstInSeries && (
-                    <div className="museum-series-label-container">
-                      <SeriesLabel
-                        series={series}
-                        position="left"
-                      />
-                    </div>
-                  )}
-                  <div className="museum-artwork-pair">
+                <div key={`pair-${artwork.id}-${nextItem.artwork.id}`} className="museum-artwork-flowers-pair">
+                  <div className="museum-artwork-pair museum-artwork-pair--flowers">
                     <div className="museum-artwork museum-artwork--pair-item">
                       <div className="museum-artwork-content">
                         <div
@@ -232,9 +208,15 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
               );
             }
 
+
             return (
               <div key={artwork.id}>
-                {isFirstInSeries && (
+                {/* Don't show series labels for flowers, rope artworks, unreadable, or in-the-loop */}
+                {isFirstInSeries && 
+                 series !== "flowers" && 
+                 series !== "under-layers-rope" && 
+                 series !== "unreadable" &&
+                 series !== "in-the-loop" && (
                   <div className="museum-series-label-container">
                     <SeriesLabel
                       series={series}
@@ -246,7 +228,7 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
                     className={`museum-artwork museum-artwork--${sizeClass} museum-artwork--${alignmentClass}`}
                     data-artwork-title={artwork.title}
                   >
-                   <div className={`museum-artwork-content ${isOOO ? "museum-artwork-content--tight" : ""}`}>
+                   <div className="museum-artwork-content">
                     <div
                       className="museum-artwork-image-wrapper"
                       onClick={() => handleArtworkClick(artwork)}
