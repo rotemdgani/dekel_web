@@ -9,8 +9,8 @@ const SeriesLabel = ({ series, position = "left" }: SeriesLabelProps) => {
   const formatSeriesName = (series: string) => {
     const seriesMap: Record<string, string> = {
       "flowers": "Flowers",
-      "under-layers-rope": "Under Layers + On a Rope",
-      "unreadable": "Unreadable",
+      "under-layers-rope": "Between Layers + Split Page",
+      "unreadable": "Subtext",
       "in-the-loop": "In the Loop",
       "face-card": "Face Card",
       "present": "Present",

@@ -11,6 +11,7 @@
   padding: 0 24px;
   display: flex;
   flex-direction: column;
+  align-items: stretch; /* Ensure children can be centered */
   gap: 120px;
 }
 
@@ -108,6 +109,21 @@
   margin-right: auto;
 }
 
+/* Ensure Subtext is centered */
+.museum-artwork[data-artwork-title="Subtext"] {
+  align-self: center !important;
+  margin: 0 auto !important;
+  width: auto !important;
+  max-width: 900px !important; /* Match large size */
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+}
+
+.museum-artwork[data-artwork-title="Subtext"] .museum-artwork-content {
+  align-items: center !important; /* Center content inside */
+  margin: 0 auto !important;
+}
+
 .museum-artwork--right {
   align-self: flex-end;
   margin-left: auto;
@@ -125,17 +141,36 @@
   align-items: flex-start;
 }
 
-/* Extra spacing after flowers pair to separate from next section */
-.museum-artwork-flowers-pair {
+/* Extra spacing after flowers stack to separate from next section */
+.museum-artwork-flowers-stack {
   margin-bottom: 180px;
 }
 
-/* Increased horizontal gap for flowers pair */
-.museum-artwork-pair--flowers {
-  gap: 80px;
+/* Vertical stack for flowers - two-row hierarchy */
+.museum-artwork-stack--flowers {
+  gap: 80px; /* Clear separation between rows */
+  align-items: center;
 }
 
-/* Vertical stacking for On a Rope + Under Layers */
+/* Taped Rose - Top Row, Dominant Size (increased by ~20%) */
+.museum-artwork--flowers-top .museum-artwork-image {
+  max-height: 78vh; /* Increased from 65vh by ~20% */
+}
+
+/* Taped Anemone - Second Row, Right-aligned, Smaller Size (increased by ~20%) */
+.museum-artwork--flowers-bottom {
+  align-self: flex-end !important; /* Position to the right side - override center alignment */
+  margin-left: auto !important; /* Push to right */
+  margin-right: 0 !important; /* Ensure it's on the right */
+  width: auto !important; /* Override 100% width */
+  max-width: 900px; /* Keep max-width constraint */
+}
+
+.museum-artwork--flowers-bottom .museum-artwork-image {
+  max-height: 70vh; /* Increased from 58vh by ~20%, scaled to ~90% of Rose (78vh * 0.90 = 70vh) */
+}
+
+/* Vertical stacking for Split Page + Between Layers */
 .museum-artwork-stack {
   display: flex;
   flex-direction: column;
@@ -160,17 +195,8 @@
   align-self: stretch;
 }
 
-/* Adjust max-width for flowers pair to account for larger gap */
-.museum-artwork-pair--flowers .museum-artwork--pair-item {
-  max-width: calc(50% - 40px);
-}
 
-/* Make Constrained Bloom Rose image bigger within the pair */
-.museum-artwork-pair--flowers .museum-artwork--pair-item:first-child .museum-artwork-image {
-  max-height: 70vh; /* Bigger than standard pair item (60vh) */
-}
-
-/* Smaller pair for On a Rope + Under Layers */
+/* Smaller pair for Split Page + Between Layers */
 .museum-artwork-pair--small {
   max-width: 1000px;
   margin: 0 auto;
@@ -191,12 +217,26 @@
     gap: 32px;
   }
   
-  .museum-artwork-flowers-pair {
+  .museum-artwork-flowers-stack {
     margin-bottom: 160px;
   }
   
-  .museum-artwork-pair--flowers {
-    gap: 60px;
+  .museum-artwork-stack--flowers {
+    gap: 70px; /* Slightly reduced gap at medium breakpoint */
+  }
+  
+  /* Maintain visual hierarchy at medium breakpoint (increased by ~20%) */
+  .museum-artwork--flowers-top .museum-artwork-image {
+    max-height: 74vh; /* Increased from 62vh by ~20% */
+  }
+  
+  .museum-artwork--flowers-bottom .museum-artwork-image {
+    max-height: 66vh; /* Increased from 55vh by ~20%, scaled to ~89% of Rose (74vh * 0.89 = 66vh) */
+  }
+  
+  /* Make "In the Loop" artwork 20% smaller at medium breakpoint */
+  .museum-artwork[data-artwork-title="In the Loop"] .museum-artwork-image {
+    max-height: 57.6vh !important; /* 20% smaller than large (72vh * 0.8 = 57.6vh) */
   }
   
   .museum-artwork-pair--small {
@@ -216,12 +256,21 @@
     gap: 60px;
   }
   
-  .museum-artwork-flowers-pair {
+  .museum-artwork-flowers-stack {
     margin-bottom: 140px;
   }
   
-  .museum-artwork-pair--flowers {
-    gap: 50px;
+  .museum-artwork-stack--flowers {
+    gap: 60px; /* Clear separation between rows on mobile */
+  }
+  
+  /* Maintain visual hierarchy on mobile (increased by ~20%) */
+  .museum-artwork--flowers-top .museum-artwork-image {
+    max-height: 66vh; /* Increased from 55vh by ~20% */
+  }
+  
+  .museum-artwork--flowers-bottom .museum-artwork-image {
+    max-height: 59vh; /* Increased from 49vh by ~20%, scaled to ~89% of Rose (66vh * 0.89 = 59vh) */
   }
   
   .museum-artwork-pair--small {
@@ -286,10 +335,6 @@
   max-height: 72vh; /* Reduced from 90vh by 20% */
 }
 
-/* Make Constrained Bloom Rose slightly bigger */
-.museum-artwork[data-artwork-title="Constrained Bloom Rose"] .museum-artwork-image {
-  max-height: 78vh; /* ~8% bigger than large */
-}
 
 .museum-artwork--large-extra .museum-artwork-image {
   max-height: 82.8vh; /* 15% bigger than large (72vh * 1.15 = 82.8vh) */
@@ -339,9 +384,13 @@
 }
 
 /* Increased line-height for specific multi-line titles */
-.museum-artwork[data-artwork-title="In the Loop"] .museum-artwork-title,
-.museum-artwork[data-artwork-title="Constrained Bloom Rose"] .museum-artwork-title {
+.museum-artwork[data-artwork-title="In the Loop"] .museum-artwork-title {
   line-height: 1.5;
+}
+
+/* Make "In the Loop" artwork 20% smaller */
+.museum-artwork[data-artwork-title="In the Loop"] .museum-artwork-image {
+  max-height: 57.6vh !important; /* 20% smaller than large (72vh * 0.8 = 57.6vh) */
 }
 
 .museum-artwork-year {
@@ -420,6 +469,20 @@
     align-self: stretch;
   }
   
+  /* Ensure Subtext stays centered on mobile */
+  .museum-artwork[data-artwork-title="Subtext"] {
+    align-self: center !important;
+    margin: 0 auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  .museum-artwork[data-artwork-title="Subtext"] .museum-artwork-content {
+    align-items: center !important;
+  }
+  
   .museum-artwork-info {
     text-align: left !important;
     align-items: flex-start !important;
@@ -433,6 +496,11 @@
   .museum-artwork--medium .museum-artwork-image,
   .museum-artwork--full .museum-artwork-image {
     max-height: 60vh; /* Reduced from 75vh by 20% */
+  }
+  
+  /* Make "In the Loop" artwork 20% smaller on mobile */
+  .museum-artwork[data-artwork-title="In the Loop"] .museum-artwork-image {
+    max-height: 48vh !important; /* 20% smaller than large on mobile (60vh * 0.8 = 48vh) */
   }
   
   .museum-artwork--large-extra .museum-artwork-image {
@@ -455,8 +523,21 @@
     max-height: 40vh;
   }
   
-  /* Make Constrained Bloom Rose image bigger on mobile */
+  /* Taped Rose - dominant on mobile */
+  .museum-artwork-pair--flowers .museum-artwork--pair-item:first-child {
+    margin-top: 0;
+  }
+  
   .museum-artwork-pair--flowers .museum-artwork--pair-item:first-child .museum-artwork-image {
-    max-height: 58vh;
+    max-height: 55vh; /* Larger, dominant size */
+  }
+  
+  /* Taped Anemone - clear intentional offset and scaling on mobile */
+  .museum-artwork-pair--flowers .museum-artwork--pair-item:last-child {
+    margin-top: 45px !important; /* Visible intentional offset on mobile */
+  }
+  
+  .museum-artwork-pair--flowers .museum-artwork--pair-item:last-child .museum-artwork-image {
+    max-height: 51vh; /* Scaled to ~93% of Rose (55vh * 0.93 = 51vh) */
   }
 }

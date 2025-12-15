@@ -1,4 +1,3 @@
-import women2_framed from '@/assets/women2_framed.webp';
 import business_pleasure from '@/assets/Business_&_Pleasure.webp';
 import price_of_beauty from '@/assets/The Price of Beauty.webp';
 import education from '@/assets/Education.webp';
@@ -29,10 +28,10 @@ export const artworks: Artwork[] = [
   // Flowers series (first on the site)
   {
     id: 39,
-    title: "Constrained Bloom Rose",
+    title: "Taped Rose",
     category: "flowers",
     price: 0,
-    medium: "",
+    medium: "Mixed media on wood",
     dimensions: "",
     image: constrained_bloom_rose,
     description: "",
@@ -41,23 +40,23 @@ export const artworks: Artwork[] = [
   },
   {
     id: 40,
-    title: "Constrained Bloom Anemone",
+    title: "Taped Anemone",
     category: "flowers",
     price: 0,
-    medium: "",
+    medium: "Mixed media on wood",
     dimensions: "",
     image: constrained_bloom_anemone,
     description: "",
     availability: "Available",
     isLimited: false,
   },
-  // Under Layers + On a Rope section
+  // Between Layers + Split Page section
   {
     id: 41,
-    title: "Under Layers",
+    title: "Between Layers",
     category: "under-layers-rope",
     price: 0,
-    medium: "",
+    medium: "Mixed media on wood",
     dimensions: "",
     image: under_layers,
     description: "",
@@ -66,23 +65,23 @@ export const artworks: Artwork[] = [
   },
   {
     id: 42,
-    title: "On a Rope",
+    title: "Split Page",
     category: "under-layers-rope",
     price: 0,
-    medium: "",
+    medium: "Mixed media on wood",
     dimensions: "",
     image: on_a_rope,
     description: "",
     availability: "Available",
     isLimited: false,
   },
-  // Unreadable (alone)
+  // Subtext (alone)
   {
     id: 43,
-    title: "Unreadable",
+    title: "Subtext",
     category: "unreadable",
     price: 0,
-    medium: "",
+    medium: "Mixed media on wood",
     dimensions: "",
     image: unreadable,
     description: "",
@@ -95,7 +94,7 @@ export const artworks: Artwork[] = [
     title: "In the Loop",
     category: "in-the-loop",
     price: 0,
-    medium: "",
+    medium: "Mixed media on wood",
     dimensions: "",
     image: in_the_loop,
     description: "",

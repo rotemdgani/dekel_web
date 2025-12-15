@@ -12,8 +12,8 @@ const SeriesFilter = ({ activeSeries, onFilterChange }: SeriesFilterProps) => {
   const seriesOptions = [
     { value: null, label: "All" },
     { value: "flowers", label: "Flowers" },
-    { value: "under-layers-rope", label: "Under Layers + On a Rope" },
-    { value: "unreadable", label: "Unreadable" },
+    { value: "under-layers-rope", label: "Between Layers + Split Page" },
+    { value: "unreadable", label: "Subtext" },
     { value: "in-the-loop", label: "In the Loop" },
     { value: "face-card", label: "Face Card" },
     { value: "present", label: "Present" },
