@@ -6,7 +6,7 @@ import "./ImageSlider.css";
 const imageModules = import.meta.glob<{ default: string }>('@/assets/[0-9]*.webp', { eager: true });
 
 // Images to exclude
-const EXCLUDED_IMAGES = [0, 1, 2, 6, 12, 17];
+const EXCLUDED_IMAGES = [0, 1, 2, 6, 7, 8, 12, 17];
 
 // Extract and sort images by their numeric filename
 const loadImages = (): string[] => {

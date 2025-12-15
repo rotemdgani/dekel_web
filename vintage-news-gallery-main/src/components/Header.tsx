@@ -7,9 +7,19 @@ import "./Header.css";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToArtworks = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const gallerySection = document.getElementById("gallery");
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setIsMenuOpen(false);
+  };
+
   const navItems = [
     { name: "Home", to: "/" },
     { name: "About", to: "/about" },
+    { name: "Artworks", to: "#gallery", isScroll: true },
     { name: "Exhibitions", to: "/exhibitions" },
     { name: "Press / Awards", to: "/press" },
     { name: "Contact", to: "/contact" },
@@ -26,15 +36,29 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.to}
-                className="editorial-link body-text font-medium hover:text-primary transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              if (item.isScroll) {
+                return (
+                  <a
+                    key={item.name}
+                    href={item.to}
+                    onClick={scrollToArtworks}
+                    className="editorial-link body-text font-medium hover:text-primary transition-colors cursor-pointer"
+                  >
+                    {item.name}
+                  </a>
+                );
+              }
+              return (
+                <Link
+                  key={item.name}
+                  to={item.to}
+                  className="editorial-link body-text font-medium hover:text-primary transition-colors"
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
@@ -54,16 +78,30 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pt-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.to}
-                  className="body-text font-medium hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                if (item.isScroll) {
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.to}
+                      onClick={scrollToArtworks}
+                      className="body-text font-medium hover:text-primary transition-colors cursor-pointer"
+                    >
+                      {item.name}
+                    </a>
+                  );
+                }
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.to}
+                    className="body-text font-medium hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}

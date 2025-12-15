@@ -30,8 +30,8 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
   // Define exact artwork order by series
   const artworkOrder = [
     // Flowers (first on the site)
-    { id: 39, series: "flowers" }, // Constrained Bloom Rose
-    { id: 40, series: "flowers" }, // Constrained Bloom Anemone
+    { id: 39, series: "flowers" }, // Taped Rose
+    { id: 40, series: "flowers" }, // Taped Anemone
     
     // In the Loop
     { id: 44, series: "in-the-loop" }, // In the Loop
@@ -41,12 +41,12 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
     { id: 37, series: "face-card" }, // Education
     { id: 36, series: "face-card" }, // The Price of Beauty
     
-    // Under Layers + On a Rope section (at the end)
-    { id: 42, series: "under-layers-rope" }, // On a Rope
-    { id: 41, series: "under-layers-rope" }, // Under Layers
+    // Between Layers + Split Page section (at the end)
+    { id: 42, series: "under-layers-rope" }, // Split Page
+    { id: 41, series: "under-layers-rope" }, // Between Layers
     
-    // Unreadable (at the end)
-    { id: 43, series: "unreadable" }, // Unreadable
+    // Subtext (at the end)
+    { id: 43, series: "unreadable" }, // Subtext
   ];
 
   const orderedArtworks = useMemo(() => {
@@ -112,21 +112,21 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
           {filteredArtworks.map((item, index) => {
             const { artwork, isFirstInSeries, series } = item;
             
-            // Check for flowers pair (Constrained Bloom Rose and Anemone)
-            const isConstrainedBloomRose = artwork.title === "Constrained Bloom Rose";
-            const isConstrainedBloomAnemone = artwork.title === "Constrained Bloom Anemone";
+            // Check for flowers pair (Taped Rose and Anemone)
+            const isTapedRose = artwork.title === "Taped Rose";
+            const isTapedAnemone = artwork.title === "Taped Anemone";
             const nextItem = filteredArtworks[index + 1];
-            const isNextConstrainedBloomAnemone = nextItem && nextItem.artwork.title === "Constrained Bloom Anemone";
+            const isNextTapedAnemone = nextItem && nextItem.artwork.title === "Taped Anemone";
             const prevItem = filteredArtworks[index - 1];
-            const isPrevConstrainedBloomRose = prevItem && prevItem.artwork.title === "Constrained Bloom Rose";
+            const isPrevTapedRose = prevItem && prevItem.artwork.title === "Taped Rose";
             
-            // Check for Under Layers and On a Rope (now separate rows)
-            const isOnARope = artwork.title === "On a Rope";
-            const isUnderLayers = artwork.title === "Under Layers";
-            const isUnreadable = artwork.title === "Unreadable";
+            // Check for Between Layers and Split Page (now separate rows)
+            const isSplitPage = artwork.title === "Split Page";
+            const isBetweenLayers = artwork.title === "Between Layers";
+            const isSubtext = artwork.title === "Subtext";
             
-            // Skip if being rendered as part of a pair
-            if (isConstrainedBloomAnemone && isPrevConstrainedBloomRose) {
+            // Skip if being rendered as part of a stack
+            if (isTapedAnemone && isPrevTapedRose) {
               return null;
             }
             
@@ -135,25 +135,24 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
                
                let sizeClass = isBusinessPleasure ? "medium" : getSizeClass(index);
                
-               // Make Under Layers, Unreadable, and Constrained Bloom Rose bigger
-               if (isUnderLayers) {
+               // Make Between Layers and Subtext bigger
+               if (isBetweenLayers) {
                  sizeClass = "large";
-               } else if (isUnreadable) {
-                 sizeClass = "large";
-               } else if (isConstrainedBloomRose) {
+               } else if (isSubtext) {
                  sizeClass = "large";
                }
                
                                // Apply special alignment modifiers
-                let alignmentClass = isBusinessPleasure ? "right" : getAlignmentClass(index);
+                let alignmentClass = isBusinessPleasure ? "right" : isSubtext ? "center" : getAlignmentClass(index);
 
-            // Render side-by-side container for Flowers pair (Constrained Bloom Rose + Anemone)
-            // No series label for flowers
-            if (isConstrainedBloomRose && isNextConstrainedBloomAnemone) {
+            // Render vertical stack for Flowers (Taped Rose on top row, Taped Anemone on second row)
+            // No series label for flowers - clear two-row hierarchy
+            if (isTapedRose && isNextTapedAnemone) {
               return (
-                <div key={`pair-${artwork.id}-${nextItem.artwork.id}`} className="museum-artwork-flowers-pair">
-                  <div className="museum-artwork-pair museum-artwork-pair--flowers">
-                    <div className="museum-artwork museum-artwork--pair-item">
+                <div key={`stack-${artwork.id}-${nextItem.artwork.id}`} className="museum-artwork-flowers-stack">
+                  <div className="museum-artwork-stack museum-artwork-stack--flowers">
+                    {/* Taped Rose - Top Row, Dominant */}
+                    <div className="museum-artwork museum-artwork--stack-item museum-artwork--flowers-top">
                       <div className="museum-artwork-content">
                         <div
                           className="museum-artwork-image-wrapper"
@@ -178,7 +177,8 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
                         </div>
                       </div>
                     </div>
-                    <div className="museum-artwork museum-artwork--pair-item">
+                    {/* Taped Anemone - Second Row, Smaller */}
+                    <div className="museum-artwork museum-artwork--stack-item museum-artwork--flowers-bottom">
                       <div className="museum-artwork-content">
                         <div
                           className="museum-artwork-image-wrapper"
