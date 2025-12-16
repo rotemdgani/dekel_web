@@ -211,12 +211,13 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
 
             return (
               <div key={artwork.id}>
-                {/* Don't show series labels for flowers, rope artworks, unreadable, or in-the-loop */}
+                {/* Don't show series labels for flowers, rope artworks, unreadable, in-the-loop, or face-card */}
                 {isFirstInSeries && 
                  series !== "flowers" && 
                  series !== "under-layers-rope" && 
                  series !== "unreadable" &&
-                 series !== "in-the-loop" && (
+                 series !== "in-the-loop" &&
+                 series !== "face-card" && (
                   <div className="museum-series-label-container">
                     <SeriesLabel
                       series={series}

@@ -11,16 +11,46 @@ const MuseumHero = () => {
         <div className="museum-hero-content">
           <div className="museum-hero-text">
             <p className="museum-statement">
-              My works begin with headlines, the kind that shape the way we think and feel before we even realize it.
+              We think we&apos;re thinking.
             </p>
             <p className="museum-statement">
-              Some respond to real events; others are built from the emotional residue they leave behind.
+              We feel we&apos;re feeling.
             </p>
             <p className="museum-statement">
-              When I paint over newspapers, I try to reclaim the surface, to turn information into experience, and noise into form;
+              We believe we&apos;re deciding.
             </p>
             <p className="museum-statement">
-              to make painting a way to understand what cannot be reported.
+              The same newspaper in the morning, the same scroll on the phone, the same route to work.
+            </p>
+            <p className="museum-statement">
+              Actions repeated until the mind learns to perform them without asking.
+            </p>
+            <p className="museum-statement">
+              Over time, habit turns into identity.
+            </p>
+            <p className="museum-statement">
+              My work focuses on that moment.
+            </p>
+            <p className="museum-statement">
+              Between genuine thought and automatic response.
+            </p>
+            <p className="museum-statement">
+              Between lives that are experienced and lives that are executed.
+            </p>
+            <p className="museum-statement">
+              The newspaper in my work is not a tool for reading, but raw material.
+            </p>
+            <p className="museum-statement">
+              A layer of noise, overload, and repetition.
+            </p>
+            <p className="museum-statement">
+              Not to tell a story,
+            </p>
+            <p className="museum-statement">
+              but to ask:
+            </p>
+            <p className="museum-statement">
+              Where does habit end, and where does choice begin?
             </p>
           </div>
         </div>

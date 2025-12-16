@@ -24,19 +24,43 @@ const About = () => {
 
             <div className="about-text">
               <p className="about-paragraph">
-              Dekel Harari is a Tel Aviv–based contemporary artist whose work unfolds between two opposing forces - the quiet permanence of nature, and the restless pulse of daily news.
+              My name is Dekel Harari, and I&apos;m the artist behind the works you&apos;re seeing here.
               </p>
 
               <p className="about-paragraph">
-              My works begin with headlines, often before I'm even aware of their impact. Some are born from actual events; others from the emotional residue they leave behind. I was not trained to escape reality - I was shaped by it. I grew up inside routine, deadlines, noise, offices, and the fragile moments of silence in between. Painting became the way I paused the world. Not to reject it or romanticize it - but to understand it.
+              I&apos;m a contemporary mixed-media artist, and my work looks at routine, repetition, information overload, and the moment habit takes the wheel and the mind stops asking questions.
               </p>
 
               <p className="about-paragraph">
-              I use newspapers because they are temporary - printed to be consumed, then forgotten. When I paint over them, I'm not erasing information but reclaiming it. Transforming noise into form, surface into memory. I try to make painting a way to understand what cannot be reported.
+              I work with newspapers as a main material.
               </p>
 
               <p className="about-paragraph">
-              My practice lives between the eternal - sky, love, silence, breath - and the urgent rhythm of headlines. In that narrow space between what happened and what we felt, my work takes shape. Not as documentation, but as a quiet rewrite of reality.
+              Not because of what&apos;s written in them, and not because they&apos;re free, but because of what they feel like as objects.
+              </p>
+
+              <p className="about-paragraph">
+              What do I do with them?
+              </p>
+
+              <p className="about-paragraph">
+              I change their job.
+              </p>
+
+              <p className="about-paragraph">
+              Instead of reading them and tossing them out, I cut them, paint on them, and build with them. Sometimes I even sell them, if someone insists.
+              </p>
+
+              <p className="about-paragraph">
+              The question isn&apos;t what we do,
+              </p>
+
+              <p className="about-paragraph">
+              but when it stops being habit and starts being choice.
+              </p>
+
+              <p className="about-paragraph">
+              And what else we might choose differently, if we actually stopped to think.
               </p>
             </div>
 {/* 
