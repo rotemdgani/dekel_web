@@ -51,9 +51,7 @@ const Contact = () => {
           <div className="contact-info">
             <h3 className="contact-info-title">Let's Collaborate</h3>
             <p className="contact-info-text">
-              Whether you're interested in purchasing original artwork from the store, 
-              commissioning a custom piece, or exploring collaboration opportunities, 
-              Dekel is always excited to discuss new projects and share his artistic vision.
+              Whether you&apos;re interested in acquiring an original artwork or exploring a potential collaboration, I&apos;m always open to new conversations.
             </p>
 
             <div className="contact-details">
