@@ -41,12 +41,18 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
     { id: 37, series: "face-card" }, // Education
     { id: 36, series: "face-card" }, // The Price of Beauty
     
-    // Between Layers + Split Page section (at the end)
-    { id: 42, series: "under-layers-rope" }, // Split Page
+    // Between Layers
     { id: 41, series: "under-layers-rope" }, // Between Layers
     
-    // Subtext (at the end)
+    // Subtext
     { id: 43, series: "unreadable" }, // Subtext
+    
+    // Split Page
+    { id: 42, series: "under-layers-rope" }, // Split Page
+    
+    // New artworks
+    { id: 46, series: "other" }, // Light Study
+    { id: 45, series: "other" }, // City
   ];
 
   const orderedArtworks = useMemo(() => {
@@ -211,13 +217,14 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
 
             return (
               <div key={artwork.id}>
-                {/* Don't show series labels for flowers, rope artworks, unreadable, in-the-loop, or face-card */}
+                {/* Don't show series labels for flowers, rope artworks, unreadable, in-the-loop, face-card, or other */}
                 {isFirstInSeries && 
                  series !== "flowers" && 
                  series !== "under-layers-rope" && 
                  series !== "unreadable" &&
                  series !== "in-the-loop" &&
-                 series !== "face-card" && (
+                 series !== "face-card" &&
+                 series !== "other" && (
                   <div className="museum-series-label-container">
                     <SeriesLabel
                       series={series}
