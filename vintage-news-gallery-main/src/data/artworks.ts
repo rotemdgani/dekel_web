@@ -11,6 +11,8 @@ import unreadable from '@/assets/UNREADABLE.webp';
 import in_the_loop from '@/assets/In_the_loop.webp';
 import city from '@/assets/City.webp';
 import light_study from '@/assets/Light Study.webp';
+import bride_under_attack from '@/assets/bride_under_attack.webp';
+import over_the_city from '@/assets/over_the_city.webp';
 
 export interface Artwork {
   id: number;
@@ -27,7 +29,7 @@ export interface Artwork {
 }
 
 export const artworks: Artwork[] = [
-  // Flowers series (first on the site)
+  // 1. Taped Rose
   {
     id: 39,
     title: "Taped Rose",
@@ -40,6 +42,7 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
+  // 2. Taped Anemone
   {
     id: 40,
     title: "Taped Anemone",
@@ -52,33 +55,7 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // Between Layers + Split Page section
-  {
-    id: 41,
-    title: "Between Layers",
-    category: "under-layers-rope",
-    price: 0,
-    medium: "Mixed media on canvas",
-    dimensions: "35 x 57 cm",
-    image: under_layers,
-    description: "2025",
-    availability: "Available",
-    isLimited: false,
-  },
-  // Subtext (alone)
-  {
-    id: 43,
-    title: "Subtext",
-    category: "unreadable",
-    price: 0,
-    medium: "Mixed media on canvas",
-    dimensions: "50 x 75 cm",
-    image: unreadable,
-    description: "2025",
-    availability: "Available",
-    isLimited: false,
-  },
-  // In the Loop
+  // 3. In the Loop
   {
     id: 44,
     title: "In the Loop",
@@ -91,19 +68,7 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // Face Card series
-  {
-    id: 2,
-    title: "Side Note",
-    category: "face-card",
-    price: 900,
-    medium: "Newspaper collage with acrylic",
-    dimensions: "27.9\" x 35.6\" - Unframed (frame not included)",
-    image: profile_vintage,
-    description: "2025",
-    availability: "Available",
-    isLimited: false,
-  },
+  // 4. Business & Pleasure
   {
     id: 35,
     title: "Business & Pleasure",
@@ -116,6 +81,7 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
+  // 5. Education
   {
     id: 37,
     title: "Education",
@@ -128,6 +94,33 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
+  // 6. Between Layers
+  {
+    id: 41,
+    title: "Between Layers",
+    category: "under-layers-rope",
+    price: 0,
+    medium: "Mixed media on canvas",
+    dimensions: "35 x 57 cm",
+    image: under_layers,
+    description: "2025",
+    availability: "Available",
+    isLimited: false,
+  },
+  // 7. Subtext
+  {
+    id: 43,
+    title: "Subtext",
+    category: "unreadable",
+    price: 0,
+    medium: "Mixed media on canvas",
+    dimensions: "50 x 75 cm",
+    image: unreadable,
+    description: "2025",
+    availability: "Available",
+    isLimited: false,
+  },
+  // 8. The Price of Beauty
   {
     id: 36,
     title: "The Price of Beauty",
@@ -140,20 +133,7 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // Present series
-  {
-    id: 19,
-    title: "To You",
-    category: "present",
-    price: 1100,
-    medium: "Newspaper collage and distressed acrylic on canvas",
-    dimensions: "60\" x 80\" x 3\"",
-    image: red_gift_yellow_card,
-    description: "2025",
-    availability: "Available",
-    isLimited: false,
-  },
-  // Split Page
+  // 9. Split Page
   {
     id: 42,
     title: "Split Page",
@@ -166,7 +146,33 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // Light Study
+  // 10. Bride Interrupted
+  {
+    id: 48,
+    title: "Bride, Interrupted",
+    category: "other",
+    price: 0,
+    medium: "Mixed media on canvas",
+    dimensions: "90 x 110 cm",
+    image: bride_under_attack,
+    description: "2025",
+    availability: "Available",
+    isLimited: false,
+  },
+  // 11. City Interrupted
+  {
+    id: 45,
+    title: "City, Interrupted",
+    category: "other",
+    price: 0,
+    medium: "Mixed media on canvas",
+    dimensions: "50 x 75 cm",
+    image: city,
+    description: "2025",
+    availability: "Available",
+    isLimited: false,
+  },
+  // 12. Light Study
   {
     id: 46,
     title: "Light Study",
@@ -179,15 +185,15 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // City
+  // 13. Over the City
   {
-    id: 45,
-    title: "City, Interrupted",
+    id: 47,
+    title: "Over the city (Homage to Mark Chagall)",
     category: "other",
     price: 0,
     medium: "Mixed media on canvas",
-    dimensions: "50 x 75 cm",
-    image: city,
+    dimensions: "60 x 80 cm",
+    image: over_the_city,
     description: "2025",
     availability: "Available",
     isLimited: false,

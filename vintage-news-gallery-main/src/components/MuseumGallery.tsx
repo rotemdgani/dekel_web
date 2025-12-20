@@ -29,30 +29,44 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
 
   // Define exact artwork order by series
   const artworkOrder = [
-    // Flowers (first on the site)
+    // 1. Taped Rose
     { id: 39, series: "flowers" }, // Taped Rose
+    
+    // 2. Taped Anemone
     { id: 40, series: "flowers" }, // Taped Anemone
     
-    // In the Loop
+    // 3. In the Loop
     { id: 44, series: "in-the-loop" }, // In the Loop
     
-    // Face Card
+    // 4. Business & Pleasure
     { id: 35, series: "face-card" }, // Business & Pleasure
-    { id: 37, series: "face-card" }, // Education
-    { id: 36, series: "face-card" }, // The Price of Beauty
     
-    // Between Layers
+    // 5. Education
+    { id: 37, series: "face-card" }, // Education
+    
+    // 6. Between Layers
     { id: 41, series: "under-layers-rope" }, // Between Layers
     
-    // Subtext
+    // 7. Subtext
     { id: 43, series: "unreadable" }, // Subtext
     
-    // Split Page
+    // 8. The Price of Beauty
+    { id: 36, series: "face-card" }, // The Price of Beauty
+    
+    // 9. Split Page
     { id: 42, series: "under-layers-rope" }, // Split Page
     
-    // New artworks
+    // 10. Bride Interrupted
+    { id: 48, series: "other" }, // Bride, Interrupted
+    
+    // 11. City Interrupted
+    { id: 45, series: "other" }, // City, Interrupted
+    
+    // 12. Light Study
     { id: 46, series: "other" }, // Light Study
-    { id: 45, series: "other" }, // City
+    
+    // 13. Over the City
+    { id: 47, series: "other" }, // Over the city (Homage to Mark Chagall)
   ];
 
   const orderedArtworks = useMemo(() => {
@@ -130,6 +144,7 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
             const isSplitPage = artwork.title === "Split Page";
             const isBetweenLayers = artwork.title === "Between Layers";
             const isSubtext = artwork.title === "Subtext";
+            const isOverTheCity = artwork.title === "Over the city (Homage to Mark Chagall)";
             
             // Skip if being rendered as part of a stack
             if (isTapedAnemone && isPrevTapedRose) {
@@ -148,8 +163,13 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
                  sizeClass = "large";
                }
                
+               // Make Over the City smaller (30% reduction)
+               if (isOverTheCity) {
+                 sizeClass = "small";
+               }
+               
                                // Apply special alignment modifiers
-                let alignmentClass = isBusinessPleasure ? "right" : isSubtext ? "center" : getAlignmentClass(index);
+                let alignmentClass = isBusinessPleasure ? "right" : isSubtext ? "center" : isOverTheCity ? "center" : getAlignmentClass(index);
 
             // Render vertical stack for Flowers (Taped Rose on top row, Taped Anemone on second row)
             // No series label for flowers - clear two-row hierarchy
