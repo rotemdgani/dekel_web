@@ -42,7 +42,7 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
     { id: 35, series: "face-card" }, // Business & Pleasure
     
     // 5. Education
-    { id: 37, series: "face-card" }, // Education
+    { id: 37, series: "face-card" }, // Erased
     
     // 6. Between Layers
     { id: 41, series: "under-layers-rope" }, // Between Layers
@@ -51,7 +51,7 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
     { id: 43, series: "unreadable" }, // Subtext
     
     // 8. The Price of Beauty
-    { id: 36, series: "face-card" }, // The Price of Beauty
+    { id: 36, series: "face-card" }, // Beauty
     
     // 9. Split Page
     { id: 42, series: "under-layers-rope" }, // Split Page
@@ -66,7 +66,7 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
     { id: 46, series: "other" }, // Light Study
     
     // 13. Over the City
-    { id: 47, series: "other" }, // Over the city (Homage to Mark Chagall)
+    { id: 47, series: "other" }, // Over the city Homage to Marc Chagall
   ];
 
   const orderedArtworks = useMemo(() => {
@@ -144,7 +144,7 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
             const isSplitPage = artwork.title === "Split Page";
             const isBetweenLayers = artwork.title === "Between Layers";
             const isSubtext = artwork.title === "Subtext";
-            const isOverTheCity = artwork.title === "Over the city (Homage to Mark Chagall)";
+            const isOverTheCity = artwork.title === "Over the city Homage to Marc Chagall";
             
             // Skip if being rendered as part of a stack
             if (isTapedAnemone && isPrevTapedRose) {
@@ -270,7 +270,16 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
                       />
                     </div>
                     <div className="museum-artwork-info">
-                      <h3 className="museum-artwork-title">{artwork.title}</h3>
+                      <h3 className="museum-artwork-title">
+                        {artwork.title.includes("Homage to Marc Chagall") ? (
+                          <>
+                            Over the city{" "}
+                            <span className="museum-artwork-title-homage">Homage to Marc Chagall</span>
+                          </>
+                        ) : (
+                          artwork.title
+                        )}
+                      </h3>
                       {artwork.year && (
                         <span className="museum-artwork-year">{artwork.year}</span>
                       )}

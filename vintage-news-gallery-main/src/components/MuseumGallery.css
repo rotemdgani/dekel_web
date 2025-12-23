@@ -129,7 +129,7 @@
 }
 
 /* Ensure Over the City is centered and smaller */
-.museum-artwork[data-artwork-title="Over the city (Homage to Mark Chagall)"] {
+.museum-artwork[data-artwork-title="Over the city Homage to Marc Chagall"] {
   align-self: center !important;
   margin: 0 auto !important;
   width: auto !important;
@@ -138,9 +138,14 @@
   padding-right: 80px !important;
 }
 
-.museum-artwork[data-artwork-title="Over the city (Homage to Mark Chagall)"] .museum-artwork-content {
+.museum-artwork[data-artwork-title="Over the city Homage to Marc Chagall"] .museum-artwork-content {
   align-items: center !important; /* Center content inside */
   margin: 0 auto !important;
+}
+
+.museum-artwork-title-homage {
+  font-size: 0.7em;
+  font-weight: 300;
 }
 
 .museum-artwork--right {
