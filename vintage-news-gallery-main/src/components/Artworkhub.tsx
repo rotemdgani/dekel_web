@@ -111,7 +111,7 @@ const ArtworkHub = () => {
         },
         {
             id: 36,
-            title: "The Price of Beauty",
+            title: "Beauty",
             category: "face-card",
             price: 1200,
             medium: "Acrylic and newspaper collage on wood",
@@ -123,7 +123,7 @@ const ArtworkHub = () => {
         },
         {
             id: 37,
-            title: "Education",
+            title: "Erased",
             category: "face-card",
             price: 900,
             medium: "Acrylic and newspaper collage on wood",

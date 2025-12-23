@@ -84,7 +84,7 @@ export const artworks: Artwork[] = [
   // 5. Education
   {
     id: 37,
-    title: "Education",
+    title: "Erased",
     category: "face-card",
     price: 900,
     medium: "Mixed media on wood",
@@ -123,7 +123,7 @@ export const artworks: Artwork[] = [
   // 8. The Price of Beauty
   {
     id: 36,
-    title: "The Price of Beauty",
+    title: "Beauty",
     category: "face-card",
     price: 1200,
     medium: "Mixed media on wood",
@@ -188,7 +188,7 @@ export const artworks: Artwork[] = [
   // 13. Over the City
   {
     id: 47,
-    title: "Over the city (Homage to Mark Chagall)",
+    title: "Over the city Homage to Marc Chagall",
     category: "other",
     price: 0,
     medium: "Mixed media on canvas",

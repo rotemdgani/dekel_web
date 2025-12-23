@@ -56,7 +56,16 @@ const ArtworkModal = ({
       <Dialog open={open} onOpenChange={onClose}>
         <DialogContent className="artwork-modal-content">
           <DialogHeader>
-            <DialogTitle className="artwork-modal-title">{artwork.title}</DialogTitle>
+            <DialogTitle className="artwork-modal-title">
+              {artwork.title.includes("Homage to Marc Chagall") ? (
+                <>
+                  Over the city{" "}
+                  <span style={{ fontSize: '0.7em', fontWeight: 300 }}>Homage to Marc Chagall</span>
+                </>
+              ) : (
+                artwork.title
+              )}
+            </DialogTitle>
           </DialogHeader>
           
           <div className="artwork-modal-body">
