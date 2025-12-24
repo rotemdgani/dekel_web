@@ -522,6 +522,11 @@
     max-height: 60vh; /* Reduced from 75vh by 20% */
   }
   
+  /* Increase Over the City image size on mobile for better visual balance */
+  .museum-artwork[data-artwork-title="Over the city Homage to Marc Chagall"] .museum-artwork-image {
+    max-height: 70vh !important; /* Increased from 60vh for better balance */
+  }
+  
   /* Make "In the Loop" artwork 20% smaller on mobile */
   .museum-artwork[data-artwork-title="In the Loop"] .museum-artwork-image {
     max-height: 48vh !important; /* 20% smaller than large on mobile (60vh * 0.8 = 48vh) */

@@ -117,7 +117,7 @@ export const artworks: Artwork[] = [
     dimensions: "50 x 75 cm",
     image: unreadable,
     description: "2025",
-    availability: "Available",
+    availability: "Unavailable",
     isLimited: false,
   },
   // 8. The Price of Beauty
@@ -156,7 +156,7 @@ export const artworks: Artwork[] = [
     dimensions: "90 x 110 cm",
     image: bride_under_attack,
     description: "2025",
-    availability: "Available",
+    availability: "Unavailable",
     isLimited: false,
   },
   // 11. City Interrupted
@@ -169,7 +169,7 @@ export const artworks: Artwork[] = [
     dimensions: "50 x 75 cm",
     image: city,
     description: "2025",
-    availability: "Available",
+    availability: "Unavailable",
     isLimited: false,
   },
   // 12. Light Study
@@ -195,7 +195,7 @@ export const artworks: Artwork[] = [
     dimensions: "60 x 80 cm",
     image: over_the_city,
     description: "2025",
-    availability: "Available",
+    availability: "Unavailable",
     isLimited: false,
   },
 ];

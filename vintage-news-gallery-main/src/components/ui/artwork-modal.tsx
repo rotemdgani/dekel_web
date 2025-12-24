@@ -104,6 +104,12 @@ const ArtworkModal = ({
                   </div>
                 </div>
               </div>
+              <div className="artwork-modal-details-row">
+                <div className="artwork-modal-detail-item">
+                  <span className="artwork-modal-detail-label">Availability</span>
+                  <span className="artwork-modal-detail-value">{artwork.availability}</span>
+                </div>
+              </div>
               
               {/* Price and Availability indicators commented out for future reactivation if needed
               <div className="artwork-modal-details-row">
