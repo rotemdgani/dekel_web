@@ -118,12 +118,30 @@ Typography-focused with vintage newspaper aesthetics
     @apply border-border;
   }
 
+  html {
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background-color: #fafafa;
     /* Clean museum-style background - minimal texture */
     background-image: none;
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   /* Typography hierarchy for newspaper-style layouts */

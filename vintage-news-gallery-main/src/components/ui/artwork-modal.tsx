@@ -32,6 +32,18 @@ const ArtworkModal = ({
 
   const images = artwork.images || [artwork.image];
   
+  // Artworks that should not display dimensions
+  const artworksWithoutDimensions = [
+    "Business & Pleasure",
+    "Erased",
+    "Scrabble",
+    "Used to Be",
+    "Taped Rose",
+    "Taped Anemone"
+  ];
+  
+  const shouldShowDimensions = !artworksWithoutDimensions.includes(artwork.title);
+  
   // Price formatting function commented out for future reactivation if needed
   /*
   const formatPrice = (price: number) => {
@@ -94,23 +106,18 @@ const ArtworkModal = ({
                   <span className="artwork-modal-detail-label">Medium</span>
                   <span className="artwork-modal-detail-value">{artwork.medium}</span>
                 </div>
-                <div className="artwork-modal-detail-item">
-                  <span className="artwork-modal-detail-label">Dimensions</span>
-                  <div className="artwork-modal-detail-value">
-                    <div>{artwork.dimensions.split(' - ')[0]}</div>
-                    {artwork.dimensions.includes(' - ') && (
-                      <div className="artwork-modal-frame-info">{artwork.dimensions.split(' - ')[1]}</div>
-                    )}
+                {shouldShowDimensions && (
+                  <div className="artwork-modal-detail-item">
+                    <span className="artwork-modal-detail-label">Dimensions</span>
+                    <div className="artwork-modal-detail-value">
+                      <div>{artwork.dimensions.split(' - ')[0]}</div>
+                      {artwork.dimensions.includes(' - ') && (
+                        <div className="artwork-modal-frame-info">{artwork.dimensions.split(' - ')[1]}</div>
+                      )}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
-              <div className="artwork-modal-details-row">
-                <div className="artwork-modal-detail-item">
-                  <span className="artwork-modal-detail-label">Availability</span>
-                  <span className="artwork-modal-detail-value">{artwork.availability}</span>
-                </div>
-              </div>
-              
               {/* Price and Availability indicators commented out for future reactivation if needed
               <div className="artwork-modal-details-row">
                 {artwork.availability !== 'SOLD' && (
@@ -134,7 +141,17 @@ const ArtworkModal = ({
                 </div>
               )}
               
-              {/* Actions removed for museum-style presentation */}
+              {/* Contact Button */}
+              <div className="artwork-modal-actions">
+                <a
+                  href={`https://wa.me/9725007451500?text=${encodeURIComponent(`Hi, I'm interested in the artwork '${artwork.title}'. Is it still available?`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="artwork-modal-inquire-btn"
+                >
+                  Contact for Details
+                </a>
+              </div>
             </div>
           </div>
         </DialogContent>

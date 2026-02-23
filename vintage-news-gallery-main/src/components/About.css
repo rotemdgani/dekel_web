@@ -208,56 +208,78 @@
   
   /* Mobile responsive adjustments */
   @media (max-width: 768px) {
+    /* Remove white card background on mobile */
     .about-quote {
-      min-height: 350px;
-      padding: 1rem;
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      border: none !important;
+      min-height: auto;
     }
     
+    /* Remove pseudo-element background */
+    .about-quote::before {
+      display: none !important;
+    }
+    
+    /* Reduce side margins and make image container full width */
     .about-quote-image-container {
-      max-width: 350px;
-      margin: 0 auto 1.25rem;
+      max-width: none !important;
+      width: 100% !important;
+      margin: 0 !important;
       padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
     }
     
+    /* Make image bigger - full width with soft edges */
     .about-quote-img {
-      width: 80%;
-      max-width: 280px;
+      width: 100% !important;
+      max-width: none !important;
       height: auto;
       object-fit: contain;
       object-position: center;
-      border-radius: 8px;
+      border-radius: 20px; /* Keep soft edges */
       display: block;
       margin: 0;
     }
   }
   
   @media (max-width: 480px) {
+    /* Remove white card background on mobile */
     .about-quote {
-      min-height: 300px;
-      padding: 0.75rem;
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      border: none !important;
+      min-height: auto;
     }
     
+    /* Remove pseudo-element background */
+    .about-quote::before {
+      display: none !important;
+    }
+    
+    /* Reduce side margins and make image container full width */
     .about-quote-image-container {
-      max-width: 300px;
-      margin: 0 auto 1rem;
+      max-width: none !important;
+      width: 100% !important;
+      margin: 0 !important;
       padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
     }
     
+    /* Make image bigger - full width with soft edges */
     .about-quote-img {
-      width: 75%;
-      max-width: 240px;
+      width: 100% !important;
+      max-width: none !important;
       height: auto;
       object-fit: contain;
       object-position: center;
-      border-radius: 8px;
+      border-radius: 20px; /* Keep soft edges */
       display: block;
       margin: 0;
     }

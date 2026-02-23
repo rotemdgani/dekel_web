@@ -7,6 +7,48 @@
   padding: 0;
 }
 
+/* Mobile-specific constraints to prevent overflow */
+@media (max-width: 767px) {
+  .museum-hero-slider {
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Reduce only space above and below text - keep text spacing the same */
+  .museum-hero {
+    padding-top: 30px !important; /* Significantly reduced from 120px - space above text */
+    padding-bottom: 20px !important; /* Significantly reduced from 80px - space below text */
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 0 !important;
+  }
+
+  .museum-hero-content {
+    padding: 0 !important; /* Remove ALL padding from content wrapper */
+    margin: 0 auto !important;
+  }
+
+  /* Keep paragraph spacing the same as desktop */
+  .museum-hero-text {
+    gap: 2.5rem; /* Keep original spacing between paragraphs */
+  }
+
+  /* Keep line-height the same as desktop */
+  .museum-hero-text,
+  .museum-hero-text p {
+    line-height: 1.85; /* Keep original line-height */
+  }
+
+  /* Hide any empty spacer divs */
+  .museum-hero > div:empty,
+  .museum-hero-content > div:empty {
+    display: none !important;
+  }
+}
+
 .museum-hero {
   min-height: auto;
   display: flex;

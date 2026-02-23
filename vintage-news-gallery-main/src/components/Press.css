@@ -169,123 +169,73 @@
   text-decoration: none;
 }
 
-/* Exhibitions Section */
-.exhibitions-section {
-  margin-top: 4rem;
-  padding-top: 3rem;
-  border-top: 1px solid hsl(0 0% 88%);
-}
-
-.exhibitions-title {
-  font-size: 1.75rem;
-  font-weight: bold;
-  color: hsl(0 0% 12%);
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  border-bottom: 2px solid hsl(0 0% 25%);
-  padding-bottom: 0.5rem;
-  font-family: 'Times New Roman', serif;
-}
-
-.exhibitions-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.exhibition-item {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: hsl(0 0% 100%);
-  border: 1px solid hsl(0 0% 88%);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  position: relative;
-  transition: transform 0.3s;
-}
-
-.exhibition-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(0,0,0,0.01) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(0,0,0,0.01) 0%, transparent 50%);
-  background-size: 50px 50px, 75px 75px;
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-.exhibition-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.exhibition-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.exhibition-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: hsl(0 0% 12%);
-  font-family: 'Times New Roman', serif;
-}
-
-.exhibition-date {
-  font-size: 0.9rem;
-  color: hsl(0 0% 45%);
-  font-family: 'Times New Roman', serif;
-  font-style: italic;
-}
-
-.exhibition-description {
-  color: hsl(0 0% 45%);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  font-family: 'Times New Roman', serif;
-  margin: 0;
-}
-
-/* Mobile responsive for exhibitions */
-@media (max-width: 768px) {
-  .exhibitions-section {
-    margin-top: 3rem;
-    padding-top: 2rem;
+/* Mobile Responsive - Full-width editorial reading experience */
+@media (max-width: 767px) {
+  .press-section {
+    padding: 4rem 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
-  
-  .exhibitions-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+
+  .press-container {
+    max-width: 100%; /* Remove max-width constraint */
+    width: 100%;
+    padding: 0 16px; /* Minimal padding for full-width feel */
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
-  
-  .exhibition-item {
-    padding: 1rem;
-    margin-bottom: 1.5rem;
+
+  .press-header {
+    margin-bottom: 2rem;
   }
-  
-  .exhibition-header {
+
+  .press-title {
+    font-size: 1.75rem;
+  }
+
+  .press-subtitle {
+    font-size: 1rem;
+    max-width: 100%; /* Remove max-width constraint */
+    padding: 0;
+  }
+
+  .press-content {
+    gap: 1.6rem; /* Reduced from 2rem by 20% */
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  .press-article {
+    padding: 1.25rem; /* Reduced from 1.5rem by ~17% */
+    width: 100%;
+    max-width: 100%; /* Remove any max-width constraints */
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  .press-article-headline {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05rem; /* Slightly reduced for mobile */
+  }
+
+  /* Remove column layout on mobile - single column for better reading */
+  .press-article-columns {
+    column-count: 1; /* Single column on mobile */
+    column-gap: 0;
+    font-size: 0.95rem; /* Slightly larger for readability */
+    line-height: 1.7; /* Generous line-height for comfortable reading */
+  }
+
+  .press-article-text {
+    margin: 0;
+    width: 100%;
+  }
+
+  .press-article-footer {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
-  }
-  
-  .exhibition-title {
-    font-size: 1.1rem;
-  }
-  
-  .exhibition-date {
-    font-size: 0.85rem;
-  }
-  
-  .exhibition-description {
-    font-size: 0.9rem;
+    gap: 0.5rem;
   }
 }

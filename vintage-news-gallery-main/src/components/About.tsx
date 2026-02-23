@@ -1,5 +1,5 @@
 import "./About.css";
-import dekelProfile from '@/assets/dekel_profile.webp'
+import dekelProfile from '@/assets/dekel profile copy.webp'
 
 const About = () => {
   return (

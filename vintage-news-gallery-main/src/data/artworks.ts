@@ -12,7 +12,12 @@ import in_the_loop from '@/assets/In_the_loop.webp';
 import city from '@/assets/City.webp';
 import light_study from '@/assets/Light Study.webp';
 import bride_under_attack from '@/assets/bride_under_attack.webp';
-import over_the_city from '@/assets/over_the_city.webp';
+import headline from '@/assets/Headline.webp';
+import memory from '@/assets/Memory.webp';
+import drop from '@/assets/drop.webp';
+import before_coffee from '@/assets/Before coffee.webp';
+import used_to_be from '@/assets/Used to be.webp';
+import scrabble from '@/assets/Scrabble.png';
 
 export interface Artwork {
   id: number;
@@ -36,7 +41,7 @@ export const artworks: Artwork[] = [
     category: "flowers",
     price: 0,
     medium: "Mixed media on wood",
-    dimensions: "65 x 50 cm",
+    dimensions: "71×88 cm",
     image: constrained_bloom_rose,
     description: "2025",
     availability: "Available",
@@ -49,7 +54,7 @@ export const artworks: Artwork[] = [
     category: "flowers",
     price: 0,
     medium: "Mixed media on wood",
-    dimensions: "60 x 48 cm",
+    dimensions: "69×81 cm",
     image: constrained_bloom_anemone,
     description: "2025",
     availability: "Available",
@@ -185,17 +190,82 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // 13. Over the City
+  // 13. Headline
   {
-    id: 47,
-    title: "Over the city Homage to Marc Chagall",
+    id: 49,
+    title: "Headline",
     category: "other",
     price: 0,
     medium: "Mixed media on canvas",
-    dimensions: "60 x 80 cm",
-    image: over_the_city,
+    dimensions: "80 x 120 cm",
+    image: headline,
     description: "2025",
-    availability: "Unavailable",
+    availability: "Available",
+    isLimited: false,
+  },
+  // 14. Memory
+  {
+    id: 50,
+    title: "Memory",
+    category: "other",
+    price: 0,
+    medium: "Mixed media on canvas",
+    dimensions: "80 x 120 cm",
+    image: memory,
+    description: "2025",
+    availability: "Available",
+    isLimited: false,
+  },
+  // 15. Drop
+  {
+    id: 51,
+    title: "Drop",
+    category: "other",
+    price: 0,
+    medium: "Mixed media on canvas",
+    dimensions: "100 x 90 cm",
+    image: drop,
+    description: "2025",
+    availability: "Available",
+    isLimited: false,
+  },
+  // 16. Before Coffee
+  {
+    id: 52,
+    title: "Before Coffee",
+    category: "other",
+    price: 0,
+    medium: "Mixed media on canvas",
+    dimensions: "100 x 90 cm",
+    image: before_coffee,
+    description: "2025",
+    availability: "Available",
+    isLimited: false,
+  },
+  // 17. Used to Be
+  {
+    id: 53,
+    title: "Used to Be",
+    category: "other",
+    price: 0,
+    medium: "Mixed media on wood",
+    dimensions: "59×75 cm",
+    image: used_to_be,
+    description: "2025",
+    availability: "Available",
+    isLimited: false,
+  },
+  // 18. Scrabble
+  {
+    id: 54,
+    title: "Scrabble",
+    category: "other",
+    price: 0,
+    medium: "Mixed media on wood",
+    dimensions: "29×36 cm",
+    image: scrabble,
+    description: "2025",
+    availability: "Available",
     isLimited: false,
   },
 ];
