@@ -144,7 +144,7 @@ const ArtworkModal = ({
               {/* Contact Button */}
               <div className="artwork-modal-actions">
                 <a
-                  href={`https://wa.me/9725007451500?text=${encodeURIComponent(`Hi, I'm interested in the artwork '${artwork.title}'. Is it still available?`)}`}
+                  href={`https://wa.me/972507451500?text=${encodeURIComponent(`Hi, I'm interested in the artwork: ${artwork.title}. Can you share details and availability?`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="artwork-modal-inquire-btn"
