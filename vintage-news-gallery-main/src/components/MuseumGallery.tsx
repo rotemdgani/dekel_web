@@ -27,72 +27,78 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [cart, setCart] = useState<number[]>([]);
 
-  // Define exact artwork order by series
-  const artworkOrder = [
-    // 1. Taped Rose
-    { id: 39, series: "flowers" }, // Taped Rose
+  // Updated curatorial layout order
+  const curatorialOrder = [
+    // 1. HERO OPENING - Business & Pleasure
+    { id: 35, size: "hero-large", align: "center", pair: null },
     
-    // 2. Taped Anemone
-    { id: 40, series: "flowers" }, // Taped Anemone
+    // 2. STRONG ENTRY PAIR - Before Coffee & Drop (routine/overload)
+    { id: 52, size: "medium-large", align: "left", pair: "before-coffee-drop", leftBias: true },
+    { id: 51, size: "medium-large", align: "right", pair: "before-coffee-drop" },
     
-    // 3. In the Loop
-    { id: 44, series: "in-the-loop" }, // In the Loop
+    // 3. IDENTITY DISRUPTION SECTION
+    // Erased
+    { id: 37, size: "medium-large", align: "left-offset", pair: null },
+    // Between Layers
+    { id: 41, size: "large", align: "right", pair: null },
     
-    // 4. Business & Pleasure
-    { id: 35, series: "face-card" }, // Business & Pleasure
+    // 4. MEDIA/MEMORY PAIR - Headline & Memory
+    { id: 49, size: "medium", align: "left", pair: "headline-memory", leftHeavy: true },
+    { id: 50, size: "medium", align: "right", pair: "headline-memory" },
     
-    // 5. Education
-    { id: 37, series: "face-card" }, // Erased
+    // 5. POETIC PAUSE - Taped Rose & Taped Anemone
+    { id: 39, size: "medium-small", align: "left", pair: "flowers", poeticPause: true },
+    { id: 40, size: "medium", align: "right", pair: "flowers", poeticPause: true },
     
-    // 6. Between Layers
-    { id: 41, series: "under-layers-rope" }, // Between Layers
+    // 6. EXISTENTIAL TRANSITION
+    // Used to Be
+    { id: 53, size: "medium-large", align: "center", pair: null },
+    // Scrabble (conceptual echo, slightly right and lower)
+    { id: 54, size: "small", align: "right-offset", pair: null, echo: true },
     
-    // 7. Subtext
-    { id: 43, series: "unreadable" }, // Subtext
+    // 7. CLIMAX SECTION - City Interrupted & Bride Interrupted
+    { id: 45, size: "large", align: "left", pair: "climax" },
+    { id: 48, size: "medium-large", align: "right-offset", pair: "climax", slightlyLower: true },
     
-    // 8. The Price of Beauty
-    { id: 36, series: "face-card" }, // Beauty
-    
-    // 9. Split Page
-    { id: 42, series: "under-layers-rope" }, // Split Page
-    
-    // 10. Bride Interrupted
-    { id: 48, series: "other" }, // Bride, Interrupted
-    
-    // 11. City Interrupted
-    { id: 45, series: "other" }, // City, Interrupted
-    
-    // 12. Light Study
-    { id: 46, series: "other" }, // Light Study
-    
-    // 13. Over the City
-    { id: 47, series: "other" }, // Over the city Homage to Marc Chagall
+    // 8. FINAL EXIT - Light Study
+    { id: 46, size: "small", align: "center", pair: null, finalExit: true },
   ];
 
   const orderedArtworks = useMemo(() => {
     const artworkMap = new Map(artworks.map(art => [art.id, art]));
-    const ordered: Array<{ artwork: Artwork; series: string; isFirstInSeries: boolean }> = [];
-    let lastSeries: string | null = null;
+    const ordered: Array<{ 
+      artwork: Artwork; 
+      size: string; 
+      align: string; 
+      pair: string | null;
+      leftBias?: boolean;
+      leftHeavy?: boolean;
+      poeticPause?: boolean;
+      echo?: boolean;
+      slightlyLower?: boolean;
+      finalExit?: boolean;
+    }> = [];
     
-    artworkOrder.forEach(({ id, series }) => {
-      const artwork = artworkMap.get(id);
+    curatorialOrder.forEach((item) => {
+      const artwork = artworkMap.get(item.id);
       if (artwork) {
-        const isFirstInSeries = series !== lastSeries;
         ordered.push({
           artwork,
-          series,
-          isFirstInSeries
+          size: item.size,
+          align: item.align,
+          pair: item.pair,
+          leftBias: item.leftBias,
+          leftHeavy: item.leftHeavy,
+          poeticPause: item.poeticPause,
+          echo: item.echo,
+          slightlyLower: item.slightlyLower,
+          finalExit: item.finalExit,
         });
-        lastSeries = series;
       }
     });
     
     return ordered;
   }, [artworks]);
-
-  const filteredArtworks = useMemo(() => {
-    return orderedArtworks;
-  }, [orderedArtworks]);
 
   const handleArtworkClick = (artwork: Artwork) => {
     setSelectedArtwork(artwork);
@@ -112,186 +118,135 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
     setSelectedImageIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
   };
 
-  const getSizeClass = (index: number) => {
-    // Vary sizes subtly for visual rhythm
-    const sizes = ["large", "medium", "large", "medium", "large"];
-    return sizes[index % sizes.length];
-  };
-
-  const getAlignmentClass = (index: number) => {
-    // Create a subtle zig-zag pattern: left, right, left, right, (occasionally left again)
-    // This creates the "museum walkthrough" rhythm
-    const alignments = ["left", "right", "left", "right", "left"];
-    return alignments[index % alignments.length];
+  // Render artwork with curatorial layout logic
+  const renderArtwork = (item: typeof orderedArtworks[0], index: number) => {
+    const { artwork, size, align, pair, leftBias, leftHeavy, poeticPause, echo, slightlyLower, finalExit } = item;
+    
+    // Handle paired artworks
+    if (pair) {
+      const pairItems = orderedArtworks.filter(item => item.pair === pair);
+      const pairIndex = pairItems.findIndex(item => item.artwork.id === artwork.id);
+      
+      // Only render the first item of each pair
+      if (pairIndex === 0) {
+        const secondItem = pairItems[1];
+        
+        // Poetic pause pair (Taped Rose & Anemone) - centered block
+        if (poeticPause) {
+          return (
+            <div key={`pair-${pair}`} className="museum-artwork-pair museum-artwork-pair--poetic-pause">
+              <div className={`museum-artwork museum-artwork--${size} museum-artwork--${align}`}>
+                <div className="museum-artwork-content">
+                  <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(artwork)}>
+                    <img src={artwork.image} alt={artwork.title} className="museum-artwork-image" loading={index < 6 ? "eager" : "lazy"} decoding="async" />
+                  </div>
+                  <div className="museum-artwork-info">
+                    <h3 className="museum-artwork-title">{artwork.title}</h3>
+                    {artwork.medium && <p className="museum-artwork-medium">{artwork.medium}</p>}
+                  </div>
+                </div>
+              </div>
+              <div className={`museum-artwork museum-artwork--${secondItem.size} museum-artwork--${secondItem.align}`}>
+                <div className="museum-artwork-content">
+                  <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(secondItem.artwork)}>
+                    <img src={secondItem.artwork.image} alt={secondItem.artwork.title} className="museum-artwork-image" loading="lazy" decoding="async" />
+                  </div>
+                  <div className="museum-artwork-info">
+                    <h3 className="museum-artwork-title">{secondItem.artwork.title}</h3>
+                    {secondItem.artwork.medium && <p className="museum-artwork-medium">{secondItem.artwork.medium}</p>}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        }
+        
+        // Climax section (City Interrupted & Bride Interrupted)
+        if (pair === "climax") {
+          return (
+            <div key={`pair-${pair}`} className="museum-artwork-pair museum-artwork-pair--climax">
+              <div className={`museum-artwork museum-artwork--${size} museum-artwork--${align}`}>
+                <div className="museum-artwork-content">
+                  <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(artwork)}>
+                    <img src={artwork.image} alt={artwork.title} className="museum-artwork-image" loading="lazy" decoding="async" />
+                  </div>
+                  <div className="museum-artwork-info">
+                    <h3 className="museum-artwork-title">{artwork.title}</h3>
+                    {artwork.medium && <p className="museum-artwork-medium">{artwork.medium}</p>}
+                  </div>
+                </div>
+              </div>
+              <div className={`museum-artwork museum-artwork--${secondItem.size} museum-artwork--${secondItem.align} ${secondItem.slightlyLower ? "museum-artwork--slightly-lower" : ""}`}>
+                <div className="museum-artwork-content">
+                  <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(secondItem.artwork)}>
+                    <img src={secondItem.artwork.image} alt={secondItem.artwork.title} className="museum-artwork-image" loading="lazy" decoding="async" />
+                  </div>
+                  <div className="museum-artwork-info">
+                    <h3 className="museum-artwork-title">{secondItem.artwork.title}</h3>
+                    {secondItem.artwork.medium && <p className="museum-artwork-medium">{secondItem.artwork.medium}</p>}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        }
+        
+        // Regular pairs (Before Coffee & Drop, Headline & Memory)
+        return (
+          <div key={`pair-${pair}`} className={`museum-artwork-pair ${leftBias ? "museum-artwork-pair--left-bias" : ""} ${leftHeavy ? "museum-artwork-pair--left-heavy" : ""}`}>
+            <div className={`museum-artwork museum-artwork--${size} museum-artwork--${align}`}>
+              <div className="museum-artwork-content">
+                <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(artwork)}>
+                  <img src={artwork.image} alt={artwork.title} className="museum-artwork-image" loading={index < 6 ? "eager" : "lazy"} decoding="async" />
+                </div>
+                <div className="museum-artwork-info">
+                  <h3 className="museum-artwork-title">{artwork.title}</h3>
+                  {artwork.medium && <p className="museum-artwork-medium">{artwork.medium}</p>}
+                </div>
+              </div>
+            </div>
+            <div className={`museum-artwork museum-artwork--${secondItem.size} museum-artwork--${secondItem.align}`}>
+              <div className="museum-artwork-content">
+                <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(secondItem.artwork)}>
+                  <img src={secondItem.artwork.image} alt={secondItem.artwork.title} className="museum-artwork-image" loading="lazy" decoding="async" />
+                </div>
+                <div className="museum-artwork-info">
+                  <h3 className="museum-artwork-title">{secondItem.artwork.title}</h3>
+                  {secondItem.artwork.medium && <p className="museum-artwork-medium">{secondItem.artwork.medium}</p>}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+      // Skip second item of pair (already rendered)
+      return null;
+    }
+    
+    // Single artworks
+    return (
+      <div 
+        key={artwork.id} 
+        className={`museum-artwork museum-artwork--${size} museum-artwork--${align} ${echo ? "museum-artwork--echo" : ""} ${finalExit ? "museum-artwork--final-exit" : ""}`}
+      >
+        <div className="museum-artwork-content">
+          <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(artwork)}>
+            <img src={artwork.image} alt={artwork.title} className="museum-artwork-image" loading={index < 6 ? "eager" : "lazy"} decoding="async" />
+          </div>
+          <div className="museum-artwork-info">
+            <h3 className="museum-artwork-title">{artwork.title}</h3>
+            {artwork.medium && <p className="museum-artwork-medium">{artwork.medium}</p>}
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
     <>
       <section id="gallery" className="museum-gallery">
         <div className="museum-gallery-container">
-          {filteredArtworks.map((item, index) => {
-            const { artwork, isFirstInSeries, series } = item;
-            
-            // Check for flowers pair (Taped Rose and Anemone)
-            const isTapedRose = artwork.title === "Taped Rose";
-            const isTapedAnemone = artwork.title === "Taped Anemone";
-            const nextItem = filteredArtworks[index + 1];
-            const isNextTapedAnemone = nextItem && nextItem.artwork.title === "Taped Anemone";
-            const prevItem = filteredArtworks[index - 1];
-            const isPrevTapedRose = prevItem && prevItem.artwork.title === "Taped Rose";
-            
-            // Check for Between Layers and Split Page (now separate rows)
-            const isSplitPage = artwork.title === "Split Page";
-            const isBetweenLayers = artwork.title === "Between Layers";
-            const isSubtext = artwork.title === "Subtext";
-            const isOverTheCity = artwork.title === "Over the city Homage to Marc Chagall";
-            
-            // Skip if being rendered as part of a stack
-            if (isTapedAnemone && isPrevTapedRose) {
-              return null;
-            }
-            
-                                                                             // Special handling for "Business & Pleasure" - make it smaller and right-aligned
-              const isBusinessPleasure = artwork.title === "Business & Pleasure";
-               
-               let sizeClass = isBusinessPleasure ? "medium" : getSizeClass(index);
-               
-               // Make Between Layers and Subtext bigger
-               if (isBetweenLayers) {
-                 sizeClass = "large";
-               } else if (isSubtext) {
-                 sizeClass = "large";
-               }
-               
-               // Make Over the City smaller (30% reduction)
-               if (isOverTheCity) {
-                 sizeClass = "small";
-               }
-               
-                               // Apply special alignment modifiers
-                let alignmentClass = isBusinessPleasure ? "right" : isSubtext ? "center" : isOverTheCity ? "center" : getAlignmentClass(index);
-
-            // Render vertical stack for Flowers (Taped Rose on top row, Taped Anemone on second row)
-            // No series label for flowers - clear two-row hierarchy
-            if (isTapedRose && isNextTapedAnemone) {
-              return (
-                <div key={`stack-${artwork.id}-${nextItem.artwork.id}`} className="museum-artwork-flowers-stack">
-                  <div className="museum-artwork-stack museum-artwork-stack--flowers">
-                    {/* Taped Rose - Top Row, Dominant */}
-                    <div className="museum-artwork museum-artwork--stack-item museum-artwork--flowers-top">
-                      <div className="museum-artwork-content">
-                        <div
-                          className="museum-artwork-image-wrapper"
-                          onClick={() => handleArtworkClick(artwork)}
-                        >
-                          <img
-                            src={artwork.image}
-                            alt={artwork.title}
-                            className="museum-artwork-image"
-                            loading={index < 6 ? "eager" : "lazy"}
-                            decoding="async"
-                          />
-                        </div>
-                        <div className="museum-artwork-info">
-                          <h3 className="museum-artwork-title">{artwork.title}</h3>
-                          {artwork.year && (
-                            <span className="museum-artwork-year">{artwork.year}</span>
-                          )}
-                          {artwork.medium && (
-                            <p className="museum-artwork-medium">{artwork.medium}</p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                    {/* Taped Anemone - Second Row, Smaller */}
-                    <div className="museum-artwork museum-artwork--stack-item museum-artwork--flowers-bottom">
-                      <div className="museum-artwork-content">
-                        <div
-                          className="museum-artwork-image-wrapper"
-                          onClick={() => handleArtworkClick(nextItem.artwork)}
-                        >
-                          <img
-                            src={nextItem.artwork.image}
-                            alt={nextItem.artwork.title}
-                            className="museum-artwork-image"
-                            loading={index < 6 ? "eager" : "lazy"}
-                            decoding="async"
-                          />
-                        </div>
-                        <div className="museum-artwork-info">
-                          <h3 className="museum-artwork-title">{nextItem.artwork.title}</h3>
-                          {nextItem.artwork.year && (
-                            <span className="museum-artwork-year">{nextItem.artwork.year}</span>
-                          )}
-                          {nextItem.artwork.medium && (
-                            <p className="museum-artwork-medium">{nextItem.artwork.medium}</p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            }
-
-
-            return (
-              <div key={artwork.id}>
-                {/* Don't show series labels for flowers, rope artworks, unreadable, in-the-loop, face-card, or other */}
-                {isFirstInSeries && 
-                 series !== "flowers" && 
-                 series !== "under-layers-rope" && 
-                 series !== "unreadable" &&
-                 series !== "in-the-loop" &&
-                 series !== "face-card" &&
-                 series !== "other" && (
-                  <div className="museum-series-label-container">
-                    <SeriesLabel
-                      series={series}
-                      position="left"
-                    />
-                  </div>
-                )}
-                                                                   <div
-                    className={`museum-artwork museum-artwork--${sizeClass} museum-artwork--${alignmentClass}`}
-                    data-artwork-title={artwork.title}
-                  >
-                   <div className="museum-artwork-content">
-                    <div
-                      className="museum-artwork-image-wrapper"
-                      onClick={() => handleArtworkClick(artwork)}
-                    >
-                      <img
-                        src={artwork.image}
-                        alt={artwork.title}
-                        className="museum-artwork-image"
-                        loading={index < 6 ? "eager" : "lazy"}
-                        decoding="async"
-                      />
-                    </div>
-                    <div className="museum-artwork-info">
-                      <h3 className="museum-artwork-title">
-                        {artwork.title.includes("Homage to Marc Chagall") ? (
-                          <>
-                            Over the city{" "}
-                            <span className="museum-artwork-title-homage">Homage to Marc Chagall</span>
-                          </>
-                        ) : (
-                          artwork.title
-                        )}
-                      </h3>
-                      {artwork.year && (
-                        <span className="museum-artwork-year">{artwork.year}</span>
-                      )}
-                      {artwork.medium && (
-                        <p className="museum-artwork-medium">{artwork.medium}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {orderedArtworks.map((item, index) => renderArtwork(item, index))}
         </div>
       </section>
 

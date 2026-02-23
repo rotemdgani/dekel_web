@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Press from "@/components/Press";
+import Exhibitions from "@/components/Exhibitions";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { artworks } from "@/data/artworks";
@@ -60,6 +61,7 @@ const Index = () => {
       <main>
         <MuseumHero />
         <MuseumGallery artworks={artworks} />
+        <Exhibitions />
         <Press />
         <About />
         <Contact />

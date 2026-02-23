@@ -32,33 +32,6 @@ const Press = () => {
     },
   ];
 
-  const exhibitions = [
-    {
-      title: "Peace and Goodbye",
-      date: "September 2025",
-      description: "Group exhibition curated by Gaby Zeltsman in collaboration with Yaara Open Studio, Jaffa. The exhibition explores the moment between faith and rupture through various artistic interpretations of the dove image, featuring works that examine peace symbols and their contemporary relevance.",
-    },
-    {
-      title: "Solo Exhibition: Soho House Hotel, Jaffa",
-      date: "April 2024",
-      description: "A personal exhibition featuring a series of works showcasing the blend of business and art in a creative journey.",
-    },
-    {
-      title: "Lotan Gallery, Jaffa",
-      date: "January 2024",
-      description: "Group exhibition titled \"Rebirth,\" curated by Orly Dvir, showcasing four original works.",
-    },
-    {
-      title: "Tel Aviv University",
-      date: "July 2024",
-      description: "Group exhibition curated by Yaira Yasmin, displaying three works reflecting on the impact of war and disasters. These pieces explore the emotional and societal aftermath of such events, providing a visual commentary on resilience and recovery.",
-    },
-    {
-      title: "Ben Ami Gallery, Tel Aviv",
-      date: "2024",
-      description: "Group exhibition curated by Doron Polak, presenting three pieces that explore the intersection of art and daily life.",
-    },
-  ];
 
   return (
     <section id="press" className="press-section">
@@ -101,22 +74,6 @@ const Press = () => {
               </div>
             </article>
           ))}
-        </div>
-
-        {/* Exhibitions Section */}
-        <div id="exhibitions" className="exhibitions-section">
-          <h3 className="exhibitions-title">Exhibitions</h3>
-          <ul className="exhibitions-list">
-            {exhibitions.map((exhibition, index) => (
-              <li key={index} className="exhibition-item">
-                <div className="exhibition-header">
-                  <span className="exhibition-title">{exhibition.title}</span>
-                  <span className="exhibition-date">– {exhibition.date}</span>
-                </div>
-                <p className="exhibition-description">{exhibition.description}</p>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>
