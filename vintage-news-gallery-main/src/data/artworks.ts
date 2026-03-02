@@ -60,20 +60,7 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // 3. In the Loop
-  {
-    id: 44,
-    title: "In the Loop",
-    category: "in-the-loop",
-    price: 0,
-    medium: "Mixed media on wood",
-    dimensions: "30 x 60 cm",
-    image: in_the_loop,
-    description: "2025",
-    availability: "Available",
-    isLimited: false,
-  },
-  // 4. Business & Pleasure
+  // 3. Business & Pleasure
   {
     id: 35,
     title: "Business & Pleasure",
@@ -138,20 +125,7 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // 9. Split Page
-  {
-    id: 42,
-    title: "Split Page",
-    category: "under-layers-rope",
-    price: 0,
-    medium: "Mixed media on canvas",
-    dimensions: "35 x 57 cm",
-    image: on_a_rope,
-    description: "2025",
-    availability: "Available",
-    isLimited: false,
-  },
-  // 10. Bride Interrupted
+  // 9. Bride Interrupted
   {
     id: 48,
     title: "Bride, Interrupted",
@@ -216,7 +190,20 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // 15. Drop
+  // 15. In the Loop
+  {
+    id: 44,
+    title: "In the Loop",
+    category: "in-the-loop",
+    price: 0,
+    medium: "Mixed media on wood",
+    dimensions: "52×80 cm",
+    image: in_the_loop,
+    description: "2025",
+    availability: "Available",
+    isLimited: false,
+  },
+  // 16. Drop
   {
     id: 51,
     title: "Drop",
@@ -229,7 +216,7 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // 16. Before Coffee
+  // 17. Before Coffee
   {
     id: 52,
     title: "Before Coffee",
@@ -242,7 +229,7 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // 17. Used to Be
+  // 18. Used to Be
   {
     id: 53,
     title: "Used to Be",
@@ -255,7 +242,7 @@ export const artworks: Artwork[] = [
     availability: "Available",
     isLimited: false,
   },
-  // 18. Scrabble
+  // 19. Scrabble
   {
     id: 54,
     title: "Scrabble",
