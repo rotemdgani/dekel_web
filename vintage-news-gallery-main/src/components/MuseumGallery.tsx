@@ -46,6 +46,9 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
     { id: 49, size: "medium", align: "left", pair: "headline-memory", leftHeavy: true },
     { id: 50, size: "medium", align: "right", pair: "headline-memory" },
     
+    // 4a. In the Loop – single work directly after Memory
+    { id: 44, size: "medium", align: "center", pair: null },
+    
     // 5. POETIC PAUSE - Taped Rose & Taped Anemone
     { id: 39, size: "medium-small", align: "left", pair: "flowers", poeticPause: true },
     { id: 40, size: "medium", align: "right", pair: "flowers", poeticPause: true },
@@ -55,6 +58,8 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
     { id: 53, size: "medium-large", align: "center", pair: null },
     // Scrabble (conceptual echo, slightly right and lower)
     { id: 54, size: "small", align: "right-offset", pair: null, echo: true },
+    // Split Page – placed after Scrabble and before City, Interrupted
+    { id: 42, size: "medium-small", align: "center", pair: null },
     
     // 7. CLIMAX SECTION - City Interrupted & Bride Interrupted
     { id: 45, size: "large", align: "left", pair: "climax" },
