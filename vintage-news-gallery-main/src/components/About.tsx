@@ -24,43 +24,56 @@ const About = () => {
 
             <div className="about-text">
               <p className="about-paragraph">
-              My name is Dekel Harari, and I&apos;m the artist behind the works you&apos;re seeing here.
+                My name is Dekel Harari. I&apos;m a contemporary mixed-media artist based
+                in Tel Aviv.
               </p>
 
               <p className="about-paragraph">
-              I&apos;m a contemporary mixed-media artist, and my work looks at routine, repetition, information overload, and the moment habit takes the wheel and the mind stops asking questions.
+                My work is about routine - and the moment habit takes the wheel and the mind
+                stops asking questions.
               </p>
 
               <p className="about-paragraph">
-              I work with newspapers as a main material.
+                I work with newspapers as my main material. Not because of what&apos;s
+                written in them, and not because they&apos;re free, but because of what they
+                are as objects. The most ordinary thing there is: it arrives, gets read,
+                gets thrown away, and tomorrow another one shows up exactly like it.
+                Routine, printed.
               </p>
 
               <p className="about-paragraph">
-              Not because of what&apos;s written in them, and not because they&apos;re free, but because of what they feel like as objects.
+                But the newspaper isn&apos;t really the subject. It&apos;s a stand-in. For the
+                feed, the notification, the headline - for everything that enters the mind
+                before we&apos;ve had a chance to decide what we&apos;re actually thinking.
+              </p>
+
+              <p className="about-paragraph">I change its job.</p>
+
+              <p className="about-paragraph">
+                I cut it, paint on it, build with it. Headlines become texture. Faces
+                dissolve. Figures lose their features - not from a single blow, but from
+                repetition.
               </p>
 
               <p className="about-paragraph">
-              What do I do with them?
+                I come from a place where this mechanism runs at a higher setting. Where an
+                air-raid siren fits between washing the dishes and taking out the trash.
+                Where an explosion becomes white noise, like an old air conditioner. Where war
+                becomes a fifth season.
               </p>
 
               <p className="about-paragraph">
-              I change their job.
+                The shock doesn&apos;t disappear. It gets absorbed. It becomes wallpaper.
+              </p>
+
+              <p className="about-paragraph">The question isn&apos;t what we do.</p>
+
+              <p className="about-paragraph">
+                It&apos;s the moment it stops being habit and starts being choice.
               </p>
 
               <p className="about-paragraph">
-              Instead of reading them and tossing them out, I cut them, paint on them, and build with them. Sometimes I even sell them, if someone insists.
-              </p>
-
-              <p className="about-paragraph">
-              The question isn&apos;t what we do,
-              </p>
-
-              <p className="about-paragraph">
-              but when it stops being habit and starts being choice.
-              </p>
-
-              <p className="about-paragraph">
-              And what else we might choose differently, if we actually stopped to think.
+                And what else we might choose differently, if we actually stopped to think.
               </p>
             </div>
 {/* 
