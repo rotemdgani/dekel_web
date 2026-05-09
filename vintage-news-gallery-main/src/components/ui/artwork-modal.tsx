@@ -32,17 +32,8 @@ const ArtworkModal = ({
 
   const images = artwork.images || [artwork.image];
   
-  // Artworks that should not display dimensions
-  const artworksWithoutDimensions = [
-    "Business & Pleasure",
-    "Erased",
-    "Scrabble",
-    "Used to Be",
-    "Taped Rose",
-    "Taped Anemone"
-  ];
-  
-  const shouldShowDimensions = !artworksWithoutDimensions.includes(artwork.title);
+  const shouldShowDimensions =
+    typeof artwork.dimensions === "string" && artwork.dimensions.trim().length > 0;
   
   // Price formatting function commented out for future reactivation if needed
   /*
@@ -102,10 +93,12 @@ const ArtworkModal = ({
             
             <div className="artwork-modal-details">
               <div className="artwork-modal-details-row">
+                {typeof artwork.medium === "string" && artwork.medium.trim().length > 0 && (
                 <div className="artwork-modal-detail-item">
                   <span className="artwork-modal-detail-label">Medium</span>
                   <span className="artwork-modal-detail-value">{artwork.medium}</span>
                 </div>
+                )}
                 {shouldShowDimensions && (
                   <div className="artwork-modal-detail-item">
                     <span className="artwork-modal-detail-label">Dimensions</span>
