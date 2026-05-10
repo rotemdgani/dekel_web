@@ -1,0 +1,94 @@
+/* Editorial site shell — davidzwirner / gallery-adjacent restraint */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&display=swap");
+
+:root {
+  --bg-site: #fafaf7;
+  --text-primary: #1a1a1a;
+  --text-secondary: #8a8a8a;
+  --text-tertiary: #6a6a6a;
+  --divider: #d4d4d4;
+  --lightbox-bg: #1a1a1a;
+
+  --font-editorial: "Cormorant Garamond", "Times New Roman", serif;
+
+  --header-h: 80px;
+  --works-filter-h: 60px;
+
+  --content-max: 1280px;
+  --ease-hover: opacity 0.3s ease;
+
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-site);
+  color: var(--text-primary);
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+.site-main {
+  min-height: 100vh;
+  padding-top: var(--header-h);
+}
+
+.site-main > * {
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Home: full-viewport hero — no max-width / horizontal padding on the page wrapper */
+.site-main > .home-editorial {
+  max-width: none;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Section titles elsewhere */
+.section-title-allcaps {
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .section-title-allcaps {
+    font-size: 34px;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 1px solid var(--text-primary);
+  outline-offset: 2px;
+}

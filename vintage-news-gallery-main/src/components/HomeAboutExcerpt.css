@@ -1,0 +1,116 @@
+.home-about-excerpt {
+  margin: 0;
+  padding: 0 24px 120px;
+  background: #fafaf7;
+}
+
+.home-about-excerpt-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+  column-gap: 56px;
+  row-gap: 28px;
+  align-items: start;
+}
+
+.home-about-excerpt-figure {
+  margin: 0;
+  padding: 0;
+  max-width: 280px;
+  width: 100%;
+}
+
+.home-about-excerpt-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 28%;
+  border: 1px solid var(--divider);
+  box-shadow: 0 10px 36px rgba(26, 26, 26, 0.07);
+}
+
+.home-about-excerpt-copy {
+  min-width: 0;
+  padding-top: 4px;
+  text-align: left;
+}
+
+.home-about-excerpt-kicker {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.home-about-excerpt-body {
+  margin: 20px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 18px;
+  line-height: 1.75;
+  font-weight: 400;
+  color: var(--text-primary);
+  max-width: 36em;
+}
+
+.home-about-excerpt-link {
+  display: inline-block;
+  margin-top: 24px;
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: opacity 0.25s ease, border-color 0.25s ease;
+}
+
+.home-about-excerpt-link:hover {
+  opacity: 0.75;
+  border-bottom-color: var(--text-primary);
+}
+
+@media (max-width: 900px) {
+  .home-about-excerpt-inner {
+    column-gap: 40px;
+    grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+  }
+
+  .home-about-excerpt-figure {
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-about-excerpt {
+    padding: 0 20px 100px;
+  }
+
+  .home-about-excerpt-inner {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .home-about-excerpt-figure {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+
+  .home-about-excerpt-copy {
+    padding-top: 0;
+    width: 100%;
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  .home-about-excerpt-body {
+    font-size: 17px;
+    max-width: none;
+  }
+}

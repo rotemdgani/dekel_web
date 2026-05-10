@@ -1,0 +1,302 @@
+.editorial-works-root {
+  padding-bottom: 0;
+  /* Horizontal inset from viewport — responsive (Fix 2) */
+  --works-page-h-pad: 32px;
+}
+
+@media (min-width: 768px) {
+  .editorial-works-root {
+    --works-page-h-pad: 60px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .editorial-works-root {
+    --works-page-h-pad: 80px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .editorial-works-root {
+    --works-page-h-pad: max(100px, calc((100vw - 1200px) / 2));
+  }
+}
+
+/*
+ * Catalogue column: inner artwork grid max 1200px; padding is outside that budget
+ * (border-box so thumbnails align to identical 4:5 cells).
+ */
+.site-main > .works-page.editorial-works-root {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: min(100%, calc(1200px + 2 * var(--works-page-h-pad)));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--works-page-h-pad);
+  padding-right: var(--works-page-h-pad);
+}
+
+.works-filter-bar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 90;
+  height: var(--works-filter-h);
+  background: var(--bg-site);
+  border-bottom: 1px solid var(--divider);
+  margin-left: calc(-1 * var(--works-page-h-pad));
+  margin-right: calc(-1 * var(--works-page-h-pad));
+  padding-left: var(--works-page-h-pad);
+  padding-right: var(--works-page-h-pad);
+}
+
+.works-filter-inner {
+  max-width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0;
+}
+
+.works-filter-link {
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 400;
+  background: none;
+  border: none;
+  padding: 0 0 2px;
+  margin: 0;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: var(--ease-hover);
+}
+
+.works-filter-link:hover {
+  opacity: 0.85;
+}
+
+.works-filter-link-active {
+  border-bottom-color: var(--text-primary);
+}
+
+.works-filter-sep {
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  color: var(--text-primary);
+  padding: 0 0.5rem;
+  letter-spacing: 0.08em;
+}
+
+.works-filter-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.works-section-anchor {
+  scroll-margin-top: calc(var(--header-h) + var(--works-filter-h) + 8px);
+  padding-bottom: 200px;
+}
+
+.works-section-anchor:first-of-type {
+  padding-top: 40px;
+}
+
+@media (max-width: 767px) {
+  .works-section-anchor {
+    padding-bottom: 120px;
+  }
+
+  .works-section-anchor:first-of-type {
+    padding-top: 24px;
+  }
+
+  .editorial-works-root {
+    padding-bottom: 80px;
+  }
+}
+
+.works-section-rule {
+  border: none;
+  border-top: 1px solid var(--divider);
+  margin: 0 0 0;
+  width: 100%;
+}
+
+.works-section-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
+.works-section-years {
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.works-section-blurb {
+  margin: 12px 0 0;
+  max-width: 500px;
+  font-family: var(--font-editorial);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-tertiary);
+}
+
+/* Uniform row rhythm: 120px between catalogue rows (caption bottom → next thumb top) */
+.works-grid {
+  list-style: none;
+  margin: 80px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  row-gap: 120px;
+  column-gap: 0;
+}
+
+@media (min-width: 768px) {
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 120px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .works-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 120px;
+  }
+}
+
+.works-item {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.works-thumb-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.works-thumb-btn:hover {
+  opacity: 0.85;
+}
+
+/*
+ * Fix 1 — strict 4:5 catalogue cell: container dimensions never follow image intrinsic size.
+ * Same column width ⇒ identical cell height everywhere.
+ */
+.works-aspect {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  overflow: hidden;
+  background: #fafaf7;
+  flex-shrink: 0;
+}
+
+.works-thumb-img {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  object-fit: contain;
+  object-position: center;
+  background-color: #fafaf7;
+  display: block;
+}
+
+/* Fix 3 — caption rhythm */
+.works-caption {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.works-caption-title {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  color: #1a1a1a;
+}
+
+.works-caption-meta {
+  margin: 6px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  font-weight: 400;
+  color: #8a8a8a;
+}
+
+.works-inquire {
+  margin: 14px 0 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.works-inquire:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Single 200px gap into Crosswords (avoid doubling with framed section bottom) */
+#framed-for-display.works-section-anchor {
+  padding-bottom: 0;
+}
+
+/* Section 4 — Crosswords */
+.works-section--crosswords {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+@media (max-width: 767px) {
+  .works-section--crosswords {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
+
+/* Two works in columns 1–2; column 3 empty (desktop) */
+.works-grid--crosswords-pair {
+  margin-top: 80px;
+}
+
+@media (min-width: 768px) {
+  .works-grid--crosswords-pair {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

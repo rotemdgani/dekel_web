@@ -1,27 +1,36 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const NotFound = () => {
-  const location = useLocation();
+import {
+  NOTICE_ITEMS,
+  NOTICE_LEAD,
+  NOTICE_SIGN,
+  NOTICE_THANKS,
+} from "@/data/noticeCopy";
+import "./NotFound.css";
 
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-  }, [location.pathname]);
-
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
-      </div>
-    </div>
-  );
-};
+const NotFound = () => (
+  <div className="notfound-notice">
+    <p className="notfound-eyebrow">404</p>
+    <h1 className="notfound-notice-title">Notice</h1>
+    <p className="notfound-date" aria-hidden="true">
+      [dd/mm/yyyy]
+    </p>
+    <p className="notfound-lead">{NOTICE_LEAD}</p>
+    <ol className="notfound-list">
+      {NOTICE_ITEMS.map((text, i) => (
+        <li key={i} className="notfound-item">
+          {text}
+        </li>
+      ))}
+    </ol>
+    <p className="notfound-thanks">{NOTICE_THANKS}</p>
+    <p className="notfound-sign">{NOTICE_SIGN}</p>
+    <p className="notfound-recovery">
+      <Link className="notfound-recovery-link" to="/works">
+        ← Return to Works
+      </Link>
+    </p>
+  </div>
+);
 
 export default NotFound;
