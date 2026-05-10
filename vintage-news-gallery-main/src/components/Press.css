@@ -52,6 +52,16 @@
     margin-bottom: 1rem;
     font-family: 'Times New Roman', serif;
   }
+
+  .press-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .press-title-link:hover {
+    opacity: 0.72;
+  }
   
   .press-divider {
     width: 6rem;
@@ -98,6 +108,21 @@
     border-radius: inherit;
   }
   
+  .press-article-visual {
+    margin: 0 0 1.25rem;
+    max-width: 220px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .press-article-thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    object-position: center top;
+  }
+
   .press-article-headline {
     font-size: 1.5rem;
     font-weight: bold;
@@ -148,6 +173,12 @@
     color: hsl(0 0% 45%);
     font-family: 'Times New Roman', serif;
   }
+
+.press-article-sep {
+  margin: 0 0.35rem;
+  color: hsl(0 0% 70%);
+  font-weight: 400;
+}
   
   .press-article-link {
     color: hsl(0 0% 25%);

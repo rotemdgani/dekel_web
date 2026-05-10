@@ -116,6 +116,73 @@
   max-width: 100%;
 }
 
+/* Taped [Rose] / Taped [Orchid] — no clipping or gray frame; PNG/WebP sits on gallery white */
+.museum-artwork-image-wrapper--natural-transparency {
+  background: transparent;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.museum-artwork-image-wrapper--natural-transparency .museum-artwork-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background-color: transparent;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* M&A, Class, Nightlife, Scrabble, Swords — full piece, breathing room, no cover crop */
+.museum-artwork-image-wrapper--contain-inset {
+  background: transparent;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.museum-artwork-image-wrapper--contain-inset .museum-artwork-image {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  object-fit: contain;
+  object-position: center;
+  max-width: 85%;
+}
+
+/* Scale max-height per layout tier (~85% of the default cap for that slot) */
+.museum-artwork--hero-large
+  .museum-artwork-image-wrapper--contain-inset
+  .museum-artwork-image {
+  max-height: calc(85vh * 0.85);
+}
+
+.museum-artwork--large .museum-artwork-image-wrapper--contain-inset .museum-artwork-image {
+  max-height: calc(75vh * 0.85);
+}
+
+.museum-artwork--medium-large
+  .museum-artwork-image-wrapper--contain-inset
+  .museum-artwork-image {
+  max-height: calc(65vh * 0.85);
+}
+
+.museum-artwork--medium .museum-artwork-image-wrapper--contain-inset .museum-artwork-image {
+  max-height: calc(55vh * 0.85);
+}
+
+.museum-artwork--medium-small
+  .museum-artwork-image-wrapper--contain-inset
+  .museum-artwork-image {
+  max-height: calc(50vh * 0.85);
+}
+
+.museum-artwork--small .museum-artwork-image-wrapper--contain-inset .museum-artwork-image {
+  max-height: calc(40vh * 0.85);
+}
+
 .museum-artwork-image-wrapper:hover {
   transform: translateY(-4px);
   opacity: 0.95;
@@ -456,5 +523,26 @@
     object-position: center;
     margin: 0 auto;
     display: block;
+  }
+
+  /* Restore transparent / inset behavior after generic mobile rules above */
+  .museum-artwork-image-wrapper--natural-transparency,
+  .museum-artwork-image-wrapper--contain-inset {
+    overflow: visible;
+  }
+
+  .museum-artwork-image-wrapper--natural-transparency .museum-artwork-image {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .museum-artwork-image-wrapper--contain-inset .museum-artwork-image {
+    width: auto;
+    max-width: 85%;
+  }
+
+  /* Inset list: match mobile 80vh tier with 85% breathing room (beat per-size img rules above) */
+  .museum-artwork .museum-artwork-image-wrapper--contain-inset .museum-artwork-image {
+    max-height: calc(80vh * 0.85);
   }
 }

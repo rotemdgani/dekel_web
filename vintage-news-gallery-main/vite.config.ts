@@ -19,4 +19,6 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  /** Uppercase extensions (e.g. cameras / Windows) must be listed or Vite parses them as JS */
+  assetsInclude: ["**/*.JPG", "**/*.JPEG"],
 }));

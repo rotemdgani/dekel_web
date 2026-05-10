@@ -1,0 +1,96 @@
+.contact-editorial {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 200px 0 200px;
+}
+
+.contact-kicker {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.contact-intro {
+  margin: 60px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.contact-email-wrap {
+  margin: 32px 0 0;
+}
+
+.contact-email-lg {
+  font-family: var(--font-editorial);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--ease-hover);
+}
+
+.contact-email-lg:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-wa-wrap {
+  margin: 24px 0 0;
+}
+
+.contact-wa-lg {
+  font-family: var(--font-editorial);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--ease-hover);
+}
+
+.contact-wa-lg:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-instagram-wrap {
+  margin: 80px 0 0;
+}
+
+.contact-instagram {
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--ease-hover);
+}
+
+.contact-instagram:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .contact-editorial {
+    padding: 120px 0 160px;
+  }
+
+  .contact-intro {
+    margin-top: 48px;
+  }
+}

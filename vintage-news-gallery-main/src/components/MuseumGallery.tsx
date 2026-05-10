@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
-import SeriesLabel from "./SeriesLabel";
 import ArtworkModal from "@/components/ui/artwork-modal";
+import { museumImageWrapperClassName } from "@/lib/galleryDisplay";
 import "./MuseumGallery.css";
 
 interface Artwork {
@@ -149,7 +149,10 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
             <div key={`pair-${pair}`} className="museum-artwork-pair museum-artwork-pair--poetic-pause">
               <div className={`museum-artwork museum-artwork--${size} museum-artwork--${align}`}>
                 <div className="museum-artwork-content">
-                  <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(artwork)}>
+                  <div
+                    className={museumImageWrapperClassName(artwork.id)}
+                    onClick={() => handleArtworkClick(artwork)}
+                  >
                     <img src={artwork.image} alt={artwork.title} className="museum-artwork-image" loading={index < 6 ? "eager" : "lazy"} decoding="async" />
                   </div>
                   <div className="museum-artwork-info">
@@ -160,7 +163,10 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
               </div>
               <div className={`museum-artwork museum-artwork--${secondItem.size} museum-artwork--${secondItem.align}`}>
                 <div className="museum-artwork-content">
-                  <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(secondItem.artwork)}>
+                  <div
+                    className={museumImageWrapperClassName(secondItem.artwork.id)}
+                    onClick={() => handleArtworkClick(secondItem.artwork)}
+                  >
                     <img src={secondItem.artwork.image} alt={secondItem.artwork.title} className="museum-artwork-image" loading="lazy" decoding="async" />
                   </div>
                   <div className="museum-artwork-info">
@@ -179,7 +185,10 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
             <div key={`pair-${pair}`} className="museum-artwork-pair museum-artwork-pair--climax">
               <div className={`museum-artwork museum-artwork--${size} museum-artwork--${align}`}>
                 <div className="museum-artwork-content">
-                  <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(artwork)}>
+                  <div
+                    className={museumImageWrapperClassName(artwork.id)}
+                    onClick={() => handleArtworkClick(artwork)}
+                  >
                     <img src={artwork.image} alt={artwork.title} className="museum-artwork-image" loading="lazy" decoding="async" />
                   </div>
                   <div className="museum-artwork-info">
@@ -190,7 +199,10 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
               </div>
               <div className={`museum-artwork museum-artwork--${secondItem.size} museum-artwork--${secondItem.align} ${secondItem.slightlyLower ? "museum-artwork--slightly-lower" : ""}`}>
                 <div className="museum-artwork-content">
-                  <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(secondItem.artwork)}>
+                  <div
+                    className={museumImageWrapperClassName(secondItem.artwork.id)}
+                    onClick={() => handleArtworkClick(secondItem.artwork)}
+                  >
                     <img src={secondItem.artwork.image} alt={secondItem.artwork.title} className="museum-artwork-image" loading="lazy" decoding="async" />
                   </div>
                   <div className="museum-artwork-info">
@@ -208,7 +220,10 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
           <div key={`pair-${pair}`} className={`museum-artwork-pair ${leftBias ? "museum-artwork-pair--left-bias" : ""} ${leftHeavy ? "museum-artwork-pair--left-heavy" : ""}`}>
             <div className={`museum-artwork museum-artwork--${size} museum-artwork--${align}`}>
               <div className="museum-artwork-content">
-                <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(artwork)}>
+                <div
+                  className={museumImageWrapperClassName(artwork.id)}
+                  onClick={() => handleArtworkClick(artwork)}
+                >
                   <img src={artwork.image} alt={artwork.title} className="museum-artwork-image" loading={index < 6 ? "eager" : "lazy"} decoding="async" />
                 </div>
                 <div className="museum-artwork-info">
@@ -219,7 +234,10 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
             </div>
             <div className={`museum-artwork museum-artwork--${secondItem.size} museum-artwork--${secondItem.align}`}>
               <div className="museum-artwork-content">
-                <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(secondItem.artwork)}>
+                <div
+                  className={museumImageWrapperClassName(secondItem.artwork.id)}
+                  onClick={() => handleArtworkClick(secondItem.artwork)}
+                >
                   <img src={secondItem.artwork.image} alt={secondItem.artwork.title} className="museum-artwork-image" loading="lazy" decoding="async" />
                 </div>
                 <div className="museum-artwork-info">
@@ -242,7 +260,10 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
         className={`museum-artwork museum-artwork--${size} museum-artwork--${align} ${echo ? "museum-artwork--echo" : ""} ${finalExit ? "museum-artwork--final-exit" : ""}`}
       >
         <div className="museum-artwork-content">
-          <div className="museum-artwork-image-wrapper" onClick={() => handleArtworkClick(artwork)}>
+          <div
+            className={museumImageWrapperClassName(artwork.id)}
+            onClick={() => handleArtworkClick(artwork)}
+          >
             <img src={artwork.image} alt={artwork.title} className="museum-artwork-image" loading={index < 6 ? "eager" : "lazy"} decoding="async" />
           </div>
           <div className="museum-artwork-info">

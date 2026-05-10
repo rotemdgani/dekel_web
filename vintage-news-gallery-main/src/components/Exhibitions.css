@@ -124,6 +124,14 @@
   font-family: 'Times New Roman', serif;
 }
 
+.exhibition-upcoming {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: hsl(0 0% 38%);
+}
+
 .exhibition-date {
   font-weight: 500;
   color: hsl(0 0% 25%);

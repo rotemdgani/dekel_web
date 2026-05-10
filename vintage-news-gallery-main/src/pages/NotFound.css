@@ -1,0 +1,140 @@
+.notfound-notice {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 160px 0 200px;
+  background: #fafaf7;
+  text-align: center;
+}
+
+.notfound-eyebrow {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: #8a8a8a;
+}
+
+.notfound-notice-title {
+  margin: 12px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-style: normal;
+  line-height: 1.2;
+  color: #1a1a1a;
+}
+
+.notfound-date {
+  margin: 16px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  color: #8a8a8a;
+}
+
+.notfound-lead {
+  margin: 32px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #6a6a6a;
+}
+
+.notfound-list {
+  margin: 60px auto 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: notfound-notice;
+  max-width: 560px;
+  text-align: left;
+}
+
+.notfound-item {
+  position: relative;
+  margin: 0 0 32px;
+  padding-left: calc(24px + 1.5ch);
+  font-family: var(--font-editorial);
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: #1a1a1a;
+  counter-increment: notfound-notice;
+}
+
+.notfound-item:last-child {
+  margin-bottom: 0;
+}
+
+.notfound-item::before {
+  content: counter(notfound-notice) ".";
+  position: absolute;
+  left: 0;
+  width: 1.5ch;
+  text-align: right;
+  font-family: var(--font-editorial);
+  font-size: 17px;
+  font-weight: 400;
+  color: #8a8a8a;
+}
+
+.notfound-thanks {
+  margin: 60px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.notfound-sign {
+  margin: 24px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  color: #8a8a8a;
+  text-align: center;
+}
+
+.notfound-recovery {
+  margin: 80px 0 0;
+  text-align: center;
+}
+
+.notfound-recovery-link {
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  font-weight: 400;
+  color: #8a8a8a;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color 0.25s ease, opacity 0.25s ease;
+}
+
+.notfound-recovery-link:hover {
+  border-bottom-color: #8a8a8a;
+  opacity: 0.92;
+}
+
+@media (max-width: 767px) {
+  .notfound-notice {
+    padding: 120px 0 160px;
+  }
+
+  .notfound-notice-title {
+    font-size: 28px;
+  }
+
+  .notfound-item {
+    font-size: 16px;
+    padding-left: calc(20px + 1.25ch);
+  }
+}

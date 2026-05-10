@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
+import { explicitGalleryImagesForSlug } from "@/data/exhibitionGalleryAssets";
 import "./EventGallery.css";
 
 interface EventGalleryProps {
@@ -16,6 +17,12 @@ const EventGallery = ({ eventSlug, eventTitle }: EventGalleryProps) => {
   const lightboxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const explicit = explicitGalleryImagesForSlug(eventSlug);
+    if (explicit?.length) {
+      setImages(explicit);
+      return;
+    }
+
     // Use Vite's glob import to load images from events folder or root assets
     // Images are named: <slug>.webp or <slug>_1.webp, <slug>_2.webp, etc.
     const loadEventImages = () => {
@@ -34,9 +41,6 @@ const EventGallery = ({ eventSlug, eventTitle }: EventGalleryProps) => {
 
         // Combine both sources
         const allModules = { ...eventsModules, ...rootModules };
-
-        console.log(`EventGallery: Loading images for "${eventTitle}" (slug: ${eventSlug})`);
-        console.log(`EventGallery: Total files available: ${Object.keys(allModules).length}`);
 
         const loadedImages: string[] = [];
         
@@ -77,7 +81,6 @@ const EventGallery = ({ eventSlug, eventTitle }: EventGalleryProps) => {
           
           // Match if any of these conditions are true
           if ((matchesExactHyphen || matchesExactSpace || (containsAllWords && firstWordMatch)) && module.default) {
-            console.log(`EventGallery: ✅ Matched file "${filename}" for slug "${eventSlug}"`);
             loadedImages.push(module.default);
           }
         });
@@ -86,12 +89,7 @@ const EventGallery = ({ eventSlug, eventTitle }: EventGalleryProps) => {
         loadedImages.sort();
 
         if (loadedImages.length > 0) {
-          console.log(`EventGallery: ✅ Found ${loadedImages.length} images for "${eventTitle}" (slug: ${eventSlug})`, loadedImages);
           setImages(loadedImages);
-        } else {
-          console.log(`EventGallery: ❌ No images found for "${eventTitle}" (slug: ${eventSlug})`);
-          console.log(`EventGallery: Slug words: [${slugWords.join(', ')}]`);
-          console.log(`EventGallery: Sample filenames:`, Object.keys(allModules).slice(0, 5).map(p => p.split('/').pop() || p.split('\\').pop()));
         }
       } catch (error) {
         console.error(`EventGallery: Error loading images for event: ${eventSlug}`, error);

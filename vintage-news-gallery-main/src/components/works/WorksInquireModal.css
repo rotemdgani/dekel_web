@@ -1,0 +1,179 @@
+.wim-root {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.wim-backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(26, 26, 26, 0.35);
+  cursor: pointer;
+}
+
+.wim-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: var(--bg-site);
+  border: 1px solid var(--divider);
+  padding: 48px;
+  color: var(--text-primary);
+}
+
+.wim-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-editorial);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-primary);
+  opacity: 0.7;
+  transition: var(--ease-hover);
+}
+
+.wim-close:hover {
+  opacity: 1;
+}
+
+.wim-title {
+  margin: 0 0 12px;
+  font-family: var(--font-editorial);
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.wim-sub {
+  margin: 0 0 24px;
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.wim-sub-work {
+  color: var(--text-primary);
+}
+
+.wim-art {
+  margin-bottom: 24px;
+}
+
+.wim-art-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.wim-readonly {
+  margin: 0 0 28px;
+}
+
+.wim-line {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.wim-readonly .wim-line + .wim-line {
+  margin-top: 4px;
+}
+
+.wim-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.wim-label {
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.wim-input,
+.wim-textarea {
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  color: var(--text-primary);
+  padding: 10px 12px;
+  border: 1px solid var(--divider);
+  border-radius: 0;
+  background: var(--bg-site);
+}
+
+.wim-textarea {
+  resize: vertical;
+  min-height: 112px;
+  line-height: 1.5;
+}
+
+.wim-submit {
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 40px;
+  border: none;
+  background: var(--text-primary);
+  color: var(--bg-site);
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.wim-submit:hover {
+  opacity: 0.85;
+}
+
+.wim-wa {
+  margin-top: 16px;
+  display: block;
+  text-align: center;
+  font-family: var(--font-editorial);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 40px;
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.wim-wa:hover {
+  background: var(--text-primary);
+  color: var(--bg-site);
+}
+
+.wim-thanks {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: 17px;
+  line-height: 1.7;
+}
