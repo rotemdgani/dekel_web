@@ -18,9 +18,28 @@ const STICKY_OFFSET = 140; /* header + filter + small offset */
 
 type FilterKey = "all" | WorksSectionSlug;
 
+function sectionSlugForArtworkId(id: number): WorksSectionSlug {
+  for (const sec of WORKS_SECTIONS) {
+    if (sec.orderedIds.includes(id)) return sec.slug;
+  }
+  return "subjects-removed";
+}
+
 const WorksPage = () => {
   const location = useLocation();
   const map = useMemo(() => artworkMapFromList(artworks), []);
+
+  /** Full catalogue order for lightbox prev/next across all sections */
+  const allGalleryWorks = useMemo(() => {
+    const out: Artwork[] = [];
+    for (const sec of WORKS_SECTIONS) {
+      for (const oid of sec.orderedIds) {
+        const w = map.get(oid);
+        if (w) out.push(w);
+      }
+    }
+    return out;
+  }, [map]);
 
   const grouped = useMemo(
     () =>
@@ -32,12 +51,6 @@ const WorksPage = () => {
       })),
     [map],
   );
-
-  const sectionWorksMap = useMemo(() => {
-    const m = new Map<WorksSectionSlug, Artwork[]>();
-    grouped.forEach(({ meta, works }) => m.set(meta.slug, works));
-    return m;
-  }, [grouped]);
 
   const [filterActive, setFilterActive] = useState<FilterKey>("all");
   const [lightbox, setLightbox] = useState<LightboxNavigation | null>(null);
@@ -93,8 +106,11 @@ const WorksPage = () => {
   };
 
   const openLightbox = (work: Artwork, slug: WorksSectionSlug) => {
-    const list = sectionWorksMap.get(slug) ?? [];
-    setLightbox({ current: work, sectionSlug: slug, sectionWorks: list });
+    setLightbox({
+      current: work,
+      sectionSlug: slug,
+      sectionWorks: allGalleryWorks,
+    });
   };
 
   const openInquire = (work: Artwork) => {
@@ -212,8 +228,8 @@ const WorksPage = () => {
           if (!lightbox) return;
           setLightbox({
             current: work,
-            sectionSlug: lightbox.sectionSlug,
-            sectionWorks: lightbox.sectionWorks,
+            sectionSlug: sectionSlugForArtworkId(work.id),
+            sectionWorks: allGalleryWorks,
           });
         }}
         onClickInquire={() => {

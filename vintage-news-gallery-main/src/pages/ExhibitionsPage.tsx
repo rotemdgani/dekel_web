@@ -16,11 +16,18 @@ function isLiveUrl(url: string | undefined): url is string {
   }
 }
 
+/** Show main cover on mobile (others stay hidden to avoid duplicating gallery hero). */
+const EXHIBITION_SLUG_SHOW_COVER_MOBILE = "global-art-gallery-solo";
+
 const ExhibitionCard = ({ ex }: { ex: ExhibitionDetail }) => {
   const cover = ex.coverImageUrl ?? coverImageForExhibitionSlug(ex.slug);
+  const cardClass =
+    ex.slug === EXHIBITION_SLUG_SHOW_COVER_MOBILE
+      ? "exhibitions-detail-card exhibitions-detail-card--cover-mobile-on"
+      : "exhibitions-detail-card";
   return (
     <li
-      className="exhibitions-detail-card"
+      className={cardClass}
       id={`exhibition-${ex.slug}`}
     >
       <div className="exhibitions-detail-visual">

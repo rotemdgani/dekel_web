@@ -25,6 +25,12 @@
   font-weight: 400;
 }
 
+@media (max-width: 767px) {
+  .site-footer-author {
+    white-space: nowrap;
+  }
+}
+
 .site-footer-dot {
   padding: 0 0.5rem;
 }

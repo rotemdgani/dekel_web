@@ -10,7 +10,8 @@ const SiteFooter = () => {
       <div className="site-footer-inner">
         <p className="site-footer-line">
           <span className="site-footer-meta">
-            © {year} DEKEL HARARI
+            © {year}{" "}
+            <span className="site-footer-author">DEKEL HARARI</span>
           </span>
           <span className="site-footer-dot" aria-hidden="true">
             ·
