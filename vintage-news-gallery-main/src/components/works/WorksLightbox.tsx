@@ -99,7 +99,7 @@ const WorksLightbox = ({
             <button
               type="button"
               className="wl-arrow wl-arrow-left"
-              aria-label="Previous artwork in section"
+              aria-label="Previous artwork"
               onClick={() => onNavigate(prevWork)}
             >
               ←
@@ -109,7 +109,7 @@ const WorksLightbox = ({
             <button
               type="button"
               className="wl-arrow wl-arrow-right"
-              aria-label="Next artwork in section"
+              aria-label="Next artwork"
               onClick={() => onNavigate(nextWork)}
             >
               →

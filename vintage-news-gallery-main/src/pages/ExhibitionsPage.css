@@ -187,4 +187,14 @@
   .exhibitions-detail-list {
     margin-top: 48px;
   }
+
+  /* Hero cover duplicates first gallery image on small screens — hide cover only */
+  .exhibitions-detail-visual {
+    display: none;
+  }
+
+  /* Exception: Global Art Gallery solo — keep main cover on mobile */
+  .exhibitions-detail-card--cover-mobile-on .exhibitions-detail-visual {
+    display: block;
+  }
 }

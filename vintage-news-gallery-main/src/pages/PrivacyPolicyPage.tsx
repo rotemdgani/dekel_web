@@ -1,67 +1,93 @@
+import { CONTACT_EMAIL } from "@/config/site";
 import "./PrivacyPolicyPage.css";
 
 const PrivacyPolicyPage = () => (
   <article className="privacy-policy-editorial">
     <header className="privacy-policy-header">
-      <p className="privacy-policy-kicker">Legal</p>
       <h1 className="privacy-policy-title">Privacy Policy</h1>
-      <p className="privacy-policy-updated">
-        <em>Last updated:</em> May 9, 2026
-      </p>
+      <p className="privacy-policy-updated">Last updated: 11 May 2026</p>
     </header>
 
     <div className="privacy-policy-body">
+      <p>This website is operated by Dekel Harari.</p>
       <p>
-        This page describes how this website may collect, use, and protect
-        information. The full legal text is in preparation; please replace the
-        placeholder sections below with your final policy before publication.
+        Your privacy is important to me. This Privacy Policy explains what
+        information may be collected when you visit this website or contact me
+        through it.
       </p>
 
-      <h2 className="privacy-policy-heading">Introduction</h2>
+      <h2 className="privacy-policy-heading">Information I Collect</h2>
       <p>
-        [Placeholder] Briefly explain who operates this site and the purpose of
-        this Privacy Policy. Describe the audience and jurisdiction you intend
-        to address.
+        When you contact me through the website, I may collect the information
+        you choose to provide, such as your name, email address, phone number,
+        and the content of your message.
+      </p>
+      <p>
+        The website may also collect basic technical information, such as your
+        IP address, browser type, device information, pages visited, and general
+        website usage data.
       </p>
 
-      <h2 className="privacy-policy-heading">Information we collect</h2>
+      <h2 className="privacy-policy-heading">How I Use the Information</h2>
+      <p>The information collected may be used to:</p>
+      <ul className="privacy-policy-list">
+        <li>respond to your inquiries;</li>
+        <li>
+          provide information about artworks, exhibitions, collaborations, or
+          purchases;
+        </li>
+        <li>improve the website and user experience;</li>
+        <li>keep basic records of communication;</li>
+        <li>
+          send updates or invitations, only if you have agreed to receive them.
+        </li>
+      </ul>
+
+      <h2 className="privacy-policy-heading">Cookies</h2>
       <p>
-        [Placeholder] Describe categories of data you may collect (for example,
-        contact form submissions, analytics, or server logs) and whether
-        collection is automatic or voluntary.
+        This website may use cookies or similar technologies to help the
+        website function properly and to understand general website usage.
+      </p>
+      <p>
+        You can disable cookies through your browser settings. Please note that
+        some parts of the website may not work properly if cookies are disabled.
       </p>
 
-      <h2 className="privacy-policy-heading">Cookies and similar technologies</h2>
+      <h2 className="privacy-policy-heading">Sharing Information</h2>
+      <p>I do not sell or rent your personal information.</p>
       <p>
-        [Placeholder] Explain what cookies are used for, how long they last,
-        and how visitors can control them. You may refer to the cookie notice
-        shown on first visit and link to browser settings.
+        Information may be shared only when necessary, for example with website
+        hosting providers, email services, analytics tools, or if required by
+        law.
       </p>
 
-      <h2 className="privacy-policy-heading">How we use information</h2>
+      <h2 className="privacy-policy-heading">Data Security</h2>
       <p>
-        [Placeholder] Describe purposes such as responding to inquiries,
-        improving the site, or complying with law. List lawful bases if
-        applicable (e.g. consent, legitimate interest).
+        I take reasonable steps to protect the information provided through this
+        website. However, no method of online transmission or storage is
+        completely secure.
       </p>
 
-      <h2 className="privacy-policy-heading">Third parties</h2>
+      <h2 className="privacy-policy-heading">Third-Party Links</h2>
       <p>
-        [Placeholder] Name hosting, analytics, email, or social embeds if any,
-        and whether data may be processed outside the visitor&apos;s country.
+        This website may include links to external websites, social media pages,
+        or third-party platforms. I am not responsible for the privacy practices
+        or content of those websites.
       </p>
 
-      <h2 className="privacy-policy-heading">Your rights</h2>
+      <h2 className="privacy-policy-heading">Your Rights</h2>
       <p>
-        [Placeholder] Summarize rights (access, correction, deletion,
-        objection) and how visitors can exercise them, including a contact
-        email.
+        You may contact me to request access to, correction of, or deletion of
+        personal information you have provided, subject to applicable law.
       </p>
 
       <h2 className="privacy-policy-heading">Contact</h2>
-      <p>
-        [Placeholder] Provide an email or postal address for privacy-related
-        requests. You may reuse details from your contact page when ready.
+      <p>For any privacy-related questions, please contact:</p>
+      <p className="privacy-policy-contact">
+        Email:{" "}
+        <a className="privacy-policy-mail" href={`mailto:${CONTACT_EMAIL}`}>
+          {CONTACT_EMAIL}
+        </a>
       </p>
     </div>
   </article>
