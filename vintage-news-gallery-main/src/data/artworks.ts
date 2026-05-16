@@ -7,6 +7,7 @@ import date_2103 from '@/assets/21.03.2025.webp';
 import split_page from '@/assets/Split Page.webp';
 import subtext_img from '@/assets/Subtext.webp';
 import cut_artwork from '@/assets/Cut.webp';
+import coverage_img from '@/assets/Coverage.webp';
 import paste_artwork from '@/assets/Paste.webp';
 import nightlife from '@/assets/Nightlife.webp';
 import headline from '@/assets/Headline.webp';
@@ -243,6 +244,18 @@ export const artworks: Artwork[] = [
     medium: 'Mixed media on canvas',
     dimensions: '56 x 37 cm',
     image: swords_img,
+    description: '2025',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 66,
+    title: 'Coverage',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media on canvas',
+    dimensions: '85 x 110 cm',
+    image: coverage_img,
     description: '2025',
     availability: 'Available',
     isLimited: false,
