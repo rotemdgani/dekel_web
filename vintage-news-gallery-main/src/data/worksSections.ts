@@ -17,7 +17,7 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
     title: 'SUBJECTS, REMOVED',
     yearRange: '2024–2025',
     description: 'Faces edited out for your convenience.',
-    orderedIds: [41, 52, 51, 56, 37, 49, 60, 50, 55, 53],
+    orderedIds: [41, 52, 51, 56, 37, 49, 60, 50, 55, 53, 65],
   },
   {
     slug: 'daily-material',
