@@ -14,6 +14,7 @@ import loading_img from '@/assets/Loading....webp';
 import read_more_img from '@/assets/Read More....webp';
 import before_coffee from '@/assets/Before coffee.webp';
 import username_img from '@/assets/Username.webp';
+import subscriber_img from '@/assets/Subscriber.webp';
 import scrabble from '@/assets/Scrabble.webp';
 import to_be_continued from '@/assets/To be continued.webp';
 import ceo from '@/assets/CEO.webp';
@@ -170,6 +171,18 @@ export const artworks: Artwork[] = [
     medium: 'Mixed media on canvas',
     dimensions: '59 x 75 cm',
     image: username_img,
+    description: '2025',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 65,
+    title: 'Subscriber',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media on canvas',
+    dimensions: '90 x 110 cm',
+    image: subscriber_img,
     description: '2025',
     availability: 'Available',
     isLimited: false,
