@@ -37,7 +37,7 @@ export const EXHIBITIONS: ExhibitionDetail[] = [
     curator: "Curated by Michal Adler and Dr. Galia Duchin Ariely",
     description:
       "Opening: May 20, 2026, 20:00. Closing: June 19, 2026. Solo exhibition at Global Art Gallery.",
-    showGallery: false,
+    showGallery: true,
     isUpcoming: true,
   },
   {
