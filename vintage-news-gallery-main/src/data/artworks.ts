@@ -5,6 +5,7 @@ import constrained_bloom_rose from '@/assets/Constrained Bloom_ROSE.webp';
 import constrained_bloom_anemone from '@/assets/Constrained Bloom_Anemone.webp';
 import date_2103 from '@/assets/21.03.2025.webp';
 import split_page from '@/assets/Split Page.webp';
+import kindergarten from '@/assets/Kindergarten.webp';
 import subtext_img from '@/assets/Subtext.webp';
 import cut_artwork from '@/assets/Cut.webp';
 import coverage_img from '@/assets/Coverage.webp';
@@ -23,6 +24,7 @@ import taped_orchid from '@/assets/Taped [Orchid].png';
 import legacy from '@/assets/Legacy.webp';
 import archive_img from '@/assets/Archive.webp';
 import earth_img from '@/assets/Earth.webp';
+import flying_information from '@/assets/Flying information.webp';
 import swords_img from '@/assets/Swords to Plowshares.webp';
 
 /** Used for contact / schema; not shown as price on site */
@@ -118,7 +120,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: 50,
-    title: 'Loading',
+    title: 'Loading...',
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
@@ -130,7 +132,7 @@ export const artworks: Artwork[] = [
   },
   {
     id: 51,
-    title: 'Read More',
+    title: 'Read More...',
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
@@ -213,6 +215,18 @@ export const artworks: Artwork[] = [
     isLimited: false,
   },
   {
+    id: 67,
+    title: 'Flying Information',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media on wood',
+    dimensions: '28 x 35 cm',
+    image: flying_information,
+    description: '2025',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
     id: 64,
     title: 'Paste',
     category: 'gallery',
@@ -233,6 +247,18 @@ export const artworks: Artwork[] = [
     dimensions: '35 x 57 cm',
     image: split_page,
     description: '2025',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 68,
+    title: 'Kindergarten',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media on canvas',
+    dimensions: '60 x 80 cm',
+    image: kindergarten,
+    description: '2023',
     availability: 'Available',
     isLimited: false,
   },

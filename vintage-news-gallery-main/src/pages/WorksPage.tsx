@@ -16,9 +16,8 @@ import "./WorksPage.css";
 
 const STICKY_OFFSET = 140; /* header + filter + small offset */
 
-/** Finale block: 3-up row then Username centered alone (SUBJECTS, REMOVED) */
-const SUBJECTS_REMOVED_FINALE_IDS = [37, 50, 55, 53] as const;
-const SUBJECTS_REMOVED_USERNAME_ID = 53;
+/** Finale block: Username, Loading, To Be Continued (SUBJECTS, REMOVED) */
+const SUBJECTS_REMOVED_FINALE_IDS = [53, 50, 55] as const;
 
 /** Centered pair row: Swords to Plowshares + Coverage (DAILY MATERIAL) */
 const DAILY_MATERIAL_CENTERED_PAIR_IDS = [62, 66] as const;
@@ -187,26 +186,14 @@ const WorksPage = () => {
       return nodes;
     }
 
-    const topRow = finaleWorks.filter(
-      (work) => work.id !== SUBJECTS_REMOVED_USERNAME_ID,
-    );
-    const username = finaleWorks.find(
-      (work) => work.id === SUBJECTS_REMOVED_USERNAME_ID,
-    );
-
     nodes.push(
       <li key="subjects-finale" className="works-item works-item--finale-block">
         <div className="works-finale-grid">
-          {topRow.map((work) => (
+          {finaleWorks.map((work) => (
             <div key={work.id} className="works-finale-cell">
               {renderWorkItemInner(work, slug)}
             </div>
           ))}
-          {username ? (
-            <div className="works-finale-solo">
-              {renderWorkItemInner(username, slug)}
-            </div>
-          ) : null}
         </div>
       </li>,
     );
