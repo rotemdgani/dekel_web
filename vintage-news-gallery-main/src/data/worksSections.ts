@@ -17,14 +17,14 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
     title: 'SUBJECTS, REMOVED',
     yearRange: '2024–2025',
     description: 'Faces edited out for your convenience.',
-    orderedIds: [52, 49, 51, 56, 65, 41, 37, 50, 55, 53],
+    orderedIds: [52, 49, 51, 56, 65, 41, 53, 50, 55],
   },
   {
     slug: 'daily-material',
     title: 'DAILY MATERIAL',
     yearRange: '2024–2025',
     description: 'Tomorrow\'s recycling, today.',
-    orderedIds: [63, 61, 60, 64, 45, 42, 62, 66],
+    orderedIds: [37, 61, 67, 63, 60, 64, 45, 68, 42, 62, 66],
   },
   {
     slug: 'framed-for-display',
