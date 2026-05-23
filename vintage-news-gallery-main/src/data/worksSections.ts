@@ -24,7 +24,7 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
     title: 'DAILY MATERIAL',
     yearRange: '2024–2025',
     description: 'Tomorrow\'s recycling, today.',
-    orderedIds: [37, 61, 67, 63, 60, 64, 45, 68, 42, 62, 66],
+    orderedIds: [37, 61, 67, 63, 64, 60, 45, 68, 42, 62, 66],
   },
   {
     slug: 'framed-for-display',
