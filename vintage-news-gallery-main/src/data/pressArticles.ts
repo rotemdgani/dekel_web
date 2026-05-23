@@ -10,6 +10,8 @@ import peaceArticleImg from "@/assets/Peace and Goodbye.webp";
 import daMagazinePressImg from "@/assets/shagal_over_the_city.webp";
 import tauArticleImg from "@/assets/Tel_Aviv_University.webp";
 import tlvTimesPressPortrait from "@/assets/dekel-portrait.webp";
+import themarkerArticleImg from "@/assets/the marker_pic for article.webp";
+import portfolioArticleImg from "@/assets/protfolio_pic for article.webp";
 
 export interface PressArticle {
   id: string;
@@ -28,6 +30,32 @@ export interface PressArticle {
 }
 
 export const PRESS_ARTICLES: PressArticle[] = [
+  {
+    id: "themarker-tel-aviv-open-house-2026",
+    title:
+      "In Tel Aviv, Something Is Always Happening, and You Need to Learn to Say No",
+    source: "TheMarker",
+    dateLabel: "May 22, 2026",
+    sortDate: "2026-05-22",
+    excerpt:
+      "A TheMarker Open House feature on Dekel Harari's life in Tel Aviv — his move to the city, and how the urban pace, routine, and constant movement connect to his personal and creative world.",
+    linkUrl:
+      "https://www.themarker.com/realestate/openhouse/2026-05-22/ty-article-magazine/.premium/0000019e-3189-d0db-a79e-f9db59820000",
+    linkLabel: "Read article",
+    imageUrl: themarkerArticleImg,
+  },
+  {
+    id: "portfolio-whats-happening-dekel-harari-2026",
+    title: "What's Happening // Dekel Harari",
+    source: "Portfolio Magazine",
+    dateLabel: "May 20, 2026",
+    sortDate: "2026-05-20",
+    excerpt:
+      "A Portfolio Magazine profile on Dekel Harari's path from business to contemporary mixed-media art, and his use of newspapers, headlines, and everyday materials as a visual language.",
+    linkUrl: "https://www.prtfl.co.il/archives/251898",
+    linkLabel: "Read article",
+    imageUrl: portfolioArticleImg,
+  },
   {
     id: "tlv-times-dekel-biotech-art-2024",
     title:

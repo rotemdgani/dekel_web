@@ -25,11 +25,9 @@ const ExhibitionCard = ({ ex }: { ex: ExhibitionDetail }) => {
     ex.slug === EXHIBITION_SLUG_SHOW_COVER_MOBILE
       ? "exhibitions-detail-card exhibitions-detail-card--cover-mobile-on"
       : "exhibitions-detail-card";
+
   return (
-    <li
-      className={cardClass}
-      id={`exhibition-${ex.slug}`}
-    >
+    <li className={cardClass} id={`exhibition-${ex.slug}`}>
       <div className="exhibitions-detail-visual">
         {ex.isUpcoming ? (
           <span className="exhibitions-detail-upcoming-badge" aria-hidden="true">

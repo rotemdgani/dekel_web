@@ -44,13 +44,30 @@
 .event-gallery-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   display: block;
+  background: hsl(0 0% 96%);
   transition: transform 0.3s ease;
 }
 
+.event-gallery-video {
+  pointer-events: none;
+}
+
+.event-gallery-lightbox-video {
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  display: block;
+  pointer-events: auto;
+}
+
 .event-gallery-item:hover .event-gallery-image {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /* Lightbox - Full-screen modal overlay (backdrop) */

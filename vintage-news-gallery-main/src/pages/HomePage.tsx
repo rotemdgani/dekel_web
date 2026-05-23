@@ -4,6 +4,7 @@ import coverImageUrl from "@/assets/fp.webp";
 
 import { HOMEPAGE_HERO_TITLE } from "@/config/site";
 
+import HomeOffThePress from "@/components/HomeOffThePress";
 import HomeProjects from "@/components/HomeProjects";
 
 import "./HomePage.css";
@@ -34,6 +35,7 @@ const HomePage = () => (
       </section>
     </div>
 
+    <HomeOffThePress />
     <HomeProjects />
   </>
 );

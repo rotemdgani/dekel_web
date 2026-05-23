@@ -186,6 +186,77 @@
   min-width: 0;
 }
 
+/* SUBJECTS, REMOVED — finale: 3-up row, then Username centered alone */
+.works-item--finale-block {
+  grid-column: 1 / -1;
+}
+
+.works-finale-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 120px;
+  width: 100%;
+}
+
+.works-finale-cell {
+  min-width: 0;
+}
+
+.works-finale-solo {
+  min-width: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .works-finale-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 120px;
+  }
+
+  .works-finale-solo {
+    grid-column: 1 / -1;
+    width: calc((100% - 80px) / 3);
+    max-width: calc((100% - 80px) / 3);
+  }
+}
+
+/* DAILY MATERIAL — Swords to Plowshares + Coverage centered pair row */
+.works-item--centered-pair-row {
+  grid-column: 1 / -1;
+}
+
+.works-centered-pair-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 120px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.works-centered-pair-cell {
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .works-centered-pair-inner {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 0;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .works-centered-pair-inner {
+    width: calc((100% - 80px) * 2 / 3 + 40px);
+    max-width: calc((100% - 80px) * 2 / 3 + 40px);
+  }
+}
+
 .works-thumb-btn {
   display: block;
   width: 100%;
@@ -287,16 +358,5 @@
   .works-section--crosswords {
     padding-top: 120px;
     padding-bottom: 120px;
-  }
-}
-
-/* Two works in columns 1–2; column 3 empty (desktop) */
-.works-grid--crosswords-pair {
-  margin-top: 80px;
-}
-
-@media (min-width: 768px) {
-  .works-grid--crosswords-pair {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
