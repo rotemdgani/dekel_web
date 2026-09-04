@@ -27,7 +27,7 @@ const candidateSources = [
   path.join(assetsDir, "global_art_gallery_03.jpg"),
 ];
 
-const videoPath = path.join(assetsDir, "global_art_exhibition_video.MOV");
+const videoPath = path.join(assetsDir, "global_art_exhibition_video_web.mp4");
 const tempDir = path.join(assetsDir, ".global-art-gallery-temp");
 
 function exists(p) {
