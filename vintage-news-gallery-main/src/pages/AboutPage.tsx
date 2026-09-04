@@ -1,4 +1,4 @@
-import aboutPortrait from "@/assets/dekel profile.webp";
+import aboutPortrait from "@/assets/dekel-portrait_new.webp";
 import "./AboutPage.css";
 
 const AboutPage = () => (

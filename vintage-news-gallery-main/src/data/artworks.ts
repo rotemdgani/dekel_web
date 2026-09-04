@@ -1,34 +1,44 @@
+import developing_story from '@/assets/Developing_Story_.webp';
+import clarification from '@/assets/Clarification.webp';
+import above_the_fold from '@/assets/Above_the_Fold.webp';
+import continued_on_a1 from '@/assets/Continued_on_A1.webp';
+import wings_img from '@/assets/wings.webp';
 import m_and_a from '@/assets/M&A.webp';
-import gia_certified from '@/assets/GIA Certified.webp';
+import gia_certified from '@/assets/GIA_Certified.webp';
 import class_img from '@/assets/Class.webp';
-import constrained_bloom_rose from '@/assets/Constrained Bloom_ROSE.webp';
-import constrained_bloom_anemone from '@/assets/Constrained Bloom_Anemone.webp';
+import constrained_bloom_rose from '@/assets/Constrained_Bloom_ROSE.webp';
+import constrained_bloom_anemone from '@/assets/Constrained_Bloom_Anemone.webp';
 import date_2103 from '@/assets/21.03.2025.webp';
-import split_page from '@/assets/Split Page.webp';
-import kindergarten from '@/assets/Kindergarten.webp';
+import split_page from '@/assets/Split_Page.webp';
 import subtext_img from '@/assets/Subtext.webp';
 import cut_artwork from '@/assets/Cut.webp';
-import coverage_img from '@/assets/Coverage.webp';
 import paste_artwork from '@/assets/Paste.webp';
 import nightlife from '@/assets/Nightlife.webp';
 import headline from '@/assets/Headline.webp';
 import loading_img from '@/assets/Loading....webp';
-import read_more_img from '@/assets/Read More....webp';
-import before_coffee from '@/assets/Before coffee.webp';
+import read_more_img from '@/assets/Read_More....webp';
+import before_coffee from '@/assets/Before_coffee.webp';
 import username_img from '@/assets/Username.webp';
 import subscriber_img from '@/assets/Subscriber.webp';
 import scrabble from '@/assets/Scrabble.webp';
-import to_be_continued from '@/assets/To be continued.webp';
+import to_be_continued from '@/assets/To_be_continued.webp';
 import ceo from '@/assets/CEO.webp';
-import taped_orchid from '@/assets/Taped [Orchid].png';
+import taped_orchid from '@/assets/Taped_[Orchid].png';
 import legacy from '@/assets/Legacy.webp';
-import archive_img from '@/assets/Archive.webp';
+import archive_img from '@/assets/archive_with_frame.webp';
 import earth_img from '@/assets/Earth.webp';
-import flying_information from '@/assets/Flying information.webp';
-import swords_img from '@/assets/Swords to Plowshares.webp';
+import flying_information from '@/assets/Flying_information.webp';
+import swords_img from '@/assets/Swords_to_Plowshares.webp';
+import wire_photo from '@/assets/Wire_Photo.webp';
+import filler_img from '@/assets/Filler.webp';
+import light_study from '@/assets/Light_Study.webp';
+import below_the_fold from '@/assets/Below_the_Fold.webp';
+import off_register from '@/assets/Off-Register.webp';
 
 /** Used for contact / schema; not shown as price on site */
 const NO_PRICE = 0;
+
+export type ArtworkMediaType = 'image' | 'video';
 
 export interface Artwork {
   id: number;
@@ -37,11 +47,24 @@ export interface Artwork {
   price: number;
   medium: string;
   dimensions: string;
+  /** Catalogue image URL; unused when `mediaType` is `video` */
   image: string;
   description: string;
   availability: string;
   isLimited: boolean;
   year?: string;
+  mediaType?: ArtworkMediaType;
+  /** Video source when `mediaType` is `video` */
+  video?: string;
+}
+
+export function isVideoArtwork(work: Artwork): boolean {
+  return work.mediaType === 'video' && typeof work.video === 'string' && work.video.length > 0;
+}
+
+/** Alt text: work title + medium */
+export function artworkAlt(work: Artwork): string {
+  return `${work.title}, ${work.medium}`;
 }
 
 /** Single source of truth for all works on the redesigned site */
@@ -251,18 +274,6 @@ export const artworks: Artwork[] = [
     isLimited: false,
   },
   {
-    id: 68,
-    title: 'Kindergarten',
-    category: 'gallery',
-    price: NO_PRICE,
-    medium: 'Mixed media on canvas',
-    dimensions: '60 x 80 cm',
-    image: kindergarten,
-    description: '2023',
-    availability: 'Available',
-    isLimited: false,
-  },
-  {
     id: 62,
     title: 'Swords to Plowshares',
     category: 'gallery',
@@ -270,18 +281,6 @@ export const artworks: Artwork[] = [
     medium: 'Mixed media on canvas',
     dimensions: '56 x 37 cm',
     image: swords_img,
-    description: '2025',
-    availability: 'Available',
-    isLimited: false,
-  },
-  {
-    id: 66,
-    title: 'Coverage',
-    category: 'gallery',
-    price: NO_PRICE,
-    medium: 'Mixed media on canvas',
-    dimensions: '85 x 110 cm',
-    image: coverage_img,
     description: '2025',
     availability: 'Available',
     isLimited: false,
@@ -364,6 +363,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
+    // TODO: confirm final dimensions for Taped [Orchid]
     dimensions: '[dimensions TBD]',
     image: taped_orchid,
     description: '2025',
@@ -376,9 +376,129 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
-    dimensions: '71 x 88 cm',
+    dimensions: '69×81 cm',
     image: constrained_bloom_rose,
     description: '2025',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 69,
+    title: 'Developing Story',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '76.2 × 61 cm',
+    image: developing_story,
+    description: '2025',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 70,
+    title: 'Clarification',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '76.2 × 61 cm',
+    image: clarification,
+    description: '2025',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 71,
+    title: 'Above the Fold',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '76.2 × 61 cm',
+    image: above_the_fold,
+    description: '2025',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 72,
+    title: 'Continued on A1',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '121.9 × 61 cm',
+    image: continued_on_a1,
+    description: '2025',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 74,
+    title: 'Wings',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '76.2 × 61 cm',
+    image: wings_img,
+    description: '2025',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 75,
+    title: 'Wire Photo',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Acrylic on canvas',
+    dimensions: '120 × 80 cm',
+    image: wire_photo,
+    description: '2022',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 76,
+    title: 'Filler',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Acrylic on canvas',
+    dimensions: '120 × 80 cm',
+    image: filler_img,
+    description: '2022',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 77,
+    title: 'Light Study',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Acrylic on canvas',
+    dimensions: '60 × 80 cm',
+    image: light_study,
+    description: '2022',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 78,
+    title: 'Below the Fold',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Acrylic on canvas',
+    dimensions: '120 × 80 cm',
+    image: below_the_fold,
+    description: '2022',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 79,
+    title: 'Off-Register',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Acrylic on canvas',
+    dimensions: '120 × 80 cm',
+    image: off_register,
+    description: '2022',
     availability: 'Available',
     isLimited: false,
   },

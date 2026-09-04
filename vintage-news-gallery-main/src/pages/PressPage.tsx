@@ -12,8 +12,8 @@ function isLiveUrl(url: string): boolean {
 }
 
 function PressMeta({ article }: { article: PressArticle }) {
-  const { source, dateLabel } = article;
-  if (!source && !dateLabel) return null;
+  const { source, dateLabel, language } = article;
+  if (!source && !dateLabel && !language) return null;
   return (
     <p className="press-detail-meta">
       {source ? (
@@ -26,6 +26,16 @@ function PressMeta({ article }: { article: PressArticle }) {
       ) : null}
       {dateLabel ? (
         <span className="press-detail-date">{dateLabel}</span>
+      ) : null}
+      {language ? (
+        <>
+          {(source || dateLabel) ? (
+            <span className="press-detail-sep" aria-hidden="true">
+              ·
+            </span>
+          ) : null}
+          <span className="press-detail-language">{language}</span>
+        </>
       ) : null}
     </p>
   );

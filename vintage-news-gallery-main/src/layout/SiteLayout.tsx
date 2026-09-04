@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import CookieConsent from "@/components/CookieConsent";
+import NoticeBanner from "@/components/NoticeBanner";
 import SiteHeader from "@/layout/SiteHeader";
 import SiteFooter from "@/layout/SiteFooter";
 
@@ -10,7 +10,7 @@ const SiteLayout = () => (
       <Outlet />
     </main>
     <SiteFooter />
-    <CookieConsent />
+    <NoticeBanner />
   </>
 );
 

@@ -1,6 +1,13 @@
 import type { Artwork } from './artworks';
 
-export type WorksSectionSlug = 'subjects-removed' | 'daily-material' | 'framed-for-display' | 'crosswords';
+export type WorksSectionSlug =
+  | 'subjects-removed'
+  | 'daily-material'
+  | 'framed-for-display'
+  | 'all-the-news-thats-fit-to-print';
+
+/** Retired series slug — redirect `/works#crosswords` → `/works` */
+export const RETIRED_WORKS_HASHES = ['crosswords'] as const;
 
 export interface WorksSectionMeta {
   slug: WorksSectionSlug;
@@ -10,35 +17,76 @@ export interface WorksSectionMeta {
   orderedIds: number[];
 }
 
-/** Section order & artwork order per redesign brief */
+/** Section order & artwork order */
 export const WORKS_SECTIONS: WorksSectionMeta[] = [
   {
     slug: 'subjects-removed',
-    title: 'SUBJECTS, REMOVED',
-    yearRange: '2024–2025',
+    title: 'SUBJECT IMPLIED',
+    yearRange: '2026',
     description: 'Faces edited out for your convenience.',
-    orderedIds: [52, 49, 51, 56, 65, 41, 53, 50, 55],
+    orderedIds: [
+      69, // Developing Story
+      70, // Clarification
+      71, // Above the Fold
+      72, // Continued on A1
+      52, // Before Coffee
+      49, // Headline
+      50, // Loading...
+      51, // Read More...
+      55, // To Be Continued
+      65, // Subscriber
+      41, // 21.03.2025
+    ],
   },
   {
     slug: 'daily-material',
     title: 'DAILY MATERIAL',
-    yearRange: '2024–2025',
-    description: 'Tomorrow\'s recycling, today.',
-    orderedIds: [37, 61, 67, 63, 64, 60, 45, 68, 42, 62, 66],
+    yearRange: '2023–2025',
+    description:
+      'It arrives, it is read, it is thrown away. Here it refuses.',
+    orderedIds: [
+      61, // Earth
+      67, // Flying Information
+      74, // Wings
+      45, // Nightlife
+      43, // Subtext
+      62, // Swords to Plowshares
+      42, // Split Page
+      63, // Cut
+      64, // Paste
+      56, // CEO
+    ],
   },
   {
     slug: 'framed-for-display',
     title: 'FRAMED FOR DISPLAY',
     yearRange: '2025',
-    description: 'Objects pre-approved for institutional viewing.',
-    orderedIds: [40, 39, 57, 36, 35, 59],
+    description: 'Gold, and whatever it agreed to hold.',
+    orderedIds: [
+      40, // Taped [Anemone]
+      39, // Taped [Rose]
+      57, // Taped [Orchid]
+      59, // Legacy
+      60, // Archive (with frame)
+      53, // Username
+      35, // M&A
+      36, // GIA Certified
+      37, // Class
+      54, // Scrabble
+    ],
   },
   {
-    slug: 'crosswords',
-    title: 'CROSSWORDS',
-    yearRange: '2025',
-    description: 'Letters arranged. Meaning optional.',
-    orderedIds: [43, 54],
+    slug: 'all-the-news-thats-fit-to-print',
+    title: "ALL THE NEWS THAT'S FIT TO PRINT",
+    yearRange: '2022',
+    description: "Everything fit to print — none of it here.",
+    orderedIds: [
+      75, // Wire Photo
+      76, // Filler
+      79, // Off-Register
+      77, // Light Study
+      78, // Below the Fold
+    ],
   },
 ];
 

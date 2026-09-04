@@ -9,7 +9,9 @@ export const WHATSAPP_PHONE = "972507451500";
 export const INSTAGRAM_URL = "https://www.instagram.com/dekelharari/";
 
 /**
- * Home hero cover image: `src/assets/fp.webp` (imported in `HomePage.tsx` only).
+ * Home hero images (imported in `HomePage.tsx`):
+ * - Desktop: `src/assets/fp.webp`
+ * - Mobile (max-width: 768px): `src/assets/Headline.webp` (same asset as /works)
  */
 
 /** Centered overlay title on the home hero (displayed in uppercase via CSS) */

@@ -20,6 +20,19 @@
   min-height: 100dvh;
   overflow: hidden;
   background: var(--divider);
+  /* Reserve layout space (CLS = 0) */
+  aspect-ratio: auto;
+}
+
+.home-hero-picture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .home-hero-img {
@@ -103,67 +116,69 @@
 }
 
 /*
- * Mobile: editorial contained hero (gallery-style, not full-screen crop).
- * Full image visible, object-fit: contain, title/CTA below image on page background.
+ * Mobile only — full-bleed Headline artwork; desktop rules above stay unchanged.
  */
 @media (max-width: 768px) {
   .home-editorial {
     overflow-x: hidden;
     width: 100%;
-    background: var(--bg-site);
+    background: transparent;
   }
 
   .home-hero-viewport {
-    /* No bleed under header — hero sits in main content column */
-    margin-top: 0;
-    width: 100%;
-    max-width: 100%;
-    left: 0;
-    margin-left: 0;
-    margin-right: 0;
-    height: auto;
-    min-height: unset;
-    overflow: visible;
-    background: var(--bg-site);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 24px 0;
+    margin-top: calc(-1 * var(--header-h));
+    width: 100vw;
+    max-width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 90vh;
+    height: min(90vh, 90svh);
+    height: min(90svh, 90dvh);
+    min-height: 90vh;
+    min-height: min(90vh, 90svh);
+    min-height: min(90svh, 90dvh);
+    overflow: hidden;
+    background: #0c0c0c;
+    display: block;
+    padding: 0;
     box-sizing: border-box;
   }
 
   .home-hero-img {
-    position: relative;
-    inset: auto;
-    z-index: 0;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: 45vh;
-    object-fit: contain;
-    object-position: center;
-    flex-shrink: 0;
-    display: block;
+    object-fit: cover;
+    object-position: center 30%;
   }
 
   .home-hero-scrim {
-    display: none;
+    display: block;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.05) 45%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
   }
 
   .home-hero-content {
-    position: static;
-    inset: auto;
+    position: absolute;
+    inset: 0;
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    margin-top: 32px;
-    padding: 0 0 max(36px, env(safe-area-inset-bottom, 0));
+    justify-content: flex-end;
+    margin-top: 0;
+    padding: 0 24px max(40px, calc(env(safe-area-inset-bottom, 0px) + 28px));
     width: 100%;
     max-width: 100%;
     text-align: center;
     box-sizing: border-box;
+  }
+
+  /* Clear the session NOTICE banner so the CTA stays tappable */
+  body.has-notice-banner .home-hero-content {
+    padding-bottom: min(42vh, 280px);
   }
 
   .home-hero-title {
@@ -171,41 +186,30 @@
     font-size: 14px;
     letter-spacing: 0.22em;
     line-height: 1.4;
-    color: var(--text-primary);
-    text-shadow: none;
+    color: #fafaf7;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
     padding: 0;
   }
 
   .home-hero-cta {
-    margin-top: 28px;
-    font-size: 18px;
+    margin-top: 22px;
+    font-size: 16px;
     letter-spacing: 0.04em;
-    color: var(--text-primary);
-    text-shadow: none;
-    border-bottom-color: rgba(26, 26, 26, 0.28);
+    color: #fafaf7;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.5);
+    border-bottom-color: rgba(250, 250, 247, 0.4);
     padding-bottom: 2px;
   }
 
   .home-hero-cta:hover {
-    opacity: 0.72;
-    color: var(--text-primary);
-    border-bottom-color: rgba(26, 26, 26, 0.5);
+    opacity: 0.92;
+    color: #ffffff;
+    border-bottom-color: rgba(250, 250, 247, 0.7);
   }
 }
 
-/* Narrow phones — slightly tighter horizontal padding */
-@media (max-width: 430px) {
-  .home-hero-viewport {
-    padding: 36px 20px 0;
-  }
-
-  .home-hero-title {
-    font-size: 14px;
-    letter-spacing: 0.2em;
-  }
-
+@media (prefers-reduced-motion: reduce) {
   .home-hero-cta {
-    font-size: 16px;
-    margin-top: 26px;
+    transition: none;
   }
 }

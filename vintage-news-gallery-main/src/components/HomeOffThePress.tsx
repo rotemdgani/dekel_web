@@ -39,7 +39,7 @@ function OffThePressVisual({ item }: { item: OffThePressItem }) {
         alt=""
         className={imageClassName(item)}
         style={
-          item.imageMode === "cover" && item.imagePosition
+          item.imagePosition
             ? { objectPosition: item.imagePosition }
             : undefined
         }
@@ -56,7 +56,7 @@ function OffThePressVisual({ item }: { item: OffThePressItem }) {
         className="home-off-the-press-visual"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${item.title} — ${item.linkLabel}`}
+        aria-label={`${item.title} — ${item.linkLabel ?? "View"}`}
       >
         {img}
       </a>
@@ -67,7 +67,7 @@ function OffThePressVisual({ item }: { item: OffThePressItem }) {
     <Link
       to={item.linkUrl}
       className="home-off-the-press-visual"
-      aria-label={`${item.title} — ${item.linkLabel}`}
+      aria-label={`${item.title} — ${item.linkLabel ?? "View"}`}
     >
       {img}
     </Link>
@@ -101,11 +101,17 @@ const HomeOffThePress = () => (
               </p>
               <h3 className="home-off-the-press-heading">{item.title}</h3>
               <p className="home-off-the-press-excerpt">{item.excerpt}</p>
-              <OffThePressLink item={item} />
+              {item.linkLabel ? <OffThePressLink item={item} /> : null}
             </div>
           </li>
         ))}
       </ul>
+
+      <p className="home-off-the-press-view-all-wrap">
+        <Link to="/press" className="home-off-the-press-view-all">
+          View all press →
+        </Link>
+      </p>
     </div>
   </section>
 );

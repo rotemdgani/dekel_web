@@ -6,12 +6,16 @@
  * Keep `dateLabel` in sync with the real publication/exhibition date; do not rely on array order here.
  */
 
-import peaceArticleImg from "@/assets/Peace and Goodbye.webp";
+import peaceArticleImg from "@/assets/Peace_and_Goodbye.webp";
 import daMagazinePressImg from "@/assets/shagal_over_the_city.webp";
 import tauArticleImg from "@/assets/Tel_Aviv_University.webp";
 import tlvTimesPressPortrait from "@/assets/dekel-portrait.webp";
-import themarkerArticleImg from "@/assets/the marker_pic for article.webp";
-import portfolioArticleImg from "@/assets/protfolio_pic for article.webp";
+import themarkerArticleImg from "@/assets/the_marker_pic_for_article.webp";
+import portfolioArticleImg from "@/assets/protfolio_pic_for_article.webp";
+
+/** Featured image from the My News article (og:image) */
+const MYNEWS_DEKELHARARI_FEATURED =
+  "https://mynews.co.il/wp-content/uploads/2026/05/Archive.jpg";
 
 export interface PressArticle {
   id: string;
@@ -27,9 +31,27 @@ export interface PressArticle {
   linkLabel?: string;
   /** Bundled image URL; omit only when no image is available */
   imageUrl?: string;
+  /** Language of the original article when not English (UI label stays English) */
+  language?: string;
 }
 
 export const PRESS_ARTICLES: PressArticle[] = [
+  {
+    id: "mynews-dekelharari-global-art-2026",
+    /* English rendering of the My News headline (original is Hebrew) */
+    title:
+      "dd/mmm/yyyy (day.month.year) — Solo Exhibition by Dekel Harari at Global Art Gallery, Tel Aviv",
+    source: "My News",
+    dateLabel: "May 24, 2026",
+    sortDate: "2026-05-24",
+    language: "Hebrew",
+    excerpt:
+      "Dekel Harari uses newspapers in his work to explore the tension between information, routine, and identity. A profile covering his solo exhibition at Global Art Gallery, Tel Aviv.",
+    linkUrl:
+      "https://mynews.co.il/entertainment/exhibitions-and-art/dekelharari-2405/",
+    linkLabel: "Read article",
+    imageUrl: MYNEWS_DEKELHARARI_FEATURED,
+  },
   {
     id: "themarker-tel-aviv-open-house-2026",
     title:

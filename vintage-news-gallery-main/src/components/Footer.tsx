@@ -1,7 +1,7 @@
 import { Instagram, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-import logo from "@/assets/logo_dh edition.png";
+import logo from "@/assets/logo_dh_edition.png";
 
 const Footer = () => {
   return (

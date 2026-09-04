@@ -52,7 +52,7 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
     { id: 55, size: "medium-large", align: "center", pair: null },
     { id: 56, size: "small", align: "right-offset", pair: null },
 
-    // 5. POETIC PAUSE - Taped Rose & Taped Anemone
+    // 5. POETIC PAUSE - Taped [Rose] & Taped [Anemone]
     { id: 39, size: "medium-small", align: "left", pair: "flowers", poeticPause: true },
     { id: 40, size: "medium", align: "right", pair: "flowers", poeticPause: true },
 
@@ -143,7 +143,7 @@ const MuseumGallery = ({ artworks }: MuseumGalleryProps) => {
       if (pairIndex === 0) {
         const secondItem = pairItems[1];
         
-        // Poetic pause pair (Taped Rose & Anemone) - centered block
+        // Poetic pause pair (Taped [Rose] & Taped [Anemone]) - centered block
         if (poeticPause) {
           return (
             <div key={`pair-${pair}`} className="museum-artwork-pair museum-artwork-pair--poetic-pause">

@@ -22,12 +22,12 @@ const candidateSources = [
   path.join(assetsDir, "global-art-gallery-01.JPG"),
   path.join(assetsDir, "global-art-gallery-02.JPG"),
   path.join(assetsDir, "global-art-gallery-03.JPG"),
-  path.join(assetsDir, "global art gallery 01.jpg"),
-  path.join(assetsDir, "global art gallery 02.jpg"),
-  path.join(assetsDir, "global art gallery 03.jpg"),
+  path.join(assetsDir, "global_art_gallery_01.jpg"),
+  path.join(assetsDir, "global_art_gallery_02.jpg"),
+  path.join(assetsDir, "global_art_gallery_03.jpg"),
 ];
 
-const videoPath = path.join(assetsDir, "global art exhibition video.MOV");
+const videoPath = path.join(assetsDir, "global_art_exhibition_video.MOV");
 const tempDir = path.join(assetsDir, ".global-art-gallery-temp");
 
 function exists(p) {

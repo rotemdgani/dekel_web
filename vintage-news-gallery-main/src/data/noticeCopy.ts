@@ -1,4 +1,10 @@
-/** Shared Notice text — Works page bottom and 404 */
+/** Shared NOTICE artwork copy — one source for page blocks and the session banner. */
+
+export const NOTICE_ANCHOR_ID = "notice";
+
+export const NOTICE_TITLE = "Notice";
+
+export const NOTICE_DATE_STUB = "[dd/mm/yyyy]";
 
 export const NOTICE_LEAD = "Effective immediately and until further notice.";
 
@@ -14,3 +20,6 @@ export const NOTICE_ITEMS: readonly string[] = [
 export const NOTICE_THANKS = "Thank you for your cooperation.";
 
 export const NOTICE_SIGN = "— Dekel Harari";
+
+/** Banner shows only the first rule; full list lives in the page NOTICE block. */
+export const NOTICE_BANNER_ITEM = NOTICE_ITEMS[0];

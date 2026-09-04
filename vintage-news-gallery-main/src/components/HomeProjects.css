@@ -4,6 +4,7 @@
   margin: 0;
   padding: 200px 0;
   background: #fafaf7;
+  scroll-margin-top: var(--header-h);
 }
 
 .home-projects-container {

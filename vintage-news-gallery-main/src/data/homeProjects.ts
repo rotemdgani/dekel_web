@@ -1,11 +1,14 @@
 import type { WorksSectionSlug } from "@/data/worksSections";
 
-import imgHeadline from "@/assets/Headline.webp";
-import imgCut from "@/assets/Cut.webp";
-import imgFramed from "@/assets/Constrained Bloom_Anemone.webp";
+/** Same assets as the corresponding works on /works */
+import developing_story from "@/assets/Developing_Story_.webp";
+import earth_img from "@/assets/Earth.webp";
+import taped_anemone from "@/assets/Constrained_Bloom_Anemone.webp";
+import off_register from "@/assets/Off-Register.webp";
 
 export interface HomeProject {
   slug: WorksSectionSlug;
+  /** Explicit series cover — does not follow catalogue order */
   imageUrl: string;
   title: string;
   yearRange: string;
@@ -15,26 +18,31 @@ export interface HomeProject {
 export const HOME_PROJECTS: HomeProject[] = [
   {
     slug: "subjects-removed",
-    imageUrl: imgHeadline,
-    title: "Subjects, Removed",
-    yearRange: "2024–2025",
-    description:
-      "Portraits of people who no longer have faces. Not because something happened to them — because nothing did. The same morning, the same scroll, the same headline, repeated until the features wear off. What remains is posture, the outline of a presence that used to ask questions.",
+    imageUrl: developing_story,
+    title: "Subject Implied",
+    yearRange: "2026",
+    description: "Faces edited out for your convenience.",
   },
   {
     slug: "daily-material",
-    imageUrl: imgCut,
+    imageUrl: earth_img,
     title: "Daily Material",
-    yearRange: "2024–2025",
+    yearRange: "2023–2025",
     description:
-      "The newspaper as object, not as message. It arrives in the morning, gets read, gets thrown away, and tomorrow another one shows up exactly like it. Here it is cut, torn, painted over — refusing the disposal it was designed for. A material meant to be forgotten, kept.",
+      "It arrives, it is read, it is thrown away. Here it refuses.",
   },
   {
     slug: "framed-for-display",
-    imageUrl: imgFramed,
+    imageUrl: taped_anemone,
     title: "Framed for Display",
     yearRange: "2025",
-    description:
-      "Ordinary objects placed inside elaborate gold frames — the kind that signal importance before the viewer has decided whether anything important is there. A flower taped to paper. A scrap. The frame asks to be taken seriously. The work asks why we agreed.",
+    description: "Gold, and whatever it agreed to hold.",
+  },
+  {
+    slug: "all-the-news-thats-fit-to-print",
+    imageUrl: off_register,
+    title: "All the News That's Fit to Print",
+    yearRange: "2022",
+    description: "Everything fit to print — none of it here.",
   },
 ];
