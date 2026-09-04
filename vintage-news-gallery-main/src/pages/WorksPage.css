@@ -126,6 +126,31 @@
   width: 100%;
 }
 
+/* Series: sticky description left, works right (stacks on mobile) */
+.works-section-layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+  gap: 40px 48px;
+  align-items: start;
+  margin-top: 0;
+}
+
+.works-section-intro {
+  position: sticky;
+  top: calc(var(--header-h) + var(--works-filter-h) + 16px);
+}
+
+@media (max-width: 899px) {
+  .works-section-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .works-section-intro {
+    position: static;
+  }
+}
+
 .works-section-heading-row {
   display: flex;
   flex-wrap: wrap;
@@ -152,109 +177,25 @@
   color: var(--text-tertiary);
 }
 
-/* Uniform row rhythm: 120px between catalogue rows (caption bottom → next thumb top) */
+/* Single-column catalogue within series column — half previous display size */
 .works-grid {
   list-style: none;
-  margin: 80px 0 0;
+  margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: start;
-  row-gap: 120px;
-  column-gap: 0;
-}
-
-@media (min-width: 768px) {
-  .works-grid {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 40px;
-    row-gap: 120px;
-  }
-}
-
-@media (min-width: 1100px) {
-  .works-grid {
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 40px;
-    row-gap: 120px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: stretch;
 }
 
 .works-item {
   margin: 0;
   padding: 0;
   min-width: 0;
-}
-
-/* SUBJECTS, REMOVED — finale: 3-up row, then Username centered alone */
-.works-item--finale-block {
-  grid-column: 1 / -1;
-}
-
-.works-finale-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: 120px;
   width: 100%;
-}
-
-.works-finale-cell {
-  min-width: 0;
-}
-
-.works-finale-solo {
-  min-width: 0;
-  width: 100%;
+  max-width: 450px;
   margin-left: auto;
   margin-right: auto;
-}
-
-@media (min-width: 768px) {
-  .works-finale-grid {
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 40px;
-    row-gap: 120px;
-  }
-
-  .works-finale-solo {
-    grid-column: 1 / -1;
-    width: calc((100% - 80px) / 3);
-    max-width: calc((100% - 80px) / 3);
-  }
-}
-
-/* DAILY MATERIAL — Swords to Plowshares + Coverage centered pair row */
-.works-item--centered-pair-row {
-  grid-column: 1 / -1;
-}
-
-.works-centered-pair-inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: 120px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.works-centered-pair-cell {
-  min-width: 0;
-}
-
-@media (min-width: 768px) {
-  .works-centered-pair-inner {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 40px;
-    row-gap: 0;
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 1100px) {
-  .works-centered-pair-inner {
-    width: calc((100% - 80px) * 2 / 3 + 40px);
-    max-width: calc((100% - 80px) * 2 / 3 + 40px);
-  }
 }
 
 .works-thumb-btn {
@@ -266,20 +207,20 @@
   background: none;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  position: relative;
 }
 
 .works-thumb-btn:hover {
   opacity: 0.85;
 }
 
-/*
- * Fix 1 — strict 4:5 catalogue cell: container dimensions never follow image intrinsic size.
- * Same column width ⇒ identical cell height everywhere.
- */
 .works-aspect {
   position: relative;
   display: block;
   width: 100%;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
   aspect-ratio: 4 / 5;
   height: auto;
   overflow: hidden;
@@ -300,6 +241,20 @@
   object-position: center;
   background-color: #fafaf7;
   display: block;
+}
+
+.works-video {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: contain;
+  object-position: center;
+  background-color: #fafaf7;
+  display: block;
+  pointer-events: none;
 }
 
 /* Fix 3 — caption rhythm */
@@ -343,20 +298,3 @@
   text-underline-offset: 3px;
 }
 
-/* Single 200px gap into Crosswords (avoid doubling with framed section bottom) */
-#framed-for-display.works-section-anchor {
-  padding-bottom: 0;
-}
-
-/* Section 4 — Crosswords */
-.works-section--crosswords {
-  padding-top: 200px;
-  padding-bottom: 200px;
-}
-
-@media (max-width: 767px) {
-  .works-section--crosswords {
-    padding-top: 120px;
-    padding-bottom: 120px;
-  }
-}

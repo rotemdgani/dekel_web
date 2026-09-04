@@ -20,5 +20,5 @@ export default defineConfig(({ mode }) => ({
     },
   },
   /** Uppercase extensions (e.g. cameras / Windows) must be listed or Vite parses them as JS */
-  assetsInclude: ["**/*.JPG", "**/*.JPEG", "**/*.MOV", "**/*.mov"],
+  assetsInclude: ["**/*.JPG", "**/*.JPEG", "**/*.MOV", "**/*.mov", "**/*.mp4", "**/*.MP4"],
 }));

@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 
 import {
+  NOTICE_DATE_STUB,
   NOTICE_ITEMS,
   NOTICE_LEAD,
   NOTICE_SIGN,
   NOTICE_THANKS,
+  NOTICE_TITLE,
 } from "@/data/noticeCopy";
 import "./NotFound.css";
 
 const NotFound = () => (
   <div className="notfound-notice">
     <p className="notfound-eyebrow">404</p>
-    <h1 className="notfound-notice-title">Notice</h1>
+    <h1 className="notfound-notice-title">{NOTICE_TITLE}</h1>
     <p className="notfound-date" aria-hidden="true">
-      [dd/mm/yyyy]
+      {NOTICE_DATE_STUB}
     </p>
     <p className="notfound-lead">{NOTICE_LEAD}</p>
     <ol className="notfound-list">

@@ -1,29 +1,24 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { useLocation } from "react-router-dom";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import type { Artwork } from "@/data/artworks";
-import { artworks, artworkMapFromList } from "@/data/artworks";
+import { artworks, artworkAlt, artworkMapFromList, isVideoArtwork } from "@/data/artworks";
 import {
+  RETIRED_WORKS_HASHES,
   WORKS_SECTIONS,
   type WorksSectionSlug,
 } from "@/data/worksSections";
 import WorksLightbox, {
+  artworkToLightboxItem,
+  type LightboxItem,
   type LightboxNavigation,
 } from "@/components/works/WorksLightbox";
 import WorksInquireModal from "@/components/works/WorksInquireModal";
-import WorksNotice from "@/components/works/WorksNotice";
+import Notice from "@/components/Notice";
+import { NOTICE_ANCHOR_ID } from "@/data/noticeCopy";
 import { worksGridCaptionMetaLine } from "@/lib/workDisplay";
 import "./WorksPage.css";
 
 const STICKY_OFFSET = 140; /* header + filter + small offset */
-
-/** Finale block: Username, Loading, To Be Continued (SUBJECTS, REMOVED) */
-const SUBJECTS_REMOVED_FINALE_IDS = [53, 50, 55] as const;
-
-/** Centered pair row: Swords to Plowshares + Coverage (DAILY MATERIAL) */
-const DAILY_MATERIAL_CENTERED_PAIR_IDS = [62, 66] as const;
-
-/** Centered pair row: Subtext + Scrabble (CROSSWORDS) */
-const CROSSWORDS_CENTERED_PAIR_IDS = [43, 54] as const;
 
 type FilterKey = "all" | WorksSectionSlug;
 
@@ -36,15 +31,16 @@ function sectionSlugForArtworkId(id: number): WorksSectionSlug {
 
 const WorksPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const map = useMemo(() => artworkMapFromList(artworks), []);
 
   /** Full catalogue order for lightbox prev/next across all sections */
-  const allGalleryWorks = useMemo(() => {
-    const out: Artwork[] = [];
+  const allGalleryItems = useMemo(() => {
+    const out: LightboxItem[] = [];
     for (const sec of WORKS_SECTIONS) {
       for (const oid of sec.orderedIds) {
         const w = map.get(oid);
-        if (w) out.push(w);
+        if (w) out.push(artworkToLightboxItem(w));
       }
     }
     return out;
@@ -88,10 +84,18 @@ const WorksPage = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [tickActiveSection]);
 
-  /** Deep link from homepage project cards: /works#subjects-removed, etc. */
+  /** Deep link from homepage series cards; redirect retired hashes */
   useLayoutEffect(() => {
     const id = location.hash.replace(/^#/, "");
-    if (!id || !WORKS_SECTIONS.some((s) => s.slug === id)) return;
+    if (!id) return;
+
+    if ((RETIRED_WORKS_HASHES as readonly string[]).includes(id)) {
+      navigate("/works", { replace: true });
+      return;
+    }
+
+    const isNotice = id === NOTICE_ANCHOR_ID;
+    if (!isNotice && !WORKS_SECTIONS.some((s) => s.slug === id)) return;
     const timer = window.setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({
         behavior: "smooth",
@@ -99,7 +103,7 @@ const WorksPage = () => {
       });
     }, 100);
     return () => clearTimeout(timer);
-  }, [location.hash, location.pathname]);
+  }, [location.hash, location.pathname, navigate]);
 
   const scrollToTopWorks = () => {
     document.getElementById("works-top")?.scrollIntoView({
@@ -116,9 +120,9 @@ const WorksPage = () => {
 
   const openLightbox = (work: Artwork, slug: WorksSectionSlug) => {
     setLightbox({
-      current: work,
+      current: artworkToLightboxItem(work),
+      items: allGalleryItems,
       sectionSlug: slug,
-      sectionWorks: allGalleryWorks,
     });
   };
 
@@ -127,22 +131,53 @@ const WorksPage = () => {
     setInquire(work);
   };
 
-  const renderWorkItemInner = (work: Artwork, slug: WorksSectionSlug) => (
-    <>
+  const renderWorkMedia = (work: Artwork, slug: WorksSectionSlug) => {
+    if (isVideoArtwork(work)) {
+      return (
+        <button
+          type="button"
+          className="works-thumb-btn works-thumb-btn--video"
+          onClick={() => openLightbox(work, slug)}
+          aria-label={`View ${work.title}`}
+        >
+          <span className="works-aspect works-aspect--video">
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+            <video
+              className="works-video"
+              src={work.video}
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          </span>
+        </button>
+      );
+    }
+
+    return (
       <button
         type="button"
         className="works-thumb-btn"
         onClick={() => openLightbox(work, slug)}
+        aria-label={`View ${work.title}`}
       >
         <span className="works-aspect">
           <img
             src={work.image}
-            alt={work.title}
+            alt={artworkAlt(work)}
             className="works-thumb-img"
             loading="lazy"
+            decoding="async"
           />
         </span>
       </button>
+    );
+  };
+
+  const renderWorkItem = (work: Artwork, slug: WorksSectionSlug) => (
+    <li key={work.id} className="works-item">
+      {renderWorkMedia(work, slug)}
       <div className="works-caption">
         <p className="works-caption-title">{work.title}</p>
         <p className="works-caption-meta">
@@ -159,119 +194,8 @@ const WorksPage = () => {
           Inquire
         </button>
       </div>
-    </>
-  );
-
-  const renderWorkItem = (work: Artwork, slug: WorksSectionSlug) => (
-    <li key={work.id} className="works-item">
-      {renderWorkItemInner(work, slug)}
     </li>
   );
-
-  const renderSubjectsRemovedGrid = (
-    works: Artwork[],
-    slug: WorksSectionSlug,
-  ) => {
-    const finaleSet = new Set<number>(SUBJECTS_REMOVED_FINALE_IDS);
-    const regularWorks = works.filter((work) => !finaleSet.has(work.id));
-    const finaleWorks = SUBJECTS_REMOVED_FINALE_IDS.map((id) =>
-      works.find((work) => work.id === id),
-    ).filter((work): work is Artwork => !!work);
-
-    const nodes: ReactNode[] = regularWorks.map((work) =>
-      renderWorkItem(work, slug),
-    );
-
-    if (finaleWorks.length === 0) {
-      return nodes;
-    }
-
-    nodes.push(
-      <li key="subjects-finale" className="works-item works-item--finale-block">
-        <div className="works-finale-grid">
-          {finaleWorks.map((work) => (
-            <div key={work.id} className="works-finale-cell">
-              {renderWorkItemInner(work, slug)}
-            </div>
-          ))}
-        </div>
-      </li>,
-    );
-
-    return nodes;
-  };
-
-  const renderDailyMaterialGrid = (
-    works: Artwork[],
-    slug: WorksSectionSlug,
-  ) => {
-    const pairSet = new Set<number>(DAILY_MATERIAL_CENTERED_PAIR_IDS);
-    const regularWorks = works.filter((work) => !pairSet.has(work.id));
-    const pairWorks = DAILY_MATERIAL_CENTERED_PAIR_IDS.map((id) =>
-      works.find((work) => work.id === id),
-    ).filter((work): work is Artwork => !!work);
-
-    const nodes: ReactNode[] = regularWorks.map((work) =>
-      renderWorkItem(work, slug),
-    );
-
-    if (pairWorks.length === 0) {
-      return nodes;
-    }
-
-    nodes.push(
-      <li
-        key="daily-material-centered-pair"
-        className="works-item works-item--centered-pair-row"
-      >
-        <div className="works-centered-pair-inner">
-          {pairWorks.map((work) => (
-            <div key={work.id} className="works-centered-pair-cell">
-              {renderWorkItemInner(work, slug)}
-            </div>
-          ))}
-        </div>
-      </li>,
-    );
-
-    return nodes;
-  };
-
-  const renderCenteredPairRow = (
-    pairWorks: Artwork[],
-    slug: WorksSectionSlug,
-    rowKey: string,
-  ): ReactNode | null => {
-    if (pairWorks.length === 0) {
-      return null;
-    }
-
-    return (
-      <li key={rowKey} className="works-item works-item--centered-pair-row">
-        <div className="works-centered-pair-inner">
-          {pairWorks.map((work) => (
-            <div key={work.id} className="works-centered-pair-cell">
-              {renderWorkItemInner(work, slug)}
-            </div>
-          ))}
-        </div>
-      </li>
-    );
-  };
-
-  const renderCrosswordsGrid = (works: Artwork[], slug: WorksSectionSlug) => {
-    const pairWorks = CROSSWORDS_CENTERED_PAIR_IDS.map((id) =>
-      works.find((work) => work.id === id),
-    ).filter((work): work is Artwork => !!work);
-
-    const pairRow = renderCenteredPairRow(
-      pairWorks,
-      slug,
-      "crosswords-centered-pair",
-    );
-
-    return pairRow ? [pairRow] : [];
-  };
 
   return (
     <div className="works-page editorial-works-root">
@@ -310,57 +234,48 @@ const WorksPage = () => {
         <section
           key={meta.slug}
           id={meta.slug}
-          className={
-            meta.slug === "crosswords"
-              ? "works-section-anchor works-section--crosswords"
-              : "works-section-anchor"
-          }
+          className="works-section-anchor"
           ref={(el) => {
             sectionEls.current[meta.slug] = el;
           }}
         >
           {idx > 0 ? <hr className="works-section-rule" /> : null}
 
-          <div className="works-section-heading-row">
-            <h2 className="section-title-allcaps">{meta.title}</h2>
-            <span className="works-section-years">{meta.yearRange}</span>
-          </div>
-          <p className="works-section-blurb">{meta.description}</p>
+          <div className="works-section-layout">
+            <aside className="works-section-intro">
+              <div className="works-section-heading-row">
+                <h2 className="section-title-allcaps">{meta.title}</h2>
+                <span className="works-section-years">{meta.yearRange}</span>
+              </div>
+              <p className="works-section-blurb">{meta.description}</p>
+            </aside>
 
-          <ul
-            className={
-              meta.slug === "subjects-removed"
-                ? "works-grid works-grid--subjects-removed"
-                : "works-grid"
-            }
-          >
-            {meta.slug === "subjects-removed"
-              ? renderSubjectsRemovedGrid(works, meta.slug)
-              : meta.slug === "daily-material"
-                ? renderDailyMaterialGrid(works, meta.slug)
-                : meta.slug === "crosswords"
-                  ? renderCrosswordsGrid(works, meta.slug)
-                  : works.map((work) => renderWorkItem(work, meta.slug))}
-          </ul>
+            <ul className="works-grid">
+              {works.map((work) => renderWorkItem(work, meta.slug))}
+            </ul>
+          </div>
         </section>
       ))}
 
-      <WorksNotice />
+      <Notice />
 
       <WorksLightbox
         navigation={lightbox}
         onClose={() => setLightbox(null)}
-        onNavigate={(work) => {
+        onNavigate={(item) => {
           if (!lightbox) return;
+          const artwork = item.artwork;
           setLightbox({
-            current: work,
-            sectionSlug: sectionSlugForArtworkId(work.id),
-            sectionWorks: allGalleryWorks,
+            current: item,
+            items: allGalleryItems,
+            sectionSlug: artwork
+              ? sectionSlugForArtworkId(artwork.id)
+              : lightbox.sectionSlug,
           });
         }}
         onClickInquire={() => {
-          if (!lightbox) return;
-          openInquire(lightbox.current);
+          if (!lightbox?.current.artwork) return;
+          openInquire(lightbox.current.artwork);
         }}
       />
 

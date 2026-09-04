@@ -1,8 +1,22 @@
 /**
  * Full exhibition records for Exhibitions page and home sections.
- * Optional `coverImageUrl` overrides bundled covers from `exhibitionCovers.ts` (public path).
- * Installation galleries: `src/assets/*.webp` matched by slug in EventGallery, or explicit lists in `exhibitionGalleryAssets.ts`.
+ * Optional `coverImageUrl` overrides bundled covers from `exhibitionCovers.ts`.
+ * Optional `images` — installation gallery (half-size thumbs on page; full in lightbox).
  */
+
+import behindClosedDoorsCover from "@/assets/Opendoors_exhibition_cover.webp";
+
+export interface ExhibitionGalleryImage {
+  /** Full-resolution source */
+  src: string;
+  /** Smaller file for grid */
+  thumbSrc?: string;
+  /** Responsive srcset for thumbs */
+  thumbSrcSet?: string;
+  width?: number;
+  height?: number;
+  alt?: string;
+}
 
 export interface ExhibitionDetail {
   id: string;
@@ -18,15 +32,46 @@ export interface ExhibitionDetail {
   /** External related page (venue, registration, article) */
   relatedUrl?: string;
   relatedLinkLabel?: string;
-  /** Installation / event photos via EventGallery glob */
+  /** Legacy EventGallery glob / explicit lists — prefer `images` when set */
   showGallery: boolean;
-  /** Optional override: public URL under `public/` (e.g. custom JPEG). Otherwise `exhibitionCovers` maps slug → artwork. */
+  /**
+   * Optional installation / event photos. When present, rendered as a grid
+   * that opens the shared WorksLightbox (no second lightbox).
+   */
+  images?: ExhibitionGalleryImage[];
+  /** Optional override: bundled import. Otherwise `exhibitionCovers`. */
   coverImageUrl?: string;
   /** Future exhibition — shows a subtle “Upcoming” label on cards and detail */
   isUpcoming?: boolean;
 }
 
 export const EXHIBITIONS: ExhibitionDetail[] = [
+  {
+    id: "behind-closed-doors",
+    slug: "behind-closed-doors",
+    title: "Behind Closed Doors",
+    dateLabel: "August 31, 2026",
+    sortDate: "2026-08-31",
+    location: "HOM Gallery, Brooklyn, New York",
+    curator: "Curated by Dan Hadad",
+    description:
+      "Behind Closed Doors explores the lives that unfold within the spaces we inhabit, from kitchens, dining rooms, and bedrooms to the most intimate space of all: the human body. These spaces hold ritual, celebration, conflict, memory, intimacy, desire, grief, and everything in between. What happens behind closed doors isn't always contained by walls; sometimes, the closed door is our own skin. Presented inside HOM Gallery, a gallery within a Brooklyn home, the exhibition brings these works into the very environment they explore.",
+    showGallery: false,
+    coverImageUrl: behindClosedDoorsCover,
+    /* No repo assets whose filenames contain "Behind Closed Doors" — gallery empty until supplied */
+    images: [],
+  },
+  {
+    id: "open-studio-sva-nyc",
+    slug: "open-studio-sva-nyc",
+    title: "Open Studio — SVA NYC",
+    dateLabel: "August 2026",
+    sortDate: "2026-08-15",
+    location: "School of Visual Arts, New York",
+    description:
+      "An open studio marking the culmination of my Fine Art residency at the School of Visual Arts in New York. The event presented works developed during the residency, exploring the relationship between printed media, public narratives, memory, and personal identity.",
+    showGallery: true,
+  },
   {
     id: "global-art-gallery-solo",
     slug: "global-art-gallery-solo",
@@ -38,7 +83,6 @@ export const EXHIBITIONS: ExhibitionDetail[] = [
     description:
       "Opening: May 20, 2026, 20:00. Closing: June 19, 2026. Solo exhibition at Global Art Gallery.",
     showGallery: true,
-    isUpcoming: true,
   },
   {
     id: "art-gathering",

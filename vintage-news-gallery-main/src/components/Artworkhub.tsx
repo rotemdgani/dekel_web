@@ -34,7 +34,7 @@ import "./Artworkhub.css";
 // import gift_pink from '@/assets/gift_pink.webp';
 // import gift_star_red from '@/assets/gift_star_red.webp';
 // import red_gift_yellow_card from '@/assets/red_gift_yellow_card.webp';
-// import butterflies_attack from '@/assets/butterflies attack.webp';
+// import butterflies_attack from '@/assets/butterflies_attack.webp';
 // import ooo from '@/assets/ooo.webp';
 // import orange_sky from '@/assets/orange_sky.webp';
 // import pink_fileds from '@/assets/pink_fileds.webp';
@@ -45,10 +45,10 @@ import "./Artworkhub.css";
 // import summer_flowers_red from '@/assets/summer_flowers_red.webp';
 // import art_vs_war from '@/assets/art_vs_war_.webp';
 // import sorry from '@/assets/sorry.webp';
-// import nothing_to_hide from '@/assets/Nothing to Hide.png';
-// import wrapped_reality from '@/assets/Wrapped Reality.png';
+// import nothing_to_hide from '@/assets/Nothing_to_Hide.png';
+// import wrapped_reality from '@/assets/Wrapped_Reality.png';
 // import business_pleasure from '@/assets/Business_&_Pleasure.webp';
-// import price_of_beauty from '@/assets/The Price of Beauty.webp';
+// import price_of_beauty from '@/assets/The_Price_of_Beauty.webp';
 // import education from '@/assets/Education.webp';
 
 const ArtworkHub = () => {

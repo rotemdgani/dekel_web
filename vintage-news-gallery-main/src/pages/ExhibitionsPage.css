@@ -163,6 +163,42 @@
   margin-top: 40px;
 }
 
+.exhibitions-images-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.exhibitions-images-item {
+  margin: 0;
+  padding: 0;
+}
+
+.exhibitions-images-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: #fafaf7;
+  cursor: pointer;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.exhibitions-images-btn:hover {
+  opacity: 0.88;
+}
+
+.exhibitions-images-thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 900px) {
   .exhibitions-detail-card {
     grid-template-columns: 1fr;

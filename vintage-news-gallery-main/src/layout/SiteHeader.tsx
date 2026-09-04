@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { HOME_SERIES_SECTION_ID } from "@/lib/scrollToHash";
 import "./SiteHeader.css";
 
 const navPaths = [
-  { label: "Works", to: "/works" },
+  { label: "Works", to: `/#${HOME_SERIES_SECTION_ID}` },
   { label: "About", to: "/about" },
   { label: "Exhibitions", to: "/exhibitions" },
   { label: "Press", to: "/press" },
@@ -16,7 +17,7 @@ const SiteHeader = () => {
 
   useEffect(() => {
     setMobileOpen(false);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return (
     <header className="site-header editorial-header mobile-header">
@@ -41,7 +42,13 @@ const SiteHeader = () => {
 
         <nav className={`site-nav ${mobileOpen ? "site-nav-open" : ""}`}>
           {navPaths.map((item, i) => {
-            const active = location.pathname === item.to;
+            const onHomeSeries =
+              location.pathname === "/" &&
+              location.hash.replace(/^#/, "") === HOME_SERIES_SECTION_ID;
+            const active =
+              item.to === `/#${HOME_SERIES_SECTION_ID}`
+                ? onHomeSeries
+                : location.pathname === item.to;
             return (
               <span key={item.to} className="site-nav-item">
                 <Link

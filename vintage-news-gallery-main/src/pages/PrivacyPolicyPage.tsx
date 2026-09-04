@@ -43,14 +43,15 @@ const PrivacyPolicyPage = () => (
         </li>
       </ul>
 
-      <h2 className="privacy-policy-heading">Cookies</h2>
+      <h2 className="privacy-policy-heading">Cookies & analytics</h2>
       <p>
-        This website may use cookies or similar technologies to help the
-        website function properly and to understand general website usage.
+        This website does not use non-essential cookies and does not require a
+        cookie consent banner.
       </p>
       <p>
-        You can disable cookies through your browser settings. Please note that
-        some parts of the website may not work properly if cookies are disabled.
+        Site traffic is measured with Plausible Analytics, a cookieless,
+        privacy-friendly service that does not collect personal data or use
+        tracking cookies.
       </p>
 
       <h2 className="privacy-policy-heading">Sharing Information</h2>

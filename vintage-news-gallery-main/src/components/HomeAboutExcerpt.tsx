@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import aboutPortrait from "@/assets/dekel profile.webp";
+import aboutPortrait from "@/assets/dekel_profile.webp";
 
 import "./HomeAboutExcerpt.css";
 
