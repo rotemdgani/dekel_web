@@ -21,7 +21,7 @@ export interface WorksSectionMeta {
 export const WORKS_SECTIONS: WorksSectionMeta[] = [
   {
     slug: 'subjects-removed',
-    title: 'SUBJECT IMPLIED',
+    title: 'SUBJECT REMOVED',
     yearRange: '2026',
     description: 'Faces edited out for your convenience.',
     orderedIds: [
@@ -36,6 +36,7 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
       55, // To Be Continued
       65, // Subscriber
       41, // 21.03.2025
+      80, // The Story Behind the Story
     ],
   },
   {

@@ -19,7 +19,7 @@ export const HOME_PROJECTS: HomeProject[] = [
   {
     slug: "subjects-removed",
     imageUrl: developing_story,
-    title: "Subject Implied",
+    title: "Subject Removed",
     yearRange: "2026",
     description: "Faces edited out for your convenience.",
   },

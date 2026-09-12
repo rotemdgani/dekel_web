@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useMemo } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  type TouchEvent,
+} from "react";
 import type { Artwork } from "@/data/artworks";
 import { artworkAlt, isVideoArtwork } from "@/data/artworks";
 import type { WorksSectionSlug } from "@/data/worksSections";
@@ -37,9 +43,21 @@ interface WorksLightboxProps {
   onClickInquire?: () => void;
 }
 
+const HISTORY_STATE_KEY = "__worksLightbox";
+const FORCE_CLOSE_EVENT = "works-lightbox-close";
+
+type LightboxHistoryState = { [HISTORY_STATE_KEY]?: boolean };
+
 function itemIsVideo(item: LightboxItem): boolean {
   if (item.artwork) return isVideoArtwork(item.artwork);
   return item.mediaType === "video" && typeof item.video === "string" && item.video.length > 0;
+}
+
+function measureHeaderClearance(): number {
+  const header = document.querySelector<HTMLElement>(".site-header");
+  if (!header) return 80;
+  const bottom = header.getBoundingClientRect().bottom;
+  return Math.max(0, Math.ceil(bottom));
 }
 
 export function artworkToLightboxItem(work: Artwork): LightboxItem {
@@ -63,6 +81,12 @@ const WorksLightbox = ({
   onClickInquire,
 }: WorksLightboxProps) => {
   const items = navigation?.items ?? [];
+  const isOpen = navigation != null;
+
+  const scrollYRef = useRef(0);
+  const historyPushedRef = useRef(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   const sectionIndex = navigation
     ? items.findIndex((w) => w.id === navigation.current.id)
@@ -74,9 +98,97 @@ const WorksLightbox = ({
       ? items[sectionIndex + 1]
       : null;
 
+  const applyHeaderClearance = useCallback(() => {
+    const clearance = measureHeaderClearance();
+    const el = overlayRef.current;
+    if (el) {
+      el.style.setProperty("--wl-header-clearance", `${clearance}px`);
+    }
+    document.documentElement.style.setProperty(
+      "--wl-header-clearance",
+      `${clearance}px`,
+    );
+  }, []);
+
   const close = useCallback(() => {
+    const state = window.history.state as LightboxHistoryState | null;
+    if (historyPushedRef.current && state?.[HISTORY_STATE_KEY]) {
+      window.history.back();
+      return;
+    }
     onClose();
   }, [onClose]);
+
+  /** Open / close: history entry, body lock, scroll restore, header measure */
+  useEffect(() => {
+    if (!isOpen) return;
+
+    scrollYRef.current = window.scrollY;
+    document.body.style.overflow = "hidden";
+    document.body.classList.add("wl-open");
+    applyHeaderClearance();
+
+    const state = window.history.state as LightboxHistoryState | null;
+    if (!state?.[HISTORY_STATE_KEY]) {
+      window.history.pushState({ [HISTORY_STATE_KEY]: true }, "");
+      historyPushedRef.current = true;
+    } else {
+      historyPushedRef.current = true;
+    }
+
+    const onPopState = () => {
+      historyPushedRef.current = false;
+      onClose();
+    };
+
+    const onForceClose = () => {
+      historyPushedRef.current = false;
+      const st = window.history.state as LightboxHistoryState | null;
+      if (st?.[HISTORY_STATE_KEY]) {
+        window.history.replaceState(null, "", window.location.href);
+      }
+      onClose();
+    };
+
+    const onResize = () => applyHeaderClearance();
+
+    window.addEventListener("popstate", onPopState);
+    window.addEventListener(FORCE_CLOSE_EVENT, onForceClose);
+    window.addEventListener("resize", onResize);
+    window.visualViewport?.addEventListener("resize", onResize);
+
+    const header = document.querySelector(".site-header");
+    const ro =
+      typeof ResizeObserver !== "undefined" && header
+        ? new ResizeObserver(() => applyHeaderClearance())
+        : null;
+    if (header && ro) ro.observe(header);
+
+    return () => {
+      window.removeEventListener("popstate", onPopState);
+      window.removeEventListener(FORCE_CLOSE_EVENT, onForceClose);
+      window.removeEventListener("resize", onResize);
+      window.visualViewport?.removeEventListener("resize", onResize);
+      ro?.disconnect();
+      document.body.style.overflow = "";
+      document.body.classList.remove("wl-open");
+      document.documentElement.style.removeProperty("--wl-header-clearance");
+
+      /* Parent closed without history.back (e.g. Inquire) — drop the entry */
+      if (historyPushedRef.current) {
+        const st = window.history.state as LightboxHistoryState | null;
+        if (st?.[HISTORY_STATE_KEY]) {
+          window.history.replaceState(null, "", window.location.href);
+        }
+        historyPushedRef.current = false;
+      }
+
+      const y = scrollYRef.current;
+      requestAnimationFrame(() => {
+        window.scrollTo(0, y);
+      });
+    };
+  }, [isOpen, onClose, applyHeaderClearance]);
 
   useEffect(() => {
     if (!navigation) return;
@@ -88,13 +200,6 @@ const WorksLightbox = ({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [navigation, close, onNavigate, prevWork, nextWork]);
-
-  useEffect(() => {
-    document.body.style.overflow = navigation ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [navigation]);
 
   const preloadUrls = useMemo(() => {
     if (!navigation) return [];
@@ -110,6 +215,25 @@ const WorksLightbox = ({
       img.src = src;
     });
   }, [preloadUrls]);
+
+  const onTouchStart = (e: TouchEvent) => {
+    if (e.touches.length !== 1) return;
+    touchStartRef.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    };
+  };
+
+  const onTouchEnd = (e: TouchEvent) => {
+    const start = touchStartRef.current;
+    touchStartRef.current = null;
+    if (!start || e.changedTouches.length !== 1) return;
+    const dx = e.changedTouches[0].clientX - start.x;
+    const dy = e.changedTouches[0].clientY - start.y;
+    if (Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    if (dx > 0 && prevWork) onNavigate(prevWork);
+    else if (dx < 0 && nextWork) onNavigate(nextWork);
+  };
 
   if (!navigation) return null;
 
@@ -129,13 +253,17 @@ const WorksLightbox = ({
     : w.medium
       ? `${w.title}, ${w.medium}`
       : w.title;
+  const lightGround = w.artwork?.lightboxGround === "light";
 
   return (
     <div
-      className="wl-overlay"
+      ref={overlayRef}
+      className={`wl-overlay${lightGround ? " wl-overlay-light" : ""}`}
       role="dialog"
       aria-modal="true"
       aria-label={w.title}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       <button type="button" className="wl-close" aria-label="Close" onClick={close}>
         ×
