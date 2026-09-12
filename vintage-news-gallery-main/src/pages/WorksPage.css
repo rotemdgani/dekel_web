@@ -96,6 +96,46 @@
   align-items: center;
 }
 
+/*
+ * Narrow screens: the five series names are far wider than the viewport.
+ * The bar has a fixed height (--works-filter-h) and is sticky, so wrapped
+ * lines spilled out of it and landed on top of the first section title.
+ * Keep the bar one line and let it scroll sideways instead.
+ */
+@media (max-width: 899px) {
+  .works-filter-bar {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .works-filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .works-filter-inner {
+    flex-wrap: nowrap;
+    width: max-content;
+    min-width: 100%;
+    gap: 0;
+  }
+
+  .works-filter-group {
+    flex: 0 0 auto;
+  }
+
+  .works-filter-link {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .works-filter-sep {
+    flex: 0 0 auto;
+  }
+}
+
 .works-section-anchor {
   scroll-margin-top: calc(var(--header-h) + var(--works-filter-h) + 8px);
   padding-bottom: 200px;
@@ -111,7 +151,7 @@
   }
 
   .works-section-anchor:first-of-type {
-    padding-top: 24px;
+    padding-top: 32px;
   }
 
   .editorial-works-root {

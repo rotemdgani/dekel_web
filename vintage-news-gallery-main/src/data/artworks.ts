@@ -1,4 +1,5 @@
 import developing_story from '@/assets/Developing_Story_.webp';
+import the_story_behind_the_story from '@/assets/The_Story_Behind_the_Story.webp';
 import clarification from '@/assets/Clarification.webp';
 import above_the_fold from '@/assets/Above_the_Fold.webp';
 import continued_on_a1 from '@/assets/Continued_on_A1.webp';
@@ -23,7 +24,7 @@ import subscriber_img from '@/assets/Subscriber.webp';
 import scrabble from '@/assets/Scrabble.webp';
 import to_be_continued from '@/assets/To_be_continued.webp';
 import ceo from '@/assets/CEO.webp';
-import taped_orchid from '@/assets/Taped_[Orchid].png';
+import taped_orchid from '@/assets/Taped_[Orchid].webp';
 import legacy from '@/assets/Legacy.webp';
 import archive_img from '@/assets/archive_with_frame.webp';
 import earth_img from '@/assets/Earth.webp';
@@ -56,6 +57,12 @@ export interface Artwork {
   mediaType?: ArtworkMediaType;
   /** Video source when `mediaType` is `video` */
   video?: string;
+  /**
+   * Opens the lightbox on the light page ground instead of the default dark one.
+   * For works whose own edges are pale — torn paper, raw canvas — where a dark
+   * ground turns the edge into a halo.
+   */
+  lightboxGround?: 'light';
 }
 
 export function isVideoArtwork(work: Artwork): boolean {
@@ -363,8 +370,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
-    // TODO: confirm final dimensions for Taped [Orchid]
-    dimensions: '[dimensions TBD]',
+    dimensions: '69×81 cm',
     image: taped_orchid,
     description: '2025',
     availability: 'Available',
@@ -381,6 +387,19 @@ export const artworks: Artwork[] = [
     description: '2025',
     availability: 'Available',
     isLimited: false,
+  },
+  {
+    id: 80,
+    title: 'The Story Behind the Story',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '76.2 × 61 cm',
+    image: the_story_behind_the_story,
+    description: '2026',
+    availability: 'Available',
+    isLimited: false,
+    lightboxGround: 'light',
   },
   {
     id: 69,
