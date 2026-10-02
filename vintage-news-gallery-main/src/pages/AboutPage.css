@@ -18,7 +18,7 @@
 
 .about-portrait-wrap {
   margin: 56px auto 0;
-  max-width: 320px;
+  max-width: 640px;
   padding: 0;
 }
 
@@ -27,7 +27,7 @@
   height: auto;
   display: block;
   object-fit: cover;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 2;
   border: 1px solid var(--divider);
   box-shadow: 0 12px 40px rgba(26, 26, 26, 0.08);
 }
@@ -65,7 +65,7 @@
 
   .about-portrait-wrap {
     margin-top: 36px;
-    max-width: 280px;
+    max-width: 100%;
   }
 
   .about-body {

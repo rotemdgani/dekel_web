@@ -1,4 +1,4 @@
-import aboutPortrait from "@/assets/dekel-portrait_new.webp";
+import aboutPortrait from "@/assets/hero_open_studios_2026_b.webp";
 import "./AboutPage.css";
 
 const AboutPage = () => (
@@ -15,44 +15,23 @@ const AboutPage = () => (
     </figure>
     <div className="about-body">
       <p>
-        My name is Dekel Harari. I&apos;m a contemporary mixed-media artist based
-        in Israel.
+        I&apos;m a mixed-media artist living and working in Tel Aviv.
       </p>
       <p>
-        My work is about routine — and the moment habit takes the wheel and the
-        mind stops asking questions.
+        I work on newspapers — the most ordinary of objects, read once, thrown
+        away, and replaced the next morning by another just like it. Routine,
+        printed. I paint on them, cut them, frame them. Faces fold into
+        headlines and dissolve into columns; a luxury ad swallows a face; a
+        flower is taped into a gilded frame like something worth keeping. The
+        figures aren&apos;t the people in the stories, but the ones reading
+        them.
       </p>
       <p>
-        I work with newspapers as my main material. Not because of what&apos;s
-        written in them, and not because they&apos;re free, but because of what
-        they are as objects. The most ordinary thing there is: it arrives, gets
-        read, gets thrown away, and tomorrow another one shows up exactly like
-        it. Routine, printed.
-      </p>
-      <p>
-        But the newspaper isn&apos;t really the subject. It&apos;s a stand-in.
-        For the feed, the notification, the headline — for everything that enters
-        the mind before we&apos;ve had a chance to decide what we&apos;re actually
-        thinking.
-      </p>
-      <p>I change its job.</p>
-      <p>
-        I cut it, paint on it, build with it. Headlines become texture. Faces
-        dissolve. Figures lose their features — not from a single blow, but from
-        repetition.
-      </p>
-      <p>
-        I come from a place where this mechanism runs at a higher setting. Where
-        an air-raid siren fits between washing the dishes and taking out the
-        trash. Where an explosion becomes white noise, like an old air conditioner.
-        Where war becomes a fifth season.
-      </p>
-      <p>The shock doesn&apos;t disappear. It gets absorbed. It becomes wallpaper.</p>
-      <p>The question isn&apos;t what we do.</p>
-      <p>It&apos;s the moment it stops being habit and starts being choice.</p>
-      <p>
-        And what else we might choose differently, if we actually stopped to
-        think.
+        I&apos;m interested in what repetition does to us — how the exceptional
+        becomes background, and how what we take in every day quietly becomes
+        part of who we are. I come from Israel, where alarm and routine often
+        share the same afternoon. The shock doesn&apos;t disappear. It gets
+        absorbed. It becomes wallpaper.
       </p>
     </div>
     <p className="about-signature">— Dekel Harari</p>

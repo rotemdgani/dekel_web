@@ -1,4 +1,5 @@
-/* Zwirner-style feature rows: wide image left, text right; stacked on mobile */
+/* Series covers: dark, full-width gallery "cover" cards with the title and a
+   clear call to action laid over the image (Zwirner / Gagosian style). */
 
 .home-projects {
   margin: 0;
@@ -15,7 +16,7 @@
 
 .home-projects-header {
   text-align: center;
-  padding-bottom: 120px;
+  padding-bottom: 96px;
 }
 
 .home-projects-eyebrow {
@@ -51,120 +52,182 @@
 }
 
 .home-projects-item + .home-projects-item {
-  margin-top: 160px;
+  margin-top: 64px;
 }
 
-.home-project-block {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 0;
-  align-items: start;
-  text-decoration: none;
-  color: inherit;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
+/* ---- The cover card ---- */
 
-/* Desktop 1280+: image 7 / gap 1 / text 4 */
-.home-project-visual {
+.home-project-cover {
   position: relative;
-  grid-column: 1 / span 7;
-  aspect-ratio: 16 / 10;
-  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #fafaf7;
+  background: #111;
+  color: #f5f3ee;
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.home-project-backdrop {
+  position: absolute;
+  inset: -40px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(36px) brightness(0.32) saturate(0.8);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+/* The artwork itself, never cropped, sitting on the right like a hung work */
+.home-project-visual {
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  right: 6%;
+  width: 52%;
+  z-index: 1;
 }
 
 .home-project-img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
-  max-width: 100%;
-  max-height: 100%;
   object-fit: contain;
   object-position: center;
   display: block;
-  transition: opacity 0.3s ease;
+  box-shadow: none;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.home-project-block:hover .home-project-img {
-  opacity: 0.9;
+.home-project-cover:hover .home-project-img,
+.home-project-cover:focus-visible .home-project-img {
+  transform: scale(1.03);
+}
+
+/* Left-to-right darkening so the text always reads */
+.home-project-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 10, 0.78) 0%,
+    rgba(10, 10, 10, 0.45) 38%,
+    rgba(10, 10, 10, 0) 60%
+  );
+  pointer-events: none;
 }
 
 .home-project-copy {
-  grid-column: 9 / span 4;
-  padding: 0;
+  position: absolute;
+  left: 6%;
+  bottom: 10%;
+  max-width: 38%;
+  z-index: 3;
   text-align: left;
-  align-self: start;
+}
+
+.home-project-index {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 238, 0.85);
+}
+
+.home-project-index span {
+  color: rgba(245, 243, 238, 0.45);
 }
 
 .home-project-heading {
-  margin: 0;
+  margin: 18px 0 0;
   font-family: var(--font-editorial);
-  font-size: 36px;
-  font-style: normal;
+  font-size: clamp(34px, 3.6vw, 56px);
   font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0;
-  text-transform: none;
-  color: #1a1a1a;
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+  color: #f5f3ee;
+}
+
+.home-project-meta {
+  margin: 20px 0 0;
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(245, 243, 238, 0.78);
 }
 
 .home-project-year {
-  margin: 24px 0 0;
-  font-family: var(--font-editorial);
-  font-size: 16px;
-  font-weight: 400;
-  color: #8a8a8a;
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: rgba(245, 243, 238, 0.55);
+  margin-bottom: 6px;
 }
 
 .home-project-desc {
-  margin: 32px 0 0;
-  font-family: var(--font-editorial);
-  font-size: 16px;
-  line-height: 1.7;
-  font-weight: 400;
-  color: #1a1a1a;
+  display: block;
+  font-style: italic;
 }
 
-.home-project-readmore {
-  display: inline-block;
+.home-project-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 32px;
+  padding: 14px 26px;
+  border: 1px solid rgba(245, 243, 238, 0.7);
   font-family: var(--font-editorial);
-  font-size: 14px;
-  font-weight: 400;
-  color: #1a1a1a;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #f5f3ee;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Tablet 768–1279: 8 cols image, 4 cols text */
+.home-project-cta span {
+  transition: transform 0.3s ease;
+}
+
+.home-project-cover:hover .home-project-cta,
+.home-project-cover:focus-visible .home-project-cta {
+  background: #f5f3ee;
+  border-color: #f5f3ee;
+  color: #111;
+}
+
+.home-project-cover:hover .home-project-cta span,
+.home-project-cover:focus-visible .home-project-cta span {
+  transform: translateX(4px);
+}
+
+.home-project-cover:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 4px;
+}
+
+/* Tablet */
 @media (min-width: 768px) and (max-width: 1279px) {
   .home-projects-container {
     padding: 0 40px;
   }
 
+  .home-project-cover {
+    aspect-ratio: 4 / 3;
+  }
+
   .home-project-visual {
-    grid-column: 1 / span 8;
+    width: 50%;
   }
 
   .home-project-copy {
-    grid-column: 9 / span 4;
-  }
-
-  .home-project-heading {
-    font-size: 28px;
-  }
-
-  .home-projects-item + .home-projects-item {
-    margin-top: 120px;
+    max-width: 42%;
   }
 }
 
-/* Mobile: stack, full-bleed image, 80px between blocks */
+/* Mobile: tall cover, artwork on top, text + button below it inside the card */
 @media (max-width: 767px) {
   .home-projects {
     padding: 120px 0;
@@ -172,40 +235,71 @@
 
   .home-projects-container {
     max-width: none;
-    padding: 0 24px;
+    padding: 0 16px;
   }
 
   .home-projects-header {
-    padding-bottom: 80px;
+    padding-bottom: 64px;
   }
 
   .home-projects-title {
     font-size: 24px;
   }
 
-  .home-project-block {
-    grid-template-columns: 1fr;
-  }
-
-  .home-project-visual {
-    grid-column: 1 / -1;
-    aspect-ratio: 16 / 10;
-    margin-left: -24px;
-    margin-right: -24px;
-    width: calc(100% + 48px);
-    max-width: none;
-  }
-
-  .home-project-copy {
-    grid-column: 1 / -1;
+  .home-projects-item + .home-projects-item {
     margin-top: 32px;
   }
 
-  .home-project-heading {
-    font-size: 24px;
+  /* Stack in normal flow so text can never sit on top of the artwork */
+  .home-project-cover {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
   }
 
-  .home-projects-item + .home-projects-item {
-    margin-top: 80px;
+  .home-project-visual {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    padding: 32px 28px 0;
+    box-sizing: border-box;
+  }
+
+  .home-project-img {
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
+  }
+
+  .home-project-shade {
+    display: none;
+  }
+
+  .home-project-copy {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    max-width: none;
+    padding: 28px 24px 32px;
+  }
+
+  .home-project-heading {
+    margin-top: 12px;
+    font-size: 30px;
+  }
+
+  .home-project-meta {
+    margin-top: 12px;
+    font-size: 15px;
+  }
+
+  .home-project-cta {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 12px;
   }
 }

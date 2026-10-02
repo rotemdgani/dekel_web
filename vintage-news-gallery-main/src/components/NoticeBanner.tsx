@@ -32,10 +32,19 @@ const NoticeBanner = () => {
   const leaveTimer = useRef<number | null>(null);
   const leavingRef = useRef(false);
 
+  // Show only once the visitor has started scrolling, so the banner never
+  // covers the first screen (the hero image).
   useEffect(() => {
-    if (!readNoticeSeen()) {
-      setVisible(true);
-    }
+    if (readNoticeSeen()) return;
+    const reveal = () => {
+      if (window.scrollY > window.innerHeight * 0.5) {
+        setVisible(true);
+        window.removeEventListener("scroll", reveal);
+      }
+    };
+    window.addEventListener("scroll", reveal, { passive: true });
+    reveal();
+    return () => window.removeEventListener("scroll", reveal);
   }, []);
 
   useEffect(() => {

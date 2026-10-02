@@ -67,3 +67,10 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+.site-footer-credit {
+  font-family: var(--font-editorial);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+}

@@ -20,6 +20,12 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   }
 
+  /* Keep header (logo) above the artwork lightbox */
+  body.wl-open .mobile-header {
+    z-index: 1000;
+    pointer-events: auto;
+  }
+
   .site-nav.site-nav-open {
     z-index: 1001;
   }
@@ -51,6 +57,9 @@
 .site-logo {
   flex-shrink: 0;
   min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--font-editorial);
   font-size: clamp(15px, 4.2vw, 18px);
   letter-spacing: 0.08em;
@@ -60,10 +69,17 @@
   color: var(--text-primary);
   transition: var(--ease-hover);
   white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 2;
 }
 
 .site-logo:hover {
   opacity: 0.85;
+}
+
+.site-logo:active {
+  opacity: 0.55;
 }
 
 .site-nav {

@@ -162,7 +162,7 @@ const WorksPage = () => {
         onClick={() => openLightbox(work, slug)}
         aria-label={`View ${work.title}`}
       >
-        <span className="works-aspect">
+        <span className={`works-aspect${work.thumbAspect === "tall" ? " works-aspect--tall" : ""}`}>
           <img
             src={work.image}
             alt={artworkAlt(work)}

@@ -1,5 +1,11 @@
 import developing_story from '@/assets/Developing_Story_.webp';
 import the_story_behind_the_story from '@/assets/The_Story_Behind_the_Story.webp';
+import op_ed from '@/assets/Op-Ed.webp';
+import breaking from '@/assets/Breaking.webp';
+import time_sensitive from '@/assets/Time_Sensitive.webp';
+import full_page from '@/assets/Full_Page.webp';
+import celebrating_luck from '@/assets/Celebrating_Luck.webp';
+import placement from '@/assets/Placement.webp';
 import clarification from '@/assets/Clarification.webp';
 import above_the_fold from '@/assets/Above_the_Fold.webp';
 import continued_on_a1 from '@/assets/Continued_on_A1.webp';
@@ -54,6 +60,8 @@ export interface Artwork {
   availability: string;
   isLimited: boolean;
   year?: string;
+  /** Hidden from the site for now (kept in the catalogue, not deleted) */
+  hidden?: boolean;
   mediaType?: ArtworkMediaType;
   /** Video source when `mediaType` is `video` */
   video?: string;
@@ -63,6 +71,8 @@ export interface Artwork {
    * ground turns the edge into a halo.
    */
   lightboxGround?: 'light';
+  /** Taller grid frame for very tall works (e.g. 1:2 formats) so they don't look tiny */
+  thumbAspect?: 'tall';
 }
 
 export function isVideoArtwork(work: Artwork): boolean {
@@ -75,14 +85,15 @@ export function artworkAlt(work: Artwork): string {
 }
 
 /** Single source of truth for all works on the redesigned site */
-export const artworks: Artwork[] = [
+const allArtworks: Artwork[] = [
   {
     id: 41,
     title: '21.03.2025',
+    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '35 x 57 cm',
+    dimensions: '57 × 35 cm',
     image: date_2103,
     description: '2025',
     availability: 'Available',
@@ -94,7 +105,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '40 x 52 cm',
+    dimensions: '52 × 40 cm',
     image: archive_img,
     description: '2025',
     availability: 'Available',
@@ -106,7 +117,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '90 x 110 cm',
+    dimensions: '110 × 90 cm',
     image: before_coffee,
     description: '2025',
     availability: 'Available',
@@ -118,7 +129,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '90 x 70 cm',
+    dimensions: '90 × 70 cm',
     image: ceo,
     description: '2025',
     availability: 'Available',
@@ -127,10 +138,11 @@ export const artworks: Artwork[] = [
   {
     id: 37,
     title: 'Class',
+    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
-    dimensions: '41 x 45 cm',
+    dimensions: '45 × 41 cm',
     image: class_img,
     description: '2025',
     availability: 'Available',
@@ -142,7 +154,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '120 x 80 cm',
+    dimensions: '120 × 80 cm',
     image: headline,
     description: '2025',
     availability: 'Available',
@@ -154,7 +166,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '120 x 80 cm',
+    dimensions: '120 × 80 cm',
     image: loading_img,
     description: '2025',
     availability: 'Available',
@@ -163,10 +175,11 @@ export const artworks: Artwork[] = [
   {
     id: 51,
     title: 'Read More...',
+    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '90 x 110 cm',
+    dimensions: '110 × 90 cm',
     image: read_more_img,
     description: '2025',
     availability: 'Available',
@@ -175,10 +188,11 @@ export const artworks: Artwork[] = [
   {
     id: 43,
     title: 'Subtext',
+    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '50 x 75 cm',
+    dimensions: '75 × 50 cm',
     image: subtext_img,
     description: '2025',
     availability: 'Unavailable',
@@ -190,7 +204,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '120 x 80 cm',
+    dimensions: '120 × 80 cm',
     image: to_be_continued,
     description: '2025',
     availability: 'Available',
@@ -202,7 +216,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '59 x 75 cm',
+    dimensions: '75 × 59 cm',
     image: username_img,
     description: '2025',
     availability: 'Available',
@@ -211,10 +225,11 @@ export const artworks: Artwork[] = [
   {
     id: 65,
     title: 'Subscriber',
+    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '90 x 110 cm',
+    dimensions: '110 × 90 cm',
     image: subscriber_img,
     description: '2025',
     availability: 'Available',
@@ -226,7 +241,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas on wood',
-    dimensions: '52×80 cm',
+    dimensions: '80 × 52 cm',
     image: cut_artwork,
     description: '2025',
     availability: 'Available',
@@ -238,7 +253,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '60 x 80 cm',
+    dimensions: '80 × 60 cm',
     image: earth_img,
     description: '2025',
     availability: 'Available',
@@ -250,7 +265,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
-    dimensions: '28 x 35 cm',
+    dimensions: '28 × 35 cm',
     image: flying_information,
     description: '2025',
     availability: 'Available',
@@ -262,7 +277,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas on wood',
-    dimensions: '52×80 cm',
+    dimensions: '80 × 52 cm',
     image: paste_artwork,
     description: '2025',
     availability: 'Available',
@@ -274,7 +289,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '35 x 57 cm',
+    dimensions: '57 × 35 cm',
     image: split_page,
     description: '2025',
     availability: 'Available',
@@ -286,7 +301,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '56 x 37 cm',
+    dimensions: '56 × 37 cm',
     image: swords_img,
     description: '2025',
     availability: 'Available',
@@ -298,7 +313,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
-    dimensions: '69×81 cm',
+    dimensions: '81 × 69 cm',
     image: constrained_bloom_anemone,
     description: '2025',
     availability: 'Available',
@@ -310,7 +325,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
-    dimensions: '43 x 45 cm including frame',
+    dimensions: '45 × 43 cm including frame',
     image: gia_certified,
     description: '2025',
     availability: 'Available',
@@ -319,10 +334,11 @@ export const artworks: Artwork[] = [
   {
     id: 59,
     title: 'Legacy',
+    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
-    dimensions: '60 x 80 cm including frame',
+    dimensions: '80 × 60 cm including frame',
     image: legacy,
     description: '2025',
     availability: 'Available',
@@ -334,7 +350,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
-    dimensions: '51 x 61 cm including frame',
+    dimensions: '51 × 61 cm including frame',
     image: m_and_a,
     description: '2025',
     availability: 'Available',
@@ -346,7 +362,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '50 x 75 cm',
+    dimensions: '75 × 50 cm',
     image: nightlife,
     description: '2025',
     availability: 'Unavailable',
@@ -355,10 +371,11 @@ export const artworks: Artwork[] = [
   {
     id: 54,
     title: 'Scrabble',
+    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
-    dimensions: '36 x 29 cm',
+    dimensions: '29 × 36 cm',
     image: scrabble,
     description: '2025',
     availability: 'Available',
@@ -370,7 +387,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
-    dimensions: '69×81 cm',
+    dimensions: '81 × 69 cm',
     image: taped_orchid,
     description: '2025',
     availability: 'Available',
@@ -382,7 +399,7 @@ export const artworks: Artwork[] = [
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on wood',
-    dimensions: '69×81 cm',
+    dimensions: '81 × 69 cm',
     image: constrained_bloom_rose,
     description: '2025',
     availability: 'Available',
@@ -402,6 +419,83 @@ export const artworks: Artwork[] = [
     lightboxGround: 'light',
   },
   {
+    id: 81,
+    title: 'Op-Ed',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '55 × 36 cm',
+    image: op_ed,
+    description: '2026',
+    availability: 'Available',
+    isLimited: false,
+    lightboxGround: 'light',
+  },
+  {
+    id: 82,
+    title: 'Breaking',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '90 × 70 cm',
+    image: breaking,
+    description: '2026',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 83,
+    title: 'Time Sensitive',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '55 × 36 cm',
+    image: time_sensitive,
+    description: '2026',
+    availability: 'Available',
+    isLimited: false,
+    lightboxGround: 'light',
+  },
+  {
+    id: 84,
+    title: 'The Garden Was Free',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '55 × 36 cm',
+    image: full_page,
+    description: '2026',
+    availability: 'Available',
+    isLimited: false,
+    lightboxGround: 'light',
+  },
+  {
+    id: 85,
+    title: 'Celebrating Luck',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '55 × 36 cm',
+    image: celebrating_luck,
+    description: '2026',
+    availability: 'Available',
+    isLimited: false,
+    lightboxGround: 'light',
+  },
+  {
+    id: 86,
+    title: 'Placement',
+    hidden: true, // not shown on the site for now
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '55 × 36 cm',
+    image: placement,
+    description: '2026',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
     id: 69,
     title: 'Developing Story',
     category: 'gallery',
@@ -409,7 +503,7 @@ export const artworks: Artwork[] = [
     medium: 'Mixed media',
     dimensions: '76.2 × 61 cm',
     image: developing_story,
-    description: '2025',
+    description: '2026',
     availability: 'Available',
     isLimited: false,
   },
@@ -421,7 +515,7 @@ export const artworks: Artwork[] = [
     medium: 'Mixed media',
     dimensions: '76.2 × 61 cm',
     image: clarification,
-    description: '2025',
+    description: '2026',
     availability: 'Available',
     isLimited: false,
   },
@@ -433,7 +527,7 @@ export const artworks: Artwork[] = [
     medium: 'Mixed media',
     dimensions: '76.2 × 61 cm',
     image: above_the_fold,
-    description: '2025',
+    description: '2026',
     availability: 'Available',
     isLimited: false,
   },
@@ -445,17 +539,19 @@ export const artworks: Artwork[] = [
     medium: 'Mixed media',
     dimensions: '121.9 × 61 cm',
     image: continued_on_a1,
-    description: '2025',
+    description: '2026',
     availability: 'Available',
+    thumbAspect: 'tall',
     isLimited: false,
   },
   {
     id: 74,
     title: 'Wings',
+    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media',
-    dimensions: '76.2 × 61 cm',
+    dimensions: '61 × 76.2 cm',
     image: wings_img,
     description: '2025',
     availability: 'Available',
@@ -476,6 +572,7 @@ export const artworks: Artwork[] = [
   {
     id: 76,
     title: 'Filler',
+    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Acrylic on canvas',
@@ -488,10 +585,11 @@ export const artworks: Artwork[] = [
   {
     id: 77,
     title: 'Light Study',
+    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Acrylic on canvas',
-    dimensions: '60 × 80 cm',
+    dimensions: '80 × 60 cm',
     image: light_study,
     description: '2022',
     availability: 'Available',
@@ -522,6 +620,9 @@ export const artworks: Artwork[] = [
     isLimited: false,
   },
 ];
+
+/** Works shown on the site (anything marked `hidden: true` is left out) */
+export const artworks: Artwork[] = allArtworks.filter((work) => !work.hidden);
 
 export function artworkMapFromList(list: typeof artworks) {
   return new Map(list.map((a) => [a.id, a]));
