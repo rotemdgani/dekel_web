@@ -2,6 +2,7 @@ import type { Artwork } from './artworks';
 
 export type WorksSectionSlug =
   | 'subjects-removed'
+  | 'sponsored-content'
   | 'daily-material'
   | 'framed-for-display'
   | 'all-the-news-thats-fit-to-print';
@@ -22,21 +23,36 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
   {
     slug: 'subjects-removed',
     title: 'SUBJECT REMOVED',
-    yearRange: '2026',
+    yearRange: '2025–2026',
     description: 'Faces edited out for your convenience.',
     orderedIds: [
+      // Curated so similar compositions never sit side by side
       69, // Developing Story
-      70, // Clarification
-      71, // Above the Fold
+      82, // Breaking
       72, // Continued on A1
-      52, // Before Coffee
-      49, // Headline
+      70, // Clarification
       50, // Loading...
-      51, // Read More...
+      81, // Op-Ed
+      41, // 21.03.2025 (hidden for now)
+      49, // Headline
+      71, // Above the Fold
+      52, // Before Coffee
       55, // To Be Continued
+      51, // Read More...
       65, // Subscriber
-      41, // 21.03.2025
       80, // The Story Behind the Story
+    ],
+  },
+  {
+    slug: 'sponsored-content',
+    title: 'SPONSORED CONTENT',
+    yearRange: '2026',
+    description: 'Next to the news, a world where nothing ever happens.',
+    orderedIds: [
+      83, // Time Sensitive
+      84, // The Garden Was Free
+      85, // Celebrating Luck
+      86, // Placement
     ],
   },
   {
@@ -80,7 +96,7 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
     slug: 'all-the-news-thats-fit-to-print',
     title: "ALL THE NEWS THAT'S FIT TO PRINT",
     yearRange: '2022',
-    description: "Everything fit to print — none of it here.",
+    description: "The front page, turned into wallpaper.",
     orderedIds: [
       75, // Wire Photo
       76, // Filler

@@ -41,6 +41,9 @@ const SiteFooter = () => {
           <Link className="site-footer-legal-link" to="/privacy">
             Privacy Policy
           </Link>
+          <span className="site-footer-credit">
+            {" · "}Open Studios photographs: Catherine Guzman
+          </span>
         </p>
       </div>
     </footer>

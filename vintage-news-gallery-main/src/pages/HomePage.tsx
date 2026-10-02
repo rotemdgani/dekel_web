@@ -1,7 +1,7 @@
 import { useLayoutEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import coverDesktopUrl from "@/assets/fp.webp";
+import coverDesktopUrl from "@/assets/hero_open_studios_2026.webp";
 import coverMobileUrl from "@/assets/Headline.webp";
 
 import { HOMEPAGE_HERO_TITLE } from "@/config/site";
@@ -21,7 +21,7 @@ const HERO_PRELOAD_ATTR = "data-home-hero-preload";
 const MOBILE_HERO_MQ = "(max-width: 768px)";
 
 const HERO_ALT =
-  "Headline — a figure in a black turtleneck against a wall of newspaper, the head absent";
+  "A visitor looking at Above the Fold at the SVA Open Studios, New York, 2026";
 
 function syncHeroPreload() {
   const isMobile = window.matchMedia(MOBILE_HERO_MQ).matches;

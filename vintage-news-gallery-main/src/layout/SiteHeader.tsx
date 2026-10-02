@@ -19,10 +19,16 @@ const SiteHeader = () => {
     setMobileOpen(false);
   }, [location.pathname, location.hash]);
 
+  const onLogoClick = () => {
+    if (document.body.classList.contains("wl-open")) {
+      window.dispatchEvent(new Event("works-lightbox-close"));
+    }
+  };
+
   return (
     <header className="site-header editorial-header mobile-header">
       <div className="site-header-inner">
-        <Link to="/" className="site-logo">
+        <Link to="/" className="site-logo" onClick={onLogoClick}>
           DEKEL HARARI
         </Link>
 

@@ -21,9 +21,10 @@ const HomeAboutExcerpt = () => (
           A note from the artist
         </p>
         <p className="home-about-excerpt-body">
-          My name is Dekel Harari. I&apos;m a contemporary mixed-media artist based
-          in Israel. My work is about routine — and the moment habit takes the
-          wheel and the mind stops asking questions.
+          I&apos;m a mixed-media artist living and working in Tel Aviv. I work on
+          newspapers — the most ordinary of objects, read once, thrown away, and
+          replaced the next morning by another just like it. The figures aren&apos;t
+          the people in the stories, but the ones reading them.
         </p>
         <Link className="home-about-excerpt-link" to="/about">
           Read more →
