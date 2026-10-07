@@ -273,6 +273,16 @@
   aspect-ratio: 5 / 9;
 }
 
+/* Diptychs: a wider frame so each panel reads at the scale of a single work */
+.works-item--wide {
+  max-width: 740px;
+}
+
+.works-aspect--wide {
+  max-width: 740px;
+  aspect-ratio: 1605 / 976;
+}
+
 .works-thumb-img {
   position: absolute;
   inset: 0;

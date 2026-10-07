@@ -1,13 +1,13 @@
-import developing_story from '@/assets/Developing_Story_.webp';
-import the_story_behind_the_story from '@/assets/The_Story_Behind_the_Story.webp';
-import op_ed from '@/assets/Op-Ed.webp';
+import developing_story from '@/assets/Developing_Story_v2.webp';
+import the_story_behind_the_story from '@/assets/The_Story_Behind_the_Story_v2.webp';
+import op_ed from '@/assets/Op-Ed_v4.webp';
 import breaking from '@/assets/Breaking.webp';
 import time_sensitive from '@/assets/Time_Sensitive.webp';
 import full_page from '@/assets/Full_Page.webp';
 import celebrating_luck from '@/assets/Celebrating_Luck.webp';
 import placement from '@/assets/Placement.webp';
-import clarification from '@/assets/Clarification.webp';
-import above_the_fold from '@/assets/Above_the_Fold.webp';
+import clarification from '@/assets/Clarification_v2.webp';
+import above_the_fold from '@/assets/Above_the_Fold_v2.webp';
 import continued_on_a1 from '@/assets/Continued_on_A1.webp';
 import wings_img from '@/assets/wings.webp';
 import m_and_a from '@/assets/M&A.webp';
@@ -18,17 +18,17 @@ import constrained_bloom_anemone from '@/assets/Constrained_Bloom_Anemone.webp';
 import date_2103 from '@/assets/21.03.2025.webp';
 import split_page from '@/assets/Split_Page.webp';
 import subtext_img from '@/assets/Subtext.webp';
-import cut_artwork from '@/assets/Cut.webp';
+import cut_and_paste from '@/assets/Cut_and_Paste.webp';
 import paste_artwork from '@/assets/Paste.webp';
 import nightlife from '@/assets/Nightlife.webp';
-import headline from '@/assets/Headline.webp';
-import loading_img from '@/assets/Loading....webp';
+import headline from '@/assets/Headline_v2.webp';
+import loading_img from '@/assets/Loading_v2.webp';
 import read_more_img from '@/assets/Read_More....webp';
 import before_coffee from '@/assets/Before_coffee.webp';
 import username_img from '@/assets/Username.webp';
 import subscriber_img from '@/assets/Subscriber.webp';
 import scrabble from '@/assets/Scrabble.webp';
-import to_be_continued from '@/assets/To_be_continued.webp';
+import to_be_continued from '@/assets/To_be_continued_v2.webp';
 import ceo from '@/assets/CEO.webp';
 import taped_orchid from '@/assets/Taped_[Orchid].webp';
 import legacy from '@/assets/Legacy.webp';
@@ -71,8 +71,8 @@ export interface Artwork {
    * ground turns the edge into a halo.
    */
   lightboxGround?: 'light';
-  /** Taller grid frame for very tall works (e.g. 1:2 formats) so they don't look tiny */
-  thumbAspect?: 'tall';
+  /** Taller grid frame for very tall works (e.g. 1:2 formats), or a wider one for diptychs, so they don't look tiny */
+  thumbAspect?: 'tall' | 'wide';
 }
 
 export function isVideoArtwork(work: Artwork): boolean {
@@ -150,7 +150,7 @@ const allArtworks: Artwork[] = [
   },
   {
     id: 49,
-    title: 'Headline',
+    title: 'Nightfall',
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
@@ -162,7 +162,7 @@ const allArtworks: Artwork[] = [
   },
   {
     id: 50,
-    title: 'Loading...',
+    title: 'Lorem Ipsum',
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
@@ -237,15 +237,16 @@ const allArtworks: Artwork[] = [
   },
   {
     id: 63,
-    title: 'Cut',
+    title: 'Cut and Paste',
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas on wood',
-    dimensions: '80 × 52 cm',
-    image: cut_artwork,
+    dimensions: 'Diptych, 80 × 52 cm each',
+    image: cut_and_paste,
     description: '2025',
     availability: 'Available',
     isLimited: false,
+    thumbAspect: 'wide',
   },
   {
     id: 61,
@@ -274,6 +275,7 @@ const allArtworks: Artwork[] = [
   {
     id: 64,
     title: 'Paste',
+    hidden: true, // shown as the right panel of 'Cut and Paste' (id 63)
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas on wood',
@@ -420,7 +422,7 @@ const allArtworks: Artwork[] = [
   },
   {
     id: 81,
-    title: 'Op-Ed',
+    title: 'Everyone Else',
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media',
@@ -433,7 +435,7 @@ const allArtworks: Artwork[] = [
   },
   {
     id: 82,
-    title: 'Breaking',
+    title: 'Embargo',
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media',

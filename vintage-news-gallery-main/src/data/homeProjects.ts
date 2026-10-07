@@ -1,7 +1,7 @@
 import type { WorksSectionSlug } from "@/data/worksSections";
 
 /** Same assets as the corresponding works on /works */
-import developing_story from "@/assets/Developing_Story_.webp";
+import developing_story from "@/assets/Developing_Story_v2.webp";
 import time_sensitive from "@/assets/Time_Sensitive.webp";
 import earth_img from "@/assets/Earth.webp";
 import taped_anemone from "@/assets/Constrained_Bloom_Anemone.webp";

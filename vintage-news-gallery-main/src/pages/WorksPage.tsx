@@ -162,7 +162,7 @@ const WorksPage = () => {
         onClick={() => openLightbox(work, slug)}
         aria-label={`View ${work.title}`}
       >
-        <span className={`works-aspect${work.thumbAspect === "tall" ? " works-aspect--tall" : ""}`}>
+        <span className={`works-aspect${work.thumbAspect === "tall" ? " works-aspect--tall" : ""}${work.thumbAspect === "wide" ? " works-aspect--wide" : ""}`}>
           <img
             src={work.image}
             alt={artworkAlt(work)}
@@ -176,7 +176,7 @@ const WorksPage = () => {
   };
 
   const renderWorkItem = (work: Artwork, slug: WorksSectionSlug) => (
-    <li key={work.id} className="works-item">
+    <li key={work.id} className={`works-item${work.thumbAspect === "wide" ? " works-item--wide" : ""}`}>
       {renderWorkMedia(work, slug)}
       <div className="works-caption">
         <p className="works-caption-title">{work.title}</p>

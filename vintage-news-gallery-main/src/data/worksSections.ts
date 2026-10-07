@@ -28,13 +28,13 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
     orderedIds: [
       // Curated so similar compositions never sit side by side
       69, // Developing Story
-      82, // Breaking
+      82, // Embargo
       72, // Continued on A1
       70, // Clarification
-      50, // Loading...
-      81, // Op-Ed
+      50, // Lorem Ipsum
+      81, // Everyone Else
       41, // 21.03.2025 (hidden for now)
-      49, // Headline
+      49, // Nightfall
       71, // Above the Fold
       52, // Before Coffee
       55, // To Be Continued
@@ -69,8 +69,8 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
       43, // Subtext
       62, // Swords to Plowshares
       42, // Split Page
-      63, // Cut
-      64, // Paste
+      63, // Cut and Paste (diptych)
+      64, // Paste (hidden: now the right panel of Cut and Paste)
       56, // CEO
     ],
   },

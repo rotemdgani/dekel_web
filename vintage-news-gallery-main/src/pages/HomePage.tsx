@@ -1,8 +1,8 @@
 import { useLayoutEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import coverDesktopUrl from "@/assets/hero_open_studios_2026.webp";
-import coverMobileUrl from "@/assets/Headline.webp";
+import coverDesktopUrl from "@/assets/hero_open_studios_2026_room3.webp";
+import coverMobileUrl from "@/assets/Headline_v2.webp";
 
 import { HOMEPAGE_HERO_TITLE } from "@/config/site";
 import { NOTICE_ANCHOR_ID } from "@/data/noticeCopy";

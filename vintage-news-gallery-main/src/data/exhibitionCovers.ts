@@ -12,7 +12,7 @@ import sohoCover from "@/assets/Solo_Exhibition_Soho_House_Hotel,_Jaffa.webp";
 import tauCover from "@/assets/Tel_Aviv_University.webp";
 /** No dedicated Ben Ami install photo in repo — neutral artwork fallback */
 import benAmiFallbackCover from "@/assets/Class.webp";
-import neutralFallbackCover from "@/assets/Headline.webp";
+import neutralFallbackCover from "@/assets/Headline_v2.webp";
 import globalArtSoloCover from "@/assets/INVITATION_-_GLOBAL_ART_POST_v2_ffff.jpg";
 import openStudioSvaCover from "@/assets/Open_studio_nyc_SVA_1.webp";
 import behindClosedDoorsCover from "@/assets/Opendoors_exhibition_cover.webp";
