@@ -52,6 +52,7 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
       83, // Time Sensitive
       84, // The Garden Was Free
       85, // Celebrating Luck
+      87, // Engaged
       86, // Placement
     ],
   },
@@ -72,6 +73,7 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
       63, // Cut and Paste (diptych)
       64, // Paste (hidden: now the right panel of Cut and Paste)
       56, // CEO
+      88, // Default
     ],
   },
   {

@@ -3,6 +3,8 @@ import the_story_behind_the_story from '@/assets/The_Story_Behind_the_Story_v2.w
 import op_ed from '@/assets/Op-Ed_v4.webp';
 import breaking from '@/assets/Breaking.webp';
 import time_sensitive from '@/assets/Time_Sensitive.webp';
+import engaged from '@/assets/Engaged.webp';
+import default_img from '@/assets/Default.webp';
 import full_page from '@/assets/Full_Page.webp';
 import celebrating_luck from '@/assets/Celebrating_Luck.webp';
 import placement from '@/assets/Placement.webp';
@@ -618,6 +620,30 @@ const allArtworks: Artwork[] = [
     dimensions: '120 × 80 cm',
     image: off_register,
     description: '2022',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 87,
+    title: 'Engaged',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media',
+    dimensions: '55 × 36 cm',
+    image: engaged,
+    description: '2026',
+    availability: 'Available',
+    isLimited: false,
+  },
+  {
+    id: 88,
+    title: 'Default',
+    category: 'gallery',
+    price: NO_PRICE,
+    medium: 'Mixed media on canvas',
+    dimensions: '120 × 80 cm',
+    image: default_img,
+    description: '2025',
     availability: 'Available',
     isLimited: false,
   },
