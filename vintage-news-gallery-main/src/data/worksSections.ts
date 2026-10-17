@@ -73,7 +73,7 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
       63, // Cut and Paste (diptych)
       64, // Paste (hidden: now the right panel of Cut and Paste)
       56, // CEO
-      88, // Default
+      88, // New User
     ],
   },
   {
