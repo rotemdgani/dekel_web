@@ -47,6 +47,17 @@ export interface ExhibitionDetail {
 
 export const EXHIBITIONS: ExhibitionDetail[] = [
   {
+    id: "artists-on-the-rise",
+    slug: "artists-on-the-rise",
+    title: "Artists on the Rise",
+    dateLabel: "October 8, 2026",
+    sortDate: "2026-10-08",
+    location: "Rise Projects, New York",
+    description: "Artists on the Rise, a group exhibition at Rise Projects, New York.",
+    showGallery: false,
+    images: [],
+  },
+  {
     id: "behind-closed-doors",
     slug: "behind-closed-doors",
     title: "Behind Closed Doors",

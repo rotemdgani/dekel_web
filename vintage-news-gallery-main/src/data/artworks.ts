@@ -4,7 +4,7 @@ import op_ed from '@/assets/Op-Ed_v4.webp';
 import breaking from '@/assets/Breaking.webp';
 import time_sensitive from '@/assets/Time_Sensitive.webp';
 import engaged from '@/assets/Engaged.webp';
-import new_user from '@/assets/Default.webp';
+import background_img from '@/assets/Default.webp';
 import full_page from '@/assets/Full_Page.webp';
 import celebrating_luck from '@/assets/Celebrating_Luck.webp';
 import placement from '@/assets/Placement.webp';
@@ -637,12 +637,12 @@ const allArtworks: Artwork[] = [
   },
   {
     id: 88,
-    title: 'New User',
+    title: 'Background',
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media',
     dimensions: '120 × 80 cm',
-    image: new_user,
+    image: background_img,
     description: '2026',
     availability: 'Available',
     isLimited: false,

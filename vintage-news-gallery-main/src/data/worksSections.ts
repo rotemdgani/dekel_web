@@ -28,6 +28,7 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
     orderedIds: [
       // Curated so similar compositions never sit side by side
       69, // Developing Story
+      71, // Above the Fold
       82, // Embargo
       72, // Continued on A1
       70, // Clarification
@@ -35,8 +36,8 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
       81, // Everyone Else
       41, // 21.03.2025 (hidden for now)
       49, // Nightfall
-      71, // Above the Fold
       52, // Before Coffee
+      88, // Background
       55, // To Be Continued
       51, // Read More...
       65, // Subscriber
@@ -59,7 +60,7 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
   {
     slug: 'daily-material',
     title: 'DAILY MATERIAL',
-    yearRange: '2023–2026',
+    yearRange: '2023–2025',
     description:
       'It arrives, it is read, it is thrown away. Here it refuses.',
     orderedIds: [
@@ -73,7 +74,6 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
       63, // Cut and Paste (diptych)
       64, // Paste (hidden: now the right panel of Cut and Paste)
       56, // CEO
-      88, // New User
     ],
   },
   {
