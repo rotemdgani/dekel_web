@@ -16,8 +16,12 @@ import neutralFallbackCover from "@/assets/Headline_v2.webp";
 import globalArtSoloCover from "@/assets/INVITATION_-_GLOBAL_ART_POST_v2_ffff.jpg";
 import openStudioSvaCover from "@/assets/Open_studio_nyc_SVA_1.webp";
 import behindClosedDoorsCover from "@/assets/Opendoors_exhibition_cover.webp";
+import riseTogetherCover from "@/assets/Rise_Together_cover.webp";
+import reCircleCover from "@/assets/Re_Circle_cover.webp";
 
 const BY_SLUG: Record<string, string> = {
+  "re-circle": reCircleCover,
+  "artists-on-the-rise": riseTogetherCover,
   "behind-closed-doors": behindClosedDoorsCover,
   "open-studio-sva-nyc": openStudioSvaCover,
   "global-art-gallery-solo": globalArtSoloCover,

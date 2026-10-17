@@ -47,6 +47,19 @@ export interface ExhibitionDetail {
 
 export const EXHIBITIONS: ExhibitionDetail[] = [
   {
+    id: "re-circle",
+    slug: "re-circle",
+    title: "RE:CIRCLE",
+    dateLabel: "October 15, 2026",
+    sortDate: "2026-10-15",
+    location: "HaBait, Kikar Atarim, Tel Aviv",
+    curator: "Curated by Miriam Marsh",
+    description:
+      "RE:CIRCLE, a group exhibition presented by Baïtelize at HaBait, Kikar Atarim in Tel Aviv, bringing together contemporary art, digital installations, music, talks and open poetry.",
+    showGallery: false,
+    images: [],
+  },
+  {
     id: "artists-on-the-rise",
     slug: "artists-on-the-rise",
     title: "Artists on the Rise",
