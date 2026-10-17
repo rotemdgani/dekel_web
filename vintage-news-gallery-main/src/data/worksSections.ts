@@ -59,7 +59,7 @@ export const WORKS_SECTIONS: WorksSectionMeta[] = [
   {
     slug: 'daily-material',
     title: 'DAILY MATERIAL',
-    yearRange: '2023–2025',
+    yearRange: '2023–2026',
     description:
       'It arrives, it is read, it is thrown away. Here it refuses.',
     orderedIds: [
