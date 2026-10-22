@@ -227,7 +227,6 @@ const allArtworks: Artwork[] = [
   {
     id: 65,
     title: 'Subscriber',
-    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Mixed media on canvas',
@@ -576,7 +575,6 @@ const allArtworks: Artwork[] = [
   {
     id: 76,
     title: 'Filler',
-    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Acrylic on canvas',
@@ -589,7 +587,6 @@ const allArtworks: Artwork[] = [
   {
     id: 77,
     title: 'Light Study',
-    hidden: true, // not shown on the site for now
     category: 'gallery',
     price: NO_PRICE,
     medium: 'Acrylic on canvas',
